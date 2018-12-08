@@ -1,0 +1,86 @@
+syrena = {
+	cached = yes
+	immortal = yes
+	random = no    
+	general_opinion = 50
+	sex_appeal_opinion = 300
+	health = 10
+	customizer = no
+	cannot_inherit = yes
+}
+
+byakugan = {
+	random = no
+	defensive_plot_power_modifier = 0.70
+	plot_discovery_chance = 0.70
+	combat_rating = 5
+	monthly_character_prestige = 1
+	same_opinion = 10
+	martial = 5
+
+	opposites = { sharingan mangekyo_sharingan }
+	opposite_opinion = -200
+	customizer = no
+}
+
+sharingan = {
+	random = no
+	intrigue = 2
+	learning = 2
+	combat_rating = 5
+	plot_power_modifier = 0.50
+	monthly_character_prestige = 1
+	same_opinion = 10
+	martial = 5
+
+	opposites = { byakugan }
+	opposite_opinion = -200
+	customizer = no
+}
+
+mangekyo_sharingan = {
+	random = no
+	intrigue = 10
+	martial = 13
+	learning = 10
+	combat_rating = 13
+	plot_power_modifier = 0.60
+	monthly_character_prestige = 10
+	same_opinion = 10
+
+	opposites = { byakugan }
+	opposite_opinion = -200
+	customizer = no
+}
+
+rinnegan = {
+	random = no
+	customizer = no
+}
+
+tenseigan = {
+	random = no
+	customizer = no
+}
+
+jogan = {
+	random = no
+	customizer = no
+}
+
+khalga_trait = {
+	health = 10
+	random = no
+	cached = yes
+	immortal = yes
+	customizer = no
+	hidden = yes
+}
+
+prevent_marriage = {
+	cannot_marry = yes
+	cannot_inherit = yes
+	hidden = yes
+	customizer = no
+	random = no
+}

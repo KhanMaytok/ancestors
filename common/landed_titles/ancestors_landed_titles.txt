@@ -1,0 +1,53 @@
+d_mercenary_pentaghast = {
+	color={ 100 200 80 }
+	color2={ 255 255 255 }
+
+	capital = 354 # mantua		
+	# Parent Religion 
+	religion = catholic
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = pentaghast_composition
+}
+
+d_mercenary_sakya = {
+	color={ 100 200 80 }
+	color2={ 255 255 255 }
+
+	capital = 354 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = sakya_composition
+}

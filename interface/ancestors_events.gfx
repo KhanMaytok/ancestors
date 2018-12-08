@@ -1,0 +1,27 @@
+spriteTypes = 
+{
+	spriteType = {
+		name = "GFX_evt_tiamat"
+		texturefile = "gfx\\event_pictures\\tiamat.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_tiamat"
+		texturefile = "gfx\\event_pictures\\tiamat.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+	    name = "GFX_fertility_ritual"
+	    texturefile = "gfx\\interface\\decision_icon_fertility_ritual.dds"
+  	}
+  	spriteType = {
+		name = "GFX_evt_vee_adolescense"
+		texturefile = "gfx\\event_pictures\\vee_adolescense.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_yasaka_magatama"
+		texturefile = "gfx\\event_pictures\\yasaka_magatama.tga"
+		allwaystransparent = yes
+	}
+}

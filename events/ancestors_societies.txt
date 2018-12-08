@@ -1,0 +1,199 @@
+NAMESPACE = ACS
+
+# ACS.200 - Spawn some characters for Pentaghast and Sakya
+character_event = {
+    id = ACS.200
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        if = {
+            limit = {
+                has_character_flag = is_ancient_one
+            }
+            # Fill the tier 4 seats
+            set_variable = { which = count value = 2 }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = count
+                        value = 1
+                    }
+                }
+                subtract_variable = {
+                    which = count
+                    value = 1
+                }
+                create_character = {
+                    random_traits = yes
+                    female = yes
+                }
+                new_character = { join_society = sakya_society society_rank_up = 3 }
+
+                create_character = {
+                    random_traits = yes
+                    female = no
+                }
+                new_character = { join_society = sakya_society society_rank_up = 3 }
+            }
+            # Fill the tier 3 seats
+            set_variable = { which = count value = 25 }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = count
+                        value = 1
+                    }
+                }
+                subtract_variable = {
+                    which = count
+                    value = 1
+                }
+                create_character = {
+                    random_traits = yes
+                    female = yes
+                }
+                new_character = { join_society = sakya_society society_rank_up = 2 }
+            }
+            # Fill the tier 2 seats
+            set_variable = { which = count value = 25 }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = count
+                        value = 1
+                    }
+                }
+                subtract_variable = {
+                    which = count
+                    value = 1
+                }
+                create_character = {
+                    random_traits = yes
+                    female = yes
+                }
+                new_character = { join_society = sakya_society society_rank_up = 1 }
+
+                create_character = {
+                    random_traits = yes
+                    female = no
+                }
+                new_character = { join_society = sakya_society society_rank_up = 1 }            
+            }
+
+            # Fill the tier 1 seats
+            set_variable = { which = count value = 50 }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = count
+                        value = 1
+                    }
+                }
+                subtract_variable = {
+                    which = count
+                    value = 1
+                }
+                create_character = {
+                    random_traits = yes
+                    female = yes
+                }
+                new_character = { join_society = sakya_society }
+
+                create_character = {
+                    random_traits = yes
+                    female = no
+                }
+                new_character = { join_society = sakya_society }            
+            }  
+        }
+
+        # Fill the Pentaghast society
+        if = {
+            limit = {
+                has_character_flag = is_olaf
+            }
+            create_character = {
+                name="Gunnr"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Geirdriful"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Eir"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Kara"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Rota"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Olrun"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Gondul"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Hildr"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = no
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            create_character = {
+                name="Sigrun"
+                trait = ambitious
+			    trait = elusive_shadow
+                female = yes
+                culture = FROM
+                religion = FROM                    
+            }
+            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+        }        
+    }
+}

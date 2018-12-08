@@ -1,0 +1,269 @@
+NAMESPACE = ACS
+
+# ACS.400 - Get into duel
+character_event = {
+    id = ACS.400
+    desc = EVTDESC_ACS_400
+	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+
+	immediate = {
+		random_friend = {
+			limit = {
+				has_character_flag = wants_to_get_mangekyo
+			}
+			set_character_flag = mangekyo_immediate
+			save_event_target_as = target_wants_to_get_mangekyo			
+		}
+	}
+
+    option = {
+    	name = EVTOPTB_ACS_400
+    	ai_chance = {
+    		factor = 100
+    	}
+    	event_target:target_wants_to_get_mangekyo = {
+			set_character_flag = mangekyo_option
+    		character_event = { id = ACS.401 }
+    	}
+    }
+}
+
+# ACS.401 - The duel starts
+character_event = {
+    id = ACS.401
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+    	log = "ACS.401: [Root.GetBestName] challenged [From.GetBestName] on a duel"
+    	random_list = {
+			1 = { # double death
+				modifier = {
+					OR = {
+						combat_rating_diff = { who = FROM value = 4 }
+						FROM = { combat_rating_diff = { who = ROOT value = 4 } }
+					}
+					factor = 0.2
+				}
+				modifier = {
+					trait = wroth
+					FROM = {
+						trait = wroth
+					}
+					factor = 2
+				}
+				FROM = {
+					death = {
+						death_reason = death_duel killer = ROOT
+					}
+				}
+				death = {
+					death_reason = death_duel killer = FROM
+				}
+			}
+			200 = {
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 1 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 2 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 3 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 4 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 5 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 6 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 7 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 8 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 9 }
+					}
+					factor = 0.7
+				}
+				modifier = {
+					FROM = {
+						combat_rating_diff = { who = ROOT value = 10 }
+					}
+					factor = 0.7
+				}
+				### effects
+				random_list = {
+					95 = {
+						FROM = {
+							death = {
+								death_reason = death_murder_unknown killer = ROOT
+							}
+						}
+						remove_trait = sharingan
+						add_trait = mangekyo_sharingan
+						add_trait=stressed
+						clr_character_flag = wants_to_get_mangekyo
+						character_event = { id = ACS.402 }
+					}
+					5 = {
+						modifier = {
+							FROM = { is_maimed_trigger = yes }
+							factor = 0
+						}
+						FROM = {
+							death = {
+								death_reason = death_murder_unknown killer = ROOT
+							}
+						}
+						remove_trait = sharingan
+						add_trait = mangekyo_sharingan
+						add_trait = stressed
+						clr_character_flag = wants_to_get_mangekyo
+						character_event = { id = ACS.402 }
+						random_list = {
+							30 = { add_trait = disfigured }
+							30 = { add_trait = one_eyed }
+							30 = { add_trait = one_handed }
+							10 = { add_trait = severely_injured }
+						}
+					}
+				}
+			}
+			200 = { # opponent win
+				### modifiers
+				#modifier = {
+				#	factor = 0
+				#	always = yes ######### DEBUGGING
+				#}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 1 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 2 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 3 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 4 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 5 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 6 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 7 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 8 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 9 }
+					factor = 0.7
+				}
+				modifier = {
+					combat_rating_diff = { who = FROM value = 10 }
+					factor = 0.7
+				}
+				### effects
+				random_list = {
+					50 = {
+						FROM = {
+							clr_character_flag = target_for_mangekyo
+						}
+						death = {
+							death_reason = death_murder_unknown killer = FROM
+						}
+					}
+					50 = {
+						modifier = {
+							is_maimed_trigger = yes
+							factor = 0
+						}
+						FROM = {
+							random_list = {
+								10 = { add_trait = disfigured }
+								30 = { add_trait = one_eyed }
+								30 = { add_trait = one_handed }
+								30 = { add_trait = severely_injured }
+							}
+							clr_character_flag = target_for_mangekyo
+						}
+						death = {
+							death_reason = death_murder_unknown killer = FROM
+						}
+					}
+				}
+			}
+		}
+    }
+}	
+
+character_event = {
+	id = ACS.402
+	picture = GFX_evt_yasaka_magatama
+	is_triggered_only = yes	
+	title = ACS.402.name
+
+	desc = {
+		trigger = {
+			has_character_flag = get_mangekyo_by_love
+		}
+		text = EVTDESC_ACS401_A
+	}
+
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = get_mangekyo_by_love }
+		}
+		text = EVTDESC_ACS401_B
+	}
+
+	option = {
+		name = OK
+		ai_chance = { factor = 100 }
+	}
+}

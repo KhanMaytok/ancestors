@@ -1,0 +1,14 @@
+300000=
+{
+	used_for_random=no
+	name="Sakya"
+	culture="sogdian"
+	religion="buddhist"
+}
+300001=
+{
+	used_for_random=no
+	name="Pentaghast"
+	culture="greek"
+	religion="hellenic_pagan"	
+}

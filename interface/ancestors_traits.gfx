@@ -1,0 +1,51 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_trait_syrena"
+        texturefile = "gfx/traits/syrena.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
+        name = "GFX_trait_byakugan"
+        texturefile = "gfx/traits/byakugan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
+        name = "GFX_trait_sharingan"
+        texturefile = "gfx/traits/sharingan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
+        name = "GFX_trait_mangekyo_sharingan"
+        texturefile = "gfx/traits/mangekyo_sharingan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
+        name = "GFX_trait_rinnegan"
+        texturefile = "gfx/traits/rinnegan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
+        name = "GFX_trait_tenseigan"
+        texturefile = "gfx/traits/tenseigan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
+        name = "GFX_trait_khalga_trait"
+        texturefile = "gfx/traits/khalga_trait.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+}

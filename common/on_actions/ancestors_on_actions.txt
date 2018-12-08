@@ -1,0 +1,55 @@
+on_startup = {
+	events = {
+		ACS.00001 # Comet
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		ACS.00015 # Khalga go around the world every year, searching characters - select the target
+		ACS.00026 # Check if vee has more than 33 years old
+		ACS.00031 # Kidnapping. Check for Pentaghast leader conditions
+		ACS.00035 # Reproduction of kidnapped characters
+		ACS.00036  # Reproduction of a byakugan character
+	}
+}
+
+on_bi_yearly_pulse = {
+	events = {
+		# ACS.25 # Vee cultivates many possible receptors
+		# ACS.35 # Pentaghast infiltrates Venezia
+		# ACS.39 # Kidnap a dojutsu child two years
+	}
+}
+
+on_five_year_pulse = {
+	events = {
+		# ACS.202 # Have AI characters join new societies
+	}
+}
+
+on_adolescence = {
+	events = {
+		ACS.00023 # Vee is growing
+	}
+}
+
+on_death = {
+	events = {
+		ACS.00020 # Resurrect Khalga if He dies
+		ACS.00025 # Activate the orb if Vee dies
+	}
+}
+
+on_birth = {
+	events = {
+		ACS.00029 # Dojutsu inheritance mechanics
+		ACS.00038 # Jail if mother or father are prisoners
+	}
+}
+
+on_adulthood = {
+	events = {
+		# ACS.41  # first Vee impregnation
+	}
+}

@@ -1,0 +1,5 @@
+*.txt linguist-language=Rust
+*.csv linguist-language=Erlang
+*.md linguist-language=Go
+*.dds linguist-language=Elixir
+*.gfx linguist-language=Cobol

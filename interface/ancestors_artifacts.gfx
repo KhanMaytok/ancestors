@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_jewel_of_soul"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\jewel_of_soul.dds"
+	}
+	spriteType = {
+		name = "GFX_jewel_of_soul_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\jewel_of_soul_small.dds"
+	}
+	spriteType = {
+		name = "GFX_jewel_of_bless"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\jewel_of_bless.dds"
+	}
+	spriteType = {
+		name = "GFX_jewel_of_bless_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\jewel_of_bless_small.dds"
+	}
+	spriteType = {
+		name = "GFX_eden_apple"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\eden_apple.dds"
+	}
+	spriteType = {
+		name = "GFX_eden_apple_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\eden_apple_small.dds"
+	}
+}

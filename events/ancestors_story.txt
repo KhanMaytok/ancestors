@@ -1,0 +1,1205 @@
+NAMESPACE = ACS
+
+# ACS.00001 - Tiamat comet in the sky
+narrative_event = {
+	id = ACS.00001
+	title = ACS_00001_TITLE
+	desc = ACS_00001_DESC
+	is_triggered_only = yes    
+	ai = no
+	picture = GFX_evt_tiamat
+
+	trigger = {
+		NOT = { has_global_flag = comet_tiamat }
+	}
+	
+	option = {
+		trigger = {
+			OR = {
+				multiplayer = no
+				AND = {
+					multiplayer = yes
+					is_multiplayer_host_character = yes
+				}
+			}
+		}
+		name = ACS_00001_OPT_A
+		narrative_event = { id = ACS.00004 days = 45 }
+		set_global_flag = comet_tiamat
+		hidden_tooltip = {
+			set_variable = { which = count value = 5 }
+			while = {
+				limit = {
+					check_variable = {
+						which = count
+						value = 1
+					}
+				}
+				subtract_variable = {
+					which = count
+					value = 1
+				}
+				random_province = {
+					limit = {
+						not = { owner = { character = ROOT } }
+					}
+					province_event = { id = ACS.00002 days = 30 }                
+				}            
+			}
+		}		
+	}
+}
+
+# ACS.00002 - Tiamat comet causes devastation
+province_event = {
+	id = ACS.00002
+	hide_window = yes
+	is_triggered_only = yes    
+
+	immediate = { # burn it all
+		add_province_modifier = { name = devastated_by_tiamat years = 20 }
+		spawn_disease = tuberculosis
+		any_province_character = {
+			death = { death_reason = death_murder_unknown_combustion }
+		}
+		any_province_holding = {
+			destroy_settlement = yes
+		}
+		FROM = {
+			character_event = { id = ACS.00003 }
+		}
+	}
+}
+
+# ACS.00003 - Player is notified about devastation
+character_event = {
+	id = ACS.00003
+	desc = ACS_00003_DESC
+	picture = GFX_evt_emissary_byzantine
+	is_triggered_only = yes    
+
+	option = {
+		name = OK
+	}
+}
+
+# ACS.00004 - Spawn Senua, Olaf and Tilda
+narrative_event = {
+	id = ACS.00004
+	title = ACS_00004_TITLE
+	desc = ACS_00004_DESC
+	picture = GFX_evt_courtiers_talking
+	is_triggered_only = yes
+
+	immediate = {		
+		create_character = {
+			name = Olaf
+			age = 38
+			culture = swedish
+			religion = FROM
+			trait = cruel
+			trait = ambitious
+			trait = elusive_shadow
+			trait = scarred
+			trait = bastard
+			trait = shrewd
+			trait = hunter
+			trait = diligent
+			trait = lustful
+			trait = prevent_marriage
+			health = 10
+		}
+		new_character = {
+			set_character_flag = is_olaf
+			join_society = pentaghast_society
+			set_society_grandmaster = yes
+			set_secret_religion = ishtar_religion
+			add_artifact = eden_apple
+			dynasty = 300001
+			character_event = { id = ACS.200 } # Spawn characters for the society
+			character_event = { id = ACS.00005 days = 45 } # Olaf goes to Pentaghast mercenaries
+		}
+		create_character = {
+			name = Tilda
+			female = yes
+			age = 33
+			culture = scottish
+			religion = buddhist
+			trait = mystic
+			trait = prevent_marriage
+			trait = quick
+			trait = strong
+			trait = shrewd
+			health = 10
+		}
+		new_character = {
+			set_character_flag = is_ancient_one
+			join_society = sakya_society
+			set_society_grandmaster = yes 
+			set_character_flag = originated_from_chinese_court
+			culture = khazar
+			dynasty = 300000
+			character_event = { id = ACS.200 }
+			character_event = { id = ACS.00013 } # Moves to sakya mercenary band
+		}
+		create_character = {
+			name = Senua
+			female = yes
+			age = 17
+			culture = pictish
+			religion = FROM
+			trait = fair
+			trait = stressed
+			trait = scarred
+			trait = strong
+			trait = mystic
+			trait = wroth
+			trait = paranoid
+			trait = prevent_marriage
+			health = 10
+		}
+		new_character = {                        
+			set_character_flag = is_senua
+			narrative_event = { id = ACS.00008 days = 15 }
+			dynasty = 300001
+			join_society = pentaghast_society
+			set_secret_religion = ishtar_religion
+		}
+	}
+
+	option = {
+		name = ACS_00004_OPT_A	
+		ai_chance = { factor = 100 }	
+	}    
+}
+
+# ACS.00005 - Olaf goes to Pentaghast mercenary band
+character_event = {
+	id = ACS.00005
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_character = {
+            limit = { has_landed_title = d_mercenary_pentaghast }
+            character_event = { id = ACS.00006 }
+        }
+	}
+}
+
+# ACS.00006 - Pentaghast leader receives Olaf
+character_event = {
+	id = ACS.00006
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+            move_character = ROOT
+			add_trait = adventurer
+			remove_trait = prevent_marriage
+			d_mercenary_pentaghast = {
+				grant_title = PREV
+            	set_defacto_liege = THIS
+			}
+			create_character = {
+				female = yes
+				random_traits = yes
+			}
+			new_character = {
+				save_event_target_as = olaf_spouse
+			}
+			add_spouse = event_target:olaf_spouse			
+        } 
+		FROMFROM = {
+			character_event = { id = ACS.00007 }
+		}      
+	}
+
+	option = {
+		name = OK
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ACS.00007 - Player is notified about Olaf leaves the court
+character_event = {
+	id = ACS.00007
+	desc = ACS_00007_TITLE
+	picture = GFX_evt_courtiers_talking
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
+# ACS.00008 - Create Vee and Khalga
+narrative_event = {
+	id = ACS.00008
+	hide_window = yes
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		create_character = {
+			name = Vee
+			female = yes
+			age = 0
+			culture = ROOT
+			religion = ROOT
+			trait = fair
+			trait = twin
+			trait = genius
+			trait = sharingan
+			trait = syrena
+		}
+		new_character = {
+			set_mother = ROOT   
+			set_character_flag = is_vee
+			set_character_flag = originated_from_chinese_court # to prevent to go to China
+			dynasty = 300001
+		}
+
+		# Khalga born
+		create_character = {
+			name = Khalga
+			age = 0
+			culture = ROOT
+			religion = ROOT
+			trait = fair
+			trait = twin
+			trait = genius
+			trait = byakugan
+			trait = strong
+			trait = khalga_trait
+			trait = prevent_marriage
+		}
+		new_character = {
+			set_mother = ROOT
+			set_character_flag = is_khalga
+			set_character_flag = originated_from_chinese_court # to prevent to go to China
+			set_character_flag = wolf_blood_first_generation
+			add_character_modifier = {
+				name = wolf_child
+				duration = -1
+			}
+			dynasty = 300000
+		}
+		liege = { # Player is notified
+			narrative_event = { id = ACS.00009 days = 1 }          
+		}
+	}
+}
+
+# ACS.00009 - Player is notified about the twins
+narrative_event = {
+	id = ACS.00009
+	title = ACS_00009_TITLE
+	desc = ACS_00009_DESC
+	picture = GFX_evt_birth
+	is_triggered_only = yes
+
+	option = {
+		name = OK		
+		narrative_event = { id = ACS.00010 days = 15}		
+	}
+}
+
+# ACS.00010 - Khalga flies to a foreign court
+narrative_event = {
+	id = ACS.00010
+	title = ACS_00010_TITLE
+	desc = ACS_00010_DESC
+	picture = GFX_evt_machines_of_war
+	is_triggered_only = yes
+
+	immediate = {
+		add_trait = stressed
+		random_vassal = {
+			limit = {
+				is_landed = yes
+			}
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}
+	}
+
+	option = {
+		name = ACS_00010_OPT_A
+		random_courtier = {
+			limit = { has_character_flag = is_khalga }
+			character_event = { id = ACS.00011 }
+		}
+	}
+}
+
+# ACS.00011 - Select Tilda
+character_event = {
+	id = ACS.00011
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_character = {
+			limit = { has_character_flag = is_ancient_one }
+			character_event = { id = ACS.00012 }
+		}
+	}
+}
+
+# ACS.00012 - Tilda receives Khalga
+character_event = {
+	id = ACS.00012
+	hide_window = yes    
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		ai_chance = { factor = 100 }
+		FROM = {
+			move_character = ROOT
+		}
+	}
+}
+
+# ACS.00013 - Move tilda to mercenary Sakya
+character_event = {
+	id = ACS.00013
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_character = {
+            limit = { has_landed_title = d_mercenary_sakya }
+            character_event = { id = ACS.00014 }
+        }
+	}
+}
+
+# ACS.00014 - Tilda goes to mercenary band
+character_event = {
+	id = ACS.00014
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+            move_character = ROOT	
+        }		
+	}
+}
+
+###################
+## KHALGA TRAVEL ##
+###################
+# ACS.00015 - Khalga go around the world every year, kills random character. Select the character ##
+character_event = {
+	id = ACS.00015
+	hide_window = yes    
+	is_triggered_only = yes
+	has_character_flag = is_khalga
+	min_age = 16
+
+	immediate = {
+		random_playable_ruler = {
+			limit = {
+				adventurer = no
+				is_landed = yes 
+				is_married = yes 
+				age > 18
+				prisoner = no
+			}           
+			character_event = { id = ACS.00016 days = 2 }
+		}
+	}
+}
+
+# ACS.00016 - Khalga moves to the foreign court
+character_event = {
+	id = ACS.00016
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			move_character = ROOT
+			character_event = { id = ACS.00017 days = 1 }
+			character_event = { id = ACS.00019 days = 5 }
+			
+		}
+	}
+}
+
+# ACS.00017 - Select a courtier for pollinate from Khalga
+character_event = {
+	id = ACS.00017
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		host = {
+			random_spouse = {
+				limit = {
+					is_pregnant = no
+					is_female = yes
+					is_incapable = no
+					NOT = { has_character_flag = is_vee }
+				}
+				character_event = { id = ACS.00018 }
+			}
+		}
+	}
+}
+
+# ACS.00018 - The courtier is impregnated for Khalga
+character_event = {
+	id = ACS.00018
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_character_flag = khalga_lover
+		impregnate_cuckoo = FROM
+	}
+}
+
+# ACS.00019 - Khalga assassinates the host
+character_event = {
+	id = ACS.00019
+	hide_window = yes    
+	is_triggered_only = yes
+	
+	immediate = {
+		host = {
+			random_list = {
+				10 = {
+					death = { death_reason = death_murder_unknown killer = FROMFROM }
+				}
+				10 = {
+					death = { death_reason = death_murder_unknown_beheading killer = FROMFROM }
+				}
+				10 = {
+					death = { death_reason = death_murder_unknown_fall killer = FROMFROM }
+				}
+				10 = {
+					death = { death_reason = death_murder_unknown_drowning killer = FROMFROM }
+				}
+				10 = {
+					death = { death_reason = death_murder_unknown_snakes killer = FROMFROM }
+				}
+				10 = {
+					death = { death_reason = death_murder_unknown_butchered killer = FROMFROM }
+				}
+				10 = {
+					death = { death_reason = death_murder_unknown_arrow killer = FROMFROM }
+				}
+				5 = {
+					death = { death_reason = death_murder_unknown_strangle killer = FROMFROM }
+				}
+				5 = {
+					death = { death_reason = death_murder_unknown_fear killer = FROMFROM }
+				}
+				5 = {
+					death = { death_reason = death_murder_unknown_lightning killer = FROMFROM }
+				}
+				5 = {
+					death = { death_reason = death_murder_unknown_combustion killer = FROMFROM }
+				}
+				5 = {
+					death = { death_reason = death_murder_unknown_crows killer = FROMFROM }
+				}
+				5 = {
+					death = { death_reason = death_murder_unknown_possessed_fall killer = FROMFROM }
+				}
+			}
+			
+		}
+	}
+}
+
+#########################
+## KHALGA RESURRECTION ##
+#########################
+# ACS.00020 - Select a character to resurrect Khalga if he dies
+character_event = {
+	id = ACS.00020
+	hide_window = yes
+	is_triggered_only = yes
+
+	has_character_flag = is_khalga
+
+	immediate = {
+		random_playable_ruler = {
+			limit = {
+				adventurer = no
+				is_landed = yes 
+				is_married = yes 
+				age = 18
+				is_female = no
+			}
+			character_event = { id = ACS.00021 }
+		}
+	}
+}
+
+# ACS.00021 - The character's wife is the new mother of Khalga
+character_event = {
+	id = ACS.00021
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_spouse  = {
+			character_event = { id = ACS.00022 }            
+		}        
+	}
+}
+
+# ACS.00022 - Spawn a new instance of Khalga
+character_event = {
+	id = ACS.00022
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			age = 0
+			culture = FROM
+			religion = FROM
+			trait = fair
+			trait = genius
+			trait = byakugan
+			trait = strong
+			trait = khalga_trait
+			trait = prevent_marriage
+		}
+		new_character = {
+			set_mother = ROOT           
+			set_character_flag = is_khalga
+			set_character_flag = originated_from_chinese_court # to prevent to go to China
+			set_character_flag = wolf_blood_first_generation
+			add_character_modifier = {
+				name = wolf_child
+				duration = -1
+			}
+			# Khalga takes the essence, so kill the mother
+			mother = {
+				death = {
+					death_reason = death_childbirth
+				}              
+			}
+		}
+	}
+}
+
+# ACS.00023 - Notify host about Vee beauty - Select Vee current character
+character_event = {
+	id = ACS.00023
+	hide_window = yes
+	is_triggered_only = yes
+	has_character_flag = is_vee
+
+	immediate = {
+		host = {
+			narrative_event = { id = ACS.00024 }
+		}
+	}
+}
+
+# ACS.00024 - Send notice to Vee host
+narrative_event = {
+	id = ACS.00024
+	title = ACS_00024_TITLE
+	desc = ACS_00024_DESC
+	picture = GFX_evt_vee_adolescense
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		ai_chance = { factor = 100 }
+		prestige = 20
+	}
+}
+
+###########################
+### VEE Transfer essence ##
+###########################
+# ACS.00025 - Activate the orb if Vee dies
+character_event = {
+	id = ACS.00025
+	hide_window = yes
+	is_triggered_only = yes
+	has_character_flag = is_vee
+
+	immediate = {
+		set_global_flag = vanished_vee
+		pentaghast_society = {
+			random_society_member = {
+				limit = {
+					is_society_grandmaster = yes
+					NOT = { has_artifact = eden_apple }
+				}
+				add_artifact = eden_apple
+			}
+		}        
+	}
+}
+
+# ACS.00026 - Check if vee has more than 33 years old
+narrative_event = {
+	id = ACS.00026
+	title = ACS_00026_TITLE
+	desc = ACS_00026_DESC
+	is_triggered_only = yes
+	has_character_flag = is_vee
+	picture = GFX_evt_vee_adolescense
+
+	trigger = { age >= 33 }
+
+	immediate = {
+		if = {
+			limit = {
+				any_child = {
+					is_female = yes
+					prisoner = no
+					is_incapable = no
+					is_landed = no
+				}
+			}
+			random_child = {
+				limit = {
+					is_female = yes
+					prisoner = no
+					is_incapable = no
+					is_landed = no
+				}				
+				narrative_event = { id = ACS.00027}
+			}
+		}		
+
+		pentaghast_society = {
+			any_society_member = {
+				letter_event = { id = ACS.00028 }
+			}
+		}       
+	}
+
+	option = {
+		name = OK
+		ai_chance = { factor = 100 }    
+	}
+}
+
+# ACS.00027 - The child is notified
+narrative_event = {
+	id = ACS.00027
+	title = ACS_00027_TITLE
+	desc = ACS_00027_DESC
+	picture = GFX_evt_courtiers_talking # To Do New picture
+	is_triggered_only = yes
+
+	option = {
+		name = ACS_00027_OPT_A
+		mother = {
+			death = { death_reason = death_poor_health }
+		}
+		add_trait = syrena
+		set_character_flag = is_vee
+		ai_chance = { factor = 100 }    
+	}
+}
+
+# ACS.00028 - Send a letter to Pentaghast members notifying transfer essence
+letter_event = {
+	id = ACS.00028
+	title = ACS_00028_TITLE
+	desc = ACS_00028_DESC
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		ai_chance = { factor = 100 }    
+	}
+}
+
+# ACS.00029 - Dojutsu inheritance mechanics
+character_event = {
+	id = ACS.00029
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {		
+		# All Khalga sons inherits byakugan
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					has_character_flag = is_khalga
+				}
+			}
+			add_trait = byakugan
+			set_character_flag = direct_byakugan
+		}
+		# Recesive byakugan
+		if = {
+			limit = {
+				OR = {
+					true_father_even_if_dead = {
+						has_character_flag = direct_byakugan
+					}
+					mother_even_if_dead = {
+						has_character_flag = direct_byakugan
+					}
+				}                
+			}
+			add_trait = byakugan
+			set_character_flag = recesive_byakugan
+		}
+		# Byakugan inheritance from two recesives
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					has_character_flag = recesive_byakugan
+				}
+				mother_even_if_dead = {
+					has_character_flag = recesive_byakugan
+				}
+			}
+			add_trait = byakugan
+			set_character_flag = direct_byakugan
+		}
+		# All Vee children inherit sharingan
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					has_character_flag = is_vee
+				}
+			}
+			add_trait = sharingan
+			set_character_flag = direct_sharingan
+		}        
+		# Recesive sharingan
+		if = {
+			limit = {
+				OR = {
+					true_father_even_if_dead = {
+						has_character_flag = direct_sharingan
+					}
+					mother_even_if_dead = {
+						has_character_flag = direct_sharingan
+					}
+				}                
+			}
+			add_trait = sharingan
+			set_character_flag = recesive_sharingan
+		}
+		# sharingan inheritance from two recesives
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					has_character_flag = recesive_sharingan
+				}
+				mother_even_if_dead = {
+					has_character_flag = recesive_sharingan
+				}
+
+			}
+			add_trait = sharingan
+			set_character_flag = direct_sharingan
+		}
+		# Checks if mather and father has different dojutsu
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = sharingan
+				}
+				mother_even_if_dead = {
+					trait = byakugan
+				}				
+			}
+			set_character_flag = f_sha_m_bya
+			character_event = { id = ACS.00030 }
+		}
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = byakugan
+				}
+				mother_even_if_dead = {
+					trait = sharingan
+				}
+			}
+			set_character_flag = f_bya_m_sha
+			character_event = { id = ACS.00030 }			
+		}
+	}
+}
+
+# ACS.00030 - RH child gets some problems
+character_event = {
+	id = ACS.00030
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				mother = { has_character_flag = dojutsu_rh }
+			}
+			random_list = {
+				90 = { # 90 % of children will die
+					death = { death_reason = death_poor_health }
+				}
+				10 = {
+					999 = {
+						add_trait = malnourished
+						random_list = {
+							100 = { add_trait = depressed }
+							100 = { add_trait = incapable }
+							100 = { add_trait = incapable }
+							100 = { add_trait = infirm }
+							100 = { add_trait = lunatic }
+							100 = { add_trait = maimed }
+							100 = { add_trait = scarred_high }
+							100 = { add_trait = wounded }
+							100 = { add_trait = blinded }
+						}
+						random_list = {
+							100 = { add_trait = clubfooted }
+							100 = { add_trait = dwarf }
+							100 = { add_trait = harelip }
+							100 = { add_trait = hunchback }
+							100 = { add_trait = imbecile }
+							100 = { add_trait = inbred }
+							100 = { add_trait = lisp }
+							100 = { add_trait = slow }
+							100 = { add_trait = stutter }
+							100 = { add_trait = weak }
+						}
+					}
+					1 = {
+						add_trait = rinnegan
+						add_trait = genius
+						add_trait = fair
+					}
+				}
+			}
+		}
+		else = {
+			mother = { set_character_flag = dojutsu_rh }
+		}
+	}
+}
+
+# ACS.00031 - Kidnapping. Check for Pentaghast leader conditions
+character_event = {
+	id = ACS.00031
+    hide_window = yes
+    is_triggered_only = yes
+
+    is_in_society = yes
+
+    trigger = {
+    	is_society_grandmaster = yes
+		society_member_of = pentaghast_society
+    }
+
+    immediate = {
+		ROOT = {
+			if = {
+				limit = {
+					any_courtier = {
+						trait = sharingan
+					}
+				}
+				set_character_flag = already_sharingan_kid
+			}
+			if = {
+				limit = {
+					NOT = { has_character_flag = already_byakugan_kid}
+				}
+				character_event = { id = ACS.00032 }
+			}
+		}
+    }
+}
+
+# ACS.00032 - Select a male children with sharingan to kidnapping
+character_event = {
+	id = ACS.00032
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		narrative_event = { id = ACS.00033 } # Arrival notification
+		random_character = {
+    		limit = {
+    			trait = sharingan
+				NOT = { de_facto_liege = ROOT }
+    			NOT = { trait = in_hiding }
+    			age <= 6
+    			ai = yes
+    			is_incapable = no
+				is_landed = no
+    			NOT = { has_character_flag = is_vee }
+    			NOT = { has_character_flag = is_khalga }
+				is_female = no
+    		}
+    		move_character = ROOT
+    		imprison = yes
+    		add_trait = prevent_marriage
+			opinion = {
+				modifier = monarch_modifier
+				who = ROOT
+				years = 100
+			}
+			set_character_flag = imprisioned_for_experiments
+			mother = { narrative_event = { id = ACS.00034 } }
+			father = { narrative_event = { id = ACS.00034 } }
+    	}
+		set_variable = { which = sharingan_to_kidnap value = 3 }
+		while = {
+			limit = {
+				check_variable = {
+					which = sharingan_to_kidnap
+					value = 1
+				}
+			}
+			subtract_variable = {
+				which = sharingan_to_kidnap
+				value = 1
+			}
+			random_character = {
+				limit = {
+					is_female = yes
+					NOT = { de_facto_liege = ROOT }
+					NOT = { trait = in_hiding }
+					age <= 6
+					ai = yes
+					is_incapable = no
+					is_landed = no
+					NOT = { has_character_flag = is_vee }
+				}
+				move_character = ROOT
+				imprison = yes
+				add_trait = prevent_marriage
+				opinion = {
+					modifier = monarch_modifier
+					who = ROOT
+					years = 100
+				}
+				set_character_flag = imprisioned_for_experiments
+				mother = { narrative_event = { id = ACS.00034 } }
+				father = { narrative_event = { id = ACS.00034 } }
+			}            
+		}
+	}		
+}
+
+
+# ACS.00033 - pentaghast leader kidnap notification
+narrative_event = {
+	id = ACS.00033
+	title = ACS_00033_TITLE
+	desc = ACS_00033_DESC
+	picture = GFX_evt_courtiers_talking
+	is_triggered_only = yes
+
+    option = {
+		name = OK		
+	}
+}
+
+# ACS.00034 - Mother and father of kidnapped child notification
+narrative_event = {
+	id = ACS.00034
+	title = ACS_00034_TITLE
+	desc = ACS_00034_DESC
+	picture = GFX_evt_courtiers_talking
+	is_triggered_only = yes
+
+    option = {
+		name = OK		
+	}
+}
+
+
+# ACS.00035 - Reproduction of kidnapped characters
+character_event = {
+	id = ACS.00035
+	is_triggered_only = yes
+	hide_window = yes
+
+	is_in_society = yes
+
+    trigger = {
+    	is_society_grandmaster = yes
+		society_member_of = pentaghast_society
+    }
+
+    immediate = {
+		any_courtier = {
+			limit = {
+				has_character_flag = imprisioned_for_experiments
+				prisoner = no
+			}
+			imprison = yes
+		}
+    	random_courtier = {
+    		limit = {
+    			prisoner = yes
+    			OR = {
+    				trait = sharingan
+    				trait = byakugan
+    				trait = mangekyo_sharingan
+    			}
+    			age >= 16
+    			ai = yes
+    			is_female = no
+    			is_incapable = no
+    		}
+    		save_event_target_as = male_pentaghast_eugenesia
+			set_character_flag = a_happy_father
+    	}
+
+    	any_courtier = {
+    		limit = {
+    			prisoner = yes
+    			age >= 16
+    			ai = yes
+    			is_pregnant = no
+				is_female = yes
+				is_incapable = no
+    		}
+    		impregnate = event_target:male_pentaghast_eugenesia
+    	}
+    }
+}
+
+# ACS.00036 - Kidnap of Byakugan
+character_event = {
+	id = ACS.00036
+    hide_window = yes
+    is_triggered_only = yes
+
+    is_in_society = yes
+
+    trigger = {
+    	is_society_grandmaster = yes
+		society_member_of = pentaghast_society
+    }
+
+    immediate = {		
+		if = {
+			limit = {
+				any_courtier = {
+					trait = byakugan
+				}
+			}
+			set_character_flag = already_byakugan_kid
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = already_byakugan_kid}
+			}
+			character_event = { id = ACS.00037 }
+		}
+    }
+}
+
+# ACS.00037 - Select a male children with Byakugan to kidnapping
+character_event = {
+	id = ACS.00037
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		narrative_event = { id = ACS.00033 } # Arrival notification
+		random_character = {
+    		limit = {
+    			trait = byakugan
+				NOT = { de_facto_liege = ROOT }
+    			NOT = { trait = in_hiding }
+    			age <= 6
+    			ai = yes
+    			is_incapable = no
+				is_landed = no
+    			NOT = { has_character_flag = is_vee }
+    			NOT = { has_character_flag = is_khalga }
+				is_female = no
+    		}
+    		move_character = ROOT
+    		imprison = yes
+    		add_trait = prevent_marriage
+			opinion = {
+				modifier = monarch_modifier
+				who = ROOT
+				years = 100
+			}
+			set_character_flag = imprisioned_for_experiments
+			mother = { narrative_event = { id = ACS.00034 } }
+			father = { narrative_event = { id = ACS.00034 } }
+    	}
+		set_variable = { which = byakugan_to_kidnap value = 3 }
+		while = {
+			limit = {
+				check_variable = {
+					which = byakugan_to_kidnap
+					value = 1
+				}
+			}
+			subtract_variable = {
+				which = byakugan_to_kidnap
+				value = 1
+			}
+			random_character = {
+				limit = {
+					is_female = yes
+					NOT = { de_facto_liege = ROOT }
+					NOT = { trait = in_hiding }
+					age <= 6
+					ai = yes
+					is_incapable = no
+					is_landed = no
+					NOT = { has_character_flag = is_vee }
+				}
+				move_character = ROOT
+				imprison = yes
+				add_trait = prevent_marriage
+				opinion = {
+					modifier = monarch_modifier
+					who = ROOT
+					years = 100
+				}
+				set_character_flag = imprisioned_for_experiments
+				mother = { narrative_event = { id = ACS.00034 } }
+				father = { narrative_event = { id = ACS.00034 } }
+			}            
+		}			
+	}		
+}
+
+# ACS.00038 - Jail if mother or father are prisoners
+character_event = {
+	id = ACS.00038
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					mother = {
+						has_character_flag = imprisioned_for_experiments
+					}
+					true_father = {
+						has_character_flag = imprisioned_for_experiments
+					}
+				}
+			}
+			set_character_flag = imprisioned_for_experiments
+			imprison = yes						
+		}
+	}
+}

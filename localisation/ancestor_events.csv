@@ -1,0 +1,61 @@
+CB_HELEN_OF_TROY;Get Vee;Obtenez Eevee;Hol dir Vee;;Obtener a Vee;;;;;;;;;x
+WAR_HELEN_OF_TROY;Get Vee;Obtenez Eevee;Hol dir Vee;;Obtener a Vee;;;;;;;;;x
+OK;I understand;I understand;I understand;;Entendido;;;;;;;;;x
+
+helen_of_troy_cb;Get Vee;Obtenez Eevee;Hol dir Vee;;Obtener a Vee;;;;;;;;;x
+helen_of_troy_cb_desc;The most beautiful woman in the world is in the court of this king. If we declare war, it will pass to ours.;La plus belle femme du monde est dans la cour de ce roi. Si nous déclarons la guerre, elle passera à la nôtre;;;La mujer más hermosa del mundo está en la corte de este rey. Si le declaramos la guerra, pasará a la nuestra.;;;;;;;;;x
+
+ACS_00001_TITLE;Celestial warning;Avertissement céleste;Himmlische Warnung;;Advertencia celeste;;;;;;;;;x
+ACS_00001_DESC;A two-headed comet has been sighted. Its tail covers the whole width of the sky. Will it be the announcement of an imminent danger?;Une comète à deux têtes a été aperçue. Sa queue couvre toute la voûte du ciel. Sera-ce l'annonce d'un danger imminent?;;;Se ha avistado un cometa de dos cabezas. Su cola abarca toda la bóveda del cielo. ¿Será el anuncio de un inminente peligro?;;;;;;;;;x
+ACS_00001_OPT_A;Misfortunes are approaching!;Misfortunes are approaching!;Misfortunes are approaching!;;¡Se aproximan desgracias!;;;;;;;;;x
+
+ACS_00003_DESC;From.GetName] has been devastated;From.GetName] has been devastated;From.GetName] has been devastated;;[From.GetName] ha sido devastada;;;;;;;;;x
+
+ACS_00004_TITLE;Encounter;Encounter;Encounter;;Encuentro;;;;;;;;;x
+ACS_00004_DESC;During a hunt, you hear fighting sounds from a distance. When you get closer you see that they are two peasants who are being harassed by a crook. Will you defend them?;During a hunt, you hear fighting sounds from a distance. When you get closer you see that they are two peasants who are being harassed by a crook. Will you defend them?;During a hunt, you hear fighting sounds from a distance. When you get closer you see that they are two peasants who are being harassed by a crook. Will you defend them?;;Durante una cacería, oyes sonidos de lucha a la distancia. Al acercarte ves que son dos campesinos acosados por un maleante. ¿Los defenderás?;;;;;;;;;x
+ACS_00004_OPT_A;For honor!;Pour l'honneur!;Ich bin ein Ritter!;;¡Por el honor!;;;;;;;;;x
+
+ACS_00007_TITLE;Olaf has left my court in search of adventures, but he has left Senua, his sister, in my court;Olaf has left my court in search of adventures, but he has left Senua, his sister, in my court;Olaf has left my court in search of adventures, but he has left Senua, his sister, in my court;;Olaf se ha marchado en busca de aventuras, pero ha dejado a Senua, su hermana, en mi corte;;;;;;;;;x
+
+ACS_00009_TITLE;Twins;;Manschettenknöpfe;Jumeaux;Gemelos;;;;;;;;;x
+ACS_00009_DESC;Senua has given birth to twins. The male baby has strange white eyes and the female baby has curious red eyes.;Senua has given birth to twins. The male baby has strange white eyes and the female baby has curious red eyes.;Senua has given birth to twins. The male baby has strange white eyes and the female baby has curious red eyes. ;;Senua ha alumbrado gemelos. El varón tiene extraños ojos blancos y la mujer unos curiosos ojos rojos.;;;;;;;;;x
+
+ACS_00010_TITLE;Tragedy;Tragedy;Tragedy;;Tragedia;;;;;;;;;x
+ACS_00010_DESC;A hooded person has sneaked into the palace and kidnapped Senua's son. He even killed one of my vassals who was visiting me!;A hooded person has sneaked into the palace and kidnapped Senua's son. He even killed one of my vassals who was visiting me!;A hooded person has sneaked into the palace and kidnapped Senua's son. He even killed one of my vassals who was visiting me!;;Una figura encapuchada se ha colado en el palacio y ha secuestrado al hijo de Senua. ¡Incluso ha matado a uno de mis vasallos que se hallaba de visita!;;;;;;;;;x
+ACS_00010_OPT_A;I feel stressed;I feel stressed;I feel stressed;;Todo esto me ha agobiado;;;;;;;;;x
+
+ACS_00024_TITLE;The flower opens;The flower opens;The flower opens;;La flor se abre;;;;;;;;;x
+ACS_00024_DESC;The little girl in my court is getting more beautiful every day. The females admire and envy her delicate beauty and the males begin to look at her differently. She will be a precious woman.;The little girl in my court is getting more beautiful every day. The females admire and envy her delicate beauty and the males begin to look at her differently. She will be a precious woman.;;;La pequeña de mi corte se pone cada día más hermosa. Las cortesanas admiran y envidian su delicada belleza y los cortesanos comienzan a mirarla diferente. Invcluso yo me embeleso con sus preciosos rasgos.;;;;;;;;;x
+
+ACS_00026_TITLE;Shed skin;Shed skin;Shed skin;;Cambio de piel;;;;;;;;;x
+ACS_00026_DESC;This body can not support my essence anymore. It's time to look for another guest.;This body can not support my essence anymore. It's time to look for another guest.;This body can not support my essence anymore. It's time to look for another guest.;;Este cuerpo no puede soportar más mi esencia. Es hora de buscar otro huesped.;;;;;;;;;x
+
+ACS_00027_TITLE;Mother;Mother;Mother;;Madre;;;;;;;;;x
+ACS_00027_DESC;In the darkness of the night, mother appears in the room. It has a chilling look.;In the darkness of the night, mother appears in the room. It has a chilling look.;In the darkness of the night, mother appears in the room. It has a chilling look.;;En la oscuridad de la noche, madre se presenta en la habitacion. Tiene una mirada escalofriante.;;;;;;;;;x
+ACS_00027_OPT_A;Everything is fine?;Everything is fine?;Everything is fine?;;¿Ocurre algo malo?;;;;;;;;;x
+
+ACS_00028_TITLE;The White Goddess;The White Goddess;The White Goddess;;La Diosa Blanca;;;;;;;;;x
+ACS_00028_DESC;The essence of our goddess has passed to a new recipient. Each time is closer to perfection and with it, the domain of the rest of the world.;The essence of our goddess has passed to a new recipient. Each time is closer to perfection and with it, the domain of the rest of the world.;The essence of our goddess has passed to a new recipient. Each time is closer to perfection and with it, the domain of the rest of the world.;;La esencia de nuestra diosa ha pasado a un nuevo recipiente. Cada vez se encuentra más cerca de la perfección y con ella, del dominio del resto del mundo.;;;;;;;;;x
+
+ACS_00033_TITLE;Fresh meat;Fresh meat;Fresh meat;;Carne fresca;;;;;;;;;x
+ACS_00033_DESC;A lot of children have come to experiment. I hope we will accomplish great things with them.;A lot of children have come to experiment. I hope we will accomplish great things with them.;A lot of children have come to experiment. I hope we will accomplish great things with them.;;Un lote de niños ha llegado para experimentar. Tengo esperanza de que lograremos grandes cosas con ellos.;;;;;;;;;x
+
+ACS_00034_TITLE;Tragedy;Tragedy;Tragedy;;Tragedia;;;;;;;;;x
+ACS_00034_DESC;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;;¡Alguien se ha llevado a mi tesoro! Mi retoño ha sido arrancado de mi. Maldito sea quien lo hizo.;;;;;;;;;x
+
+THE_SAKJE;The Sakje;The Sakje;The Sakje;;Los Sakje;;;;;;;;;x
+EVTDESC_ACS_400;My friend has come to me. There is resolution in his eyes. He wants to kill me to acquire more power!;My friend has come to me. There is resolution in his eyes. He wants to kill me to acquire more power!;My friend has come to me. There is resolution in his eyes. He wants to kill me to acquire more power!;;Mi amigo ha venido. En su mirada hay resolución. ¡Quiere matarme para adquirir más poder!;;;;;;;;;x
+EVTOPTA_ACS_400;I will sacrifice myself for love;I will sacrifice myself for love;I will sacrifice myself for love;;Me sacrificaré por amor;;;;;;;;;x
+EVTOPTB_ACS_400;Traitor!;Traitor!;Traitor!;;Traidor!;;;;;;;;;x
+get_mangekyo_sharingan;Get bloody eyes;Get bloody eyes;Get bloody eyes;;Obtener ojos sangrientos;;;;;;;;;x
+get_mangekyo_sharingan_desc;Get bloody eyes;Get bloody eyes;Get bloody eyes;;Obtener ojos sangrientos;;;;;;;;;x
+hypnotize_with_sharingan;Use my eyes;Use my eyes;Use my eyes;;Usar mis ojos;;;;;;;;;x
+hypnotize_with_sharingan_desc;Use my eyes;Use my eyes;Use my eyes;;Usar mis ojos;;;;;;;;;x
+EVTNAMEACS.42;Ritual;Ritual;Ritual;;Ritual;;;;;;;;;x
+EVTDESCACS.42;My Pentaghast brothers will gather in celebration of our living goddess. I have to prepare myself.;My Pentaghast brothers will gather in celebration of our living goddess. I have to prepare myself.;My Pentaghast brothers will gather in celebration of our living goddess. I have to prepare myself.;;Mis hermanos Pentaghast se reunirán en celebración a nuestra diosa viva. Debo prepararme.;;;;;;;;;x
+EVTNAMEACS.44;Sacrifice;Sacrifice;Sacrifice;;Sacrificio;;;;;;;;;x
+EVTDESCACS.44;On the altar, the chosen one copulates with our goddess. After planting his seed, we sacrifice it and bathe our lady in her blood, while she eats his heart still throbbing.;On the altar, the chosen one copulates with our goddess. After planting his seed, we sacrifice it and bathe our lady in her blood, while she eats his heart still throbbing.;On the altar, the chosen one copulates with our goddess. After planting his seed, we sacrifice it and bathe our lady in her blood, while she eats his heart still throbbing.;;Sobre el altar, el elegido copula con nuestra diosa.\nLuego de plantar su semilla, lo sacrificamos y bañamos a nuestra señora en su sangre, mientras ella se come su corazón aún palpitante.;;;;;;;;;x
+
+ACS.402.name;Rakn Auga;Rakn Auga;Rakn Auga;;Rakn Auga;;;;;;;;;x
+EVTDESC_ACS401_A;I have obtained these eyes thanks to the sacrifice of my beloved person. I will use them for my purposes and I will not give in to anyone.;I have obtained these eyes thanks to the sacrifice of my beloved person. I will use them for my purposes and I will not give in to anyone.;I have obtained these eyes thanks to the sacrifice of my beloved person. I will use them for my purposes and I will not give in to anyone.;;He obtenido estos ojos gracias al sacrificio de mi persona amada. Los usaré para mis fines y no cederé ante nadie.;;;;;;;;;x
+EVTDESC_ACS401_B;I have obtained these eyes by killing one of the people I most loved. I will use them for my purposes and I will not give in to anyone.;I have obtained these eyes by killing one of the people I most loved. I will use them for my purposes and I will not give in to anyone.;I have obtained these eyes by killing one of the people I most loved. I will use them for my purposes and I will not give in to anyone.;;He obtenido estos ojos matando a una de las personas que más quería. Los usaré para mis fines y no cederé ante nadie.;;;;;;;;;x
