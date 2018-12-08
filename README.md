@@ -9,9 +9,10 @@
 <h4 align="center">A mod for Crusader Kings 2</h4>
 
 <p align="center">
-	<a href="https://ck2.paradoxwikis.com/Patch_2.8"><img src="https://img.shields.io/badge/CK2-2.8-blue.svg" alt="CK2 2.8"></a>
+	<a href="https://ck2.paradoxwikis.com/Patch_2.8"><img src="https://img.shields.io/badge/CK2-2.8-blue.svg" alt="CK2 3.0"></a>
 	<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1391125438"><img src="https://img.shields.io/badge/steam-page-blue.svg" alt="Steam page"></a>
-	<a><img src="https://img.shields.io/badge/Maker-take%20you!-red.svg" alt="Cassandra Shout"></a>	
+	<a><img src="https://img.shields.io/badge/Maker-take%20you!-red.svg" alt="Cassandra Shout"></a>
+  [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/khanmaytok/ancestors.svg)](http://isitmaintained.com/project/khanmaytok/ancestors "Average time to resolve an issue")
 </p>
 
 <h4 align="center"Disclaimer: This is not a Naruto mod</h4>

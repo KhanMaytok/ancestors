@@ -917,7 +917,7 @@ character_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_character_flag = already_byakugan_kid}
+					NOT = { has_character_flag = already_byakugan_kid }
 				}
 				character_event = { id = ACS.00032 }
 			}
@@ -930,6 +930,10 @@ character_event = {
 	id = ACS.00032
 	is_triggered_only = yes
 	hide_window = yes
+
+	trigger = {
+		NOT = { has_character_flag = already_byakugan_kid }
+	}
 
 	immediate = {
 		narrative_event = { id = ACS.00033 } # Arrival notification
@@ -1101,7 +1105,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_character_flag = already_byakugan_kid}
+				NOT = { has_character_flag = already_byakugan_kid }
 			}
 			character_event = { id = ACS.00037 }
 		}
@@ -1113,6 +1117,10 @@ character_event = {
 	id = ACS.00037
 	is_triggered_only = yes
 	hide_window = yes
+
+	trigger = {
+		NOT = { has_character_flag = already_byakugan_kid }
+	}
 
 	immediate = {
 		narrative_event = { id = ACS.00033 } # Arrival notification
