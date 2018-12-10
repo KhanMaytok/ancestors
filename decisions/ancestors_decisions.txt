@@ -1,41 +1,41 @@
 targetted_decisions = {
 	# Select a new target for Vee. Target must be at Pentaghast society leader court
-	select_new_vee_host = {
-		ai_check_interval = 12
-		filter = court
-		ai_target_filter = court
-		is_high_prio = yes
-
-		from_potential = {
-			is_society_grandmaster = yes
-			society_member_of = pentaghast_society	
-  		}
-
-		potential = {
-    		is_female = yes
-    		is_incapable = no
-			prisoner = no
-    		trait = sharingan
-    		NOT = { trait = syrena }
-  		}
-
-		allow = {
-			has_global_flag = vanished_vee
-		}
-
-  		effect = {
-  			clr_global_flag = vanished_vee
-  			ROOT = {
-  				set_character_flag = is_vee
-				add_trait = syrena
-  			}
-  		}
-
-  		ai_will_do = {
-		    factor = 1
-		}
-	}
-
+	#select_new_vee_host = {
+		#ai_check_interval = 12
+		#filter = court
+		#ai_target_filter = court
+		#is_high_prio = yes
+#
+		#from_potential = {
+			#is_society_grandmaster = yes
+			#society_member_of = pentaghast_society	
+  		#}
+#
+		#potential = {
+    		#is_female = yes
+    		#is_incapable = no
+			#prisoner = no
+    		#trait = sharingan
+    		#NOT = { trait = syrena }
+  		#}
+#
+		#allow = {
+			#has_global_flag = vanished_vee
+#		}
+#
+  		#effect = {
+  			#clr_global_flag = vanished_vee
+  			#ROOT = {
+  				#set_character_flag = is_vee
+				#add_trait = syrena
+  			#}
+  		#}
+#
+  		#ai_will_do = {
+		    #factor = 1
+		#}
+	#}
+#
 	get_mangekyo_sharingan = {
 		ai_check_interval = 12
 		filter = friends
@@ -77,7 +77,8 @@ targetted_decisions = {
 			OR = {
 				trait = sharingan
 				trait = mangekyo_sharingan
-			}			
+			}
+			age >= 13		
 		}
 
 		allow = {
@@ -87,6 +88,7 @@ targetted_decisions = {
 				NOT = { has_character_flag = use_sharingan_for_hypnotic }
 			}
 			ROOT = {
+				prisoner = no
 				NOT = { has_character_flag = hypnotized_with_sharingan }
 			}
 		}

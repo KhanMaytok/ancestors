@@ -13,7 +13,7 @@ byakugan = {
 	random = no
 	defensive_plot_power_modifier = 0.70
 	plot_discovery_chance = 0.70
-	combat_rating = 5
+	combat_rating = 50
 	monthly_character_prestige = 1
 	same_opinion = 10
 	martial = 5
@@ -27,7 +27,7 @@ sharingan = {
 	random = no
 	intrigue = 2
 	learning = 2
-	combat_rating = 5
+	combat_rating = 55
 	plot_power_modifier = 0.50
 	monthly_character_prestige = 1
 	same_opinion = 10
@@ -43,7 +43,7 @@ mangekyo_sharingan = {
 	intrigue = 10
 	martial = 13
 	learning = 10
-	combat_rating = 13
+	combat_rating = 80
 	plot_power_modifier = 0.60
 	monthly_character_prestige = 10
 	same_opinion = 10
@@ -56,11 +56,13 @@ mangekyo_sharingan = {
 rinnegan = {
 	random = no
 	customizer = no
+	combat_rating = 99
 }
 
 tenseigan = {
 	random = no
 	customizer = no
+	combat_rating = 99
 }
 
 jogan = {

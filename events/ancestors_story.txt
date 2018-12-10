@@ -330,41 +330,12 @@ narrative_event = {
 		name = ACS_00010_OPT_A
 		random_courtier = {
 			limit = { has_character_flag = is_khalga }
-			character_event = { id = ACS.00011 }
+			character_event = { id = ACS.00013 }
 		}
 	}
 }
 
-# ACS.00011 - Select Tilda
-character_event = {
-	id = ACS.00011
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		random_character = {
-			limit = { has_character_flag = is_ancient_one }
-			character_event = { id = ACS.00012 }
-		}
-	}
-}
-
-# ACS.00012 - Tilda receives Khalga
-character_event = {
-	id = ACS.00012
-	hide_window = yes    
-	is_triggered_only = yes
-	
-	option = {
-		name = OK
-		ai_chance = { factor = 100 }
-		FROM = {
-			move_character = ROOT
-		}
-	}
-}
-
-# ACS.00013 - Move tilda to mercenary Sakya
+# ACS.00013 - Move Tilda OR Khalga to mercenary Sakya
 character_event = {
 	id = ACS.00013
 	hide_window = yes
@@ -906,39 +877,10 @@ character_event = {
     trigger = {
     	is_society_grandmaster = yes
 		society_member_of = pentaghast_society
+		NOT = { has_character_flag = already_sharingan_kid }
     }
 
     immediate = {
-		ROOT = {
-			if = {
-				limit = {
-					any_courtier = {
-						trait = sharingan
-					}
-				}
-				set_character_flag = already_sharingan_kid
-			}
-			if = {
-				limit = {
-					NOT = { has_character_flag = already_byakugan_kid }
-				}
-				character_event = { id = ACS.00032 }
-			}
-		}
-    }
-}
-
-# ACS.00032 - Select a male children with sharingan to kidnapping
-character_event = {
-	id = ACS.00032
-	is_triggered_only = yes
-	hide_window = yes
-
-	trigger = {
-		NOT = { has_character_flag = already_byakugan_kid }
-	}
-
-	immediate = {
 		narrative_event = { id = ACS.00033 } # Arrival notification
 		random_character = {
     		limit = {
@@ -964,46 +906,47 @@ character_event = {
 			set_character_flag = imprisioned_for_experiments
 			mother = { narrative_event = { id = ACS.00034 } }
 			father = { narrative_event = { id = ACS.00034 } }
-    	}
-		set_variable = { which = sharingan_to_kidnap value = 3 }
-		while = {
-			limit = {
-				check_variable = {
+			ROOT = { set_character_flag = already_sharingan_kid }
+
+			set_variable = { which = sharingan_to_kidnap value = 3 }
+			while = {
+				limit = {
+					check_variable = {
+						which = sharingan_to_kidnap
+						value = 1
+					}
+				}
+				subtract_variable = {
 					which = sharingan_to_kidnap
 					value = 1
 				}
-			}
-			subtract_variable = {
-				which = sharingan_to_kidnap
-				value = 1
-			}
-			random_character = {
-				limit = {
-					is_female = yes
-					NOT = { de_facto_liege = ROOT }
-					NOT = { trait = in_hiding }
-					age <= 6
-					ai = yes
-					is_incapable = no
-					is_landed = no
-					NOT = { has_character_flag = is_vee }
+				random_character = {
+					limit = {
+						is_female = yes
+						NOT = { de_facto_liege = ROOT }
+						NOT = { trait = in_hiding }
+						age <= 6
+						ai = yes
+						is_incapable = no
+						is_landed = no
+						NOT = { has_character_flag = is_vee }
+					}
+					move_character = ROOT
+					imprison = yes
+					add_trait = prevent_marriage
+					opinion = {
+						modifier = monarch_modifier
+						who = ROOT
+						years = 100
+					}
+					set_character_flag = imprisioned_for_experiments
+					mother = { narrative_event = { id = ACS.00034 } }
+					father = { narrative_event = { id = ACS.00034 } }
 				}
-				move_character = ROOT
-				imprison = yes
-				add_trait = prevent_marriage
-				opinion = {
-					modifier = monarch_modifier
-					who = ROOT
-					years = 100
-				}
-				set_character_flag = imprisioned_for_experiments
-				mother = { narrative_event = { id = ACS.00034 } }
-				father = { narrative_event = { id = ACS.00034 } }
-			}            
-		}
-	}		
+			}
+    	}
+	}
 }
-
 
 # ACS.00033 - pentaghast leader kidnap notification
 narrative_event = {
@@ -1084,7 +1027,7 @@ character_event = {
     }
 }
 
-# ACS.00036 - Kidnap of Byakugan
+# ACS.00036 - Kidnap of Byakugan child
 character_event = {
 	id = ACS.00036
     hide_window = yes
@@ -1095,37 +1038,10 @@ character_event = {
     trigger = {
     	is_society_grandmaster = yes
 		society_member_of = pentaghast_society
-    }
-
-    immediate = {		
-		if = {
-			limit = {
-				any_courtier = {
-					trait = byakugan
-				}
-			}
-			set_character_flag = already_byakugan_kid
-		}
-		if = {
-			limit = {
-				NOT = { has_character_flag = already_byakugan_kid }
-			}
-			character_event = { id = ACS.00037 }
-		}
-    }
-}
-
-# ACS.00037 - Select a male children with Byakugan to kidnapping
-character_event = {
-	id = ACS.00037
-	is_triggered_only = yes
-	hide_window = yes
-
-	trigger = {
 		NOT = { has_character_flag = already_byakugan_kid }
-	}
+    }
 
-	immediate = {
+    immediate = {
 		narrative_event = { id = ACS.00033 } # Arrival notification
 		random_character = {
     		limit = {
@@ -1151,44 +1067,46 @@ character_event = {
 			set_character_flag = imprisioned_for_experiments
 			mother = { narrative_event = { id = ACS.00034 } }
 			father = { narrative_event = { id = ACS.00034 } }
-    	}
-		set_variable = { which = byakugan_to_kidnap value = 3 }
-		while = {
-			limit = {
-				check_variable = {
-					which = byakugan_to_kidnap
+			ROOT = { set_character_flag = already_byakugan_kid }
+
+			set_variable = { which = sharingan_to_kidnap value = 3 }
+			while = {
+				limit = {
+					check_variable = {
+						which = sharingan_to_kidnap
+						value = 1
+					}
+				}
+				subtract_variable = {
+					which = sharingan_to_kidnap
 					value = 1
 				}
+				random_character = {
+					limit = {
+						is_female = yes
+						NOT = { de_facto_liege = ROOT }
+						NOT = { trait = in_hiding }
+						age <= 6
+						ai = yes
+						is_incapable = no
+						is_landed = no
+						NOT = { has_character_flag = is_vee }
+					}
+					move_character = ROOT
+					imprison = yes
+					add_trait = prevent_marriage
+					opinion = {
+						modifier = monarch_modifier
+						who = ROOT
+						years = 100
+					}
+					set_character_flag = imprisioned_for_experiments
+					mother = { narrative_event = { id = ACS.00034 } }
+					father = { narrative_event = { id = ACS.00034 } }
+				}            
 			}
-			subtract_variable = {
-				which = byakugan_to_kidnap
-				value = 1
-			}
-			random_character = {
-				limit = {
-					is_female = yes
-					NOT = { de_facto_liege = ROOT }
-					NOT = { trait = in_hiding }
-					age <= 6
-					ai = yes
-					is_incapable = no
-					is_landed = no
-					NOT = { has_character_flag = is_vee }
-				}
-				move_character = ROOT
-				imprison = yes
-				add_trait = prevent_marriage
-				opinion = {
-					modifier = monarch_modifier
-					who = ROOT
-					years = 100
-				}
-				set_character_flag = imprisioned_for_experiments
-				mother = { narrative_event = { id = ACS.00034 } }
-				father = { narrative_event = { id = ACS.00034 } }
-			}            
-		}			
-	}		
+    	}		
+	}
 }
 
 # ACS.00038 - Jail if mother or father are prisoners
@@ -1201,10 +1119,10 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
-					mother = {
+					mother_even_if_dead = {
 						has_character_flag = imprisioned_for_experiments
 					}
-					true_father = {
+					true_father_even_if_dead = {
 						has_character_flag = imprisioned_for_experiments
 					}
 				}
@@ -1212,5 +1130,25 @@ character_event = {
 			set_character_flag = imprisioned_for_experiments
 			imprison = yes						
 		}
+	}
+}
+
+# ACS.00039 - Vee has a child every year to ensure hosts
+character_event = {
+	id = ACS.00039
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_vee
+
+	immediate = {
+		if = {
+			limit = {
+				is_married = yes
+			}
+			random_spouse = {
+				save_event_target_as = vee_spouse
+			}
+			impregnate = event_target:vee_spouse
+		}		
 	}
 }
