@@ -15,15 +15,12 @@ targetted_decisions = {
     		is_female = yes
     		is_incapable = no
 			prisoner = no
-    		OR = {
-    			trait = sharingan
-    		}
+    		trait = sharingan
     		NOT = { trait = syrena }
   		}
 
 		allow = {
 			has_global_flag = vanished_vee
-			FROM = { is_liege_of = ROOT }
 		}
 
   		effect = {

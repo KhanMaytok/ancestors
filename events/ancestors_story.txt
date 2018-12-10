@@ -633,6 +633,8 @@ character_event = {
 	is_triggered_only = yes
 	has_character_flag = is_vee
 
+	trigger = { trait = syrena }
+
 	immediate = {
 		set_global_flag = vanished_vee
 		pentaghast_society = {
@@ -677,7 +679,7 @@ narrative_event = {
 				}				
 				narrative_event = { id = ACS.00027}
 			}
-		}		
+		}
 
 		pentaghast_society = {
 			any_society_member = {
@@ -703,6 +705,7 @@ narrative_event = {
 	option = {
 		name = ACS_00027_OPT_A
 		mother = {
+			remove_trait = syrena
 			death = { death_reason = death_poor_health }
 		}
 		add_trait = syrena
