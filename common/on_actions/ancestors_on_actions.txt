@@ -60,3 +60,12 @@ on_adulthood = {
 		# ACS.41  # first Vee impregnation
 	}
 }
+
+# A character has switched their society interest
+# Root = Character
+# From = Society
+on_character_switch_society_interest = {
+	events = {
+		ACS.00202 # Begin societies recruitment
+	}
+}

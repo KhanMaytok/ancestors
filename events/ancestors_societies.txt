@@ -236,3 +236,95 @@ character_event = {
 		}
 	}	
 }
+
+# ACS.00202 - Trigger for a character interested in society
+character_event = {
+	id = ACS.00202
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		OR = {
+			interested_in_society = pentaghast_society
+			interested_in_society = sakya_society
+		}
+	}
+
+	immediate = {
+		character_event = { id = ACS.00203 days = 30 random = 15 }
+	}
+}
+
+#ACS.00203 - Select recluter
+character_event = {
+	id = ACS.00203
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		OR = {
+			interested_in_society = pentaghast_society
+			interested_in_society = sakya_society
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { prisoner = yes }
+			repeat_event = { id = ACS.00203 days = 90 random = 640 }
+			break = yes
+		}
+		#SAKYA
+		if = {
+			limit = {
+				interested_in_society = sakya_society
+				NOT = { has_character_flag = being_recruited_by_sakya }
+			}
+
+			random_society_member = {
+				limit = {
+					society_member_of = sakya_society
+					is_society_grandmaster = no
+				}
+				save_event_target_as = sakya_recruiter
+				character_event = { id = MNM.10012 }
+			}
+		}
+		#PENTAGHAST
+		if = {
+			limit = {
+				interested_in_society = pentaghast_society
+				NOT = { has_character_flag = being_recruited_by_pentaghast }
+			}
+			random_society_member = {
+				limit = {
+					society_member_of = pentaghast_society
+					is_society_grandmaster = no
+				}
+				save_event_target_as = satanists_recruiter
+				# character_event = { id = MNM.10013 }
+                character_event = { id = ACS.00204 }
+			}
+		}
+	}	
+}
+
+# Setting up the flags for posible candidate
+character_event = {
+	id = ACS.00204
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = {
+			set_character_flag = being_recruited_by_pentaghast
+			# character_event = { id = MNM.7001 }
+            character_event = { id = ACS.00205 }
+		}
+	}
+}
