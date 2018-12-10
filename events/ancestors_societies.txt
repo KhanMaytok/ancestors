@@ -1,8 +1,8 @@
 NAMESPACE = ACS
 
-# ACS.200 - Spawn some characters for Pentaghast and Sakya
+# ACS.00200 - Spawn some characters for Pentaghast and Sakya
 character_event = {
-    id = ACS.200
+    id = ACS.00200
     hide_window = yes
     is_triggered_only = yes
 
@@ -205,4 +205,34 @@ character_event = {
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
         }        
     }
+}
+
+# ACS.00201 - TIER 4 pentaghast causes disasters
+character_event = {
+	id = ACS.00201
+	is_triggered_only = yes
+	hide_window = yes
+	is_in_society = yes
+
+	trigger = {
+		society_member_of = pentaghast_society
+		society_rank == 4
+		is_landed = no
+		prisoner = no
+		is_incapable = no
+	}
+
+	immediate = {
+		random_playable_ruler = {
+			save_event_target_as = target_for_revolt
+			location = {
+				random_neighbor_province = {
+					add_province_modifier = { name = visitated_by_pentaghast days = 33 }
+				}
+			}
+		}
+		ROOT = {
+			move_character = event_target:target_for_revolt			
+		}
+	}	
 }
