@@ -139,7 +139,7 @@ narrative_event = {
 			set_character_flag = originated_from_chinese_court
 			culture = khazar
 			dynasty = 300000
-			character_event = { id = ACS.200 }
+			character_event = { id = ACS.200 days = 15 }
 			character_event = { id = ACS.00013 } # Moves to sakya mercenary band
 		}
 		create_character = {
@@ -335,6 +335,24 @@ narrative_event = {
 	}
 }
 
+# ACS.00011 - Tilda gets Mercenary Sakya title
+character_event = {
+	id = ACS.00011
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = is_ancient_one
+	}
+
+	immediate = {
+		d_mercenary_sakya = {
+			grant_title = PREV
+            set_defacto_liege = THIS
+		}		
+	}
+}
+
 # ACS.00013 - Move Tilda OR Khalga to mercenary Sakya
 character_event = {
 	id = ACS.00013
@@ -345,7 +363,7 @@ character_event = {
 		random_character = {
             limit = { has_landed_title = d_mercenary_sakya }
             character_event = { id = ACS.00014 }
-        }
+        }		
 	}
 }
 
@@ -357,8 +375,9 @@ character_event = {
 
 	immediate = {
 		FROM = {
-            move_character = ROOT	
-        }		
+            move_character = ROOT
+			character_event = { id = ACS.00011 }
+        }
 	}
 }
 
