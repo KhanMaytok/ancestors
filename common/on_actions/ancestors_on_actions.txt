@@ -12,6 +12,7 @@ on_yearly_pulse = {
 		# ACS.00035 # Reproduction of kidnapped characters
 		# ACS.00036  # Kidnap of Byakugan child
 		ACS.00039 # Vee has a child every year to ensure hosts
+		ACS.00040 # TIER 4 pentaghast causes disasters
 	}
 }
 

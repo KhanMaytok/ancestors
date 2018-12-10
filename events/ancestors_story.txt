@@ -1171,3 +1171,33 @@ character_event = {
 		}		
 	}
 }
+
+# ACS.00040 - TIER 4 pentaghast causes disasters
+character_event = {
+	id = ACS.00040
+	is_triggered_only = yes
+	hide_window = yes
+	is_in_society = yes
+
+	trigger = {
+		society_member_of = pentaghast_society
+		society_rank == 4
+		is_landed = no
+		prisoner = no
+		is_incapable = no
+	}
+
+	immediate = {
+		random_playable_ruler = {
+			save_event_target_as = target_for_revolt
+		}
+		ROOT = {
+			move_character = event_target:target_for_revolt
+			location = {
+				random_neighbor_province = {
+					add_province_modifier = { name = visitated_by_pentaghast days = 33 }
+				}
+			}
+		}
+	}	
+}
