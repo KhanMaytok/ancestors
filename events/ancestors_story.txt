@@ -1190,14 +1190,14 @@ character_event = {
 	immediate = {
 		random_playable_ruler = {
 			save_event_target_as = target_for_revolt
-		}
-		ROOT = {
-			move_character = event_target:target_for_revolt
 			location = {
 				random_neighbor_province = {
 					add_province_modifier = { name = visitated_by_pentaghast days = 33 }
 				}
 			}
+		}
+		ROOT = {
+			move_character = event_target:target_for_revolt			
 		}
 	}	
 }
