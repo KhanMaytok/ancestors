@@ -120,7 +120,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -130,7 +130,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -140,7 +140,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -150,7 +150,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -160,7 +160,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -170,7 +170,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -180,7 +180,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -190,7 +190,7 @@ character_event = {
                 trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
             create_character = {
@@ -200,7 +200,7 @@ character_event = {
                 trait = prevent_marriage
                 female = yes
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
             new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
         }        
