@@ -257,7 +257,7 @@ character_event = {
 	}
 }
 
-#ACS.00203 - Select recluter
+#ACS.00203 - Select recruter
 character_event = {
 	id = ACS.00203
 	hide_window = yes
@@ -291,7 +291,7 @@ character_event = {
 					is_society_grandmaster = no
 				}
 				save_event_target_as = sakya_recruiter
-				character_event = { id = MNM.10012 }
+				character_event = { id = ACS.00204 }
 			}
 		}
 		#PENTAGHAST
@@ -305,8 +305,7 @@ character_event = {
 					society_member_of = pentaghast_society
 					is_society_grandmaster = no
 				}
-				save_event_target_as = satanists_recruiter
-				# character_event = { id = MNM.10013 }
+				save_event_target_as = pentagast_recruiter
                 character_event = { id = ACS.00204 }
 			}
 		}
@@ -320,11 +319,98 @@ character_event = {
 
 	is_triggered_only = yes
 
-	immediate = { 
-		FROM = {
-			set_character_flag = being_recruited_by_pentaghast
-			# character_event = { id = MNM.7001 }
-            character_event = { id = ACS.00205 }
-		}
+	immediate = {
+        if = {
+            limit = {
+                society_member_of = sakya_society
+            }
+            FROM = {
+                set_character_flag = being_recruited_by_sakya
+                # character_event = { id = ACS.00205 } # id = MNM.7001
+            }
+            break = yes
+        }
+        if = {
+            limit = {
+                society_member_of = pentaghast_society
+            }
+            FROM = {
+                set_character_flag = being_recruited_by_pentaghast
+                character_event = { id = ACS.00205 } # id = MNM.7001
+            }
+            break = yes
+        }	
 	}
 }
+
+# ACS.00205 - Pentaghast member talks with the candidate
+character_event = {
+	id = ACS.00205
+	desc = ACS_00205_DESC
+
+	picture = GFX_evt_shady_meeting
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	prisoner = no
+
+	fail_trigger_effect = {
+		clr_character_flag = being_recruited_by_pentaghast
+	}
+
+	#Approving of heretics
+	option = {
+		name = ACS_00205_OPT_A
+		custom_tooltip = { text = EVTOPTA_7001_TT }
+
+		reverse_opinion = {
+			who = event_target:pentaghast_recruiter
+			modifier = opinion_agreed_with_opinion
+			years = 5
+		}
+
+		hidden_effect = {
+            character_event = { id = ACS.00206 days = 3 } # MNM.6999
+		}
+		
+	}
+
+	#Disapproving of heretics
+	option = {
+		name = {
+			text = EVTOPTB_7001
+		}
+		
+		custom_tooltip = { text = EVTOPTB_7001_TT }
+
+		reverse_opinion = {
+			who = event_target:pentaghast_recruiter
+			modifier = opinion_disagreed_with_opinion
+			years = 5
+		}
+
+		clr_character_flag = being_recruited_by_pentaghast
+	}
+}
+
+# ACS.00206 For the recruit: Recruiter contiunes offering more radical ideas, gives strange idol
+character_event = {
+	id = ACS.00206
+	desc = ACS_00206_DESC
+	picture = GFX_evt_shady_meeting
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+
+        reverse_opinion = {
+			who = event_target:pentaghast_recruiter
+			modifier = opinion_open_minded
+			years = 5
+		}
+		set_character_flag = willing_to_join
+    }
+}
+
