@@ -994,7 +994,6 @@ narrative_event = {
 	}
 }
 
-
 # ACS.00035 - Reproduction of kidnapped characters
 character_event = {
 	id = ACS.00035
