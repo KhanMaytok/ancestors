@@ -28,16 +28,15 @@ character_event = {
                     random_traits = yes
                     female = yes
                 }
-                new_character = { join_society = sakya_society society_rank_up = 3 }
-
-                create_character = {
-                    random_traits = yes
-                    female = no
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 3
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
                 }
-                new_character = { join_society = sakya_society society_rank_up = 3 }
             }
             # Fill the tier 3 seats
-            set_variable = { which = count value = 25 }
+            set_variable = { which = count value = 10 }
             while = {
                 limit = {
                     check_variable = {
@@ -49,40 +48,44 @@ character_event = {
                     which = count
                     value = 1
                 }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                }
-                new_character = { join_society = sakya_society society_rank_up = 2 }
-            }
-            # Fill the tier 2 seats
-            set_variable = { which = count value = 25 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                }
-                new_character = { join_society = sakya_society society_rank_up = 1 }
-
                 create_character = {
                     random_traits = yes
                     female = no
                 }
-                new_character = { join_society = sakya_society society_rank_up = 1 }            
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 2
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
+                }
+            }
+            # Fill the tier 2 seats
+            set_variable = { which = count value = 20 }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = count
+                        value = 1
+                    }
+                }
+                subtract_variable = {
+                    which = count
+                    value = 1
+                }
+                create_character = {
+                    random_traits = yes
+                    female = yes
+                }
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 1
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
+                }            
             }
 
             # Fill the tier 1 seats
-            set_variable = { which = count value = 50 }
+            set_variable = { which = count value = 30 }
             while = {
                 limit = {
                     check_variable = {
@@ -96,15 +99,13 @@ character_event = {
                 }
                 create_character = {
                     random_traits = yes
-                    female = yes
-                }
-                new_character = { join_society = sakya_society }
-
-                create_character = {
-                    random_traits = yes
                     female = no
                 }
-                new_character = { join_society = sakya_society }            
+                new_character = {
+                    join_society = sakya_society
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
+                }            
             }  
         }
 
@@ -122,7 +123,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Geirdriful"
                 trait = ambitious
@@ -132,7 +139,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Eir"
                 trait = ambitious
@@ -142,7 +155,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Kara"
                 trait = ambitious
@@ -152,7 +171,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Rota"
                 trait = ambitious
@@ -162,7 +187,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Olrun"
                 trait = ambitious
@@ -172,7 +203,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Gondul"
                 trait = ambitious
@@ -182,7 +219,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Hildr"
                 trait = ambitious
@@ -192,7 +235,13 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Sigrun"
                 trait = ambitious
@@ -202,12 +251,18 @@ character_event = {
                 culture = FROM
                 religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
         }        
     }
 }
 
-# ACS.00201 - TIER 4 pentaghast causes disasters
+# ACS.00201 - Send agent to a random province
 character_event = {
 	id = ACS.00201
 	is_triggered_only = yes
@@ -215,8 +270,54 @@ character_event = {
 	is_in_society = yes
 
 	trigger = {
+        OR = {
+            society_member_of = pentaghast_society
+            society_member_of = sakya_society
+        }		
+		is_landed = no
+		prisoner = no
+		is_incapable = no
+	}
+
+	immediate = {
+        location = {
+            random_province = {
+                limit = {
+                    is_land = yes
+                    num_of_settlements >= 2
+                }
+                random_province_holding = {
+                    limit = {
+                        is_capital = no
+                    }
+                    holder_scope = {
+                        save_event_target_as = target_holding_owner
+                    }
+                }
+            }
+        }
+        ROOT = {
+            move_character = event_target:target_holding_owner
+            if = {
+                limit = {
+                    society_member_of = pentaghast_society
+                }
+                character_event = { id = ACS.00202 }
+            }
+        }
+	}	
+}
+
+# ACS.00202 - Pentaghast causes civil unrest
+character_event = {
+	id = ACS.00202
+	is_triggered_only = yes
+	hide_window = yes
+	is_in_society = yes
+
+	trigger = {
 		society_member_of = pentaghast_society
-		society_rank == 4
+		society_rank == 3
 		is_landed = no
 		prisoner = no
 		is_incapable = no
@@ -232,14 +333,14 @@ character_event = {
 			}
 		}
 		ROOT = {
-			move_character = event_target:target_for_revolt			
+			move_character = event_target:target_for_revolt
 		}
 	}	
 }
 
 # ACS.00202 - Trigger for a character interested in society
 character_event = {
-	id = ACS.00202
+	id = ACS.00220
 	hide_window = yes
 
 	is_triggered_only = yes
