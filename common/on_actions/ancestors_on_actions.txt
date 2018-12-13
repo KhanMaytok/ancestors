@@ -4,6 +4,12 @@ on_startup = {
 	}
 }
 
+on_society_bi_yearly_pulse = {
+	events = {
+		ACS.00201 #  Send agent to a random province
+	}
+}
+
 on_yearly_pulse = {
 	events = {
 		ACS.00015 # Khalga go around the world every year, searching characters - select the target
@@ -11,21 +17,7 @@ on_yearly_pulse = {
 		# ACS.00031 # Kidnapping. Check for Pentaghast leader conditions
 		# ACS.00035 # Reproduction of kidnapped characters
 		# ACS.00036  # Kidnap of Byakugan child
-		ACS.00039 # Vee has a child every year to ensure hosts
-	}
-}
-
-on_bi_yearly_pulse = {
-	events = {
-		# ACS.25 # Vee cultivates many possible receptors
-		# ACS.35 # Pentaghast infiltrates Venezia
-		# ACS.39 # Kidnap a dojutsu child two years
-	}
-}
-
-on_five_year_pulse = {
-	events = {
-		# ACS.202 # Have AI characters join new societies
+		ACS.00039 # Vee has a child every year to ensure hosts		
 	}
 }
 
@@ -51,6 +43,15 @@ on_birth = {
 
 on_adulthood = {
 	events = {
-		# ACS.41  # first Vee impregnation
+		ACS.00040 # Ensure the correct portrait for Khalga
+	}
+}
+
+# A character has switched their society interest
+# Root = Character
+# From = Society
+on_character_switch_society_interest = {
+	events = {
+		#ACS.00202 # Begin societies recruitment
 	}
 }

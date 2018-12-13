@@ -1,8 +1,8 @@
 NAMESPACE = ACS
 
-# ACS.200 - Spawn some characters for Pentaghast and Sakya
+# ACS.00200 - Spawn some characters for Pentaghast and Sakya
 character_event = {
-    id = ACS.200
+    id = ACS.00200
     hide_window = yes
     is_triggered_only = yes
 
@@ -28,16 +28,15 @@ character_event = {
                     random_traits = yes
                     female = yes
                 }
-                new_character = { join_society = sakya_society society_rank_up = 3 }
-
-                create_character = {
-                    random_traits = yes
-                    female = no
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 3
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
                 }
-                new_character = { join_society = sakya_society society_rank_up = 3 }
             }
             # Fill the tier 3 seats
-            set_variable = { which = count value = 25 }
+            set_variable = { which = count value = 10 }
             while = {
                 limit = {
                     check_variable = {
@@ -49,40 +48,44 @@ character_event = {
                     which = count
                     value = 1
                 }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                }
-                new_character = { join_society = sakya_society society_rank_up = 2 }
-            }
-            # Fill the tier 2 seats
-            set_variable = { which = count value = 25 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                }
-                new_character = { join_society = sakya_society society_rank_up = 1 }
-
                 create_character = {
                     random_traits = yes
                     female = no
                 }
-                new_character = { join_society = sakya_society society_rank_up = 1 }            
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 2
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
+                }
+            }
+            # Fill the tier 2 seats
+            set_variable = { which = count value = 20 }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = count
+                        value = 1
+                    }
+                }
+                subtract_variable = {
+                    which = count
+                    value = 1
+                }
+                create_character = {
+                    random_traits = yes
+                    female = yes
+                }
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 1
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
+                }            
             }
 
             # Fill the tier 1 seats
-            set_variable = { which = count value = 50 }
+            set_variable = { which = count value = 30 }
             while = {
                 limit = {
                     check_variable = {
@@ -96,15 +99,13 @@ character_event = {
                 }
                 create_character = {
                     random_traits = yes
-                    female = yes
-                }
-                new_character = { join_society = sakya_society }
-
-                create_character = {
-                    random_traits = yes
                     female = no
                 }
-                new_character = { join_society = sakya_society }            
+                new_character = {
+                    join_society = sakya_society
+                    set_character_flag = originated_from_chinese_court
+                    character_event = { id = ACS.00201 }
+                }            
             }  
         }
 
@@ -117,83 +118,394 @@ character_event = {
                 name="Gunnr"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Geirdriful"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Eir"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Kara"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Rota"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Olrun"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Gondul"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Hildr"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = no
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
             create_character = {
                 name="Sigrun"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = prevent_marriage
                 female = yes
                 culture = FROM
-                religion = FROM                    
+                religion = FROM
             }
-            new_character = { join_society = pentaghast_society society_rank_up = 3 set_secret_religion = ishtar_religion }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_secret_religion = ishtar_religion
+                set_character_flag = originated_from_chinese_court
+                character_event = { id = ACS.00201 }
+            }
         }        
     }
 }
+
+# ACS.00201 - Send agent to a random province
+character_event = {
+	id = ACS.00201
+	is_triggered_only = yes
+	hide_window = yes
+	is_in_society = yes
+
+	trigger = {
+        OR = {
+            society_member_of = pentaghast_society
+            society_member_of = sakya_society
+        }		
+		is_landed = no
+		prisoner = no
+		is_incapable = no
+	}
+
+	immediate = {
+        location = {
+            random_province = {
+                limit = {
+                    is_land = yes
+                    num_of_settlements >= 2
+                }
+                random_province_holding = {
+                    limit = {
+                        is_capital = no
+                    }
+                    holder_scope = {
+                        save_event_target_as = target_holding_owner
+                    }
+                }
+            }
+        }
+        ROOT = {
+            move_character = event_target:target_holding_owner
+            if = {
+                limit = {
+                    society_member_of = pentaghast_society
+                }
+                character_event = { id = ACS.00202 }
+            }
+        }
+	}	
+}
+
+# ACS.00202 - Pentaghast causes civil unrest
+character_event = {
+	id = ACS.00202
+	is_triggered_only = yes
+	hide_window = yes
+	is_in_society = yes
+
+	trigger = {
+		society_member_of = pentaghast_society
+		society_rank == 3
+		is_landed = no
+		prisoner = no
+		is_incapable = no
+	}
+
+	immediate = {
+		location = {
+			random_neighbor_province = {
+				add_province_modifier = { name = visitated_by_pentaghast days = 60 }
+			}
+		}
+	}	
+}
+
+# ACS.00202 - Trigger for a character interested in society
+character_event = {
+	id = ACS.00220
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		OR = {
+			interested_in_society = pentaghast_society
+			interested_in_society = sakya_society
+		}
+	}
+
+	immediate = {
+		character_event = { id = ACS.00203 days = 30 random = 15 }
+	}
+}
+
+#ACS.00203 - Select recruter
+character_event = {
+	id = ACS.00203
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		OR = {
+			interested_in_society = pentaghast_society
+			interested_in_society = sakya_society
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { prisoner = yes }
+			repeat_event = { id = ACS.00203 days = 90 random = 640 }
+			break = yes
+		}
+		#SAKYA
+		if = {
+			limit = {
+				interested_in_society = sakya_society
+				NOT = { has_character_flag = being_recruited_by_sakya }
+			}
+
+			random_society_member = {
+				limit = {
+					society_member_of = sakya_society
+					is_society_grandmaster = no
+				}
+				save_event_target_as = sakya_recruiter
+				character_event = { id = ACS.00204 }
+			}
+		}
+		#PENTAGHAST
+		if = {
+			limit = {
+				interested_in_society = pentaghast_society
+				NOT = { has_character_flag = being_recruited_by_pentaghast }
+			}
+			random_society_member = {
+				limit = {
+					society_member_of = pentaghast_society
+					is_society_grandmaster = no
+				}
+				save_event_target_as = pentagast_recruiter
+                character_event = { id = ACS.00204 }
+			}
+		}
+	}	
+}
+
+# Setting up the flags for posible candidate
+character_event = {
+	id = ACS.00204
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+        if = {
+            limit = {
+                society_member_of = sakya_society
+            }
+            FROM = {
+                set_character_flag = being_recruited_by_sakya
+                # character_event = { id = ACS.00205 } # id = MNM.7001
+            }
+            break = yes
+        }
+        if = {
+            limit = {
+                society_member_of = pentaghast_society
+            }
+            FROM = {
+                set_character_flag = being_recruited_by_pentaghast
+                character_event = { id = ACS.00205 } # id = MNM.7001
+            }
+            break = yes
+        }	
+	}
+}
+
+# ACS.00205 - Pentaghast member talks with the candidate
+character_event = {
+	id = ACS.00205
+	desc = ACS_00205_DESC
+
+	picture = GFX_evt_shady_meeting
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	prisoner = no
+
+	fail_trigger_effect = {
+		clr_character_flag = being_recruited_by_pentaghast
+	}
+
+	#Approving of heretics
+	option = {
+		name = ACS_00205_OPT_A
+		custom_tooltip = { text = EVTOPTA_7001_TT }
+
+		reverse_opinion = {
+			who = event_target:pentaghast_recruiter
+			modifier = opinion_agreed_with_opinion
+			years = 5
+		}
+
+		hidden_effect = {
+            character_event = { id = ACS.00206 days = 3 } # MNM.6999
+		}
+		
+	}
+
+	#Disapproving of heretics
+	option = {
+		name = {
+			text = EVTOPTB_7001
+		}
+		
+		custom_tooltip = { text = EVTOPTB_7001_TT }
+
+		reverse_opinion = {
+			who = event_target:pentaghast_recruiter
+			modifier = opinion_disagreed_with_opinion
+			years = 5
+		}
+
+		clr_character_flag = being_recruited_by_pentaghast
+	}
+}
+
+# ACS.00206 For the recruit: Recruiter contiunes offering more radical ideas, gives strange idol
+character_event = {
+	id = ACS.00206
+	desc = ACS_00206_DESC
+	picture = GFX_evt_shady_meeting
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+
+        reverse_opinion = {
+			who = event_target:pentaghast_recruiter
+			modifier = opinion_open_minded
+			years = 5
+		}
+		set_character_flag = willing_to_join
+    }
+}
+
