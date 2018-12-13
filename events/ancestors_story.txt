@@ -259,6 +259,7 @@ narrative_event = {
 			set_character_flag = is_vee
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
 			dynasty = 300001
+			health = 20
 		}
 
 		# Khalga born
@@ -272,7 +273,6 @@ narrative_event = {
 			trait = genius
 			trait = byakugan
 			trait = strong
-			trait = khalga_trait
 			trait = prevent_marriage
 		}
 		new_character = {
@@ -285,6 +285,7 @@ narrative_event = {
 				duration = -1
 			}
 			dynasty = 300000
+			health = 20
 		}
 		liege = { # Player is notified
 			narrative_event = { id = ACS.00009 days = 1 }          
@@ -562,7 +563,6 @@ character_event = {
 			trait = genius
 			trait = byakugan
 			trait = strong
-			trait = khalga_trait
 			trait = prevent_marriage
 		}
 		new_character = {
@@ -699,6 +699,7 @@ narrative_event = {
 			death = { death_reason = death_poor_health }
 		}
 		add_trait = syrena
+		health = 20
 		set_character_flag = is_vee
 		ai_chance = { factor = 100 }    
 	}
@@ -1169,5 +1170,17 @@ character_event = {
 			}
 			impregnate = event_target:vee_spouse
 		}		
+	}
+}
+
+# ACS.00040 - Ensure the correct portrait for Khalga
+character_event = {
+	id = ACS.00040
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+
+	immediate = {
+		add_trait = khalga_trait
 	}
 }

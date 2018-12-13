@@ -1,10 +1,9 @@
 syrena = {
 	cached = yes
-	immortal = yes
 	random = no    
 	general_opinion = 50
 	sex_appeal_opinion = 300
-	health = 10
+	health = 5
 	customizer = no
 	cannot_inherit = yes
 }
