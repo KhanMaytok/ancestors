@@ -6,7 +6,8 @@ on_startup = {
 
 on_society_bi_yearly_pulse = {
 	events = {
-		ACS.00201 #  Send agent to a random province
+		ACS.00201 # Send agent to a random province
+		ACS.00208 # Force join AI characters to societies
 	}
 }
 

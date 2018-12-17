@@ -1180,6 +1180,18 @@ character_event = {
 	has_character_flag = is_khalga
 
 	immediate = {
+		character_event = { id = ACS.00041 days = 3 random = 5 }
+	}
+}
+
+# ACS.00041 - Add the khalga trait few days after adulthood
+character_event = {
+	id = ACS.00041
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+
+	immediate = {
 		add_trait = khalga_trait
 	}
 }
