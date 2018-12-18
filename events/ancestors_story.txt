@@ -60,6 +60,12 @@ province_event = {
 	immediate = { # burn it all
 		add_province_modifier = { name = devastated_by_tiamat years = 20 }
 		spawn_disease = tuberculosis
+		any_neighbor_province = {
+			limit = {
+				is_land = yes
+			}
+			spawn_disease = tuberculosis
+		}
 		any_province_character = {
 			death = { death_reason = death_murder_unknown_combustion }
 		}
