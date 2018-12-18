@@ -42,6 +42,7 @@ narrative_event = {
 				random_province = {
 					limit = {
 						not = { owner = { character = ROOT } }
+						is_land =  yes
 					}
 					province_event = { id = ACS.00002 days = 30 }                
 				}            
