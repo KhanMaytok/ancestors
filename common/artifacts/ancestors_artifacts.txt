@@ -24,3 +24,147 @@ eden_apple = {
 	picture = "GFX_eden_apple"
 	learning = 9
 }
+
+dominus_armor_human = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dominus_armor_human"
+	stacking = yes
+	slot = torso
+}
+
+dominus_armor_elf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dominus_armor_elf"
+	stacking = yes
+	slot = torso
+}
+
+dominus_armor_dark_elf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dominus_armor_dark_elf"
+	stacking = yes
+	slot = torso
+}
+
+dominus_armor_dwarf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dominus_armor_dwarf"
+	stacking = yes
+	slot = torso
+}
+
+dynasty_armor_human = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dynasty_armor_human"
+	stacking = yes
+	slot = torso
+}
+
+dynasty_armor_elf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dynasty_armor_elf"
+	stacking = yes
+	slot = torso
+}
+
+dynasty_armor_dark_elf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dynasty_armor_dark_elf"
+	stacking = yes
+	slot = torso
+}
+
+dynasty_armor_dwarf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_dynasty_armor_dwarf"
+	stacking = yes
+	slot = torso
+}
+
+reggios_armor_human = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_reggios_armor_human"
+	stacking = yes
+	slot = torso
+}
+
+reggios_armor_elf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_reggios_armor_elf"
+	stacking = yes
+	slot = torso
+}
+
+reggios_armor_dark_elf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_reggios_armor_dark_elf"
+	stacking = yes
+	slot = torso
+}
+
+reggios_armor_dwarf = {
+	learning = 1
+	combat_rating = 15
+	monthly_character_prestige = 0.25
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2	
+	flags = { ancient armor }
+	picture = "GFX_reggios_armor_dwarf"
+	stacking = yes
+	slot = torso
+}
