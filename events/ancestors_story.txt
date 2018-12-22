@@ -324,7 +324,6 @@ narrative_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		add_trait = stressed
 		random_vassal = {
 			limit = {
 				is_landed = yes
