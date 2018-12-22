@@ -275,7 +275,9 @@ character_event = {
     }
 }
 
-# ACS.00201 - Send agent to a random province
+#########################################
+# ACS.00201 - TRAVELING EVENT. GENERIC ##
+#########################################
 character_event = {
 	id = ACS.00201
 	is_triggered_only = yes
@@ -291,7 +293,6 @@ character_event = {
 		prisoner = no
 		is_incapable = no
         NOT = { has_character_flag = is_vee }
-        NOT = { has_character_flag = is_khalga }
         NOT = { has_character_flag = is_senua }
 	}
 
@@ -322,7 +323,14 @@ character_event = {
                     prisoner = no
                     is_incapable = no
                 }
-                character_event = { id = ACS.00202 }
+                # character_event = { id = ACS.00202 }
+            }
+            if = {
+                limit = {
+                    has_character_flag = is_khalga
+                }
+                character_event = { id = ACS.00017 days = 1 }
+			    character_event = { id = ACS.00019 days = 5 }
             }
         }
 	}	
@@ -344,6 +352,9 @@ character_event = {
 	}	
 }
 
+#################################
+## SOCIETIES RECRUITMENT EVENT ##
+#################################
 # ACS.00203 - Trigger for a character interested in society
 character_event = {
 	id = ACS.00203

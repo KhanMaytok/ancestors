@@ -392,43 +392,6 @@ character_event = {
 ###################
 ## KHALGA TRAVEL ##
 ###################
-# ACS.00015 - Khalga go around the world every year, kills random character. Select the character ##
-character_event = {
-	id = ACS.00015
-	hide_window = yes    
-	is_triggered_only = yes
-	has_character_flag = is_khalga
-	min_age = 16
-
-	immediate = {
-		random_playable_ruler = {
-			limit = {
-				adventurer = no
-				is_landed = yes 
-				is_married = yes 
-				age > 18
-				prisoner = no
-			}           
-			character_event = { id = ACS.00016 days = 2 }
-		}
-	}
-}
-
-# ACS.00016 - Khalga moves to the foreign court
-character_event = {
-	id = ACS.00016
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		FROM = {
-			move_character = ROOT
-			character_event = { id = ACS.00017 days = 1 }
-			character_event = { id = ACS.00019 days = 5 }
-			
-		}
-	}
-}
 
 # ACS.00017 - Select a courtier for pollinate from Khalga
 character_event = {

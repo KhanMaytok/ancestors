@@ -12,8 +12,7 @@ on_society_bi_yearly_pulse = {
 }
 
 on_yearly_pulse = {
-	events = {
-		ACS.00015 # Khalga go around the world every year, searching characters - select the target
+	events = {		
 		ACS.00026 # Check if vee has more than 33 years old
 		# ACS.00031 # Kidnapping. Check for Pentaghast leader conditions
 		# ACS.00035 # Reproduction of kidnapped characters
