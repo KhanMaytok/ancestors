@@ -288,6 +288,7 @@ character_event = {
         OR = {
             society_member_of = pentaghast_society
             society_member_of = sakya_society
+            has_character_flag = is_khalga
         }		
 		is_landed = no
 		prisoner = no
