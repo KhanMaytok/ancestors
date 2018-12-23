@@ -462,10 +462,10 @@ character_event = {
 	}
 }
 
-# ACS.00206 - Pentaghast member talks with the candidate
+# ACS.00206 - Talk about the comet
 character_event = {
 	id = ACS.00206
-	desc = ACS_00205_DESC
+	desc = ACS_00206_DESC
 
 	picture = GFX_evt_shady_meeting
 	border = GFX_event_normal_frame_intrigue
@@ -474,8 +474,8 @@ character_event = {
 	prisoner = no
 
 	option = {
-		name = ACS_00205_OPT_A
-		custom_tooltip = { text = ACS_00205_OPT_A_TT }
+		name = ACS_00206_OPT_A
+		custom_tooltip = { text = ACS_00206_OPT_A_TT }
 
 		reverse_opinion = {
 			who = event_target:pentaghast_recruiter
@@ -484,17 +484,16 @@ character_event = {
 		}
 
 		hidden_effect = {
-            character_event = { id = ACS.00207 } # MNM.6999
+            narrative_event = { id = ACS.00207 } # MNM.6999
 		}		
 	}
 
-	#Disapproving of heretics
 	option = {
 		name = {
-			text = ACS_00205_OPT_B
+			text = ACS_00206_OPT_B
 		}
 		
-		custom_tooltip = { text = ACS_00205_OPT_B_TT }
+		custom_tooltip = { text = ACS_00206_OPT_B_TT }
 
 		reverse_opinion = {
 			who = event_target:pentaghast_recruiter
@@ -503,29 +502,44 @@ character_event = {
 		}
 
 		clr_character_flag = being_recruited_by_pentaghast
+        set_character_flag = dislikes_pentaghast
 	}
 }
 
-# ACS.00207 For the recruit: Recruiter contiunes offering more radical ideas, gives strange idol
-character_event = {
+# ACS.00207 - Explains the goddess legend
+narrative_event = {
 	id = ACS.00207
-	desc = ACS_00206_DESC
+    title = ACS_00207_TITLE
+	desc = ACS_00207_DESC
 	picture = GFX_evt_shady_meeting
-	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 
     option = {
-        name = OK
-
-        reverse_opinion = {
-			who = event_target:pentaghast_recruiter
-			modifier = opinion_open_minded
-			years = 5
-		}
-		set_character_flag = willing_to_join
+        name = ACS_00207_OPT_A
 
         hidden_effect = {
-            #character_event = { id = ACS.00208 days = 30 random = 45 }
+            narrative_event = { id = ACS.00208 }
+        }
+    }
+
+    option = {
+		name =  = ACS_00207_OPT_B		
+		clr_character_flag = being_recruited_by_pentaghast
+        set_character_flag = dislikes_pentaghast
+	}
+}
+
+# ACS.00208 - Gives statue
+narrative_event = {
+	id = ACS.00208
+	desc = ACS_00208_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00207_OPT_A
+        hidden_effect = {
+            narrative_event = { id = ACS.00209 days = 30 random = 45 }
         }
     }
 }
@@ -576,6 +590,8 @@ character_event = {
 						controls_religion = no
 						block_general_event_trigger = no
 						is_landed = no
+                        NOT = { has_character_flag = is_khalga }
+                        NOT = { has_character_flag = is_vee }
 					}
 					character_event = { id = ACS.00209 }
 				}
