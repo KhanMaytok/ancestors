@@ -532,6 +532,7 @@ narrative_event = {
 # ACS.00208 - Gives statue
 narrative_event = {
 	id = ACS.00208
+    title = ACS_00208_TITLE
 	desc = ACS_00208_DESC
 	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
@@ -543,6 +544,39 @@ narrative_event = {
         }
     }
 }
+
+# ACS.00209 - Encounter in the market
+narrative_event = {
+	id = ACS.00209
+    title = ACS_00209_TITLE
+	desc = ACS_00209_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+        hidden_effect = {
+            narrative_event = { id = ACS.00210 days = 7 }
+        }
+    }
+}
+
+# ACS.00210 - Reading the book
+narrative_event = {
+	id = ACS.00210
+    title = ACS_00210_TITLE
+	desc = ACS_00210_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00210_OPT_A
+        hidden_effect = {
+            narrative_event = { id = ACS.00210 days = 30 random = 45 }
+        }
+    }
+}
+
 
 # ACS.00208 Force join AI characters to societies
 character_event = {
