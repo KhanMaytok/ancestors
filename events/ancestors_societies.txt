@@ -606,13 +606,32 @@ narrative_event = {
         name = ACS_00212_OPT_A
         wealth = -300
         hidden_effect = {
-            # character_event = { id = ACS.00213 }
+            narrative_event = { id = ACS.00213 }
         }
     }
 
     option = {
         name = ACS_00212_OPT_B
         clr_character_flag = being_recruited_by_pentaghast
+    }
+}
+
+# ACS.00213 - Milky bath
+narrative_event = {
+	id = ACS.00213
+	desc = ACS_00213_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00212_OPT_A
+        add_character_modifier = {
+			name = successful_treatment_3
+			duration = 100
+		}
+        hidden_effect = {
+            # character_event = { id = ACS.00213 }
+        }
     }
 }
 
