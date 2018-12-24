@@ -13,6 +13,7 @@ devastated_by_tiamat = {
 	supply_limit = -20.0
 }
 
+
 visited_by_pentaghast = {
 	icon = 106
 	local_revolt_risk = 6.66
