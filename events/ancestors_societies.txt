@@ -524,7 +524,7 @@ narrative_event = {
     }
 
     option = {
-		name =  = ACS_00207_OPT_B		
+		name = ACS_00207_OPT_B		
 		clr_character_flag = being_recruited_by_pentaghast
         set_character_flag = dislikes_pentaghast
 	}
