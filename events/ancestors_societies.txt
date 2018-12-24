@@ -455,7 +455,7 @@ character_event = {
             }
             FROM = {
                 set_character_flag = being_recruited_by_pentaghast
-                character_event = { id = ACS.00206 } # id = MNM.7001
+                narrative_event = { id = ACS.00206 } # id = MNM.7001
             }
             break = yes
         }	
@@ -463,8 +463,9 @@ character_event = {
 }
 
 # ACS.00206 - Talk about the comet
-character_event = {
+narrative_event = {
 	id = ACS.00206
+    title = ACS_00206_TITLE
 	desc = ACS_00206_DESC
 
 	picture = GFX_evt_shady_meeting
@@ -571,16 +572,54 @@ narrative_event = {
 
     option = {
         name = ACS_00210_OPT_A
+        add_trait = cynical
         hidden_effect = {
-            narrative_event = { id = ACS.00210 days = 30 random = 45 }
+            letter_event = { id = ACS.00211 days = 30 random = 45 }
         }
+    }
+}
+
+# ACS.00211 - Invitation to the meeting
+letter_event = {
+	id = ACS.00211
+	desc = ACS_00211_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00211_OPT_A
+        add_trait = travelling
+        hidden_effect = {
+            narrative_event = { id = ACS.00212 days = 30 random = 45 }
+        }
+    }
+}
+
+# ACS.00212 - Pay to enter
+narrative_event = {
+	id = ACS.00212
+	desc = ACS_00212_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00212_OPT_A
+        wealth = -300
+        hidden_effect = {
+            # character_event = { id = ACS.00213 }
+        }
+    }
+
+    option = {
+        name = ACS_00212_OPT_B
+        clr_character_flag = being_recruited_by_pentaghast
     }
 }
 
 
 # ACS.00208 Force join AI characters to societies
 character_event = {
-	id = ACS.00208
+	id = ACS.00500
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -627,7 +666,7 @@ character_event = {
                         NOT = { has_character_flag = is_khalga }
                         NOT = { has_character_flag = is_vee }
 					}
-					character_event = { id = ACS.00209 }
+					character_event = { id = ACS.00501 }
 				}
 			}
 		}
@@ -636,7 +675,7 @@ character_event = {
 
 # ACS.00209 - Join to society
 character_event = {
-	id = ACS.00209
+	id = ACS.00501
 	hide_window = yes
 	
 	is_triggered_only = yes
