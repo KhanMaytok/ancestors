@@ -52,6 +52,6 @@ on_adulthood = {
 # From = Society
 on_character_switch_society_interest = {
 	events = {
-		#ACS.00202 # Begin societies recruitment
+		ACS.00203 # Begin societies recruitment
 	}
 }

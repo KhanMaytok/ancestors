@@ -467,9 +467,7 @@ narrative_event = {
 	id = ACS.00206
     title = ACS_00206_TITLE
 	desc = ACS_00206_DESC
-
 	picture = GFX_evt_shady_meeting
-	border = GFX_event_normal_frame_intrigue
 
 	is_triggered_only = yes
 	prisoner = no
@@ -539,7 +537,7 @@ narrative_event = {
 	is_triggered_only = yes
 
     option = {
-        name = ACS_00207_OPT_A
+        name = ACS_00208_OPT_A
         hidden_effect = {
             narrative_event = { id = ACS.00209 days = 30 random = 45 }
         }
@@ -598,6 +596,7 @@ letter_event = {
 # ACS.00212 - Pay to enter
 narrative_event = {
 	id = ACS.00212
+    title = ACS_00212_TITLE
 	desc = ACS_00212_DESC
 	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
@@ -606,7 +605,7 @@ narrative_event = {
         name = ACS_00212_OPT_A
         wealth = -300
         hidden_effect = {
-            narrative_event = { id = ACS.00213 }
+            narrative_event = { id = ACS.00213 days = 3 }
         }
     }
 
@@ -619,18 +618,19 @@ narrative_event = {
 # ACS.00213 - Milky bath
 narrative_event = {
 	id = ACS.00213
+    title = ACS_00213_TITLE
 	desc = ACS_00213_DESC
 	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
 
     option = {
-        name = ACS_00212_OPT_A
+        name = ACS_00213_OPT_A
         add_character_modifier = {
 			name = invigorated
 			days = 100
 		}
         hidden_effect = {
-            narrative_event = { id = ACS.00214 }
+            narrative_event = { id = ACS.00214 days = 1 }
         }
     }
 }
@@ -645,7 +645,7 @@ narrative_event = {
 
     option = {
         name = OK
-        add_trait = malnourished
+        add_trait = is_malnourished
         narrative_event = { id = ACS.00215 days = 30 }
     }
 }
@@ -660,12 +660,121 @@ narrative_event = {
 
     option = {
         name = OK
-        remove_trait = malnourished
+        remove_trait = is_malnourished
         add_character_modifier = {
 			name = wine_meat
-			hidden = yes
 			days = 30
-		}        
+		}
+        narrative_event = { id = ACS.00216 days = 7 }
+    }
+}
+
+# ACS.00216 - Introduce to the chamber
+narrative_event = {
+	id = ACS.00216
+    title = ACS_00216_TITLE
+	desc = ACS_00216_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00216_OPT_A
+        narrative_event = { id = ACS.00217 }
+    }
+}
+
+# ACS.00217 - Hallucinations
+narrative_event = {
+	id = ACS.00217
+    title = ACS_00217_TITLE
+	desc = ACS_00217_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00217_OPT_A
+        add_trait = robust
+        add_character_modifier = {
+			name = hallucinating
+			days = 120
+		}
+        random_list = {
+            95 = {}
+            5 = { death = { death_reason = death_poor_health } }
+        }
+        narrative_event = { id = ACS.00218 days = 7 }
+    }
+}
+
+# ACS.00218 - Awakening after hallucinations
+narrative_event = {
+	id = ACS.00218
+    title = ACS_00218_TITLE
+	desc = ACS_00218_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00218_OPT_A
+        set_secret_religion = ishtar_religion
+        random_character = {
+            limit = {
+                trait = syrena
+                has_character_flag = is_vee
+            }
+            character_event = { id = ACS.00219 days = 7 }
+        }        
+    }
+}
+
+# ACS.00219 - Select vee
+character_event = {
+	id = ACS.00219    
+	hide_window = yes
+	is_triggered_only = yes
+
+    immediate = {
+        FROM = { narrative_event = { id = ACS.00220} }
+    }
+}
+
+# ACS.00220 - Meeting in the garden
+narrative_event = {
+	id = ACS.00220
+    title = ACS_00220_TITLE
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes    
+
+    desc = {
+        trigger = {
+            FROM = { age >= 16 }            
+        }
+        text = ACS_00220_DESC_A
+    }
+
+    desc = {
+        trigger = {
+            FROM = { age < 16 }            
+        }
+        text = ACS_00220_DESC_B
+    }
+
+    option = {
+        name = ACS_00220_OPT_A
+        narrative_event = { id = ACS.00221 }
+    }
+}
+
+# ACS.00221 - Vee recoignizing
+narrative_event = {
+	id = ACS.00221
+    title = ACS_00221_TITLE
+	desc = ACS_00221_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00221_OPT_A             
     }
 }
 
