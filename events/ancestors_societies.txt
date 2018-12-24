@@ -626,15 +626,48 @@ narrative_event = {
     option = {
         name = ACS_00212_OPT_A
         add_character_modifier = {
-			name = successful_treatment_3
-			duration = 100
+			name = invigorated
+			days = 100
 		}
         hidden_effect = {
-            # character_event = { id = ACS.00213 }
+            narrative_event = { id = ACS.00214 }
         }
     }
 }
 
+# ACS.00214 - Ayuno hallucinating
+narrative_event = {
+	id = ACS.00214
+    title = ACS_00214_TITLE
+	desc = ACS_00214_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+        add_trait = malnourished
+        narrative_event = { id = ACS.00215 days = 30 }
+    }
+}
+
+# ACS.00215 - Finish ayuno
+narrative_event = {
+	id = ACS.00215
+    title = ACS_00215_TITLE
+	desc = ACS_00215_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+        remove_trait = malnourished
+        add_character_modifier = {
+			name = wine_meat
+			hidden = yes
+			days = 30
+		}        
+    }
+}
 
 # ACS.00208 Force join AI characters to societies
 character_event = {

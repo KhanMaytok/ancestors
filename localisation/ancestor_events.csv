@@ -78,6 +78,13 @@ ACS_00213_TITLE;Unction;Unction;Unction;;Unción;;;;;;;;;x
 ACS_00213_DESC;Primero debes purificarte. Te sumergen en una tina llena de leche con olor a miel. El baño te deja una sensación increíble de fuerza y bienestar.;Primero debes purificarte. Te sumergen en una tina llena de leche con olor a miel. El baño te deja una sensación increíble de fuerza y bienestar.;Primero debes purificarte. Te sumergen en una tina llena de leche con olor a miel. El baño te deja una sensación increíble de fuerza y bienestar.;;Primero debes purificarte. Te sumergen en una tina llena de leche con olor a miel. El baño te deja una sensación increíble de fuerza y bienestar.;;;;;;;;;x
 ACS_00213_OPT_A;I feel the power;I feel the power;I feel the power;;Siento el poder.;;;;;;;;;x
 
+ACS_00214_TITLE;Fast;Fast;Fast;;Ayuno;;;;;;;;;x
+ACS_00214_DESC;Para demostrar tu temple, ayunarás durante un mes. Se te recluirá en una celda sin contacto con el exterior.;Para demostrar tu temple, ayunarás durante un mes. Se te recluirá en una celda sin contacto con el exterior.;Para demostrar tu temple, ayunarás durante un mes. Se te recluirá en una celda sin contacto con el exterior.;;Para demostrar tu temple, ayunarás durante un mes. Se te recluirá en una celda sin contacto con el exterior.;;;;;;;;;x
+
+ACS_00215_TITLE;Purified;Purified;Purified;;Purificado;;;;;;;;;x
+ACS_00215_DESC;La purificación ha concluido. Tus futuros compañeros de sociedad te envían misivas de felicitación y aliento. Ahora puedes comer y beber lo que quieras.;La purificación ha concluido. Tus futuros compañeros de sociedad te envían misivas de felicitación y aliento. Ahora puedes comer y beber lo que quieras.;La purificación ha concluido. Tus futuros compañeros de sociedad te envían misivas de felicitación y aliento. Ahora puedes comer y beber lo que quieras.;;La purificación ha concluido. Tus futuros compañeros de sociedad te envían misivas de felicitación y aliento. Ahora puedes comer y beber lo que quieras.;;;;;;;;;x
+
+
 THE_SAKJE;The Sakje;The Sakje;The Sakje;;Los Sakje;;;;;;;;;x
 EVTDESC_ACS_400;My friend has come to me. There is resolution in his eyes. He wants to kill me to acquire more power!;My friend has come to me. There is resolution in his eyes. He wants to kill me to acquire more power!;My friend has come to me. There is resolution in his eyes. He wants to kill me to acquire more power!;;Mi amigo ha venido. En su mirada hay resolución. ¡Quiere matarme para adquirir más poder!;;;;;;;;;x
 EVTOPTA_ACS_400;I will sacrifice myself for love;I will sacrifice myself for love;I will sacrifice myself for love;;Me sacrificaré por amor;;;;;;;;;x
