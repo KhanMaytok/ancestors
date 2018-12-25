@@ -874,7 +874,7 @@ narrative_event = {
 
     option = {
         name = ACS_00223_OPT_B
-        # narrative_event = { id = ACS.00223 }
+        death = { death_reason = death_missing }
     }
 }
 
