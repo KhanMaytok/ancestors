@@ -722,6 +722,7 @@ narrative_event = {
                 trait = syrena
                 has_character_flag = is_vee
             }
+            save_event_target_as = vee_recruitment_version
             character_event = { id = ACS.00219 days = 7 }
         }        
     }
@@ -802,10 +803,10 @@ narrative_event = {
 	is_triggered_only = yes
 
     option = {
+        name = ACS_00223_OPT_A
         trigger = {
             is_married = yes
         }
-        name = ACS_00223_OPT_A
         narrative_event = { id = ACS.00224 }
     }
 
@@ -822,12 +823,100 @@ narrative_event = {
             num_of_friends >= 1
         }
         name = ACS_00223_OPT_C
-        narrative_event = { id = ACS.00224 }
+       narrative_event = { id = ACS.00224 }
     }
 
     option = {
         name = ACS_00223_OPT_D
         narrative_event = { id = ACS.00224 }
+    }
+}
+
+# ACS.00223 - Kill all suitable sacrifices
+narrative_event = {
+	id = ACS.00223
+    title = ACS_00223_TITLE
+	desc = ACS_00223_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    immediate = {
+        random_spouse = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing } 
+        }
+        random_child = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing } 
+        }
+        random_friend = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing }
+        }
+        random_courtier = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing }
+        }
+    }
+
+    option = {
+        name = ACS_00223_OPT_A
+        narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        name = ACS_00223_OPT_B
+        # narrative_event = { id = ACS.00223 }
+    }
+}
+
+# ACS.00224 - Enjoy a Night with Vee
+narrative_event = {
+	id = ACS.00224
+    title = ACS_00224_TITLE
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    desc = {
+        trigger = {
+            event_target:vee_recruitment_version = { age < 16 }
+        }
+        text = ACS_00224_DESC_A
+    }
+
+    desc = {
+        trigger = {
+            event_target:vee_recruitment_version = { age >= 16 }            
+        }
+        text = ACS_00224_DESC_B
+    }
+
+    option = {
+        name = ACS_00224_OPT_A
+        narrative_event = { id = ACS.00225 }
+    }
+}
+
+# ACS.00225 - We need a sacrifice
+narrative_event = {
+	id = ACS.00225
+    title = ACS_00225_TITLE
+	desc = ACS_00225_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00225_OPT_A
+        remove_trait = travelling
+        join_society = pentaghast_society
     }
 }
 
