@@ -431,7 +431,7 @@ character_event = {
 # ACS.00019 - Khalga assassinates the host
 character_event = {
 	id = ACS.00019
-	hide_window = yes    
+	hide_window = yes
 	is_triggered_only = yes
 	
 	immediate = {

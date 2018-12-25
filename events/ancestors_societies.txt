@@ -774,7 +774,60 @@ narrative_event = {
 	is_triggered_only = yes
 
     option = {
-        name = ACS_00221_OPT_A             
+        name = ACS_00221_OPT_A
+        narrative_event = { id = ACS.00222 }
+    }
+}
+
+# ACS.00222 - We need a sacrifice
+narrative_event = {
+	id = ACS.00222
+    title = ACS_00222_TITLE
+	desc = ACS_00222_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00222_OPT_A
+        narrative_event = { id = ACS.00223 }
+    }
+}
+
+# ACS.00223 - Select a suitable sacrifice
+narrative_event = {
+	id = ACS.00223
+    title = ACS_00223_TITLE
+	desc = ACS_00223_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        trigger = {
+            is_married = yes
+        }
+        name = ACS_00223_OPT_A
+        narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        trigger = {
+            has_children = yes
+        }
+        name = ACS_00223_OPT_B
+        narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        trigger = {
+            num_of_friends >= 1
+        }
+        name = ACS_00223_OPT_C
+        narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        name = ACS_00223_OPT_D
+        narrative_event = { id = ACS.00224 }
     }
 }
 
