@@ -570,6 +570,7 @@ narrative_event = {
 
     option = {
         name = ACS_00210_OPT_A
+        remove_trait = zealous
         add_trait = cynical
         hidden_effect = {
             letter_event = { id = ACS.00211 days = 30 random = 45 }
@@ -832,11 +833,11 @@ narrative_event = {
     }
 }
 
-# ACS.00223 - Kill all suitable sacrifices
+# ACS.00224 - Kill all suitable sacrifices
 narrative_event = {
-	id = ACS.00223
-    title = ACS_00223_TITLE
-	desc = ACS_00223_DESC
+	id = ACS.00224
+    title = ACS_00224_TITLE
+	desc = ACS_00224_DESC
 	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
 
@@ -868,20 +869,20 @@ narrative_event = {
     }
 
     option = {
-        name = ACS_00223_OPT_A
-        narrative_event = { id = ACS.00224 }
+        name = ACS_00224_OPT_A
+        narrative_event = { id = ACS.00225 }
     }
 
     option = {
-        name = ACS_00223_OPT_B
+        name = ACS_00224_OPT_B
         death = { death_reason = death_missing }
     }
 }
 
-# ACS.00224 - Enjoy a Night with Vee
+# ACS.00225 - Enjoy a Night with Vee
 narrative_event = {
-	id = ACS.00224
-    title = ACS_00224_TITLE
+	id = ACS.00225
+    title = ACS_00225_TITLE
 	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
 
@@ -889,32 +890,32 @@ narrative_event = {
         trigger = {
             event_target:vee_recruitment_version = { age < 16 }
         }
-        text = ACS_00224_DESC_A
+        text = ACS_00225_DESC_A
     }
 
     desc = {
         trigger = {
             event_target:vee_recruitment_version = { age >= 16 }            
         }
-        text = ACS_00224_DESC_B
+        text = ACS_00225_DESC_B
     }
 
     option = {
-        name = ACS_00224_OPT_A
-        narrative_event = { id = ACS.00225 }
+        name = ACS_00225_OPT_A
+        narrative_event = { id = ACS.00226 }
     }
 }
 
-# ACS.00225 - We need a sacrifice
+# ACS.00226 - Homecoming
 narrative_event = {
-	id = ACS.00225
-    title = ACS_00225_TITLE
-	desc = ACS_00225_DESC
+	id = ACS.00226
+    title = ACS_00226_TITLE
+	desc = ACS_00226_DESC
 	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
 
     option = {
-        name = ACS_00225_OPT_A
+        name = ACS_00226_OPT_A
         remove_trait = travelling
         join_society = pentaghast_society
     }
