@@ -18,3 +18,9 @@ visited_by_pentaghast = {
 	icon = 106
 	local_revolt_risk = 6.66
 }
+
+orichalcum_statue = {
+	icon = 52
+	fertility = 0.2
+	monthly_character_prestige = 0.10
+}

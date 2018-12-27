@@ -418,6 +418,7 @@ character_event = {
 			limit = {
 				interested_in_society = pentaghast_society
 				NOT = { has_character_flag = being_recruited_by_pentaghast }
+                NOT = { has_character_flag = dislikes_pentaghast }
 			}
 			random_society_member = {
 				limit = {
@@ -476,29 +477,14 @@ narrative_event = {
 		name = ACS_00206_OPT_A
 		custom_tooltip = { text = ACS_00206_OPT_A_TT }
 
-		reverse_opinion = {
-			who = event_target:pentaghast_recruiter
-			modifier = opinion_agreed_with_opinion
-			years = 5
-		}
-
 		hidden_effect = {
             narrative_event = { id = ACS.00207 } # MNM.6999
 		}		
 	}
 
 	option = {
-		name = {
-			text = ACS_00206_OPT_B
-		}
-		
+		name = ACS_00206_OPT_B		
 		custom_tooltip = { text = ACS_00206_OPT_B_TT }
-
-		reverse_opinion = {
-			who = event_target:pentaghast_recruiter
-			modifier = opinion_disagreed_with_opinion
-			years = 5
-		}
 
 		clr_character_flag = being_recruited_by_pentaghast
         set_character_flag = dislikes_pentaghast
@@ -515,10 +501,7 @@ narrative_event = {
 
     option = {
         name = ACS_00207_OPT_A
-
-        hidden_effect = {
-            narrative_event = { id = ACS.00208 }
-        }
+        narrative_event = { id = ACS.00208 }
     }
 
     option = {
@@ -538,9 +521,11 @@ narrative_event = {
 
     option = {
         name = ACS_00208_OPT_A
-        hidden_effect = {
-            narrative_event = { id = ACS.00209 days = 30 random = 45 }
-        }
+        add_character_modifier = {
+			name = orichalcum_statue
+			years = 100
+		}
+        narrative_event = { id = ACS.00209 days = 30 random = 45 }
     }
 }
 
@@ -680,7 +665,38 @@ narrative_event = {
 
     option = {
         name = ACS_00216_OPT_A
-        narrative_event = { id = ACS.00217 }
+        random_list = {
+            95 = {
+                narrative_event = { id = ACS.00217 }
+            }
+            5 = {
+                modifier = {
+                    has_mental_disorder_trigger = yes
+                    factor = 5
+                }               
+                modifier = {
+                    trait = maimed
+                    factor = 20.0
+                }
+                modifier = {
+                    has_injury_trigger = yes
+                    factor = 10.0
+                }
+                modifier = {
+                    has_disease_trigger = yes
+                    factor = 10.0
+                }
+                modifier = {
+                    has_symptom_trigger = yes
+                    factor = 5.0
+                }
+                modifier = {
+                    has_minor_disease_trigger = yes
+                    factor = 7.5
+                }
+                death = { death_reason = death_poor_health }
+            }
+        }        
     }
 }
 
@@ -699,10 +715,6 @@ narrative_event = {
 			name = hallucinating
 			days = 120
 		}
-        random_list = {
-            95 = {}
-            5 = { death = { death_reason = death_poor_health } }
-        }
         narrative_event = { id = ACS.00218 days = 7 }
     }
 }
@@ -891,6 +903,7 @@ narrative_event = {
             event_target:vee_recruitment_version = { age < 16 }
         }
         text = ACS_00225_DESC_A
+        picture = GFX_evt_vee_throne
     }
 
     desc = {
@@ -898,6 +911,7 @@ narrative_event = {
             event_target:vee_recruitment_version = { age >= 16 }            
         }
         text = ACS_00225_DESC_B
+        picture = GFX_evt_vee_in_bed
     }
 
     option = {
