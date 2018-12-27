@@ -655,7 +655,7 @@ narrative_event = {
     }
 }
 
-# ACS.00216 - Introduce to the chamber
+# ACS.00216 - Introduce to the chamber and take the potion
 narrative_event = {
 	id = ACS.00216
     title = ACS_00216_TITLE
