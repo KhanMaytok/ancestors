@@ -26,6 +26,7 @@ character_event = {
                 }
                 create_character = {
                     random_traits = yes
+                    trait = travelling
                     female = yes
                 }
                 new_character = {
@@ -51,6 +52,7 @@ character_event = {
                 create_character = {
                     random_traits = yes
                     female = no
+                    trait = travelling
                 }
                 new_character = {
                     join_society = sakya_society
@@ -75,6 +77,7 @@ character_event = {
                 create_character = {
                     random_traits = yes
                     female = yes
+                    trait = travelling
                 }
                 new_character = {
                     join_society = sakya_society
@@ -100,6 +103,7 @@ character_event = {
                 create_character = {
                     random_traits = yes
                     female = no
+                    trait = travelling
                 }
                 new_character = {
                     join_society = sakya_society
@@ -118,6 +122,7 @@ character_event = {
                 name="Gunnr"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -134,6 +139,7 @@ character_event = {
                 name="Geirdriful"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -150,6 +156,7 @@ character_event = {
                 name="Eir"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -166,6 +173,7 @@ character_event = {
                 name="Kara"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -182,6 +190,7 @@ character_event = {
                 name="Rota"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -198,6 +207,7 @@ character_event = {
                 name="Olrun"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -214,6 +224,7 @@ character_event = {
                 name="Gondul"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -230,6 +241,7 @@ character_event = {
                 name="Hildr"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = no
                 culture = FROM
@@ -246,6 +258,7 @@ character_event = {
                 name="Sigrun"
                 trait = ambitious
 			    trait = elusive_shadow
+                trait = travelling
                 trait = prevent_marriage
                 female = yes
                 culture = FROM
@@ -262,7 +275,9 @@ character_event = {
     }
 }
 
-# ACS.00201 - Send agent to a random province
+#########################################
+# ACS.00201 - TRAVELING EVENT. GENERIC ##
+#########################################
 character_event = {
 	id = ACS.00201
 	is_triggered_only = yes
@@ -273,10 +288,13 @@ character_event = {
         OR = {
             society_member_of = pentaghast_society
             society_member_of = sakya_society
+            has_character_flag = is_khalga
         }		
 		is_landed = no
 		prisoner = no
 		is_incapable = no
+        NOT = { has_character_flag = is_vee }
+        NOT = { has_character_flag = is_senua }
 	}
 
 	immediate = {
@@ -301,8 +319,19 @@ character_event = {
             if = {
                 limit = {
                     society_member_of = pentaghast_society
+                    society_rank == 3
+                    is_landed = no
+                    prisoner = no
+                    is_incapable = no
                 }
-                character_event = { id = ACS.00202 }
+                # character_event = { id = ACS.00202 }
+            }
+            if = {
+                limit = {
+                    has_character_flag = is_khalga
+                }
+                character_event = { id = ACS.00017 days = 1 }
+			    character_event = { id = ACS.00019 days = 5 }
             }
         }
 	}	
@@ -315,44 +344,19 @@ character_event = {
 	hide_window = yes
 	is_in_society = yes
 
-	trigger = {
-		society_member_of = pentaghast_society
-		society_rank == 3
-		is_landed = no
-		prisoner = no
-		is_incapable = no
-	}
-
 	immediate = {
 		location = {
 			random_neighbor_province = {
-				add_province_modifier = { name = visitated_by_pentaghast days = 60 }
+				add_province_modifier = { name = visited_by_pentaghast days = 66 }
 			}
 		}
 	}	
 }
 
-# ACS.00202 - Trigger for a character interested in society
-character_event = {
-	id = ACS.00220
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	trigger = {
-		is_in_society = no
-		OR = {
-			interested_in_society = pentaghast_society
-			interested_in_society = sakya_society
-		}
-	}
-
-	immediate = {
-		character_event = { id = ACS.00203 days = 30 random = 15 }
-	}
-}
-
-#ACS.00203 - Select recruter
+#################################
+## SOCIETIES RECRUITMENT EVENT ##
+#################################
+# ACS.00203 - Trigger for a character interested in society
 character_event = {
 	id = ACS.00203
 	hide_window = yes
@@ -368,9 +372,29 @@ character_event = {
 	}
 
 	immediate = {
+		character_event = { id = ACS.00204 days = 30 random = 15 }
+	}
+}
+
+#ACS.00204 - Select recruter
+character_event = {
+	id = ACS.00204
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		OR = {
+			interested_in_society = pentaghast_society
+			interested_in_society = sakya_society
+		}
+	}
+
+	immediate = {
 		if = {
 			limit = { prisoner = yes }
-			repeat_event = { id = ACS.00203 days = 90 random = 640 }
+			repeat_event = { id = ACS.00204 days = 90 random = 640 }
 			break = yes
 		}
 		#SAKYA
@@ -386,7 +410,7 @@ character_event = {
 					is_society_grandmaster = no
 				}
 				save_event_target_as = sakya_recruiter
-				character_event = { id = ACS.00204 }
+				character_event = { id = ACS.00205 }
 			}
 		}
 		#PENTAGHAST
@@ -394,6 +418,7 @@ character_event = {
 			limit = {
 				interested_in_society = pentaghast_society
 				NOT = { has_character_flag = being_recruited_by_pentaghast }
+                NOT = { has_character_flag = dislikes_pentaghast }
 			}
 			random_society_member = {
 				limit = {
@@ -401,15 +426,15 @@ character_event = {
 					is_society_grandmaster = no
 				}
 				save_event_target_as = pentagast_recruiter
-                character_event = { id = ACS.00204 }
+                character_event = { id = ACS.00205 }
 			}
 		}
 	}	
 }
 
-# Setting up the flags for posible candidate
+# ACS.00205 Setting up the flags for posible candidate
 character_event = {
-	id = ACS.00204
+	id = ACS.00205
 	hide_window = yes
 
 	is_triggered_only = yes
@@ -431,81 +456,641 @@ character_event = {
             }
             FROM = {
                 set_character_flag = being_recruited_by_pentaghast
-                character_event = { id = ACS.00205 } # id = MNM.7001
+                narrative_event = { id = ACS.00206 } # id = MNM.7001
             }
             break = yes
         }	
 	}
 }
 
-# ACS.00205 - Pentaghast member talks with the candidate
-character_event = {
-	id = ACS.00205
-	desc = ACS_00205_DESC
-
+# ACS.00206 - Talk about the comet
+narrative_event = {
+	id = ACS.00206
+    title = ACS_00206_TITLE
+	desc = ACS_00206_DESC
 	picture = GFX_evt_shady_meeting
-	border = GFX_event_normal_frame_intrigue
 
 	is_triggered_only = yes
-
 	prisoner = no
 
-	fail_trigger_effect = {
-		clr_character_flag = being_recruited_by_pentaghast
-	}
-
-	#Approving of heretics
 	option = {
-		name = ACS_00205_OPT_A
-		custom_tooltip = { text = EVTOPTA_7001_TT }
-
-		reverse_opinion = {
-			who = event_target:pentaghast_recruiter
-			modifier = opinion_agreed_with_opinion
-			years = 5
-		}
+		name = ACS_00206_OPT_A
+		custom_tooltip = { text = ACS_00206_OPT_A_TT }
 
 		hidden_effect = {
-            character_event = { id = ACS.00206 days = 3 } # MNM.6999
-		}
-		
+            narrative_event = { id = ACS.00207 } # MNM.6999
+		}		
 	}
 
-	#Disapproving of heretics
 	option = {
-		name = {
-			text = EVTOPTB_7001
-		}
-		
-		custom_tooltip = { text = EVTOPTB_7001_TT }
-
-		reverse_opinion = {
-			who = event_target:pentaghast_recruiter
-			modifier = opinion_disagreed_with_opinion
-			years = 5
-		}
+		name = ACS_00206_OPT_B		
+		custom_tooltip = { text = ACS_00206_OPT_B_TT }
 
 		clr_character_flag = being_recruited_by_pentaghast
+        set_character_flag = dislikes_pentaghast
 	}
 }
 
-# ACS.00206 For the recruit: Recruiter contiunes offering more radical ideas, gives strange idol
-character_event = {
-	id = ACS.00206
-	desc = ACS_00206_DESC
+# ACS.00207 - Explains the goddess legend
+narrative_event = {
+	id = ACS.00207
+    title = ACS_00207_TITLE
+	desc = ACS_00207_DESC
 	picture = GFX_evt_shady_meeting
-	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00207_OPT_A
+        narrative_event = { id = ACS.00208 }
+    }
+
+    option = {
+		name = ACS_00207_OPT_B		
+		clr_character_flag = being_recruited_by_pentaghast
+        set_character_flag = dislikes_pentaghast
+	}
+}
+
+# ACS.00208 - Gives statue
+narrative_event = {
+	id = ACS.00208
+    title = ACS_00208_TITLE
+	desc = ACS_00208_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00208_OPT_A
+        add_character_modifier = {
+			name = orichalcum_statue
+			years = 100
+		}
+        narrative_event = { id = ACS.00209 days = 30 random = 45 }
+    }
+}
+
+# ACS.00209 - Encounter in the market
+narrative_event = {
+	id = ACS.00209
+    title = ACS_00209_TITLE
+	desc = ACS_00209_DESC
+	picture = GFX_evt_shady_meeting
 	is_triggered_only = yes
 
     option = {
         name = OK
-
-        reverse_opinion = {
-			who = event_target:pentaghast_recruiter
-			modifier = opinion_open_minded
-			years = 5
-		}
-		set_character_flag = willing_to_join
+        hidden_effect = {
+            narrative_event = { id = ACS.00210 days = 7 }
+        }
     }
 }
 
+# ACS.00210 - Reading the book
+narrative_event = {
+	id = ACS.00210
+    title = ACS_00210_TITLE
+	desc = ACS_00210_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00210_OPT_A
+        remove_trait = zealous
+        add_trait = cynical
+        hidden_effect = {
+            letter_event = { id = ACS.00211 days = 30 random = 45 }
+        }
+    }
+}
+
+# ACS.00211 - Invitation to the meeting
+letter_event = {
+	id = ACS.00211
+	desc = ACS_00211_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00211_OPT_A
+        add_trait = travelling
+        hidden_effect = {
+            narrative_event = { id = ACS.00212 days = 30 random = 45 }
+        }
+    }
+}
+
+# ACS.00212 - Pay to enter
+narrative_event = {
+	id = ACS.00212
+    title = ACS_00212_TITLE
+	desc = ACS_00212_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00212_OPT_A
+        wealth = -300
+        hidden_effect = {
+            narrative_event = { id = ACS.00213 days = 3 }
+        }
+    }
+
+    option = {
+        name = ACS_00212_OPT_B
+        clr_character_flag = being_recruited_by_pentaghast
+    }
+}
+
+# ACS.00213 - Milky bath
+narrative_event = {
+	id = ACS.00213
+    title = ACS_00213_TITLE
+	desc = ACS_00213_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00213_OPT_A
+        add_character_modifier = {
+			name = invigorated
+			days = 100
+		}
+        hidden_effect = {
+            narrative_event = { id = ACS.00214 days = 1 }
+        }
+    }
+}
+
+# ACS.00214 - Ayuno hallucinating
+narrative_event = {
+	id = ACS.00214
+    title = ACS_00214_TITLE
+	desc = ACS_00214_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+        add_trait = is_malnourished
+        narrative_event = { id = ACS.00215 days = 30 }
+    }
+}
+
+# ACS.00215 - Finish ayuno
+narrative_event = {
+	id = ACS.00215
+    title = ACS_00215_TITLE
+	desc = ACS_00215_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+        remove_trait = is_malnourished
+        add_character_modifier = {
+			name = wine_meat
+			days = 30
+		}
+        narrative_event = { id = ACS.00216 days = 7 }
+    }
+}
+
+# ACS.00216 - Introduce to the chamber and take the potion
+narrative_event = {
+	id = ACS.00216
+    title = ACS_00216_TITLE
+	desc = ACS_00216_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00216_OPT_A
+        random_list = {
+            95 = {
+                narrative_event = { id = ACS.00217 }
+            }
+            5 = {
+                modifier = {
+                    has_mental_disorder_trigger = yes
+                    factor = 5
+                }               
+                modifier = {
+                    trait = maimed
+                    factor = 20.0
+                }
+                modifier = {
+                    has_injury_trigger = yes
+                    factor = 10.0
+                }
+                modifier = {
+                    has_disease_trigger = yes
+                    factor = 10.0
+                }
+                modifier = {
+                    has_symptom_trigger = yes
+                    factor = 5.0
+                }
+                modifier = {
+                    has_minor_disease_trigger = yes
+                    factor = 7.5
+                }
+                death = { death_reason = death_poor_health }
+            }
+        }        
+    }
+}
+
+# ACS.00217 - Hallucinations
+narrative_event = {
+	id = ACS.00217
+    title = ACS_00217_TITLE
+	desc = ACS_00217_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00217_OPT_A
+        add_trait = robust
+        add_character_modifier = {
+			name = hallucinating
+			days = 120
+		}
+        narrative_event = { id = ACS.00218 days = 7 }
+    }
+}
+
+# ACS.00218 - Awakening after hallucinations
+narrative_event = {
+	id = ACS.00218
+    title = ACS_00218_TITLE
+	desc = ACS_00218_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00218_OPT_A
+        set_secret_religion = ishtar_religion
+        random_character = {
+            limit = {
+                trait = syrena
+                has_character_flag = is_vee
+            }
+            save_event_target_as = vee_recruitment_version
+            character_event = { id = ACS.00219 days = 7 }
+        }        
+    }
+}
+
+# ACS.00219 - Select vee
+character_event = {
+	id = ACS.00219    
+	hide_window = yes
+	is_triggered_only = yes
+
+    immediate = {
+        FROM = { narrative_event = { id = ACS.00220} }
+    }
+}
+
+# ACS.00220 - Meeting in the garden
+narrative_event = {
+	id = ACS.00220
+    title = ACS_00220_TITLE
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes    
+
+    desc = {
+        trigger = {
+            FROM = { age >= 16 }            
+        }
+        text = ACS_00220_DESC_A
+    }
+
+    desc = {
+        trigger = {
+            FROM = { age < 16 }            
+        }
+        text = ACS_00220_DESC_B
+    }
+
+    option = {
+        name = ACS_00220_OPT_A
+        narrative_event = { id = ACS.00221 }
+    }
+}
+
+# ACS.00221 - Vee recoignizing
+narrative_event = {
+	id = ACS.00221
+    title = ACS_00221_TITLE
+	desc = ACS_00221_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00221_OPT_A
+        narrative_event = { id = ACS.00222 }
+    }
+}
+
+# ACS.00222 - We need a sacrifice
+narrative_event = {
+	id = ACS.00222
+    title = ACS_00222_TITLE
+	desc = ACS_00222_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00222_OPT_A
+        narrative_event = { id = ACS.00223 }
+    }
+}
+
+# ACS.00223 - Select a suitable sacrifice
+narrative_event = {
+	id = ACS.00223
+    title = ACS_00223_TITLE
+	desc = ACS_00223_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00223_OPT_A
+        trigger = {
+            is_married = yes
+        }
+        narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        trigger = {
+            has_children = yes
+        }
+        name = ACS_00223_OPT_B
+        narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        trigger = {
+            num_of_friends >= 1
+        }
+        name = ACS_00223_OPT_C
+       narrative_event = { id = ACS.00224 }
+    }
+
+    option = {
+        name = ACS_00223_OPT_D
+        narrative_event = { id = ACS.00224 }
+    }
+}
+
+# ACS.00224 - Kill all suitable sacrifices
+narrative_event = {
+	id = ACS.00224
+    title = ACS_00224_TITLE
+	desc = ACS_00224_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    immediate = {
+        random_spouse = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing } 
+        }
+        random_child = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing } 
+        }
+        random_friend = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing }
+        }
+        random_courtier = {
+            limit = {
+                NOT = { has_character_flag = is_vee }
+            }
+            death = { death_reason = death_missing }
+        }
+    }
+
+    option = {
+        name = ACS_00224_OPT_A
+        narrative_event = { id = ACS.00225 }
+    }
+
+    option = {
+        name = ACS_00224_OPT_B
+        death = { death_reason = death_missing }
+    }
+}
+
+# ACS.00225 - Enjoy a Night with Vee
+narrative_event = {
+	id = ACS.00225
+    title = ACS_00225_TITLE
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    desc = {
+        trigger = {
+            event_target:vee_recruitment_version = { age < 16 }
+        }
+        text = ACS_00225_DESC_A
+        picture = GFX_evt_vee_throne
+    }
+
+    desc = {
+        trigger = {
+            event_target:vee_recruitment_version = { age >= 16 }            
+        }
+        text = ACS_00225_DESC_B
+        picture = GFX_evt_vee_in_bed
+    }
+
+    option = {
+        name = ACS_00225_OPT_A
+        narrative_event = { id = ACS.00226 }
+    }
+}
+
+# ACS.00226 - Homecoming
+narrative_event = {
+	id = ACS.00226
+    title = ACS_00226_TITLE
+	desc = ACS_00226_DESC
+	picture = GFX_evt_shady_meeting
+	is_triggered_only = yes
+
+    option = {
+        name = ACS_00226_OPT_A
+        remove_trait = travelling
+        join_society = pentaghast_society
+    }
+}
+
+# ACS.00208 Force join AI characters to societies
+character_event = {
+	id = ACS.00500
+	hide_window = yes
+	is_triggered_only = yes
+
+    is_in_society = yes
+
+    trigger = {
+        OR = {
+            society_member_of = pentaghast_society
+            society_member_of = sakya_society
+        }
+    }
+	
+	immediate = {
+		if = {
+			limit = {
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				is_in_society = yes
+				society_rank < 3
+				society_can_rank_up = yes
+			}
+			random_list = {
+				80 = {}
+				20 = {
+					society_rank_up = 1					
+				}
+			}
+		}
+
+		# Select candidates on main location
+		location = {
+			holder_scope = {
+				any_courtier = {
+					limit = {
+						ai = yes
+						prisoner = no
+						NOT = { trait = incapable }
+						is_adult = yes
+						is_in_society = no
+						controls_religion = no
+						block_general_event_trigger = no
+						is_landed = no
+                        NOT = { has_character_flag = is_khalga }
+                        NOT = { has_character_flag = is_vee }
+					}
+					character_event = { id = ACS.00501 }
+				}
+			}
+		}
+	}
+}
+
+# ACS.00209 - Join to society
+character_event = {
+	id = ACS.00501
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			95 = { # do nothing
+			}
+			5 = { # try to join a society			
+				random_list = {
+					700 = { } # Fall back dead weight
+					500 = { 
+						trigger = {
+							can_join_society = pentaghast_society
+						}						
+						modifier = {
+							factor = 2
+							pentaghast_society = { num_of_society_members < 20 }
+						}
+						modifier = {
+							factor = 2
+							pentaghast_society = { num_of_society_members < 15 }
+						}
+						modifier = {
+							factor = 2
+							pentaghast_society = { num_of_society_members < 10 }
+						}
+						set_secret_religion = ishtar_religion
+
+						join_society = pentaghast_society
+						random_list = { # Artificially increase society influence for balance purposes
+							75 = {
+								modifier = {
+									factor = 0
+									society_influence >= 30
+								}
+								add_mission_succeed_influence_effect = yes
+							}
+							25 = {
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									society = {
+										any_society_member = {
+											is_society_grandmaster = yes
+										}
+									}
+								}
+							}
+							set_society_grandmaster = yes
+						}
+					}
+					500 = { 
+						trigger = {
+							can_join_society = sakya_society
+						}						
+						modifier = {
+							factor = 2
+							sakya_society = { num_of_society_members < 20 }
+						}
+						modifier = {
+							factor = 2
+							sakya_society = { num_of_society_members < 15 }
+						}
+						modifier = {
+							factor = 2
+							sakya_society = { num_of_society_members < 10 }
+						}
+						join_society = sakya_society
+						random_list = { # Artificially increase society influence for balance purposes
+							75 = {
+								modifier = {
+									factor = 0
+									society_influence >= 30
+								}
+								add_mission_succeed_influence_effect = yes
+							}
+							25 = {
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									society = {
+										any_society_member = {
+											is_society_grandmaster = yes
+										}
+									}
+								}
+							}
+							set_society_grandmaster = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}

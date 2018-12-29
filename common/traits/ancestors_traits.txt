@@ -75,7 +75,6 @@ khalga_trait = {
 	cached = yes
 	immortal = yes
 	customizer = no
-	hidden = yes
 }
 
 prevent_marriage = {
