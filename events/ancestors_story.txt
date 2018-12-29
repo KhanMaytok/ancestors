@@ -42,6 +42,7 @@ narrative_event = {
 				random_province = {
 					limit = {
 						not = { owner = { character = ROOT } }
+						is_land =  yes
 					}
 					province_event = { id = ACS.00002 days = 30 }                
 				}            
@@ -59,6 +60,12 @@ province_event = {
 	immediate = { # burn it all
 		add_province_modifier = { name = devastated_by_tiamat years = 20 }
 		spawn_disease = tuberculosis
+		any_neighbor_province = {
+			limit = {
+				is_land = yes
+			}
+			spawn_disease = tuberculosis
+		}
 		any_province_character = {
 			death = { death_reason = death_murder_unknown_combustion }
 		}
@@ -274,6 +281,7 @@ narrative_event = {
 			trait = byakugan
 			trait = strong
 			trait = prevent_marriage
+			trait = travelling
 		}
 		new_character = {
 			set_mother = ROOT
@@ -316,7 +324,6 @@ narrative_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		add_trait = stressed
 		random_vassal = {
 			limit = {
 				is_landed = yes
@@ -385,43 +392,6 @@ character_event = {
 ###################
 ## KHALGA TRAVEL ##
 ###################
-# ACS.00015 - Khalga go around the world every year, kills random character. Select the character ##
-character_event = {
-	id = ACS.00015
-	hide_window = yes    
-	is_triggered_only = yes
-	has_character_flag = is_khalga
-	min_age = 16
-
-	immediate = {
-		random_playable_ruler = {
-			limit = {
-				adventurer = no
-				is_landed = yes 
-				is_married = yes 
-				age > 18
-				prisoner = no
-			}           
-			character_event = { id = ACS.00016 days = 2 }
-		}
-	}
-}
-
-# ACS.00016 - Khalga moves to the foreign court
-character_event = {
-	id = ACS.00016
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		FROM = {
-			move_character = ROOT
-			character_event = { id = ACS.00017 days = 1 }
-			character_event = { id = ACS.00019 days = 5 }
-			
-		}
-	}
-}
 
 # ACS.00017 - Select a courtier for pollinate from Khalga
 character_event = {
@@ -430,21 +400,23 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		host = {
-			random_spouse = {
-				limit = {
-					is_pregnant = no
-					is_female = yes
-					is_incapable = no
-					NOT = { has_character_flag = is_vee }
+		location = {
+			holder_scope = {
+				random_spouse = {
+					limit = {
+						is_pregnant = no
+						is_female = yes
+						is_incapable = no
+						NOT = { has_character_flag = is_vee }
+					}
+					character_event = { id = ACS.00018 }
 				}
-				character_event = { id = ACS.00018 }
 			}
-		}
+		}		
 	}
 }
 
-# ACS.00018 - The courtier is impregnated for Khalga
+# ACS.00018 - The spouse is impregnated for Khalga
 character_event = {
 	id = ACS.00018
 	hide_window = yes
@@ -459,53 +431,54 @@ character_event = {
 # ACS.00019 - Khalga assassinates the host
 character_event = {
 	id = ACS.00019
-	hide_window = yes    
+	hide_window = yes
 	is_triggered_only = yes
 	
 	immediate = {
-		host = {
-			random_list = {
-				10 = {
-					death = { death_reason = death_murder_unknown killer = FROMFROM }
-				}
-				10 = {
-					death = { death_reason = death_murder_unknown_beheading killer = FROMFROM }
-				}
-				10 = {
-					death = { death_reason = death_murder_unknown_fall killer = FROMFROM }
-				}
-				10 = {
-					death = { death_reason = death_murder_unknown_drowning killer = FROMFROM }
-				}
-				10 = {
-					death = { death_reason = death_murder_unknown_snakes killer = FROMFROM }
-				}
-				10 = {
-					death = { death_reason = death_murder_unknown_butchered killer = FROMFROM }
-				}
-				10 = {
-					death = { death_reason = death_murder_unknown_arrow killer = FROMFROM }
-				}
-				5 = {
-					death = { death_reason = death_murder_unknown_strangle killer = FROMFROM }
-				}
-				5 = {
-					death = { death_reason = death_murder_unknown_fear killer = FROMFROM }
-				}
-				5 = {
-					death = { death_reason = death_murder_unknown_lightning killer = FROMFROM }
-				}
-				5 = {
-					death = { death_reason = death_murder_unknown_combustion killer = FROMFROM }
-				}
-				5 = {
-					death = { death_reason = death_murder_unknown_crows killer = FROMFROM }
-				}
-				5 = {
-					death = { death_reason = death_murder_unknown_possessed_fall killer = FROMFROM }
+		location = {
+			holder_scope = {
+				random_list = {
+					10 = {
+						death = { death_reason = death_murder_unknown killer = FROMFROM }
+					}
+					10 = {
+						death = { death_reason = death_murder_unknown_beheading killer = FROMFROM }
+					}
+					10 = {
+						death = { death_reason = death_murder_unknown_fall killer = FROMFROM }
+					}
+					10 = {
+						death = { death_reason = death_murder_unknown_drowning killer = FROMFROM }
+					}
+					10 = {
+						death = { death_reason = death_murder_unknown_snakes killer = FROMFROM }
+					}
+					10 = {
+						death = { death_reason = death_murder_unknown_butchered killer = FROMFROM }
+					}
+					10 = {
+						death = { death_reason = death_murder_unknown_arrow killer = FROMFROM }
+					}
+					5 = {
+						death = { death_reason = death_murder_unknown_strangle killer = FROMFROM }
+					}
+					5 = {
+						death = { death_reason = death_murder_unknown_fear killer = FROMFROM }
+					}
+					5 = {
+						death = { death_reason = death_murder_unknown_lightning killer = FROMFROM }
+					}
+					5 = {
+						death = { death_reason = death_murder_unknown_combustion killer = FROMFROM }
+					}
+					5 = {
+						death = { death_reason = death_murder_unknown_crows killer = FROMFROM }
+					}
+					5 = {
+						death = { death_reason = death_murder_unknown_possessed_fall killer = FROMFROM }
+					}
 				}
 			}
-			
 		}
 	}
 }
@@ -564,6 +537,7 @@ character_event = {
 			trait = byakugan
 			trait = strong
 			trait = prevent_marriage
+			trait = travelling
 		}
 		new_character = {
 			set_mother = ROOT           
@@ -718,7 +692,9 @@ letter_event = {
 	}
 }
 
-# ACS.00029 - Dojutsu inheritance mechanics
+##############################################
+# ACS.00029 - Dojutsu inheritance mechanics ##
+##############################################
 character_event = {
 	id = ACS.00029
 	hide_window = yes
@@ -731,6 +707,19 @@ character_event = {
 				true_father_even_if_dead = {
 					has_character_flag = is_khalga
 				}
+			}
+			add_trait = byakugan
+			set_character_flag = direct_byakugan
+		}
+		# Direct byakugan
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					has_character_flag = direct_byakugan
+				}
+				mother_even_if_dead = {
+					has_character_flag = direct_byakugan
+				}              
 			}
 			add_trait = byakugan
 			set_character_flag = direct_byakugan
@@ -772,7 +761,20 @@ character_event = {
 			}
 			add_trait = sharingan
 			set_character_flag = direct_sharingan
-		}        
+		}
+		# Direct sharingan
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					has_character_flag = direct_sharingan
+				}
+				mother_even_if_dead = {
+					has_character_flag = direct_sharingan
+				}               
+			}
+			add_trait = sharingan
+			set_character_flag = direct_sharingan
+		}     
 		# Recesive sharingan
 		if = {
 			limit = {
@@ -994,7 +996,6 @@ narrative_event = {
 	}
 }
 
-
 # ACS.00035 - Reproduction of kidnapped characters
 character_event = {
 	id = ACS.00035
@@ -1176,6 +1177,18 @@ character_event = {
 # ACS.00040 - Ensure the correct portrait for Khalga
 character_event = {
 	id = ACS.00040
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+
+	immediate = {
+		character_event = { id = ACS.00041 days = 3 random = 5 }
+	}
+}
+
+# ACS.00041 - Add the khalga trait few days after adulthood
+character_event = {
+	id = ACS.00041
 	is_triggered_only = yes
 	hide_window = yes
 	has_character_flag = is_khalga

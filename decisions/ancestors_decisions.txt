@@ -37,7 +37,7 @@ targetted_decisions = {
 	#}
 #
 	get_mangekyo_sharingan = {
-		ai_check_interval = 12
+		ai_check_interval = 24
 		filter = friends
 		ai_target_filter = friends
 
@@ -50,6 +50,18 @@ targetted_decisions = {
 		potential = {
 			NOT = { has_character_flag = target_for_mangekyo }
 			is_friend = FROM
+		}
+
+		allow = {
+			FROM = {
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						trait = ambitious
+					}
+				}
+			}
 		}
 
 		effect = {
@@ -67,47 +79,5 @@ targetted_decisions = {
 				NOT = { trait = ambitious }
 			}			
 		}
-	}
-
-	hypnotize_with_sharingan = {
-		ai_target_filter = sub_realm
-		ai_check_interval = 12
-
-		from_potential = {
-			OR = {
-				trait = sharingan
-				trait = mangekyo_sharingan
-			}
-			age >= 13		
-		}
-
-		allow = {
-			FROM = {
-				prisoner = no
-				NOT = { trait = incapable }
-				NOT = { has_character_flag = use_sharingan_for_hypnotic }
-			}
-			ROOT = {
-				prisoner = no
-				NOT = { has_character_flag = hypnotized_with_sharingan }
-			}
-		}
-
-		effect = {
-			ROOT = {
-				opinion = {
-					modifier = opinion_hypnotized_with_sharingan
-					who = FROM
-					years = 3
-				}				
-				set_character_flag = hypnotized_with_sharingan
-			}
-			
-			FROM = {
-				set_character_flag = use_sharingan_for_hypnotic
-				add_trait = stressed
-				add_favor = ROOT
-			}
-		}
-	}
+	}	
 }

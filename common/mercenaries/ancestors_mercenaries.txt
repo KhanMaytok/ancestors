@@ -6,6 +6,6 @@ pentaghast_composition = {
 }
 
 sakya_composition = {
-    light_cavalry = 100
+    knights = 100
     levy_size = 1
 }
