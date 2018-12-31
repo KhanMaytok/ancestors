@@ -28,6 +28,13 @@ spriteTypes = {
         effectFile = "gfx/FX/buttonstate.lua"
     }
     spriteType = {
+        name = "GFX_trait_eternal_mangekyo_sharingan"
+        texturefile = "gfx/traits/eternal_mangekyo_sharingan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
         name = "GFX_trait_rinnegan"
         texturefile = "gfx/traits/rinnegan.tga"
         noOfFrames = 1

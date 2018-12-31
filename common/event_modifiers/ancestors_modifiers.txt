@@ -27,7 +27,7 @@ orichalcum_statue = {
 
 used_sharingan_1 = {
 	icon = 82
-	fertility = -0.2
+	fertility = -0.01
 	health = -0.5
 	combat_rating = -10
 }
@@ -35,13 +35,27 @@ used_sharingan_1 = {
 used_sharingan_2 = {
 	icon = 82
 	fertility = -0.5
-	health = -4.5
-	combat_rating = -50
+	health = -2.5
+	combat_rating = -25
 }
 
 used_sharingan_3 = {
 	icon = 82
 	fertility = -1.0
 	health = -10.0
+	combat_rating = -50
+}
+
+used_sharingan_4 = {
+	icon = 82
+	fertility = -15.0
+	health = -15.0
 	combat_rating = -100
+}
+
+used_sharingan_5 = {
+	icon = 82
+	fertility = -100.0
+	health = -30.0
+	combat_rating = -200
 }
