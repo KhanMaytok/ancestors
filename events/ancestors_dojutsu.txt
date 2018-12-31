@@ -279,6 +279,11 @@ character_event = {
 	prisoner = no
 	
 	trigger = {
+		OR = {
+			trait = sharingan
+			trait = mangekyo_sharingan
+			trait = eternal_mangekyo_sharingan
+		}
 		NOT = { wealth = -50 }
 		any_vassal = {
 			wealth = 10
@@ -294,8 +299,9 @@ character_event = {
 		}
 	}
 	
-	option = {
-		name = EVTOPTA38010 # Ask one vassal for large
+	option = { # Ask one vassal for large
+		name = EVTOPTA38010
+		character_event = { id = ACS.00407 }
 		trigger = {
 			any_vassal = {
 				wealth = 200
@@ -315,8 +321,9 @@ character_event = {
 			set_character_flag = took_extra_tax_sharingan
 		}
 	}
-	option = {
-		name = EVTOPTC38010 # ask all vassals for medium
+	option = { # ask a vassals for medium
+		name = EVTOPTC38010
+		character_event = { id = ACS.00407 }
 		trigger = {
 			any_vassal = {
 				wealth = 50
@@ -342,8 +349,9 @@ character_event = {
 			set_character_flag = took_extra_tax_sharingan
 		}
 	}
-	option = {
-		name = EVTOPTB38010 # ask all vassal for small
+	option = { # ask a vassal for small
+		name = EVTOPTB38010
+		character_event = { id = ACS.00407 }
 		trigger = {
 			any_vassal = {
 				wealth = 10
@@ -362,6 +370,20 @@ character_event = {
 			set_character_flag = small_payment_from_vassal_sharingan
 			set_character_flag = took_extra_tax_sharingan
 		}
+	}
+	option = { # I'm tired	
+		name = ACS_00403_OPT_D	
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				OR = {
+					has_character_modifier = used_sharingan_3
+					has_character_modifier = used_sharingan_4
+					has_character_modifier = used_sharingan_5
+				}
+			}
+		}		
 	}
 }
 
@@ -495,6 +517,70 @@ character_event = {
 			clr_character_flag = large_payment_from_vassal_sharingan
 		}
 		prestige = 1
+	}	
+}
+
+# ACS.00407 - Controls Sharingan fatigue
+character_event = {
+	id = ACS.00407
+	hide_window = yes	
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			trait = sharingan
+			trait = mangekyo_sharingan
+		}
 	}
-	
+
+	immediate = {
+		if = {
+			limit = {
+				has_character_modifier = used_sharingan_4
+			}
+			remove_character_modifier = used_sharingan_4
+			add_character_modifier = {
+				name = used_sharingan_5
+				duration = 480
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = used_sharingan_3
+			}
+			remove_character_modifier = used_sharingan_3
+			add_character_modifier = {
+				name = used_sharingan_4
+				duration = 240
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = used_sharingan_2
+			}
+			remove_character_modifier = used_sharingan_2
+			add_character_modifier = {
+				name = used_sharingan_3
+				duration = 120
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = used_sharingan_1
+			}
+			remove_character_modifier = used_sharingan_1
+			add_character_modifier = {
+				name = used_sharingan_2
+				duration = 60
+			}
+			break = yes
+		}
+		add_character_modifier = {
+			name = used_sharingan_1
+			duration = 30
+		}
+	}
 }
