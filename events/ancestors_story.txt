@@ -90,7 +90,7 @@ character_event = {
 	}
 }
 
-# ACS.00004 - Spawn Senua, Olaf and Tilda
+# ACS.00004 - Spawn Senua, Olaf and Tilda and parents
 narrative_event = {
 	id = ACS.00004
 	title = ACS_00004_TITLE
@@ -98,22 +98,77 @@ narrative_event = {
 	picture = GFX_evt_courtiers_talking
 	is_triggered_only = yes
 
-	immediate = {		
+	immediate = {
+		create_character = {
+			name = "Ragnar"
+			age = 60
+			culture = swedish
+			religion = ishtar_religion
+			trait = ambitious
+			trait = shrewd
+			trait = physician
+			trait = diligent
+			trait = lustful
+			trait = grey_eminence
+			trait = administrator
+			health = 20
+		}
+		new_character = {
+			save_event_target_as = olaf_father			
+		}
+		create_character = {
+			name = "Tziquetzalpoztectzin"
+			age = 55
+			female = yes
+			culture = nahuatl
+			religion = ishtar_religion
+			trait = fair
+			trait = genius
+			trait = shrewd
+			trait = physician
+			trait = diligent
+			trait = midas_touched
+			trait = administrator
+			health = 20
+		}
+		new_character = {
+			save_event_target_as = olaf_mother			
+		}
+		create_character = {
+			name = "Cuauhtl"
+			age = 30
+			culture = nahuatl
+			religion = ishtar_religion
+			trait = fair
+			trait = genius
+			trait = shrewd
+			trait = physician
+			trait = diligent
+			trait = midas_touched
+			trait = administrator
+			health = 20
+		}
+		new_character = {
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
+			save_event_target_as = olaf_brother		
+		}
 		create_character = {
 			name = Olaf
-			age = 38
+			age = 28
 			culture = swedish
 			religion = FROM
 			trait = cruel
 			trait = ambitious
 			trait = elusive_shadow
-			trait = scarred
+			trait = scarred_high
 			trait = bastard
 			trait = shrewd
 			trait = hunter
 			trait = diligent
 			trait = lustful
 			trait = prevent_marriage
+			trait = robust
 			health = 10
 		}
 		new_character = {
@@ -125,6 +180,9 @@ narrative_event = {
 			dynasty = 300001
 			character_event = { id = ACS.00200 } # Spawn characters for the society
 			character_event = { id = ACS.00005 days = 45 } # Olaf goes to Pentaghast mercenaries
+			save_event_target_as = olaf_the_killer
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
 		}
 		create_character = {
 			name = Tilda
@@ -151,7 +209,7 @@ narrative_event = {
 		}
 		create_character = {
 			name = Senua
-			female = yes
+			female = yes			
 			age = 17
 			culture = pictish
 			religion = FROM
@@ -171,6 +229,17 @@ narrative_event = {
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
+		}
+		event_target:olaf_father = {
+			death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+		}
+		event_target:olaf_mother = {
+			death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+		}
+		event_target:olaf_brother = {
+			death = { death_reason = death_murder killer = event_target:olaf_the_killer }
 		}
 	}
 

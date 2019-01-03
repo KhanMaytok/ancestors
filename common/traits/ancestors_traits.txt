@@ -1,7 +1,6 @@
 syrena = {
 	cached = yes
 	random = no    
-	general_opinion = 50
 	sex_appeal_opinion = 300
 	health = 5
 	customizer = no
@@ -10,14 +9,15 @@ syrena = {
 
 byakugan = {
 	random = no
-	defensive_plot_power_modifier = 0.70
-	plot_discovery_chance = 0.70
-	combat_rating = 50
+	diplomacy = 3
+	defensive_plot_power_modifier = 0.20
+	plot_discovery_chance = 0.20
+	combat_rating = 40
 	monthly_character_prestige = 1
 	same_opinion = 10
 	martial = 5
 
-	opposites = { sharingan mangekyo_sharingan }
+	opposites = { sharingan mangekyo_sharingan eternal_mangekyo_sharingan }
 	opposite_opinion = -200
 	customizer = no
 }
@@ -26,8 +26,8 @@ sharingan = {
 	random = no
 	intrigue = 2
 	learning = 2
-	combat_rating = 55
-	plot_power_modifier = 0.50
+	combat_rating = 40
+	plot_power_modifier = 0.20
 	monthly_character_prestige = 1
 	same_opinion = 10
 	martial = 5
@@ -38,6 +38,21 @@ sharingan = {
 }
 
 mangekyo_sharingan = {
+	random = no
+	intrigue = 7
+	martial = 7
+	learning = 7
+	combat_rating = 60
+	plot_power_modifier = 0.40
+	monthly_character_prestige = 5
+	same_opinion = 10
+
+	opposites = { byakugan }
+	opposite_opinion = -200
+	customizer = no
+}
+
+eternal_mangekyo_sharingan = {
 	random = no
 	intrigue = 10
 	martial = 13
@@ -52,31 +67,28 @@ mangekyo_sharingan = {
 	customizer = no
 }
 
-eternal_mangekyo_sharingan = {
-	random = no
-	intrigue = 10
-	martial = 13
-	learning = 10
-	combat_rating = 99
-	plot_power_modifier = 0.60
-	monthly_character_prestige = 10
-	same_opinion = 10
-
-	opposites = { byakugan }
-	opposite_opinion = -200
-	customizer = no
-}
-
 rinnegan = {
 	random = no
 	customizer = no
-	combat_rating = 99
+	combat_rating = 100
+	intrigue = 20
+	martial = 20
+	learning = 20
+	defensive_plot_power_modifier = 2.0
+	plot_power_modifier = 2.0
+	monthly_character_prestige = 1
 }
 
 tenseigan = {
 	random = no
 	customizer = no
-	combat_rating = 99
+	combat_rating = 100
+	intrigue = 20
+	martial = 20
+	learning = 20
+	defensive_plot_power_modifier = 2.0
+	plot_power_modifier = 2.0
+	monthly_character_prestige = 1
 }
 
 jogan = {

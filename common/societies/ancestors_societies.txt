@@ -27,6 +27,8 @@ sakya_society = {
 		age = 16
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+			NOT = { has_character_flag = is_khalga }
+			NOT = { has_character_flag = is_vee }
 		}
 	}
 
@@ -293,6 +295,8 @@ pentaghast_society = {
 		age = 16
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+			NOT = { has_character_flag = is_khalga }
+			NOT = { has_character_flag = is_vee }
 		}
 	}
 

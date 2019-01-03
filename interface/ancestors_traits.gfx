@@ -49,6 +49,13 @@ spriteTypes = {
         effectFile = "gfx/FX/buttonstate.lua"
     }
     spriteType = {
+        name = "GFX_trait_jogan"
+        texturefile = "gfx/traits/tenseigan.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    spriteType = {
         name = "GFX_trait_khalga_trait"
         texturefile = "gfx/traits/khalga_trait.tga"
         noOfFrames = 1

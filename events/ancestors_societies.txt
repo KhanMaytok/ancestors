@@ -369,6 +369,9 @@ character_event = {
 			interested_in_society = pentaghast_society
 			interested_in_society = sakya_society
 		}
+        NOT = { has_character_flag = is_khalga }
+        NOT = { has_character_flag = is_vee }
+		NOT = { has_character_flag = dislikes_pentaghast }
 	}
 
 	immediate = {
@@ -479,7 +482,7 @@ narrative_event = {
 
 		hidden_effect = {
             narrative_event = { id = ACS.00207 } # MNM.6999
-		}		
+		}
 	}
 
 	option = {
@@ -555,8 +558,18 @@ narrative_event = {
 
     option = {
         name = ACS_00210_OPT_A
-        remove_trait = zealous
-        add_trait = cynical
+        if = {
+            limit = {
+                trait = zealous
+            }
+            remove_trait = zealous
+        }
+        if = {
+            limit = {
+                trait = cynical
+            }
+            add_trait = cynical
+        }
         hidden_effect = {
             letter_event = { id = ACS.00211 days = 30 random = 45 }
         }
@@ -597,7 +610,7 @@ narrative_event = {
 
     option = {
         name = ACS_00212_OPT_B
-        clr_character_flag = being_recruited_by_pentaghast
+        death = { death_reason = death_missing }
     }
 }
 
@@ -710,7 +723,6 @@ narrative_event = {
 
     option = {
         name = ACS_00217_OPT_A
-        add_trait = robust
         add_character_modifier = {
 			name = hallucinating
 			days = 120
@@ -824,19 +836,19 @@ narrative_event = {
     }
 
     option = {
+        name = ACS_00223_OPT_B
         trigger = {
             has_children = yes
-        }
-        name = ACS_00223_OPT_B
+        }        
         narrative_event = { id = ACS.00224 }
     }
 
     option = {
+        name = ACS_00223_OPT_C
         trigger = {
             num_of_friends >= 1
-        }
-        name = ACS_00223_OPT_C
-       narrative_event = { id = ACS.00224 }
+        }        
+        narrative_event = { id = ACS.00224 }
     }
 
     option = {
@@ -858,13 +870,13 @@ narrative_event = {
             limit = {
                 NOT = { has_character_flag = is_vee }
             }
-            death = { death_reason = death_missing } 
+            death = { death_reason = death_missing }
         }
         random_child = {
             limit = {
                 NOT = { has_character_flag = is_vee }
             }
-            death = { death_reason = death_missing } 
+            death = { death_reason = death_missing }
         }
         random_friend = {
             limit = {
@@ -935,9 +947,9 @@ narrative_event = {
     }
 }
 
-# ACS.00208 Force join AI characters to societies
+# ACS.00227 Force join AI characters to societies
 character_event = {
-	id = ACS.00500
+	id = ACS.00227
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -984,25 +996,24 @@ character_event = {
                         NOT = { has_character_flag = is_khalga }
                         NOT = { has_character_flag = is_vee }
 					}
-					character_event = { id = ACS.00501 }
+					character_event = { id = ACS.00228 }
 				}
 			}
 		}
 	}
 }
 
-# ACS.00209 - Join to society
+# ACS.00228 - Join to society
 character_event = {
-	id = ACS.00501
-	hide_window = yes
-	
+	id = ACS.00228
+	hide_window = yes	
 	is_triggered_only = yes
 	
 	immediate = {
 		random_list = {
-			95 = { # do nothing
+			75 = { # do nothing
 			}
-			5 = { # try to join a society			
+			25 = { # try to join a society			
 				random_list = {
 					700 = { } # Fall back dead weight
 					500 = { 
