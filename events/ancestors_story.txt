@@ -164,6 +164,7 @@ narrative_event = {
 			trait = scarred_high
 			trait = bastard
 			trait = shrewd
+			trait = genius
 			trait = hunter
 			trait = diligent
 			trait = lustful
@@ -178,11 +179,11 @@ narrative_event = {
 			set_secret_religion = ishtar_religion
 			add_artifact = eden_apple
 			dynasty = 300001
-			character_event = { id = ACS.00200 } # Spawn characters for the society
-			character_event = { id = ACS.00005 days = 45 } # Olaf goes to Pentaghast mercenaries
 			save_event_target_as = olaf_the_killer
 			set_mother = event_target:olaf_mother
 			set_father = event_target:olaf_father
+			character_event = { id = ACS.00200 } # Spawn characters for the society
+			character_event = { id = ACS.00005 days = 45 } # Olaf goes to Pentaghast mercenaries
 		}
 		create_character = {
 			name = Tilda
@@ -210,7 +211,7 @@ narrative_event = {
 		create_character = {
 			name = Senua
 			female = yes			
-			age = 17
+			age = 16
 			culture = pictish
 			religion = FROM
 			trait = fair

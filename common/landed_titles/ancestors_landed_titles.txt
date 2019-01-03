@@ -2,7 +2,7 @@ d_mercenary_pentaghast = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 354 # mantua		
+	capital = 333 # mantua		
 	# Parent Religion 
 	religion = catholic
 	
@@ -29,7 +29,7 @@ d_mercenary_sakya = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 354 # mantua		
+	capital = 622 # mantua		
 	# Parent Religion 
 	religion = buddhist
 	

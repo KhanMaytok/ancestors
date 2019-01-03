@@ -121,154 +121,217 @@ character_event = {
             create_character = {
                 name="Gunnr"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Geirdriful"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Eir"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Kara"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Rota"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Olrun"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Gondul"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Hildr"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
-                female = no
-                culture = FROM
+                female = yes
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
             create_character = {
                 name="Sigrun"
                 trait = ambitious
+                trait = fair
+                trait = genius
 			    trait = elusive_shadow
                 trait = travelling
                 trait = prevent_marriage
                 female = yes
-                culture = FROM
+                culture = swedish
                 religion = FROM
+                health = 20
             }
             new_character = {
                 join_society = pentaghast_society
                 society_rank_up = 3
-                set_secret_religion = ishtar_religion
                 set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+                impregnate_cuckoo = event_target:olaf_the_killer
+                set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
         }        
@@ -316,6 +379,8 @@ character_event = {
         }
         ROOT = {
             move_character = event_target:target_holding_owner
+            religion = event_target:target_holding_owner
+            culture = event_target:target_holding_owner
             if = {
                 limit = {
                     society_member_of = pentaghast_society

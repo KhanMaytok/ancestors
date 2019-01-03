@@ -36,7 +36,10 @@ sakya_society = {
 		age = 16		
 	}
 
-	potential = { }
+	potential = {
+		NOT = { has_character_flag = is_khalga }
+		NOT = { has_character_flag = is_vee }
+	}
 
 	society_rank = {
 		level = 1
@@ -304,7 +307,10 @@ pentaghast_society = {
 		age = 16		
 	}
 
-	potential = { }
+	potential = {
+		NOT = { has_character_flag = is_khalga }
+		NOT = { has_character_flag = is_vee }
+	}
 
 	society_rank = {
 		level = 1
