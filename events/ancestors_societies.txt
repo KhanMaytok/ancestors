@@ -358,6 +358,7 @@ character_event = {
 		is_incapable = no
         NOT = { has_character_flag = is_vee }
         NOT = { has_character_flag = is_senua }
+        NOT = { has_character_flag = is_olaf }
 	}
 
 	immediate = {
