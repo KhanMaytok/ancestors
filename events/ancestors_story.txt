@@ -59,18 +59,18 @@ province_event = {
 
 	immediate = { # burn it all
 		add_province_modifier = { name = devastated_by_tiamat years = 20 }
-		spawn_disease = tuberculosis
-		any_neighbor_province = {
-			limit = {
-				is_land = yes
-			}
-			spawn_disease = tuberculosis
-		}
+		spawn_disease = tuberculosis		
 		any_province_character = {
 			death = { death_reason = death_murder_unknown_combustion }
 		}
 		any_province_holding = {
 			destroy_settlement = yes
+		}
+		any_neighbor_province = {
+			limit = {
+				is_land = yes
+			}
+			spawn_disease = tuberculosis
 		}
 		FROM = {
 			character_event = { id = ACS.00003 }
@@ -334,6 +334,7 @@ narrative_event = {
 		new_character = {
 			set_mother = ROOT   
 			set_character_flag = is_vee
+			set_character_flag = society_join_block
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
 			dynasty = 300001
 			health = 20
@@ -356,6 +357,7 @@ narrative_event = {
 		new_character = {
 			set_mother = ROOT
 			set_character_flag = is_khalga
+			set_character_flag = society_join_block
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
 			set_character_flag = wolf_blood_first_generation
 			add_character_modifier = {
@@ -612,6 +614,7 @@ character_event = {
 		new_character = {
 			set_mother = ROOT           
 			set_character_flag = is_khalga
+			set_character_flag = society_join_block
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
 			set_character_flag = wolf_blood_first_generation
 			add_character_modifier = {
@@ -745,6 +748,7 @@ narrative_event = {
 		add_trait = syrena
 		health = 20
 		set_character_flag = is_vee
+		set_character_flag = society_join_block
 		ai_chance = { factor = 100 }    
 	}
 }
