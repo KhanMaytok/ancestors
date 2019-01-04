@@ -125,7 +125,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -138,7 +140,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -149,7 +150,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -162,7 +165,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -173,7 +175,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -186,7 +190,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -197,7 +200,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -210,7 +215,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -221,7 +225,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -234,7 +240,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -245,7 +250,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -258,7 +265,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -269,7 +275,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -282,7 +290,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -293,7 +300,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -306,7 +315,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -317,7 +325,9 @@ character_event = {
                 trait = genius
 			    trait = elusive_shadow
                 trait = travelling
+                trait = in_hiding
                 trait = prevent_marriage
+                trait = seductress
                 female = yes
                 culture = swedish
                 religion = FROM
@@ -330,7 +340,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-                impregnate_cuckoo = event_target:olaf_the_killer
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -353,7 +362,7 @@ character_event = {
             society_member_of = sakya_society
             has_character_flag = is_khalga
         }		
-		is_landed = no
+		is_ruler = no
 		prisoner = no
 		is_incapable = no
         NOT = { has_character_flag = is_vee }
@@ -363,6 +372,17 @@ character_event = {
 
 	immediate = {
         location = {
+            # Remove secret religion hack to prevent imprisioning
+            holder_scope = {
+                any_courtier = {
+                    limit = {
+                        has_job_title = job_spiritual
+                    }
+                    clear_secret_religion = yes
+                }
+            }
+
+            # Select a holding in a random province, not capital
             random_province = {
                 limit = {
                     is_land = yes
@@ -378,19 +398,28 @@ character_event = {
                 }
             }
         }
+
+        # Move to the new holding
         ROOT = {
             move_character = event_target:target_holding_owner
             religion = event_target:target_holding_owner
             culture = event_target:target_holding_owner
+            add_trait = travelling
+            add_trait = in_hiding
             if = {
                 limit = {
-                    society_member_of = pentaghast_society
-                    society_rank == 3
-                    is_landed = no
-                    prisoner = no
-                    is_incapable = no
+                    society_member_of = pentaghast_society                    
                 }
-                # character_event = { id = ACS.00202 }
+                location = {
+                    holder_scope = {
+                        random_courtier = {
+                            limit = {
+                                has_job_title = job_spiritual
+                            }
+                            set_secret_religion = ishtar_religion
+                        }
+                    }
+                }
             }
             if = {
                 limit = {
@@ -1077,9 +1106,9 @@ character_event = {
 	
 	immediate = {
 		random_list = {
-			75 = { # do nothing
+			60 = { # do nothing
 			}
-			25 = { # try to join a society			
+			40 = { # try to join a society			
 				random_list = {
 					700 = { } # Fall back dead weight
 					500 = { 
@@ -1087,15 +1116,15 @@ character_event = {
 							can_join_society = pentaghast_society
 						}						
 						modifier = {
-							factor = 2
+							factor = 5
 							pentaghast_society = { num_of_society_members < 20 }
 						}
 						modifier = {
-							factor = 2
+							factor = 5
 							pentaghast_society = { num_of_society_members < 15 }
 						}
 						modifier = {
-							factor = 2
+							factor = 5
 							pentaghast_society = { num_of_society_members < 10 }
 						}
 						set_secret_religion = ishtar_religion
@@ -1130,15 +1159,15 @@ character_event = {
 							can_join_society = sakya_society
 						}						
 						modifier = {
-							factor = 2
+							factor = 3
 							sakya_society = { num_of_society_members < 20 }
 						}
 						modifier = {
-							factor = 2
+							factor = 3
 							sakya_society = { num_of_society_members < 15 }
 						}
 						modifier = {
-							factor = 2
+							factor = 3
 							sakya_society = { num_of_society_members < 10 }
 						}
 						join_society = sakya_society

@@ -9,7 +9,7 @@ ACS_00001_TITLE;Celestial warning;Avertissement céleste;Himmlische Warnung;;Adve
 ACS_00001_DESC;A two-headed comet has been sighted. Its tail covers the whole width of the sky. Will it be the announcement of an imminent danger?;Une comète à deux têtes a été aperçue. Sa queue couvre toute la voûte du ciel. Sera-ce l'annonce d'un danger imminent?;;;Se ha avistado un cometa de dos cabezas. Su cola abarca toda la bóveda del cielo. ¿Será el anuncio de un inminente peligro?;;;;;;;;;x
 ACS_00001_OPT_A;Misfortunes are approaching!;Misfortunes are approaching!;Misfortunes are approaching!;;¡Se aproximan desgracias!;;;;;;;;;x
 
-ACS_00003_DESC;From.GetName] has been devastated;From.GetName] has been devastated;From.GetName] has been devastated;;[From.GetName] ha sido devastada;;;;;;;;;x
+ACS_00003_DESC;[From.GetName] has been devastated;[From.GetName] has been devastated;[From.GetName] has been devastated;;[From.GetName] ha sido devastada;;;;;;;;;x
 
 ACS_00004_TITLE;Encounter;Encounter;Encounter;;Encuentro;;;;;;;;;x
 ACS_00004_DESC;During a hunt, you hear fighting sounds from a distance. When you get closer you see that they are two peasants who are being harassed by a crook. Will you defend them?;During a hunt, you hear fighting sounds from a distance. When you get closer you see that they are two peasants who are being harassed by a crook. Will you defend them?;During a hunt, you hear fighting sounds from a distance. When you get closer you see that they are two peasants who are being harassed by a crook. Will you defend them?;;Durante una cacería, oyes sonidos de lucha a la distancia. Al acercarte ves que son dos campesinos acosados por un maleante. ¿Los defenderás?;;;;;;;;;x

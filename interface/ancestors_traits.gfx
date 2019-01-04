@@ -62,4 +62,11 @@ spriteTypes = {
         norefcount = yes
         effectFile = "gfx/FX/buttonstate.lua"
     }
+    spriteType = {
+		name = "GFX_trait_prevent_marriage"
+		texturefile = "gfx/traits/digambara_jain.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
 }
