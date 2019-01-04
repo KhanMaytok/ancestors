@@ -107,7 +107,6 @@ khalga_trait = {
 prevent_marriage = {
 	cannot_marry = yes
 	cannot_inherit = yes
-	hidden = yes
 	customizer = no
 	random = no
 }

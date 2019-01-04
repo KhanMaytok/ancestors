@@ -100,7 +100,7 @@ narrative_event = {
 
 	immediate = {
 		create_character = {
-			name = "Ragnar"
+			name = "Ragnarr"
 			age = 60
 			culture = swedish
 			religion = ishtar_religion
@@ -170,6 +170,9 @@ narrative_event = {
 			trait = lustful
 			trait = prevent_marriage
 			trait = robust
+			trait = strategist
+			trait = socializer
+			trait = hedonist
 			health = 10
 		}
 		new_character = {
