@@ -827,7 +827,7 @@ character_event = {
 				}
 			}
 			add_trait = byakugan
-			set_character_flag = direct_byakugan
+			set_character_flag = recesive_byakugan
 		}
 		# All Vee children inherit sharingan
 		if = {
@@ -879,7 +879,7 @@ character_event = {
 
 			}
 			add_trait = sharingan
-			set_character_flag = direct_sharingan
+			set_character_flag = recesive_sharingan
 		}
 		# Checks if mather and father has different dojutsu
 		if = {

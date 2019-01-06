@@ -37,9 +37,8 @@ targetted_decisions = {
 	#}
 #
 	get_mangekyo_sharingan = {
-		ai_check_interval = 24
 		filter = friends
-		ai_target_filter = friends
+		ai_target_filter = none
 
 		from_potential = {
 			trait = sharingan
@@ -70,14 +69,6 @@ targetted_decisions = {
 		    	set_character_flag = target_for_mangekyo
 		    	character_event = { id = ACS.400 days = 2 }
 		    }
-		}
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { trait = ambitious }
-			}			
 		}
 	}	
 }

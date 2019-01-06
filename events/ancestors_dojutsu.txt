@@ -584,3 +584,138 @@ character_event = {
 		}
 	}
 }
+
+# ACS.00408 - Init Mangekyo attack for ia
+character_event = {
+	id = ACS.00408
+	hide_window = yes	
+
+	trigger = {
+		ai = yes
+		trait = sharingan
+		trait = ambitious
+		NOT = { trait = mangekyo_sharingan }
+		NOT = { trait = eternal_mangekyo_sharingan }
+		age >= 16
+		OR = {
+			num_of_lovers >= 1
+			num_of_friends >= 1
+		}
+		is_pregnant = no
+		NOT = { has_character_modifier = recent_duel_timer }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.5
+			trait = brave
+		}
+		modifier = {
+			factor = 100
+			trait = craven
+		}
+		modifier = {
+			factor = 5
+			religion = buddhist
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			save_event_target_as = combatant_1
+		}
+		# Select the target of duel
+		if = {
+			limit = {
+				num_of_lovers >= 1
+			}
+			random_lover = {
+				save_event_target_as = combatant_2
+				apply_degree_of_dishonorable_duel_effect = yes
+				apply_any_applicable_harsh_penalties_effect = yes
+			}
+			ROOT = {
+				pacifists_lose_piety_effect = yes
+	            add_character_modifier = {
+	                modifier = recent_duel_timer
+	                duration = 90
+	            	hidden = yes
+	            }
+			}
+			event_target:combatant_2 = { character_event = { id = ACS.00409 } }
+			break = yes
+		}
+		if = {
+			limit = {
+				num_of_friends >= 1
+			}
+			random_friend = {
+				save_event_target_as = combatant_2
+				apply_degree_of_dishonorable_duel_effect = yes
+				apply_any_applicable_harsh_penalties_effect = yes
+			}
+			ROOT = {
+				pacifists_lose_piety_effect = yes
+	            add_character_modifier = {
+	                modifier = recent_duel_timer
+	                duration = 90
+	                hidden = yes
+	            }
+			}
+			event_target:combatant_2 = { character_event = { id = ACS.00409 } }
+			break = yes
+		}
+	}
+}
+
+
+### "REGULAR" duels start here...
+# Get challenged (sent from duel_decision )
+character_event = {
+    id = ACS.00409 # HFP.10095
+    picture = GFX_evt_armory
+    border = GFX_event_normal_frame_war    
+    desc = ACS_00409_DESC
+	is_triggered_only = yes
+    
+    immediate = {
+        if = {
+            limit = { NOT = { has_character_modifier = recent_duel_timer } }
+            add_character_modifier = {
+                modifier = recent_duel_timer
+                hidden = yes
+                months = 3
+            }
+        }
+        event_target:combatant_1 = { #combatant_1/attacker
+            if = {
+                limit = { NOT = { has_character_modifier = recent_duel_timer } }
+                #special circumstances, like initiation duel, etc
+                add_character_modifier = { #OUTCOMMENT FOR TESTING PURPOSES
+                    modifier = recent_duel_timer
+                    hidden = yes
+                    months = 3
+                }
+            }
+        }
+    }
+    
+    option = { #Challenge accepted
+        name = EVTOPTA_WOL_11000
+        clr_character_flag = flag_duel_no_backsies
+        ai_chance = {
+            factor = 100
+        }
+
+        pacifists_lose_piety_effect = yes
+        event_target:combatant_1 = {
+            character_event = { id = HFP.10096 }
+        }
+        set_character_flag = add_duel_xp
+        clr_character_flag = punish_declining
+        ai_chance = {
+            factor = 80
+        }
+    }    
+}
