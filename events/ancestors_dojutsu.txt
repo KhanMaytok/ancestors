@@ -1,269 +1,132 @@
 NAMESPACE = ACS
 
-# ACS.400 - Get into duel
-character_event = {
-    id = ACS.400
-    desc = EVTDESC_ACS_400
-	picture = GFX_evt_melee
-	border = GFX_event_normal_frame_war
-	is_triggered_only = yes
-
-	immediate = {
-		random_friend = {
-			limit = {
-				has_character_flag = wants_to_get_mangekyo
-			}
-			set_character_flag = mangekyo_immediate
-			save_event_target_as = target_wants_to_get_mangekyo			
-		}
-	}
-
-    option = {
-    	name = EVTOPTB_ACS_400
-    	ai_chance = {
-    		factor = 100
-    	}
-    	event_target:target_wants_to_get_mangekyo = {
-			set_character_flag = mangekyo_option
-    		character_event = { id = ACS.401 }
-    	}
-    }
-}
-
-# ACS.401 - The duel starts
-character_event = {
-    id = ACS.401
-    hide_window = yes
-    is_triggered_only = yes
-
-    immediate = {
-    	log = "ACS.401: [Root.GetBestName] challenged [From.GetBestName] on a duel"
-    	random_list = {
-			1 = { # double death
-				modifier = {
-					OR = {
-						combat_rating_diff = { who = FROM value = 4 }
-						FROM = { combat_rating_diff = { who = ROOT value = 4 } }
-					}
-					factor = 0.2
-				}
-				modifier = {
-					trait = wroth
-					FROM = {
-						trait = wroth
-					}
-					factor = 2
-				}
-				FROM = {
-					death = {
-						death_reason = death_duel killer = ROOT
-					}
-				}
-				death = {
-					death_reason = death_duel killer = FROM
-				}
-			}
-			200 = {
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 1 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 2 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 3 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 4 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 5 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 6 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 7 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 8 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 9 }
-					}
-					factor = 0.7
-				}
-				modifier = {
-					FROM = {
-						combat_rating_diff = { who = ROOT value = 10 }
-					}
-					factor = 0.7
-				}
-				### effects
-				random_list = {
-					95 = {
-						FROM = {
-							death = {
-								death_reason = death_murder_unknown killer = ROOT
-							}
-						}
-						remove_trait = sharingan
-						add_trait = mangekyo_sharingan
-						add_trait=stressed
-						clr_character_flag = wants_to_get_mangekyo
-						character_event = { id = ACS.402 }
-					}
-					5 = {
-						modifier = {
-							FROM = { is_maimed_trigger = yes }
-							factor = 0
-						}
-						FROM = {
-							death = {
-								death_reason = death_murder_unknown killer = ROOT
-							}
-						}
-						remove_trait = sharingan
-						add_trait = mangekyo_sharingan
-						add_trait = stressed
-						clr_character_flag = wants_to_get_mangekyo
-						character_event = { id = ACS.402 }
-						random_list = {
-							30 = { add_trait = disfigured }
-							30 = { add_trait = one_eyed }
-							30 = { add_trait = one_handed }
-							10 = { add_trait = severely_injured }
-						}
-					}
-				}
-			}
-			200 = { # opponent win
-				### modifiers
-				#modifier = {
-				#	factor = 0
-				#	always = yes ######### DEBUGGING
-				#}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 1 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 2 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 3 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 4 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 5 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 6 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 7 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 8 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 9 }
-					factor = 0.7
-				}
-				modifier = {
-					combat_rating_diff = { who = FROM value = 10 }
-					factor = 0.7
-				}
-				### effects
-				random_list = {
-					50 = {
-						FROM = {
-							clr_character_flag = target_for_mangekyo
-						}
-						death = {
-							death_reason = death_murder_unknown killer = FROM
-						}
-					}
-					50 = {
-						modifier = {
-							is_maimed_trigger = yes
-							factor = 0
-						}
-						FROM = {
-							random_list = {
-								10 = { add_trait = disfigured }
-								30 = { add_trait = one_eyed }
-								30 = { add_trait = one_handed }
-								30 = { add_trait = severely_injured }
-							}
-							clr_character_flag = target_for_mangekyo
-						}
-						death = {
-							death_reason = death_murder_unknown killer = FROM
-						}
-					}
-				}
-			}
-		}
-    }
-}	
-
-character_event = {
-	id = ACS.402
+# ACS.00400 - Decision to enable the mangekyo
+narrative_event = {
+	id = ACS.00400
+	title = ACS_00400_TITLE
+	desc = ACS_00400_DESC
 	picture = GFX_evt_yasaka_magatama
-	is_triggered_only = yes	
-	title = ACS.402.name
 
-	desc = {
-		trigger = {
-			has_character_flag = get_mangekyo_by_love
+	trigger = {
+		ai = no
+		trait = sharingan
+		NOR = {
+			trait = mangekyo_sharingan
+			trait = eternal_mangekyo_sharingan
+			has_character_modifier = recent_duel_timer
+			has_character_flag = never_wants_mangekyo
 		}
-		text = EVTDESC_ACS401_A
+		age >= 16
+		OR = {
+			num_of_lovers >= 1
+			num_of_friends >= 1
+		}
+		is_pregnant = no
+		is_inaccessible_or_incapable_trigger = no
 	}
 
-	desc = {
-		trigger = {
-			NOT = { has_character_flag = get_mangekyo_by_love }
+
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.5
+			trait = brave
+		}		
+		modifier = {
+			factor = 5
+			religion = buddhist
 		}
-		text = EVTDESC_ACS401_B
+		modifier = {
+			factor = 3
+			has_character_flag = not_ready_for_mangekyo
+		}
 	}
 
 	option = {
+		name = ACS_00400_OPT_A # Accepts
+		ROOT = {
+			save_event_target_as = combatant_1
+			set_character_flag = flag_duel_no_draws
+		}
+		# Select the target of duel
+		if = {
+			limit = {
+				num_of_lovers >= 1
+			}
+			random_lover = {
+				limit = {
+					NOR = {
+						trait = craven
+						trait = weak
+					}
+				}
+				save_event_target_as = combatant_2
+				set_character_flag = flag_duel_no_draws				
+				
+			}
+			ROOT = {
+				pacifists_lose_piety_effect = yes
+	            add_character_modifier = {
+	                modifier = recent_duel_timer
+	                duration = 90
+	            	hidden = yes
+	            }
+			}
+			event_target:combatant_2 = { character_event = { id = ACS.00409 } }
+			break = yes
+		}
+		if = {
+			limit = {
+				num_of_friends >= 1
+			}
+			random_friend = {
+				limit = {
+					NOR = {
+						trait = craven
+						trait = weak
+					}
+				}
+				save_event_target_as = combatant_2
+				set_character_flag = flag_duel_no_draws
+			}
+			ROOT = {
+				pacifists_lose_piety_effect = yes
+	            add_character_modifier = {
+	                modifier = recent_duel_timer
+	                duration = 90
+	                hidden = yes
+	            }
+			}
+			event_target:combatant_2 = { character_event = { id = ACS.00409 } }
+			break = yes
+		}
+	}
+	option = {
+		name = ACS_00400_OPT_B # Not ready yet
+		set_character_flag = not_ready_for_mangekyo
+	}
+	option = {
+		name = ACS_00400_OPT_C # I dont want this eyes
+		set_character_flag = never_wants_mangekyo
+	}	
+}
+
+# ACS.00402 - Displays the get sharingan for the attacker
+narrative_event = {
+	id = ACS.00402
+	picture = GFX_evt_yasaka_magatama
+	is_triggered_only = yes	
+	title = ACS_00402_TITLE
+	desc = ACS_00402_OPT_B
+
+	trigger = {
+		is_alive = yes
+	}	
+
+	option = {
 		name = OK
+		remove_trait = sharingan
+		add_trait = mangekyo_sharingan
 		ai_chance = { factor = 100 }
 	}
 }
@@ -594,8 +457,13 @@ character_event = {
 		ai = yes
 		trait = sharingan
 		trait = ambitious
-		NOT = { trait = mangekyo_sharingan }
-		NOT = { trait = eternal_mangekyo_sharingan }
+		NOR = {
+			trait = weak
+			trait = craven
+			trait = mangekyo_sharingan
+			trait = eternal_mangekyo_sharingan
+			has_character_modifier = recent_duel_timer
+		}
 		age >= 16
 		OR = {
 			num_of_lovers >= 1
@@ -603,18 +471,15 @@ character_event = {
 		}
 		is_pregnant = no
 		NOT = { has_character_modifier = recent_duel_timer }
+		is_inaccessible_or_incapable_trigger = no
 	}
 
 	mean_time_to_happen = {
-		months = 1
+		months = 12
 		modifier = {
 			factor = 0.5
 			trait = brave
-		}
-		modifier = {
-			factor = 100
-			trait = craven
-		}
+		}		
 		modifier = {
 			factor = 5
 			religion = buddhist
@@ -624,6 +489,7 @@ character_event = {
 	immediate = {
 		ROOT = {
 			save_event_target_as = combatant_1
+			set_character_flag = flag_duel_no_draws
 		}
 		# Select the target of duel
 		if = {
@@ -631,9 +497,15 @@ character_event = {
 				num_of_lovers >= 1
 			}
 			random_lover = {
+				limit = {
+					NOR = {
+						trait = craven
+						trait = weak
+					}
+				}
 				save_event_target_as = combatant_2
-				apply_degree_of_dishonorable_duel_effect = yes
-				apply_any_applicable_harsh_penalties_effect = yes
+				set_character_flag = flag_duel_no_draws				
+				
 			}
 			ROOT = {
 				pacifists_lose_piety_effect = yes
@@ -651,9 +523,14 @@ character_event = {
 				num_of_friends >= 1
 			}
 			random_friend = {
+				limit = {
+					NOR = {
+						trait = craven
+						trait = weak
+					}
+				}
 				save_event_target_as = combatant_2
-				apply_degree_of_dishonorable_duel_effect = yes
-				apply_any_applicable_harsh_penalties_effect = yes
+				set_character_flag = flag_duel_no_draws
 			}
 			ROOT = {
 				pacifists_lose_piety_effect = yes
@@ -708,14 +585,43 @@ character_event = {
             factor = 100
         }
 
-        pacifists_lose_piety_effect = yes
-        event_target:combatant_1 = {
-            character_event = { id = HFP.10096 }
+         event_target:combatant_1 = {
+            character_event = { id = ACS.00410 }
         }
         set_character_flag = add_duel_xp
         clr_character_flag = punish_declining
         ai_chance = {
             factor = 80
+        }
+    }    
+}
+
+#  ACS.00410 - Start the duel - For the attacker (combatant_1)
+character_event = {
+    id =  ACS.00410 # HFP.10096
+    is_triggered_only = yes
+    picture = GFX_evt_armory
+    border = GFX_event_normal_frame_war
+    desc = EVTDESC_HFP_10096_bloodline
+    
+    option = {
+        name = EVTOPTA_WOL_11001
+        #FALLBACK:
+        if = { #If FROM is no longer alive, clear relevant flags, etc...
+            limit = { FROM = { NOT = { is_alive = yes } } }
+            reset_warrior_lodge_joining_chain_effect = yes
+            character_event = { id = HFP.10197 }
+        }
+        else = {
+            hidden_effect = {
+                set_character_flag = add_duel_xp
+                reset_duel_timers_effect = yes
+                character_event = { id = HFP.10100 } #Send hidden set-up of duel (from there: result)
+				narrative_event = { id = ACS.00402 days = 3 }
+            }
+        }
+        ai_chance = {
+            factor = 100
         }
     }    
 }
