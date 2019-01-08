@@ -117,7 +117,7 @@ narrative_event = {
 	picture = GFX_evt_yasaka_magatama
 	is_triggered_only = yes	
 	title = ACS_00402_TITLE
-	desc = ACS_00402_OPT_B
+	desc = ACS_00402_DESC
 
 	trigger = {
 		is_alive = yes
