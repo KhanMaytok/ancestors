@@ -111,6 +111,18 @@ narrative_event = {
 	}	
 }
 
+# ACS.00401 - Khalga traveling every year
+character_event = {
+	id = ACS.00401
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+
+	immediate = {
+		character_event = { id = ACS.00201 }
+	}
+}
+
 # ACS.00402 - Displays the get sharingan for the attacker
 narrative_event = {
 	id = ACS.00402

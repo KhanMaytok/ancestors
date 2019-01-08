@@ -13,11 +13,8 @@ on_society_bi_yearly_pulse = {
 on_yearly_pulse = {
 	events = {		
 		ACS.00026 # Check if vee has more than 33 years old
-		# ACS.00031 # Kidnapping. Check for Pentaghast leader conditions
-		# ACS.00035 # Reproduction of kidnapped characters
-		# ACS.00036  # Kidnap of Byakugan child
 		ACS.00039 # Vee has a child every year to ensure hosts
-		ACS.00201 # Send agent to a random province	
+		ACS.00401 # Khalga traveling every year
 	}
 }
 
