@@ -12,7 +12,7 @@ narrative_event = {
 	trigger = {
 		NOT = { has_global_flag = comet_tiamat }
 	}
-	
+
 	option = {
 		trigger = {
 			OR = {
