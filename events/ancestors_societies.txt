@@ -335,6 +335,7 @@ character_event = {
 
 	trigger = {
 		is_ruler = no
+        is_adult = yes
         OR = {
             has_character_flag = is_khalga
             is_inaccessible_or_incapable_trigger = no

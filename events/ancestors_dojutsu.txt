@@ -117,6 +117,7 @@ character_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	has_character_flag = is_khalga
+	min_age = 16
 
 	immediate = {
 		character_event = { id = ACS.00201 }
@@ -142,7 +143,6 @@ narrative_event = {
 		ai_chance = { factor = 100 }
 	}
 }
-
 
 # ACS.00403 - Get a free contribution from a Vassal. Thanks sharingan
 character_event = {
