@@ -1,0 +1,67 @@
+# ACS.00042 - Ensure only one Vee
+character_event = {
+	id = ACS.00042
+	is_triggered_only = yes
+	hide_window = yes
+	ai = no
+
+    trigger = {
+		OR = {
+			multiplayer = no
+			AND = {
+				multiplayer = yes
+				is_multiplayer_host_character = yes
+			}
+		}
+	}
+
+	immediate = {
+		random_character = {
+            limit = {            
+                has_character_flag = is_vee
+            }
+            save_event_target_as = dont_kill?
+        }
+        any_character = {
+            limit = {
+                has_character_flag = is_vee
+                NOT = { character = event_target:dont_kill }?
+            }
+            death = { death_reason = death_platypus }
+        ?}
+	}
+}
+
+# ACS.00043 - Ensure only one Khalga
+character_event = {
+	id = ACS.00043
+	is_triggered_only = yes
+	hide_window = yes
+	ai = no
+
+    trigger = {
+		OR = {
+			multiplayer = no
+			AND = {
+				multiplayer = yes
+				is_multiplayer_host_character = yes
+			}
+		}
+	}
+
+	immediate = {
+		random_character = {
+            limit = {            
+                has_character_flag = is_khalga
+            }
+            save_event_target_as = dont_kill?
+        }
+        any_character = {
+            limit = {
+                has_character_flag = is_khalga
+                NOT = { character = event_target:dont_kill }?
+            }
+            death = { death_reason = death_platypus }
+        ?}
+	}
+}
