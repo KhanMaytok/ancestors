@@ -227,3 +227,18 @@ narrative_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+
+random_character = {
+limit = {
+trait = my_trait
+has_character_flag = my_flag?
+}
+save_event_target_as = dont_kill?
+}
+any_character = {
+limit = {
+trait = my_trait
+has_character_flag = my_flag
+NOT = { character = event_target:dont_kill }?
+}
+death = { death_reason = death_platypus }?}
