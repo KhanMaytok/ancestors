@@ -28,6 +28,7 @@ on_death = {
 	events = {
 		ACS.00020 # Resurrect Khalga if He dies
 		ACS.00025 # Activate the orb if Vee dies
+		ACS.00229 # Preserve mercenary bands to society leaders
 	}
 }
 

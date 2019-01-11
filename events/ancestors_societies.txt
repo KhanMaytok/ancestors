@@ -1021,7 +1021,7 @@ character_event = {
 		location = {
             if = {
                 limit = {
-                    society_rank === 4
+                    society_rank == 4
                 }
                 liege = {
                     any_courtier = {
@@ -1143,5 +1143,100 @@ character_event = {
 				}
 			}
 		}
+	}
+}
+
+# ACS.00229 Preserve mercenary bands to society leaders
+character_event = {
+	id = ACS.00229
+	hide_window = yes
+	is_triggered_only = yes
+
+    is_in_society = yes
+
+    trigger = {
+        is_society_grandmaster = yes
+        OR = {
+            society_member_of = pentaghast_society
+            society_member_of = sakya_society
+        }
+    }
+	
+	immediate = {
+		if = {
+			limit = {
+				society_member_of = pentaghast_society				
+			}
+			pentaghast_society = {
+				random_society_member = {
+                    character_event = { id = ACS.00230 days = 7 }
+                }
+			}
+            break = yes
+		}
+
+        if = {
+			limit = {
+				society_member_of = sakya_society				
+			}
+			sakya_society = {
+				random_society_member = {
+                    character_event = { id = ACS.00230 days = 7 }
+                }
+			}
+            break = yes
+		}		
+	}
+}
+
+# ACS.00230 Preserve mercenary bands to society leaders
+character_event = {
+	id = ACS.00230
+	hide_window = yes
+	is_triggered_only = yes
+
+    is_in_society = yes
+
+    trigger = {        
+        OR = {
+            society_member_of = pentaghast_society
+            society_member_of = sakya_society
+        }
+    }
+	
+	immediate = {
+		if = {
+			limit = {
+				society_member_of = pentaghast_society				
+			}
+			pentaghast_society = {
+				random_society_member = {
+                    limit = {
+                        is_society_grandmaster = yes
+                    }
+                    d_mercenary_pentaghast = {
+                        grant_title = PREV
+                        set_defacto_liege = THIS
+                    }
+                }
+			}
+		}
+
+        if = {
+			limit = {
+				society_member_of = sakya_society				
+			}
+			sakya_society = {
+				random_society_member = {
+                    limit = {
+                        is_society_grandmaster = yes
+                    }
+                    d_mercenary_sakya = {
+                        grant_title = PREV
+                        set_defacto_liege = THIS
+                    }
+                }
+			}
+		}		
 	}
 }
