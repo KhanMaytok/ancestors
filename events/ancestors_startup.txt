@@ -20,15 +20,15 @@ character_event = {
             limit = {            
                 has_character_flag = is_vee
             }
-            save_event_target_as = dont_kill?
+            save_event_target_as = dont_kill
         }
         any_character = {
             limit = {
                 has_character_flag = is_vee
-                NOT = { character = event_target:dont_kill }?
+                NOT = { character = event_target:dont_kill }
             }
             death = { death_reason = death_platypus }
-        ?}
+        }
 	}
 }
 
@@ -54,14 +54,14 @@ character_event = {
             limit = {            
                 has_character_flag = is_khalga
             }
-            save_event_target_as = dont_kill?
+            save_event_target_as = dont_kill
         }
         any_character = {
             limit = {
                 has_character_flag = is_khalga
-                NOT = { character = event_target:dont_kill }?
+                NOT = { character = event_target:dont_kill }
             }
             death = { death_reason = death_platypus }
-        ?}
+        }
 	}
 }
