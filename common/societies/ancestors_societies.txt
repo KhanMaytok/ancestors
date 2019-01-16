@@ -39,6 +39,10 @@ sakya_society = {
 	potential = {
 		NOT = { has_character_flag = is_khalga }
 		NOT = { has_character_flag = is_vee }
+		OR = {
+			is_ruler = no
+			mercenary = yes
+		}
 	}
 
 	society_rank = {
@@ -58,7 +62,7 @@ sakya_society = {
 			
 		}
 	}
-	
+
 	society_rank = {
 		level = 2
 		limit = 50
