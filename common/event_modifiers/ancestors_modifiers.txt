@@ -59,3 +59,28 @@ used_sharingan_5 = {
 	health = -30.0
 	combat_rating = -200
 }
+
+amaterasu = {
+	icon = 81
+	combat_rating = 20
+}
+
+tsukuyomi = {
+	icon = 81
+	combat_rating = 20
+}
+
+susanoo = {
+	icon = 81
+	combat_rating = 20
+}
+
+kamui = {
+	icon = 81
+	combat_rating = 20
+}
+
+kotoamatsukami = {
+	icon = 81
+	combat_rating = 20
+}

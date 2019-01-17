@@ -25,7 +25,6 @@ narrative_event = {
 		is_inaccessible_or_incapable_trigger = no
 	}
 
-
 	mean_time_to_happen = {
 		months = 12
 		modifier = {
@@ -140,6 +139,15 @@ narrative_event = {
 		name = OK
 		remove_trait = sharingan
 		add_trait = mangekyo_sharingan
+		random_list = {
+			50 = {}
+			50 = {
+				add_character_modifier = {
+					name = used_sharingan_4
+					duration = -1
+				}
+			}
+		}
 		ai_chance = { factor = 100 }
 	}
 }
@@ -416,7 +424,7 @@ character_event = {
 			remove_character_modifier = used_sharingan_4
 			add_character_modifier = {
 				name = used_sharingan_5
-				duration = 960
+				duration = 5760
 			}
 			break = yes
 		}
@@ -427,7 +435,7 @@ character_event = {
 			remove_character_modifier = used_sharingan_3
 			add_character_modifier = {
 				name = used_sharingan_4
-				duration = 480
+				duration = 2880
 			}
 			break = yes
 		}
@@ -438,7 +446,7 @@ character_event = {
 			remove_character_modifier = used_sharingan_2
 			add_character_modifier = {
 				name = used_sharingan_3
-				duration = 240
+				duration = 1440
 			}
 			break = yes
 		}
@@ -449,13 +457,13 @@ character_event = {
 			remove_character_modifier = used_sharingan_1
 			add_character_modifier = {
 				name = used_sharingan_2
-				duration = 120
+				duration = 720
 			}
 			break = yes
 		}
 		add_character_modifier = {
 			name = used_sharingan_1
-			duration = 60
+			duration = 360
 		}
 	}
 }
