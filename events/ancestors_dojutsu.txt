@@ -8,13 +8,21 @@ narrative_event = {
 	picture = GFX_evt_yasaka_magatama
 
 	trigger = {
-		ai = no
+		OR = {
+			ai = no
+			AND = {
+				ai = yes
+				trait = ambitious				
+			}
+		}
 		trait = sharingan
 		NOR = {
 			trait = mangekyo_sharingan
 			trait = eternal_mangekyo_sharingan
 			has_character_modifier = recent_duel_timer
 			has_character_flag = never_wants_mangekyo
+			trait = craven
+			trait = weak
 		}
 		age >= 16
 		OR = {
@@ -43,6 +51,10 @@ narrative_event = {
 
 	option = {
 		name = ACS_00400_OPT_A # Accepts
+		ai_chance = {
+			factor = 100
+		}
+
 		ROOT = {
 			save_event_target_as = combatant_1
 			set_character_flag = flag_duel_no_draws
@@ -102,10 +114,20 @@ narrative_event = {
 	}
 	option = {
 		name = ACS_00400_OPT_B # Not ready yet
+
+		ai_chance = {
+			factor = 1
+		}
+
 		set_character_flag = not_ready_for_mangekyo
 	}
 	option = {
 		name = ACS_00400_OPT_C # I dont want this eyes
+
+		ai_chance = {
+			factor = 1
+		}
+
 		set_character_flag = never_wants_mangekyo
 	}	
 }
@@ -467,105 +489,6 @@ character_event = {
 		}
 	}
 }
-
-# ACS.00408 - Init Mangekyo attack for ia
-character_event = {
-	id = ACS.00408
-	hide_window = yes	
-
-	trigger = {
-		ai = yes
-		trait = sharingan
-		trait = ambitious
-		NOR = {
-			trait = weak
-			trait = craven
-			trait = mangekyo_sharingan
-			trait = eternal_mangekyo_sharingan
-			has_character_modifier = recent_duel_timer
-		}
-		age >= 16
-		OR = {
-			num_of_lovers >= 1
-			num_of_friends >= 1
-		}
-		is_pregnant = no
-		NOT = { has_character_modifier = recent_duel_timer }
-		is_inaccessible_or_incapable_trigger = no
-	}
-
-	mean_time_to_happen = {
-		months = 12
-		modifier = {
-			factor = 0.5
-			trait = brave
-		}		
-		modifier = {
-			factor = 5
-			religion = buddhist
-		}
-	}
-
-	immediate = {
-		ROOT = {
-			save_event_target_as = combatant_1
-			set_character_flag = flag_duel_no_draws
-		}
-		# Select the target of duel
-		if = {
-			limit = {
-				num_of_lovers >= 1
-			}
-			random_lover = {
-				limit = {
-					NOR = {
-						trait = craven
-						trait = weak
-					}
-				}
-				save_event_target_as = combatant_2
-				set_character_flag = flag_duel_no_draws				
-				
-			}
-			ROOT = {
-				pacifists_lose_piety_effect = yes
-	            add_character_modifier = {
-	                modifier = recent_duel_timer
-	                duration = 90
-	            	hidden = yes
-	            }
-			}
-			event_target:combatant_2 = { character_event = { id = ACS.00409 } }
-			break = yes
-		}
-		if = {
-			limit = {
-				num_of_friends >= 1
-			}
-			random_friend = {
-				limit = {
-					NOR = {
-						trait = craven
-						trait = weak
-					}
-				}
-				save_event_target_as = combatant_2
-				set_character_flag = flag_duel_no_draws
-			}
-			ROOT = {
-				pacifists_lose_piety_effect = yes
-	            add_character_modifier = {
-	                modifier = recent_duel_timer
-	                duration = 90
-	                hidden = yes
-	            }
-			}
-			event_target:combatant_2 = { character_event = { id = ACS.00409 } }
-			break = yes
-		}
-	}
-}
-
 
 ### "REGULAR" duels start here...
 # Get challenged (sent from duel_decision )

@@ -105,8 +105,8 @@ character_event = {
                     join_society = sakya_society
                     set_character_flag = originated_from_chinese_court
                     character_event = { id = ACS.00201 }
-                }            
-            }  
+                }
+            }
         }
 
         # Fill the Pentaghast society
