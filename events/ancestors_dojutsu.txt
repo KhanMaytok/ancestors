@@ -162,10 +162,15 @@ narrative_event = {
 		remove_trait = sharingan
 		add_trait = mangekyo_sharingan
 		random_list = {
-			50 = {}
 			50 = {
 				add_character_modifier = {
-					name = used_sharingan_4
+					name = amaterasu
+					duration = -1
+				}
+			}
+			50 = {
+				add_character_modifier = {
+					name = tsukuyomi
 					duration = -1
 				}
 			}
