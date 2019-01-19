@@ -3,7 +3,7 @@ spriteTypes = {
 	
 	spriteType = { #the background of the society menu
 		name = "GFX_society_main_background_pentaghast_society"
-		texturefile = "gfx\\interface\\societies\\society_bg_devil_worshiper.dds"
+		texturefile = "gfx\\interface\\societies\\society_bg_pentaghast_society.dds"
 	}
 	spriteType = { #the background of the society menu
 		name = "GFX_society_main_background_sakya_society"
