@@ -462,7 +462,7 @@ character_event = {
 					society_member_of = pentaghast_society
 					is_society_grandmaster = no
 				}
-				save_event_target_as = pentagast_recruiter
+				save_event_target_as = pentaghast_recruiter
                 character_event = { id = ACS.00205 }
 			}
 		}
