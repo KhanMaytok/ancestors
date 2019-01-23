@@ -600,7 +600,7 @@ narrative_event = {
         }
         if = {
             limit = {
-                trait = cynical
+                NOT = { trait = cynical }
             }
             add_trait = cynical
         }
@@ -635,16 +635,10 @@ narrative_event = {
 	is_triggered_only = yes
 
     option = {
-        name = ACS_00212_OPT_A
-        wealth = -300
+        name = OK
         hidden_effect = {
             narrative_event = { id = ACS.00213 days = 3 }
         }
-    }
-
-    option = {
-        name = ACS_00212_OPT_B
-        death = { death_reason = death_missing }
     }
 }
 
