@@ -626,7 +626,7 @@ letter_event = {
     }
 }
 
-# ACS.00212 - Pay to enter
+# ACS.00212 - Entering in the forgotten temple
 narrative_event = {
 	id = ACS.00212
     title = ACS_00212_TITLE
