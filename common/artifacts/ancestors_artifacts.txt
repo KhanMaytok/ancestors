@@ -25,6 +25,72 @@ eden_apple = {
 	learning = 9
 }
 
+tracker_armor_human = {
+	combat_rating = 3
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancient armor }
+	stacking = yes
+	slot = torso
+	picture = "GFX_tracker_armor_human"	
+}
+
+tracker_armor_elf = {
+	combat_rating = 3
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancient armor }
+	stacking = yes
+	slot = torso
+	picture = "GFX_tracker_armor_elf"
+}
+
+tracker_armor_darkelf = {	
+	combat_rating = 3
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancient armor }
+	stacking = yes
+	slot = torso
+	picture = "GFX_tracker_armor_darkelf"
+}
+
+tracker_armor_dwarf = {
+	combat_rating = 3
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancient armor }
+	stacking = yes
+	slot = torso
+	flags = { ancient armor }
+	picture = "GFX_tracker_armor_dwarf"
+}
+
+tracker_armor_orc = {
+	combat_rating = 3
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancient armor }
+	stacking = yes
+	slot = torso
+	picture = "GFX_tracker_armor_orc"
+}
+
 dominus_armor_human = {
 	learning = 1
 	combat_rating = 15
