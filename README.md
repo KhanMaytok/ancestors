@@ -58,4 +58,27 @@ Dos seres tan peculiares deberí­an tener sus seguidores. La respuesta a esto s
 
 *Las caracterí­sticas, motivaciones y sensaciones especiales de estas dos sociedades aún están en desarrollo.*
 
+# Artifacts
+
+An artifact quest and upgrade system is being developed
+
+Current artifacts:
+
+- Tracker Armor (1199)
+- Dynasty Armor (1984)
+- Majestic Armor (136)
+- Blue Wolf Armor (138)
+- Avadon Armor (138)
+- Cataclysmic Armor (1196)
+- Draconic Armor (2013)
+- Imperial Armor (2031)
+- Nightmare Armor (2058)
+- Divine Armor (2214)
+- Dark Crystal Armor (2229)
+- Dominus Armor (2229)
+- Mithril Armor (2247)
+- Optimus Armor (2196)
+- Reggios Armor (2211)
+
+
 
