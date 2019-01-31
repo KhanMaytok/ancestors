@@ -24,6 +24,7 @@ narrative_event = {
 			}
 		}
 		name = ACS_00001_OPT_A
+		character_event = { id = ACS.00003 days = 31 }
 		narrative_event = { id = ACS.00004 days = 45 }
 		set_global_flag = comet_tiamat
 		hidden_tooltip = {
@@ -44,10 +45,10 @@ narrative_event = {
 						not = { owner = { character = ROOT } }
 						is_land =  yes
 					}
-					province_event = { id = ACS.00002 days = 30 }                
+					province_event = { id = ACS.00002 days = 30 }					
 				}            
 			}
-		}		
+		}
 	}
 }
 
