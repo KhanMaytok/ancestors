@@ -927,36 +927,38 @@ character_event = {
 					death = { death_reason = death_poor_health }
 				}
 				10 = {
-					999 = {
-						add_trait = malnourished
-						random_list = {
-							100 = { add_trait = depressed }
-							100 = { add_trait = incapable }
-							100 = { add_trait = incapable }
-							100 = { add_trait = infirm }
-							100 = { add_trait = lunatic }
-							100 = { add_trait = maimed }
-							100 = { add_trait = scarred_high }
-							100 = { add_trait = wounded }
-							100 = { add_trait = blinded }
+					random_list = {
+						999 = {
+							add_trait = malnourished
+							random_list = {
+								100 = { add_trait = depressed }
+								100 = { add_trait = incapable }
+								100 = { add_trait = incapable }
+								100 = { add_trait = infirm }
+								100 = { add_trait = lunatic }
+								100 = { add_trait = maimed }
+								100 = { add_trait = scarred_high }
+								100 = { add_trait = wounded }
+								100 = { add_trait = blinded }
+							}
+							random_list = {
+								100 = { add_trait = clubfooted }
+								100 = { add_trait = dwarf }
+								100 = { add_trait = harelip }
+								100 = { add_trait = hunchback }
+								100 = { add_trait = imbecile }
+								100 = { add_trait = inbred }
+								100 = { add_trait = lisp }
+								100 = { add_trait = slow }
+								100 = { add_trait = stutter }
+								100 = { add_trait = weak }
+							}
 						}
-						random_list = {
-							100 = { add_trait = clubfooted }
-							100 = { add_trait = dwarf }
-							100 = { add_trait = harelip }
-							100 = { add_trait = hunchback }
-							100 = { add_trait = imbecile }
-							100 = { add_trait = inbred }
-							100 = { add_trait = lisp }
-							100 = { add_trait = slow }
-							100 = { add_trait = stutter }
-							100 = { add_trait = weak }
+						1 = {
+							add_trait = rinnegan
+							add_trait = genius
+							add_trait = fair
 						}
-					}
-					1 = {
-						add_trait = rinnegan
-						add_trait = genius
-						add_trait = fair
 					}
 				}
 			}

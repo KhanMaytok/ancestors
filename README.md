@@ -31,9 +31,9 @@ Un Byakugan. Otorga bonus para defenderse de complots, habilidad de combate y at
 </p>
 
 - **Ojos malva**: 
-- **Ojos carmesÃ­Â­**: Un Sharingan. Otorga mayor capacidad de Ã©xito en los complots, habilidad de combate y atributos base.
+- **Ojos carmesí**: Un Sharingan. Otorga mayor capacidad de éxito en los complots, habilidad de combate y atributos base.
 
-Es importante seÃ±alar que los traits aun estÃ¡n en desarrollo y sus capacidades podrÃ­an cambiar en un futuro. Si tienes ideas de los cambios que puede hacerse, puedes comentarlo en la pÃ¡gina de discusiones. Tu opiniÃ³n me importa mucho.
+Es importante señalar que los traits aun están en desarrollo y sus capacidades podrÃ­an cambiar en un futuro. Si tienes ideas de los cambios que puede hacerse, puedes comentarlo en la página de discusiones. Tu opinión me importa mucho.
 
 ### Vee and Khalga
 
@@ -41,22 +41,22 @@ The two main characters from the mod, the entire narrative revolves around them.
 
 Vee is, if you accept her, the closest character of the two to you. She is considered the most beautiful woman in the world and her presence in your court will give you bonuses and special events:
 
-- **Modificador especial**: La presencia de Vee en tu corte te garantiza un punto adicional de prestigio mensual. Son las ventajas de tener como cortesana a la mujer mÃ¡s bella del mundo.
-- **Nuevo Casus Belli**: La presencia de Vee en tu corte tambiÃ©n te causa problemas. Cualquier persona con tierras te podrÃ¡ declarar la guerra por ella. Si pierdes, Vee irÃ¡ a la corte del ganador de la guerra. 
-- **Ojos carmesÃ­Â­**: Vee es la portadora original de los ojos carmesÃ­. El rasgo es capaz de evolucionar mediante eventos especiales y hacerse mÃ¡s poderoso. TambiÃ©n se puede heredar, lo que permite que crees tu programa genÃ©tico a largo plazo. Â¡Incluso tÃº podrÃ­Â­as poseerlo si planificas bien tu dinastÃ­Â­a!
-- **Semi-inmortalidad**: Vee, o al menos su esencia, vivirÃ¡ a lo largo de toda la narrativa, pero necesita un cuerpo nuevo para transferirse cuando al viejo le llegue la hora. Solo puede transferirse a una de sus hijas, que serÃ¡ el nuevo recipiente. El evento se repita cada 33 aÃ±os y se anularÃ¡ si Vee muere.
+- **Modificador especial**: La presencia de Vee en tu corte te garantiza un punto adicional de prestigio mensual. Son las ventajas de tener como cortesana a la mujer más bella del mundo.
+- **Nuevo Casus Belli**: La presencia de Vee en tu corte también te causa problemas. Cualquier persona con tierras te podrá declarar la guerra por ella. Si pierdes, Vee irá a la corte del ganador de la guerra. 
+- **Ojos carmesí**: Vee es la portadora original de los ojos carmesí­. El rasgo es capaz de evolucionar mediante eventos especiales y hacerse más poderoso. También se puede heredar, lo que permite que crees tu programa genético a largo plazo. Â¡Incluso tú podrías poseerlo si planificas bien tu dinastía!
+- **Semi-inmortalidad**: Vee, o al menos su esencia, vivirá a lo largo de toda la narrativa, pero necesita un cuerpo nuevo para transferirse cuando al viejo le llegue la hora. Solo puede transferirse a una de sus hijas, que será el nuevo recipiente. El evento se repita cada 33 años y se anulará si Vee muere.
 
-Por otro lado, Khalga es la contraparte. Puede ser el opositor del juego, o quizÃ¡ no, todo depende de los eventos que experimente y tus propias decisiones. Khalga tambiÃ©n tiene un conjunto de caracterÃ­Â­sticas:
+Por otro lado, Khalga es la contraparte. Puede ser el opositor del juego, o quizá no, todo depende de los eventos que experimente y tus propias decisiones. Khalga también tiene un conjunto de características:
 
-- **Inmortalidad completa**: Khalga no puede morir de vejez y tiene una elevada resistencia a la enfermedad. Puede morir asesinado o por un accidente, pero su esencia se transfiere de inmediato a cualquier mujer, que concibe a un niÃ±o con las mismas carcterÃ­Â­sticas base.
-- **Ojos Malva**: Un (cof, cof, Byakugan) rasgo que da una serie de ventajas. Como el rasgo de Vee, es transmisible a sus hijos y puede ser usado como programa genÃ©tico en la narrativa.
-- **Nomadismo**: Khalga nunca se queda en un sitio. Migra periÃ³dicamente, recorriendo el mundo, asÃ­Â­ que es difÃ­Â­cil que lo encuentres. Es un licencioso amante de las aventuras y va dejando su progenie por donde pasa. Si visita tu corte y no le gustas, *deberÃ­Â­as preocuparte*.
+- **Inmortalidad completa**: Khalga no puede morir de vejez y tiene una elevada resistencia a la enfermedad. Puede morir asesinado o por un accidente, pero su esencia se transfiere de inmediato a cualquier mujer, que concibe a un niño con las mismas carcterísticas base.
+- **Ojos Malva**: Un (cof, cof, Byakugan) rasgo que da una serie de ventajas. Como el rasgo de Vee, es transmisible a sus hijos y puede ser usado como programa genético en la narrativa.
+- **Nomadismo**: Khalga nunca se queda en un sitio. Migra periódicamente, recorriendo el mundo, así que es difícil que lo encuentres. Es un licencioso amante de las aventuras y va dejando su progenie por donde pasa. Si visita tu corte y no le gustas, *deberías preocuparte*.
 
 ### Sociedades
 
-Dos seres tan peculiares deberÃ­Â­an tener sus seguidores. La respuesta a esto son los Pentaghast y los Sakya, dos sociedades con una historia en comÃºn y enemigos entre sÃ­Â­. 
+Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son los Pentaghast y los Sakya, dos sociedades con una historia en común y enemigos entre sí. 
 
-*Las caracterÃ­Â­sticas, motivaciones y sensaciones especiales de estas dos sociedades aÃºn estÃ¡n en desarrollo.*
+*Las características, motivaciones y sensaciones especiales de estas dos sociedades aún están en desarrollo.*
 
 # Artifacts
 
