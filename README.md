@@ -22,11 +22,11 @@ There were two secret societies from ancestral times: Pentaghast and Sakya. Both
 
 ## FAQ
 
-<p>	
+<p>
 How can I get a Sharingan/Byakugan?
 </p>
 
-<p>	
+<p>
 The main source of dojutsu are Vee and Khalga. Dojutsu inheritance works like a sort of "recesive gene", so, there are rules to preserve it in your dynasty
 </p>
 
@@ -35,9 +35,21 @@ The main source of dojutsu are Vee and Khalga. Dojutsu inheritance works like a 
 - All childrens of a "recesive" gene owner and a normal character will lost the trait and not preserve any gene
 - All childrens of a "direct" gene owner and other "direct" character will have the dojutsu and a "direct" gene
 - All childrens of a "recesive" gene owner and other "recesive" character will have the dojutsu and a "recesive" gene
-- In the real life it is not the way in that genetics works, but dojutsu inheritance for this mod fits roleplay and strategic breeding. So, you should carefully - monitor the traits of two characters before you marry them if you want to preserve those wonderful eyes.
-- Is this a Naruto mod?
-- The shinobi world is very rich and complex and I don't think I can move this world with all its characteristics to this mod. I think the dojutsu is a great feature for this sprint. Maybe in the future I can start a project of such magnitude
+- In the real life it is not the way in that genetics works, but dojutsu inheritance for this mod fits roleplay and strategic breeding. So, you should carefully  monitor the traits of two characters before you marry them if you want to preserve those wonderful eyes.
+
+<p>
+Is this a Naruto mod?
+</p>
+
+<p>
+The shinobi world is very rich and complex and I don't think I can move this world with all its characteristics to this mod. I think the dojutsu is a great feature for this sprint. Maybe in the future I can start a project of such magnitude
+</p>
+
+## Key features
+
+### Armors
+
+At game start
 
 ### Vee and Khalga
 
