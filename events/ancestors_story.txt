@@ -1279,3 +1279,32 @@ character_event = {
 		add_trait = khalga_trait
 	}
 }
+
+# ACS.00042 # Ensure only one Vee
+# ACS.00043 # Ensure only one Khalga
+# ACS.00045 # Spread ancestor chests
+
+# Character goes crazy if has an ancestor armor and dont have dojutsu
+character_event = {
+	id = ACS.00045
+	hide_window = yes
+
+	trigger = {
+		has_dojutsu_trigger = no
+		any_artifact = {			
+			had_artifact_flag = ancient
+			had_artifact_flag = tier1
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 100		
+	}
+
+	immediate = {
+		add_trait = lunatic
+		add_trait = possessed
+		add_trait = depressed
+		add_trait = drunkard
+	}
+}
