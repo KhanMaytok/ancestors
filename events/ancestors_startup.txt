@@ -66,7 +66,7 @@ character_event = {
 	}
 }
 
-# ACS.00044 - Spread many tracker armors at game start
+# ACS.00044 - Spread ancestor chests
 character_event = {
 	id = ACS.00044
 	is_triggered_only = yes
@@ -74,6 +74,7 @@ character_event = {
 	ai = no
 
     trigger = {
+		NOT = { has_global_flag = spawned_ancestors_chests }
 		OR = {
 			multiplayer = no
 			AND = {
@@ -88,8 +89,8 @@ character_event = {
             limit = {            
                 is_land = yes
             }
-            add_province_modifier = { name = ancestor_chest duration = -1 }
-			
+            add_province_modifier = { name = ancestor_chest duration = -1 }			
         }
+		set_global_flag = spawned_ancestors_chests
 	}
 }

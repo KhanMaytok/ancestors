@@ -312,6 +312,7 @@ character_event = {
 
 	option = {
 		name = OK
+		add_artifact = tracker_armor_human
 	}
 }
 

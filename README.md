@@ -80,11 +80,11 @@ An artifact quest and upgrade system is being developed
 
 Current artifacts:
 
-- Tracker Armor (1199)
-- Dynasty Armor (1984)
+- Tracker Armor (17398)
+- Avadon Armor (17766)
+- Blue Wolf Armor (17540)
+- Dynasty Armor (17253)
 - Majestic Armor (136)
-- Blue Wolf Armor (138)
-- Avadon Armor (138)
 - Cataclysmic Armor (1196)
 - Draconic Armor (2013)
 - Imperial Armor (2031)
@@ -93,8 +93,8 @@ Current artifacts:
 - Dark Crystal Armor (2229)
 - Dominus Armor (2229)
 - Mithril Armor (2247)
-- Optimus Armor (2196)
-- Reggios Armor (2211)
+- Optimus Armor (19084)
+- Reggios Armor (19230)
 
 
 

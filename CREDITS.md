@@ -1,3 +1,3 @@
 # CREDITS
 
-- https://www.deviantart.com/lora-vysotskaya/art/Gefion-733846565: Fertility decision icon
+- <a href="https://www.deviantart.com/wlop">wlop</a>, for the event images. <a href="www.patreon.com/wlop">Patreon</a>
