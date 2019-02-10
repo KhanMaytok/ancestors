@@ -1291,14 +1291,77 @@ character_event = {
 
 	trigger = {
 		has_dojutsu_trigger = no
-		any_artifact = {			
-			had_artifact_flag = ancient
-			had_artifact_flag = tier1
+		any_artifact = {
+			has_artifact_flag = ancient
+			has_artifact_flag = tier1
 		}
 	}
 
 	mean_time_to_happen = {
-		years = 100		
+		months = 792
+		modifier = {
+			factor = 0.9
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier2
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier3
+			}
+		}
+		modifier = {
+			factor = 0.7
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier4
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier5
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier6
+			}
+		}
+		modifier = {
+			factor = 0.4
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier7
+			}
+		}
+		modifier = {
+			factor = 0.3
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier8
+			}
+		}
+		modifier = {
+			factor = 0.2
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier9
+			}
+		}
+		modifier = {
+			factor = 0.1
+			any_artifact = {
+				had_artifact_flag = ancient
+				had_artifact_flag = tier10
+			}
+		}
 	}
 
 	immediate = {

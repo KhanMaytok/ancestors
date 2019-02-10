@@ -23,6 +23,8 @@ spriteTypes = {
 		name = "GFX_eden_apple_small"
 		texturefile = "gfx\\interface\\inventory\\artifacts\\eden_apple_small.dds"
 	}
+
+
 	spriteType = {
 		name = "GFX_tracker_armor_human"
 		texturefile = "gfx\\interface\\inventory\\artifacts\\tracker_armor_human.dds"
@@ -62,5 +64,47 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_tracker_armor_orc_small"
 		texturefile = "gfx\\interface\\inventory\\artifacts\\tracker_armor_orc_small.dds"
+	}
+	
+	# AVADON ARMOR SET
+	spriteType = {
+		name = "GFX_avadon_armor_human"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_human.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_human_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_human_small.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_elf"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_elf.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_elf_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_elf_small.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_darkelf"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_darkelf.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_darkelf_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_darkelf_small.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_dwarf"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_dwarf.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_dwarf_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_dwarf_small.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_orc"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_orc.dds"
+	}
+	spriteType = {
+		name = "GFX_avadon_armor_orc_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\avadon_armor_orc_small.dds"
 	}
 }
