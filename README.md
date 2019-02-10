@@ -76,9 +76,7 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 
 # Artifacts
 
-An artifact quest and upgrade system is being developed
-
-Current artifacts:
+There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own. The current list, from the most basic to the most advanced is:
 
 - Tracker Armor (17398)
 - Avadon Armor (17766)
