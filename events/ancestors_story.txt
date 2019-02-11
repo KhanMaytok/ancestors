@@ -226,7 +226,7 @@ narrative_event = {
 			trait = wroth
 			trait = paranoid
 			trait = prevent_marriage
-			health = 10
+			health = 20
 		}
 		new_character = {                        
 			set_character_flag = is_senua			
@@ -371,6 +371,9 @@ narrative_event = {
 			}
 			dynasty = 300000
 			health = 20
+			mother = {
+				death = { death_reason = { death_childbirth } }
+			}
 		}
 		liege = { # Player is notified
 			narrative_event = { id = ACS.00009 days = 1 }          
@@ -1302,64 +1305,64 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier2
+				has_artifact_flag = ancient
+				has_artifact_flag = tier2
 			}
 		}
 		modifier = {
 			factor = 0.8
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier3
+				has_artifact_flag = ancient
+				has_artifact_flag = tier3
 			}
 		}
 		modifier = {
 			factor = 0.7
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier4
+				has_artifact_flag = ancient
+				has_artifact_flag = tier4
 			}
 		}
 		modifier = {
 			factor = 0.6
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier5
+				has_artifact_flag = ancient
+				has_artifact_flag = tier5
 			}
 		}
 		modifier = {
 			factor = 0.5
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier6
+				has_artifact_flag = ancient
+				has_artifact_flag = tier6
 			}
 		}
 		modifier = {
 			factor = 0.4
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier7
+				has_artifact_flag = ancient
+				has_artifact_flag = tier7
 			}
 		}
 		modifier = {
 			factor = 0.3
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier8
+				has_artifact_flag = ancient
+				has_artifact_flag = tier8
 			}
 		}
 		modifier = {
 			factor = 0.2
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier9
+				has_artifact_flag = ancient
+				has_artifact_flag = tier9
 			}
 		}
 		modifier = {
 			factor = 0.1
 			any_artifact = {
-				had_artifact_flag = ancient
-				had_artifact_flag = tier10
+				has_artifact_flag = ancient
+				has_artifact_flag = tier10
 			}
 		}
 	}
