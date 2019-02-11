@@ -73,9 +73,6 @@ province_event = {
 			}
 			spawn_disease = tuberculosis
 		}
-		FROM = {
-			character_event = { id = ACS.00003 }
-		}
 	}
 }
 
