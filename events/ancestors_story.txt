@@ -303,7 +303,8 @@ character_event = {
 # ACS.00007 - Player is notified about Olaf leaves the court
 narrative_event = {
 	id = ACS.00007
-	desc = ACS_00007_TITLE
+	title = ACS_00007_TITLE
+	desc = ACS_00007_DESC
 	picture = GFX_evt_courtiers_talking
 	is_triggered_only = yes
 
