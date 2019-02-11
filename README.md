@@ -79,14 +79,18 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own. The current list, from the most basic to the most advanced is:
 
 - Tracker Armor (17398)
-- Avadon Armor (17766)
+- Nightmare Armor (2058)
 - Blue Wolf Armor (17540)
-- Dynasty Armor (17253)
+
+- Avadon Armor (17766)
 - Majestic Armor (136)
+- Dynasty Armor (17253)
+
+### TODO
 - Cataclysmic Armor (1196)
 - Draconic Armor (2013)
 - Imperial Armor (2031)
-- Nightmare Armor (2058)
+
 - Divine Armor (2214)
 - Dark Crystal Armor (2229)
 - Dominus Armor (2229)
