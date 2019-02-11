@@ -20,20 +20,36 @@
 There were two secret societies from ancestral times: Pentaghast and Sakya. Both remained in eternal struggle, one against the other, until the Sakya managed to prevail. However, the Pentaghast have returned from their bitter exile and are now ready for revenge.
 </p>
 
-## Key Features
+## FAQ
 
-### Traits
-
-#### Ojos malva
-
-</p>
-Un Byakugan. Otorga bonus para defenderse de complots, habilidad de combate y atributos base. Los efectos adicionales que brindan son:
+<p>
+How can I get a Sharingan/Byakugan?
 </p>
 
-- **Ojos malva**: 
-- **Ojos carmesí**: Un Sharingan. Otorga mayor capacidad de éxito en los complots, habilidad de combate y atributos base.
+<p>
+The main source of dojutsu are Vee and Khalga. Dojutsu inheritance works like a sort of "recesive gene", so, there are rules to preserve it in your dynasty
+</p>
 
-Es importante señalar que los traits aun están en desarrollo y sus capacidades podrÃ­an cambiar en un futuro. Si tienes ideas de los cambios que puede hacerse, puedes comentarlo en la página de discusiones. Tu opinión me importa mucho.
+- All Vee/Khalga childrens will get the dojutsu and a "direct" gene
+- All childrens of a "direct" gene owner and a normal character will get the dojutsu and a "recesive" gene
+- All childrens of a "recesive" gene owner and a normal character will lost the trait and not preserve any gene
+- All childrens of a "direct" gene owner and other "direct" character will have the dojutsu and a "direct" gene
+- All childrens of a "recesive" gene owner and other "recesive" character will have the dojutsu and a "recesive" gene
+- In the real life it is not the way in that genetics works, but dojutsu inheritance for this mod fits roleplay and strategic breeding. So, you should carefully  monitor the traits of two characters before you marry them if you want to preserve those wonderful eyes.
+
+<p>
+Is this a Naruto mod?
+</p>
+
+<p>
+The shinobi world is very rich and complex and I don't think I can move this world with all its characteristics to this mod. I think the dojutsu is a great feature for this sprint. Maybe in the future I can start a project of such magnitude
+</p>
+
+## Key features
+
+### Armors
+
+At game start
 
 ### Vee and Khalga
 
@@ -60,25 +76,27 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 
 # Artifacts
 
-An artifact quest and upgrade system is being developed
+There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own. The current list, from the most basic to the most advanced is:
 
-Current artifacts:
+- Tracker Armor (17398)
+- Nightmare Armor (2058)
+- Blue Wolf Armor (17540)
 
-- Tracker Armor (1199)
-- Dynasty Armor (1984)
+- Avadon Armor (17766)
 - Majestic Armor (136)
-- Blue Wolf Armor (138)
-- Avadon Armor (138)
+- Dynasty Armor (17253)
+
+### TODO
 - Cataclysmic Armor (1196)
 - Draconic Armor (2013)
 - Imperial Armor (2031)
-- Nightmare Armor (2058)
+
 - Divine Armor (2214)
 - Dark Crystal Armor (2229)
 - Dominus Armor (2229)
 - Mithril Armor (2247)
-- Optimus Armor (2196)
-- Reggios Armor (2211)
+- Optimus Armor (19084)
+- Reggios Armor (19230)
 
 
 

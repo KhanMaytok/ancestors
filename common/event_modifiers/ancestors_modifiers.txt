@@ -84,3 +84,7 @@ kotoamatsukami = {
 	icon = 81
 	combat_rating = 20
 }
+
+ancestor_chest = {
+	icon = 4
+}

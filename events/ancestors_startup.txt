@@ -65,3 +65,32 @@ character_event = {
         }
 	}
 }
+
+# ACS.00044 - Spread ancestor chests
+character_event = {
+	id = ACS.00044
+	is_triggered_only = yes
+	hide_window = yes
+	ai = no
+
+    trigger = {
+		NOT = { has_global_flag = spawned_ancestors_chests }
+		OR = {
+			multiplayer = no
+			AND = {
+				multiplayer = yes
+				is_multiplayer_host_character = yes
+			}
+		}
+	}
+
+	immediate = {
+		any_province = {
+            limit = {            
+                is_land = yes
+            }
+            add_province_modifier = { name = ancestor_chest duration = -1 }			
+        }
+		set_global_flag = spawned_ancestors_chests
+	}
+}
