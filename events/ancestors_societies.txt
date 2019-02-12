@@ -14,12 +14,15 @@ character_event = {
             }
             # Create the husband
             create_character = {
+                name = "Axios"
                 random_traits = yes
+                age = 40
             }
             new_character = {
                 save_event_target_as = tilda_husband
                 add_spouse = ROOT
                 death = { death_reason = death_missing }
+                dynasty = none
             }
             # The daughter
             create_character = {
@@ -34,7 +37,7 @@ character_event = {
                 dynasty = 300002
             }
             new_character = {
-                set_father = tilda_husband
+                set_father = event_target:tilda_husband
                 set_mother = ROOT
             }
 
