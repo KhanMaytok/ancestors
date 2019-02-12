@@ -7,10 +7,48 @@ character_event = {
     is_triggered_only = yes
 
     immediate = {
+        # Start relatives for Tilda
         if = {
             limit = {
                 has_character_flag = is_ancient_one
             }
+            # Create the husband
+            create_character = {
+                random_traits = yes
+            }
+            new_character = {
+                save_event_target_as = tilda_husband
+                add_spouse = ROOT
+                death = { death_reason = death_missing }
+            }
+            # The daughter
+            create_character = {
+                age = 14
+                name = "Tais"
+                female = yes
+                trait = cruel
+                trait = genius
+                trait = brilliant_strategist
+                trait = hunter
+                trait = duelist
+                dynasty = 300002
+            }
+            new_character = {
+                set_father = tilda_husband
+                set_mother = ROOT
+            }
+
+            # The Adopted
+            create_character = {
+                age = 10
+                name = "Stelios"
+                trait = genius
+                trait = mastermind_theologian
+                trait = is_malnourished
+                trait = poet
+                dynasty = none
+            }            
+
             # Fill the tier 4 seats
             set_variable = { which = count value = 2 }
             while = {
