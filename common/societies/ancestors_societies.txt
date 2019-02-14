@@ -108,7 +108,7 @@ sakya_society = {
 
 	society_rank = {
 		level = 4
-		limit = 10
+		limit = 13
 		startup_limit = 1
 		modifier = {
 			is_visible = {

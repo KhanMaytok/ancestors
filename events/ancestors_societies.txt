@@ -52,105 +52,126 @@ character_event = {
                 dynasty = none
             }            
 
-            # Fill the tier 4 seats
-            set_variable = { which = count value = 2 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                    dynasty = 300000
-                }
-                new_character = {
-                    join_society = sakya_society
-                    society_rank_up = 3
-                    set_character_flag = originated_from_chinese_court
-                    character_event = { id = ACS.00201 }
-                }
+            # FILL THE 12 CLAN MEMBERS
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300003
             }
-            # Fill the tier 3 seats
-            set_variable = { which = count value = 10 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    dynasty = 300000
-                    female = no
-                }
-                new_character = {
-                    join_society = sakya_society
-                    society_rank_up = 2
-                    set_character_flag = originated_from_chinese_court                    
-                    character_event = { id = ACS.00201 }
-                }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
             }
-            # Fill the tier 2 seats
-            set_variable = { which = count value = 20 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                    dynasty = 300000
-                }
-                new_character = {
-                    join_society = sakya_society
-                    society_rank_up = 1
-                    set_character_flag = originated_from_chinese_court
-                    character_event = { id = ACS.00201 }
-                }            
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300004
             }
-
-            # Fill the tier 1 seats
-            set_variable = { which = count value = 30 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = no
-                    dynasty = 300000
-                }
-                new_character = {
-                    join_society = sakya_society
-                    set_character_flag = originated_from_chinese_court
-                    character_event = { id = ACS.00201 }
-                }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300005
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300006
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300007
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300008
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300009
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300010
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300011
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300012
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300013
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+            }
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300014
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
             }
         }
 

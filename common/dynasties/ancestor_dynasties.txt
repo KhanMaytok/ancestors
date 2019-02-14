@@ -8,11 +8,83 @@
 	used_for_random=no
 	name="Pentaghast"
 	culture="greek"
-	religion="hellenic_pagan"	
+	religion="hellenic_pagan"
 }
 300002={
 	used_for_random=no
 	name="Maytok"
 	culture="roman"
 	religion="hellenic_pagan"	
+}
+300003={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300004={
+	used_for_random=no
+	name="Heráclidas"
+	culture="greek"
+	religion="hellenic_pagan"
+}
+300005={
+	used_for_random=no
+	name="Shao"
+	culture="Han"
+	religion="taoist"	
+}
+300006={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300007={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300008={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300009={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300010={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300011={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300012={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300013={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
+}
+300014={
+	used_for_random=no
+	name="Mahishmati"
+	culture="hindustani"
+	religion="buddhist"	
 }
