@@ -29,7 +29,7 @@ d_mercenary_sakya = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 622	
 	# Parent Religion 
 	religion = buddhist
 	
@@ -50,4 +50,85 @@ d_mercenary_sakya = {
 	strength_growth_per_century = 1.0
 
 	mercenary_type = sakya_composition
+}
+
+d_mercenary_mahishmati = {
+	color={ 100 200 81 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = mahishmati_composition
+}
+
+d_mercenary_heraclidas = {
+	color={ 100 200 82 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = heraclidas_composition
+}
+
+d_mercenary_shao = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = shao_composition
 }

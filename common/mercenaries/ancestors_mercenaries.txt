@@ -9,3 +9,18 @@ sakya_composition = {
     knights = 100
     levy_size = 1
 }
+
+mahishmati_composition = {
+    knights = 100
+    levy_size = 1
+}
+
+heraclidas_composition = {
+    knights = 100
+    levy_size = 1
+}
+
+shao_composition = {
+    knights = 100
+    levy_size = 1
+}

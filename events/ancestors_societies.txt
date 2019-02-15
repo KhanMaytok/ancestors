@@ -61,7 +61,11 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_mahishmati = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
             }
             create_character = {
                 random_traits = yes
@@ -71,17 +75,27 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_heraclidas = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
             }
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300005
+                culture = han
+                religion = taoist
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_shao = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
             }
             create_character = {
                 random_traits = yes
@@ -855,7 +869,7 @@ narrative_event = {
                 modifier = {
                     has_mental_disorder_trigger = yes
                     factor = 5
-                }               
+                } 
                 modifier = {
                     trait = maimed
                     factor = 20.0
