@@ -31,60 +31,60 @@
 300005={
 	used_for_random=no
 	name="Shao"
-	culture="Han"
+	culture="han"
 	religion="taoist"	
 }
 300006={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Koda"
+	culture="samoyed"
+	religion="baltic_pagan"
 }
 300007={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Freljord"
+	culture="norse"
+	religion="norse_pagan"
 }
 300008={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Mogul"
+	culture="tocharian"
+	religion="tengri_pagan"	
 }
 300009={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Skaven"
+	culture="norse"
+	religion="norse_pagan"	
 }
 300010={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Andiroba"
+	culture="manden"
+	religion="west_african_pagan"
 }
 300011={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Jabuticaba"
+	culture="songhay"
+	religion="west_african_pagan"
 }
 300012={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Dalar"
+	culture="irish"
+	religion="pagan"	
 }
 300013={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Wallace"
+	culture="scotish"
+	religion="pagan"
 }
 300014={
 	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
+	name="Tálib"
+	culture="beduin"
+	religion="shiite"	
 }

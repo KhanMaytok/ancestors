@@ -132,3 +132,246 @@ d_mercenary_shao = {
 
 	mercenary_type = shao_composition
 }
+
+d_mercenary_koda = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = koda_composition
+}
+
+d_mercenary_freljord = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = freljord_composition
+}
+
+d_mercenary_mogul = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = mogul_composition
+}
+
+d_mercenary_skaven = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = skaven_composition
+}
+
+d_mercenary_andiroba = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = andiroba_composition
+}
+
+d_mercenary_jabuticaba = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = jabuticaba_composition
+}
+
+d_mercenary_dalar = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = dalar_composition
+}
+
+d_mercenary_wallace = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = wallace_composition
+}
+
+d_mercenary_talib = {
+	color={ 100 200 83 }
+	color2={ 255 255 255 }
+
+	capital = 622 # mantua		
+	# Parent Religion 
+	religion = buddhist
+	
+	mercenary = yes
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = talib_composition
+}

@@ -52,11 +52,13 @@ character_event = {
                 dynasty = none
             }            
 
-            # FILL THE 12 CLAN MEMBERS
+            # MAHISHMATI
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300003
+                culture="hindustani"
+	            religion="buddhist"	
             }
             new_character = {
                 join_society = sakya_society
@@ -67,10 +69,14 @@ character_event = {
                     set_defacto_liege = THIS
                 }
             }
+
+            # Heráclidas
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300004
+                culture="greek"
+	            religion="hellenic_pagan"
             }
             new_character = {
                 join_society = sakya_society
@@ -81,6 +87,8 @@ character_event = {
                     set_defacto_liege = THIS
                 }
             }
+
+            # Shao
             create_character = {
                 random_traits = yes
                 female = 50
@@ -97,90 +105,125 @@ character_event = {
                     set_defacto_liege = THIS
                 }
             }
+            # Koda
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300006
+                culture="samoyed"
+	            religion="baltic_pagan"
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Freljord
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300007
+                culture="norse"
+	            religion="norse_pagan"	
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Mogul
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300008
+                culture="tocharian"
+	            religion="tengri_pagan"	
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Skaven
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300009
+                culture="norse"
+	            religion="norse_pagan"
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Andiroba
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300010
+                culture="manden"
+	            religion="west_african_pagan"
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Jabuticaba
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300011
+                culture="songhay"
+	            religion="west_african_pagan"
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Dalar
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300012
+                culture="irish"
+	            religion="pagan"
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Wallace
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300013
+                culture="scotish"
+	            religion="pagan"
             }
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
             }
+
+            # Tálib
             create_character = {
                 random_traits = yes
                 female = 50
                 dynasty = 300014
+                culture="beduin"
+	            religion="shiite"
             }
             new_character = {
                 join_society = sakya_society
