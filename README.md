@@ -47,6 +47,27 @@ The shinobi world is very rich and complex and I don't think I can move this wor
 
 ## Key features
 
+### Societies
+
+<p>
+The Sakya society is composed of the heads of the 13 mercenary dynasties that originated from ancient times. Each head occupies the rank of "elder" in the society and follows them, from top to bottom:
+</p>
+<p>
+Captains: Political hands of society.
+</p>
+<p>
+Gentlemen: Executing hands. 
+</p>
+<p>
+Squires: New members, who are learning the norms and rules of society.
+</p>
+<p>
+Positions in the Sakya clans are familiar, i.e. all members are descended from the lineage of the original clans. Men and women are paired among other groups to avoid genetic degeneration.
+</p>
+<p>
+The Maytok are people subject to the twelve clans. Each clan member has two Maytoks at their personal service. Maytoks cannot marry, but they can have children with each other. Occasionally, they may mate with members of the twelve clans, but they will always inherit the surname of the Maytok branch.
+</p>
+
 ### Armors
 
 At game start
