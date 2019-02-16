@@ -12,6 +12,7 @@ character_event = {
             limit = {
                 has_character_flag = is_ancient_one
             }
+            character_event = { id = ACS.00202 }
             # Create the husband
             create_character = {
                 name = "Axios"
@@ -68,6 +69,7 @@ character_event = {
                     grant_title = PREV
                     set_defacto_liege = THIS
                 }
+                character_event = { id = ACS.00202 }
             }
 
             # Heráclidas
@@ -86,6 +88,7 @@ character_event = {
                     grant_title = PREV
                     set_defacto_liege = THIS
                 }
+                character_event = { id = ACS.00202 }
             }
 
             # Shao
@@ -104,6 +107,7 @@ character_event = {
                     grant_title = PREV
                     set_defacto_liege = THIS
                 }
+                character_event = { id = ACS.00202 }
             }
             # Koda
             create_character = {
@@ -116,7 +120,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_koda = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Freljord
@@ -130,7 +139,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_freljord = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }            
             }
 
             # Mogul
@@ -145,6 +159,11 @@ character_event = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
+                d_mercenary_mogul = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Skaven
@@ -158,7 +177,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_skaven = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Andiroba
@@ -173,6 +197,11 @@ character_event = {
                 join_society = sakya_society
                 society_rank_up = 3
                 set_character_flag = originated_from_chinese_court                
+                d_mercenary_andiroba = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Jabuticaba
@@ -186,7 +215,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_jabuticaba = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Dalar
@@ -200,7 +234,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_dalar = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Wallace
@@ -214,7 +253,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_wallace = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
 
             # Tálib
@@ -228,7 +272,12 @@ character_event = {
             new_character = {
                 join_society = sakya_society
                 society_rank_up = 3
-                set_character_flag = originated_from_chinese_court                
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_talib = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
         }
 
@@ -584,6 +633,104 @@ character_event = {
         }
 	}
 }
+
+# ACS.00202 - Spawn childs for Sakya dynasties
+character_event = {
+	id = ACS.00202
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = yes
+		society_member_of = sakya_society
+	}
+
+	immediate = {
+        set_variable = { which = generating_sakyas value = 3 }
+        while = {
+            limit = {
+                check_variable = {
+                    which = generating_sakyas
+                    value = 1
+                }
+            }    
+            subtract_variable = {
+                which = generating_sakyas
+                value = 1
+            }
+            random = {
+                chance = 50
+                create_character = {
+                    female = 50
+                    dynasty = ROOT
+                    culture = ROOT
+                    random_traits = yes
+                }
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 2
+
+                    # Spawn rank 2 members
+                    set_variable = { which = generating_sakyas_2 value = 3 }
+                    while = {
+                        limit = {
+                            check_variable = {
+                                which = generating_sakyas_2
+                                value = 1
+                            }
+                        }    
+                        subtract_variable = {
+                            which = generating_sakyas_2
+                            value = 1
+                        }
+                        random = {
+                            chance = 50
+                            create_character = {
+                                female = 50
+                                dynasty = ROOT
+                                culture = ROOT
+                                random_traits = yes
+                            }
+                            new_character = {
+                                join_society = sakya_society
+                                society_rank_up = 1
+
+
+                                # Spawn rank 1 members
+                                set_variable = { which = generating_sakyas_3 value = 3 }
+                                while = {
+                                    limit = {
+                                        check_variable = {
+                                            which = generating_sakyas_3
+                                            value = 1
+                                        }
+                                    }    
+                                    subtract_variable = {
+                                        which = generating_sakyas_3
+                                        value = 1
+                                    }
+                                    random = {
+                                        chance = 50
+                                        create_character = {
+                                            female = 50
+                                            dynasty = ROOT
+                                            culture = ROOT
+                                            random_traits = yes
+                                        }
+                                        new_character = {
+                                            join_society = sakya_society
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+	}
+}
+
 
 #################################
 ## SOCIETIES RECRUITMENT EVENT ##
