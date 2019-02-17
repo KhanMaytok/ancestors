@@ -64,9 +64,6 @@ Squires: New members, who are learning the norms and rules of society.
 <p>
 Positions in the Sakya clans are familiar, i.e. all members are descended from the lineage of the original clans. Men and women are paired among other groups to avoid genetic degeneration.
 </p>
-<p>
-The Maytok are people subject to the twelve clans. Each clan member has two Maytoks at their personal service. Maytoks cannot marry, but they can have children with each other. Occasionally, they may mate with members of the twelve clans, but they will always inherit the surname of the Maytok branch.
-</p>
 
 ### Armors
 
@@ -99,25 +96,57 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 
 There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own. The current list, from the most basic to the most advanced is:
 
+**Light armors:**
 - Tracker Armor (17398)
-- Nightmare Armor (2058)
-- Blue Wolf Armor (17540)
-
 - Avadon Armor (17766)
+- Reggios Armor (19230)
+- Draconic Armor (17517)
+- Dark Crystal Armor (19305)
+
+
+**Heavy armors**
+- Blue Wolf Armor (17540)
+- Nightmare Armor (17911)
+- Dominus Armor (19377)
+- Imperial Armor (17662)
+- Mithril Armor (17452)
+
+**Robes**
+- Majestic Armor (17617)
+- Dynasty Armor (17253)
+- Optimus Armor (19084)
+- Cataclysmic Armor (17368)
+- Divine Armor (19159)
+
+
+
+
+- Nightmare Armor (2058)
+
+- Reggios Armor (19230)
+- Dominus Armor (2229)
+- Optimus Armor (19084)
+- Imperial Armor (2031)
+- Mithril Armor (2247)
+
+- Avadon Armor - Light Armor (17766)
 - Majestic Armor (136)
 - Dynasty Armor (17253)
 
-### TODO
-- Cataclysmic Armor (1196)
-- Draconic Armor (2013)
-- Imperial Armor (2031)
 
-- Divine Armor (2214)
-- Dark Crystal Armor (2229)
-- Dominus Armor (2229)
-- Mithril Armor (2247)
-- Optimus Armor (19084)
-- Reggios Armor (19230)
+- Draconic Armor (2013)
+
+### TODO
+
+
+
+
+
+
+
+
+
+
 
 
 
