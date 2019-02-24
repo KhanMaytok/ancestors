@@ -683,6 +683,87 @@ dominus_armor_orc = {
 	picture = "GFX_dominus_armor_orc"
 }
 
+# IMPERIAL ARMOR SET
+imperial_armor_human = {
+	combat_rating = 40
+	learning = 4
+	quality = 4
+	health = 4
+	martial = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_imperial_armor_human"	
+}
+
+imperial_armor_elf = {
+	combat_rating = 40
+	learning = 4
+	quality = 4
+	health = 4
+	martial = 4
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_imperial_armor_elf"
+}
+
+imperial_armor_darkelf = {	
+	combat_rating = 40
+	learning = 4
+	quality = 4
+	health = 4
+	martial = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_imperial_armor_darkelf"
+}
+
+imperial_armor_dwarf = {
+	combat_rating = 40
+	learning = 4
+	quality = 4
+	health = 4
+	martial = 4
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_imperial_armor_dwarf"
+}
+
+imperial_armor_orc = {
+	combat_rating = 40
+	learning = 4
+	quality = 4
+	health = 4
+	martial = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_imperial_armor_orc"
+}
+
 
 ###########
 ## ROBES ##
