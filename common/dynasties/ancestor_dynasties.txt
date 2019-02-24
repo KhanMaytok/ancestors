@@ -79,12 +79,12 @@
 300013={
 	used_for_random=no
 	name="Wallace"
-	culture="scotish"
+	culture="scottish"
 	religion="pagan"
 }
 300014={
 	used_for_random=no
 	name="Tálib"
-	culture="beduin"
+	culture="bedouin_arabic"
 	religion="shiite"	
 }

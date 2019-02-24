@@ -602,7 +602,7 @@ narrative_event = {
 ###########################
 ### VEE Transfer essence ##
 ###########################
-# ACS.00025 - Activate the orb if Vee dies
+# ACS.00025 - Select a new Vee if she dies without childs
 character_event = {
 	id = ACS.00025
 	hide_window = yes
@@ -674,6 +674,8 @@ narrative_event = {
 			}
 		}
 		else = {
+			remove_trait = syrena
+			death = { death_reason = death_poor_health }
 			set_global_flag = vanished_vee
 		}
 	}
