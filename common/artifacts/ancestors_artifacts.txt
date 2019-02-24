@@ -25,11 +25,17 @@ eden_apple = {
 	learning = 9
 }
 
+#################
+## LIGHT ARMOR ##
+#################
+
 # TRACKER ARMOR SET
 tracker_armor_human = {
-	combat_rating = 2
+	combat_rating = 10
 	learning = 1
 	quality = 1
+	health = 1
+	intrigue = 1
 	active = {
 		is_adult = yes
 		is_female = no
@@ -41,9 +47,11 @@ tracker_armor_human = {
 }
 
 tracker_armor_elf = {
-	combat_rating = 2
+	combat_rating = 10
 	learning = 1
 	quality = 1
+	health = 1
+	intrigue = 1
 	active = {
 		is_adult = yes
 		is_female = yes
@@ -55,9 +63,11 @@ tracker_armor_elf = {
 }
 
 tracker_armor_darkelf = {	
-	combat_rating = 2
+	combat_rating = 10
 	learning = 1
 	quality = 1
+	health = 1
+	intrigue = 1
 	active = {
 		is_adult = yes
 		is_female = no
@@ -69,9 +79,11 @@ tracker_armor_darkelf = {
 }
 
 tracker_armor_dwarf = {
-	combat_rating = 2
+	combat_rating = 10
 	learning = 1
 	quality = 1
+	health = 1
+	intrigue = 1
 	active = {
 		is_adult = yes
 		is_female = yes
@@ -79,14 +91,15 @@ tracker_armor_dwarf = {
 	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
-	flags = { ancestors armor tier1 }
 	picture = "GFX_tracker_armor_dwarf"
 }
 
 tracker_armor_orc = {
-	combat_rating = 2
+	combat_rating = 10
 	learning = 1
 	quality = 1
+	health = 1
+	intrigue = 1
 	active = {
 		is_adult = yes
 		is_female = no
@@ -99,61 +112,327 @@ tracker_armor_orc = {
 
 # AVADON ARMOR SET
 avadon_armor_human = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_avadon_armor_human"
+	combat_rating = 20
+	learning = 2
+	intrigue = 2
+	quality = 2
+	health = 2
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
 	stacking = yes
 	slot = torso
+	picture = "GFX_avadon_armor_human"
 }
 
 avadon_armor_elf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_avadon_armor_elf"
+	combat_rating = 20
+	learning = 2
+	intrigue = 2
+	quality = 2
+	health = 2
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier2 }
 	stacking = yes
 	slot = torso
+	picture = "GFX_avadon_armor_elf"
 }
 
 avadon_armor_darkelf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_avadon_armor_darkelf"
+	combat_rating = 20
+	learning = 2
+	intrigue = 2
+	quality = 2
+	health = 2
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
 	stacking = yes
 	slot = torso
+	picture = "GFX_avadon_armor_darkelf"
 }
 
 avadon_armor_dwarf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_avadon_armor_dwarf"
+	combat_rating = 20
+	learning = 2
+	intrigue = 2
+	quality = 2
+	health = 2
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier2 }
 	stacking = yes
 	slot = torso
+	picture = "GFX_avadon_armor_dwarf"
 }
 
 avadon_armor_orc = {
-	combat_rating = 2
-	learning = 1
-	quality = 1
+	combat_rating = 20
+	learning = 2
+	intrigue = 2
+	quality = 2
+	health = 2
 	active = {
 		is_adult = yes
+		is_female = no
 	}
-	flags = { ancestors armor tier1 }
+	flags = { ancestors armor tier2 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_avadon_armor_orc"
 }
+
+# REGGIOS ARMOR SET
+reggios_armor_human = {
+	combat_rating = 30
+	learning = 3
+	intrigue = 3
+	quality = 3
+	health = 3
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_reggios_armor_human"
+}
+
+reggios_armor_elf = {
+	combat_rating = 30
+	learning = 3
+	intrigue = 3
+	quality = 3
+	health = 3
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_reggios_armor_elf"
+}
+
+reggios_armor_darkelf = {
+	combat_rating = 30
+	learning = 3
+	intrigue = 3
+	quality = 3
+	health = 3
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_reggios_armor_darkelf"
+}
+
+reggios_armor_dwarf = {
+	combat_rating = 30
+	learning = 3
+	intrigue = 3
+	quality = 3
+	health = 3
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_reggios_armor_dwarf"
+}
+
+reggios_armor_orc = {
+	combat_rating = 30
+	learning = 3
+	intrigue = 3
+	quality = 3
+	health = 3
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_reggios_armor_orc"
+}
+
+# DRACONIC ARMOR
+draconic_armor_human = {
+	combat_rating = 40
+	learning = 4
+	intrigue = 4
+	quality = 4
+	health = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_draconic_armor_human"
+}
+
+draconic_armor_elf = {
+	combat_rating = 40
+	learning = 4
+	intrigue = 4
+	quality = 4
+	health = 4
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_draconic_armor_elf"
+}
+
+draconic_armor_darkelf = {
+	combat_rating = 40
+	learning = 4
+	intrigue = 4
+	quality = 4
+	health = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_draconic_armor_darkelf"
+}
+
+draconic_armor_dwarf = {
+	combat_rating = 40
+	learning = 4
+	intrigue = 4
+	quality = 4
+	health = 4
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_draconic_armor_dwarf"
+}
+
+draconic_armor_orc = {
+	combat_rating = 40
+	learning = 4
+	intrigue = 4
+	quality = 4
+	health = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_draconic_armor_orc"
+}
+
+###########
+## ROBES ##
+###########
+
+# MAJESTIC ARMOR SET
+majestic_armor_human = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_human"
+}
+
+majestic_armor_elf = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_elf"
+}
+
+majestic_armor_darkelf = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_darkelf"
+}
+
+majestic_armor_dwarf = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_dwarf"
+}
+
+majestic_armor_orc = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_orc"
+}
+
 
 # DYNASTY ARMOR SET
 dynasty_armor_human = {
@@ -211,109 +490,6 @@ dynasty_armor_orc = {
 	stacking = yes
 	slot = torso
 	picture = "GFX_dynasty_armor_orc"
-}
-
-# MAJESTIC ARMOR SET
-majestic_armor_human = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_majestic_armor_human"
-	stacking = yes
-	slot = torso
-}
-
-majestic_armor_elf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_majestic_armor_elf"
-	stacking = yes
-	slot = torso
-}
-
-majestic_armor_darkelf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_majestic_armor_darkelf"
-	stacking = yes
-	slot = torso
-}
-
-majestic_armor_dwarf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_majestic_armor_dwarf"
-	stacking = yes
-	slot = torso
-}
-
-majestic_armor_orc = {
-	combat_rating = 2
-	learning = 1
-	quality = 1
-	active = {
-		is_adult = yes
-	}
-	flags = { ancestors armor tier1 }
-	stacking = yes
-	slot = torso
-	picture = "GFX_majestic_armor_orc"
-}
-
-# REGGIOS ARMOR SET
-reggios_armor_human = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_reggios_armor_human"
-	stacking = yes
-	slot = torso
-}
-
-reggios_armor_elf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_reggios_armor_elf"
-	stacking = yes
-	slot = torso
-}
-
-reggios_armor_darkelf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_reggios_armor_darkelf"
-	stacking = yes
-	slot = torso
-}
-
-reggios_armor_dwarf = {
-	learning = 1
-	combat_rating = 15
-
-	quality = 2	
-	flags = { ancestors armor }
-	picture = "GFX_reggios_armor_dwarf"
-	stacking = yes
-	slot = torso
 }
 
 # TRACKER ARMOR SET

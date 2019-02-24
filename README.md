@@ -91,7 +91,7 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 # Artifacts
 
 There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own.
-All armors grant combat rating, learning and health bonus. christian, muslim, jewish and zoroastrian groups have negative opinion to the owner. Aztec group has a very high bonus to the owner. 
+All armors grant combat rating, learning and health bonus. Christian, muslim, jewish and zoroastrian groups have negative opinion to the owner. Aztec group has a very high bonus to the owner. 
 
 **Light armors:**
 
@@ -104,6 +104,9 @@ Grant additional intrige
 - Dark Crystal Armor (TIER 5)
 
 **Heavy armors**
+
+Grants additional martial
+
 - Blue Wolf Armor (TIER 1)
 - Nightmare Armor (TIER 2)
 - Dominus Armor (TIER 3)
@@ -111,6 +114,9 @@ Grant additional intrige
 - Mithril Armor (TIER 5)
 
 **Robes**
+
+Grants additional learning
+
 - Majestic Armor (TIER )
 - Dynasty Armor (TIER 2)
 - Optimus Armor (TIER 3)
