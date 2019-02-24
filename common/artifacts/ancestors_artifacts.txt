@@ -521,6 +521,88 @@ blue_wolf_armor_orc = {
 	picture = "GFX_blue_wolf_armor_orc"
 }
 
+# NIGHTMARE ARMOR SET
+nightmare_armor_human = {
+	combat_rating = 20
+	learning = 2
+	quality = 2
+	health = 2
+	martial = 2
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_human"	
+}
+
+nightmare_armor_elf = {
+	combat_rating = 20
+	learning = 2
+	quality = 2
+	health = 2
+	martial = 2
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_elf"
+}
+
+nightmare_armor_darkelf = {	
+	combat_rating = 20
+	learning = 2
+	quality = 2
+	health = 2
+	martial = 2
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_darkelf"
+}
+
+nightmare_armor_dwarf = {
+	combat_rating = 20
+	learning = 2
+	quality = 2
+	health = 2
+	martial = 2
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_dwarf"
+}
+
+nightmare_armor_orc = {
+	combat_rating = 20
+	learning = 2
+	quality = 2
+	health = 2
+	martial = 2
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_orc"
+}
+
+
 ###########
 ## ROBES ##
 ###########
