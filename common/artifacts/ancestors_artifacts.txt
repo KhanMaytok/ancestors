@@ -924,3 +924,306 @@ majestic_armor_orc = {
 	slot = torso
 	picture = "GFX_majestic_armor_orc"
 }
+
+# DYNASTY ARMOR SET
+dynasty_armor_human = {
+	combat_rating = 20
+	quality = 2
+	health = 2
+	learning = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dynasty_armor_human"	
+}
+
+dynasty_armor_elf = {
+	combat_rating = 20
+	quality = 2
+	health = 2
+	learning = 4
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dynasty_armor_elf"
+}
+
+dynasty_armor_darkelf = {	
+	combat_rating = 20
+	quality = 2
+	health = 2
+	learning = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dynasty_armor_darkelf"
+}
+
+dynasty_armor_dwarf = {
+	combat_rating = 20
+	quality = 2
+	health = 2
+	learning = 4
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dynasty_armor_dwarf"
+}
+
+dynasty_armor_orc = {
+	combat_rating = 20
+	quality = 2
+	health = 2
+	learning = 4
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier2 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dynasty_armor_orc"
+}
+
+# OPTIMUS ARMOR SET
+optimus_armor_human = {
+	combat_rating = 30
+	quality = 3
+	health = 3
+	learning = 6
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_optimus_armor_human"	
+}
+
+optimus_armor_elf = {
+	combat_rating = 30
+	quality = 3
+	health = 3
+	learning = 6
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_optimus_armor_elf"
+}
+
+optimus_armor_darkelf = {	
+	combat_rating = 30
+	quality = 3
+	health = 3
+	learning = 6
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_optimus_armor_darkelf"
+}
+
+optimus_armor_dwarf = {
+	combat_rating = 30
+	quality = 3
+	health = 3
+	learning = 6
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_optimus_armor_dwarf"
+}
+
+optimus_armor_orc = {
+	combat_rating = 30
+	quality = 3
+	health = 3
+	learning = 6
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier3 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_optimus_armor_orc"
+}
+# CATACLYSMIC ARMOR SET
+cataclysmic_armor_human = {
+	combat_rating = 40
+	quality = 4
+	health = 4
+	learning = 8
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_cataclysmic_armor_human"	
+}
+
+cataclysmic_armor_elf = {
+	combat_rating = 40
+	quality = 4
+	health = 4
+	learning = 8
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_cataclysmic_armor_elf"
+}
+
+cataclysmic_armor_darkelf = {	
+	combat_rating = 40
+	quality = 4
+	health = 4
+	learning = 8
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_cataclysmic_armor_darkelf"
+}
+
+cataclysmic_armor_dwarf = {
+	combat_rating = 40
+	quality = 4
+	health = 4
+	learning = 8
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_cataclysmic_armor_dwarf"
+}
+
+cataclysmic_armor_orc = {
+	combat_rating = 40
+	quality = 4
+	health = 4
+	learning = 8
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier4 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_cataclysmic_armor_orc"
+}
+
+# divine ARMOR SET
+divine_armor_human = {
+	combat_rating = 50
+	quality = 5
+	health = 5
+	learning = 10
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_divine_armor_human"	
+}
+
+divine_armor_elf = {
+	combat_rating = 50
+	quality = 5
+	health = 5
+	learning = 10
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_divine_armor_elf"
+}
+
+divine_armor_darkelf = {	
+	combat_rating = 50
+	quality = 5
+	health = 5
+	learning = 10
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_divine_armor_darkelf"
+}
+
+divine_armor_dwarf = {
+	combat_rating = 50
+	quality = 5
+	health = 5
+	learning = 10
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_divine_armor_dwarf"
+}
+
+divine_armor_orc = {
+	combat_rating = 50
+	quality = 5
+	health = 5
+	learning = 10
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_divine_armor_orc"
+}
