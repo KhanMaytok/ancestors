@@ -764,6 +764,87 @@ imperial_armor_orc = {
 	picture = "GFX_imperial_armor_orc"
 }
 
+# MITHRIL ARMOR SET
+mithril_armor_human = {
+	combat_rating = 50
+	learning = 5
+	quality = 5
+	health = 5
+	martial = 5
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_mithril_armor_human"	
+}
+
+mithril_armor_elf = {
+	combat_rating = 50
+	learning = 5
+	quality = 5
+	health = 5
+	martial = 5
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_mithril_armor_elf"
+}
+
+mithril_armor_darkelf = {	
+	combat_rating = 50
+	learning = 5
+	quality = 5
+	health = 5
+	martial = 5
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_mithril_armor_darkelf"
+}
+
+mithril_armor_dwarf = {
+	combat_rating = 50
+	learning = 5
+	quality = 5
+	health = 5
+	martial = 5
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_mithril_armor_dwarf"
+}
+
+mithril_armor_orc = {
+	combat_rating = 50
+	learning = 5
+	quality = 5
+	health = 5
+	martial = 5
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_mithril_armor_orc"
+}
+
 
 ###########
 ## ROBES ##
