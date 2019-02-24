@@ -845,7 +845,82 @@ mithril_armor_orc = {
 	picture = "GFX_mithril_armor_orc"
 }
 
-
 ###########
 ## ROBES ##
 ###########
+
+# MAJESTIC ARMOR SET
+majestic_armor_human = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_human"	
+}
+
+majestic_armor_elf = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_elf"
+}
+
+majestic_armor_darkelf = {	
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_darkelf"
+}
+
+majestic_armor_dwarf = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_dwarf"
+}
+
+majestic_armor_orc = {
+	combat_rating = 10
+	learning = 2
+	quality = 1
+	health = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_majestic_armor_orc"
+}
