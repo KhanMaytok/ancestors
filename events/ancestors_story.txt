@@ -1185,7 +1185,16 @@ character_event = {
 				save_event_target_as = vee_spouse
 			}
 			impregnate = event_target:vee_spouse
-		}		
+			break = yes
+		}
+		else = {
+			host = {
+				random_courtier = {
+					save_event_target_as = vee_spouse
+				}
+			}
+			impregnate_cuckoo = event_target:vee_spouse
+		}
 	}
 }
 

@@ -73,7 +73,7 @@ Vee is, if you accept her, the closest character of the two to you. She is consi
 
 - **Modificador especial**: La presencia de Vee en tu corte te garantiza un punto adicional de prestigio mensual. Son las ventajas de tener como cortesana a la mujer más bella del mundo.
 - **Nuevo Casus Belli**: La presencia de Vee en tu corte también te causa problemas. Cualquier persona con tierras te podrá declarar la guerra por ella. Si pierdes, Vee irá a la corte del ganador de la guerra. 
-- **Ojos carmesí**: Vee es la portadora original de los ojos carmesí­. El rasgo es capaz de evolucionar mediante eventos especiales y hacerse más poderoso. También se puede heredar, lo que permite que crees tu programa genético a largo plazo. Â¡Incluso tú podrías poseerlo si planificas bien tu dinastía!
+- **Ojos carmesí**: Vee es la portadora original de los ojos carmesí­. El rasgo es capaz de evolucionar mediante eventos especiales y hacerse más poderoso. También se puede heredar, lo que permite que crees tu programa genético a largo plazo. ¡Incluso tú podrías poseerlo si planificas bien tu dinastía!
 - **Semi-inmortalidad**: Vee, o al menos su esencia, vivirá a lo largo de toda la narrativa, pero necesita un cuerpo nuevo para transferirse cuando al viejo le llegue la hora. Solo puede transferirse a una de sus hijas, que será el nuevo recipiente. El evento se repita cada 33 años y se anulará si Vee muere.
 
 Por otro lado, Khalga es la contraparte. Puede ser el opositor del juego, o quizá no, todo depende de los eventos que experimente y tus propias decisiones. Khalga también tiene un conjunto de características:
