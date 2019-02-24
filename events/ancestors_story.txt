@@ -606,22 +606,34 @@ narrative_event = {
 character_event = {
 	id = ACS.00025
 	hide_window = yes
-	is_triggered_only = yes
-	has_character_flag = is_vee
+	is_in_society = yes
 
-	trigger = { trait = syrena }
+	trigger = {
+    	is_society_grandmaster = yes
+		society_member_of = pentaghast_society
+		NOT = { has_character_flag = already_sharingan_kid }
+		has_global_flag = vanished_vee
+    }
+
+	mean_time_to_happen = {
+		months = 5
+	}	
 
 	immediate = {
-		set_global_flag = vanished_vee
-		pentaghast_society = {
-			random_society_member = {
-				limit = {
-					is_society_grandmaster = yes
-					NOT = { has_artifact = eden_apple }
-				}
-				add_artifact = eden_apple
+		random_character = {
+			limit = {
+				is_female = yes
+				trait = sharingan
 			}
-		}        
+			add_trait = syrena
+			health = 20
+			set_character_flag = is_vee
+			set_character_flag = society_join_block
+		}
+		pentaghast_society = {
+			any_society_member = { letter_event = { id = ACS.00028 } }
+		}
+		clr_global_flag = vanished_vee
 	}
 }
 
@@ -655,13 +667,15 @@ narrative_event = {
 				}				
 				narrative_event = { id = ACS.00027}
 			}
-		}
-
-		pentaghast_society = {
-			any_society_member = {
-				letter_event = { id = ACS.00028 }
+			pentaghast_society = {
+				any_society_member = {
+					letter_event = { id = ACS.00028 }
+				}
 			}
-		}       
+		}
+		else = {
+			set_global_flag = vanished_vee
+		}
 	}
 
 	option = {
@@ -1226,7 +1240,7 @@ character_event = {
 # ACS.00043 # Ensure only one Khalga
 # ACS.00045 # Spread ancestor chests
 
-# Character goes crazy if has an ancestor armor and dont have dojutsu
+# ACS.00045 - Character goes crazy if has an ancestor armor and dont have dojutsu
 character_event = {
 	id = ACS.00045
 	hide_window = yes
