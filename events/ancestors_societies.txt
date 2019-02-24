@@ -381,6 +381,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -404,6 +405,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -427,6 +429,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -450,6 +453,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -473,6 +477,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -496,6 +501,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -519,6 +525,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -542,6 +549,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -565,6 +573,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }

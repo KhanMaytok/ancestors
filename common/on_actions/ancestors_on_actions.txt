@@ -31,7 +31,7 @@ on_death = {
 	events = {
 		ACS.00012 # Check if Vee dies without childs
 		ACS.00020 # Resurrect Khalga if He dies
-		ACS.00229 # Preserve mercenary bands to society leaders
+		# ACS.00229 # Preserve mercenary bands to society leaders
 	}
 }
 
