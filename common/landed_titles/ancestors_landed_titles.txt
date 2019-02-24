@@ -2,7 +2,7 @@ d_mercenary_pentaghast = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 333 # mantua		
+	capital = 333 # Roma		
 	# Parent Religion 
 	religion = catholic
 	
@@ -56,7 +56,7 @@ d_mercenary_mahishmati = {
 	color={ 100 200 81 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1149 # mantua		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -83,7 +83,7 @@ d_mercenary_heraclidas = {
 	color={ 100 200 82 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 474 # mantua		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -110,7 +110,7 @@ d_mercenary_shao = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1458 # Khangai		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -137,7 +137,7 @@ d_mercenary_koda = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1587 # Neumark		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -164,7 +164,7 @@ d_mercenary_freljord = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 278 # Hålogaland		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -191,7 +191,7 @@ d_mercenary_mogul = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1451 # Altay		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -218,7 +218,7 @@ d_mercenary_skaven = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1625 # Sogn		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -245,7 +245,7 @@ d_mercenary_andiroba = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1760 # No named		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -272,7 +272,7 @@ d_mercenary_jabuticaba = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 884 # Antalo		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -299,7 +299,7 @@ d_mercenary_dalar = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 1954 # No named		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -326,7 +326,7 @@ d_mercenary_wallace = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 44 # Atholl		
 	# Parent Religion 
 	religion = buddhist
 	
@@ -353,7 +353,7 @@ d_mercenary_talib = {
 	color={ 100 200 83 }
 	color2={ 255 255 255 }
 
-	capital = 622 # mantua		
+	capital = 719 # Mecca		
 	# Parent Religion 
 	religion = buddhist
 	
