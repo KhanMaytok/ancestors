@@ -434,6 +434,93 @@ dark_crystal_armor_orc = {
 	picture = "GFX_dark_crystal_armor_orc"
 }
 
+
+
+##################
+## HEAVY ARMORS ##
+##################
+
+# BLUE WOLF ARMOR SET
+blue_wolf_armor_human = {
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	martial = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_blue_wolf_armor_human"	
+}
+
+blue_wolf_armor_elf = {
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	martial = 1
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_blue_wolf_armor_elf"
+}
+
+blue_wolf_armor_darkelf = {	
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	martial = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_blue_wolf_armor_darkelf"
+}
+
+blue_wolf_armor_dwarf = {
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	martial = 1
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_blue_wolf_armor_dwarf"
+}
+
+blue_wolf_armor_orc = {
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	martial = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_blue_wolf_armor_orc"
+}
+
 ###########
 ## ROBES ##
 ###########
