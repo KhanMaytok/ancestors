@@ -1,20 +1,20 @@
 jewel_of_soul = {
 	stacking = yes
-	flags = { ancient jewel }
+	flags = { ancestors jewel }
 	picture = "GFX_jewel_of_soul"
 	slot = weapon
 }
 
 jewel_of_bless = {
 	stacking = yes
-	flags = { ancient jewel }
+	flags = { ancestors jewel }
 	picture = "GFX_jewel_of_bless"
 	slot = weapon
 }
 
 eden_apple = {
 	stacking = no
-	flags = { ancient jewel }
+	flags = { ancestors jewel }
 	active = {
 		society_member_of = pentaghast_society
 		is_society_grandmaster = yes
@@ -32,8 +32,9 @@ tracker_armor_human = {
 	quality = 1
 	active = {
 		is_adult = yes
+		is_female = no
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_tracker_armor_human"	
@@ -45,8 +46,9 @@ tracker_armor_elf = {
 	quality = 1
 	active = {
 		is_adult = yes
+		is_female = yes
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_tracker_armor_elf"
@@ -58,8 +60,9 @@ tracker_armor_darkelf = {
 	quality = 1
 	active = {
 		is_adult = yes
+		is_female = no
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_tracker_armor_darkelf"
@@ -71,11 +74,12 @@ tracker_armor_dwarf = {
 	quality = 1
 	active = {
 		is_adult = yes
+		is_female = yes
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	picture = "GFX_tracker_armor_dwarf"
 }
 
@@ -85,8 +89,9 @@ tracker_armor_orc = {
 	quality = 1
 	active = {
 		is_adult = yes
+		is_female = no
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_tracker_armor_orc"
@@ -98,7 +103,7 @@ avadon_armor_human = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_avadon_armor_human"
 	stacking = yes
 	slot = torso
@@ -109,7 +114,7 @@ avadon_armor_elf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_avadon_armor_elf"
 	stacking = yes
 	slot = torso
@@ -120,7 +125,7 @@ avadon_armor_darkelf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_avadon_armor_darkelf"
 	stacking = yes
 	slot = torso
@@ -131,7 +136,7 @@ avadon_armor_dwarf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_avadon_armor_dwarf"
 	stacking = yes
 	slot = torso
@@ -144,7 +149,7 @@ avadon_armor_orc = {
 	active = {
 		is_adult = yes
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_avadon_armor_orc"
@@ -156,7 +161,7 @@ dynasty_armor_human = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_dynasty_armor_human"
 	stacking = yes
 	slot = torso
@@ -167,7 +172,7 @@ dynasty_armor_elf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_dynasty_armor_elf"
 	stacking = yes
 	slot = torso
@@ -178,7 +183,7 @@ dynasty_armor_darkelf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_dynasty_armor_darkelf"
 	stacking = yes
 	slot = torso
@@ -189,7 +194,7 @@ dynasty_armor_dwarf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_dynasty_armor_dwarf"
 	stacking = yes
 	slot = torso
@@ -202,7 +207,7 @@ dynasty_armor_orc = {
 	active = {
 		is_adult = yes
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_dynasty_armor_orc"
@@ -214,7 +219,7 @@ majestic_armor_human = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_majestic_armor_human"
 	stacking = yes
 	slot = torso
@@ -225,7 +230,7 @@ majestic_armor_elf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_majestic_armor_elf"
 	stacking = yes
 	slot = torso
@@ -236,7 +241,7 @@ majestic_armor_darkelf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_majestic_armor_darkelf"
 	stacking = yes
 	slot = torso
@@ -247,7 +252,7 @@ majestic_armor_dwarf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_majestic_armor_dwarf"
 	stacking = yes
 	slot = torso
@@ -260,7 +265,7 @@ majestic_armor_orc = {
 	active = {
 		is_adult = yes
 	}
-	flags = { ancient armor tier1 }
+	flags = { ancestors armor tier1 }
 	stacking = yes
 	slot = torso
 	picture = "GFX_majestic_armor_orc"
@@ -272,7 +277,7 @@ reggios_armor_human = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_reggios_armor_human"
 	stacking = yes
 	slot = torso
@@ -283,7 +288,7 @@ reggios_armor_elf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_reggios_armor_elf"
 	stacking = yes
 	slot = torso
@@ -294,7 +299,7 @@ reggios_armor_darkelf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_reggios_armor_darkelf"
 	stacking = yes
 	slot = torso
@@ -305,8 +310,74 @@ reggios_armor_dwarf = {
 	combat_rating = 15
 
 	quality = 2	
-	flags = { ancient armor }
+	flags = { ancestors armor }
 	picture = "GFX_reggios_armor_dwarf"
 	stacking = yes
 	slot = torso
+}
+
+# TRACKER ARMOR SET
+nightmare_armor_human = {
+	combat_rating = 2
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_human"	
+}
+
+nightmare_armor_elf = {
+	combat_rating = 2
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_elf"
+}
+
+nightmare_armor_darkelf = {	
+	combat_rating = 2
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_darkelf"
+}
+
+nightmare_armor_dwarf = {
+	combat_rating = 2
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_dwarf"
+}
+
+nightmare_armor_orc = {
+	combat_rating = 2
+	learning = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_nightmare_armor_orc"
 }

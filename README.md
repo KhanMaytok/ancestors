@@ -65,10 +65,6 @@ Squires: New members, who are learning the norms and rules of society.
 Positions in the Sakya clans are familiar, i.e. all members are descended from the lineage of the original clans. Men and women are paired among other groups to avoid genetic degeneration.
 </p>
 
-### Armors
-
-At game start
-
 ### Vee and Khalga
 
 The two main characters from the mod, the entire narrative revolves around them. At first they are two twin brothers, but their destinies soon separate and each follows different paths.
@@ -94,26 +90,29 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 
 # Artifacts
 
-There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own. The current list, from the most basic to the most advanced is:
+There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own.
+All armors grant combat rating, learning and health bonus. christian, muslim, jewish and zoroastrian groups have negative opinion to the owner. Aztec group has a very high bonus to the owner. 
 
 **Light armors:**
-- Tracker Armor (17398)
-- Avadon Armor (17766)
-- Reggios Armor (19230)
-- Draconic Armor (17517)
-- Dark Crystal Armor (19305)
 
+Grant additional intrige
+
+- Tracker Armor (TIER 1)
+- Avadon Armor (TIER 2)
+- Reggios Armor (TIER 3)
+- Draconic Armor (TIER 4)
+- Dark Crystal Armor (TIER 5)
 
 **Heavy armors**
-- Blue Wolf Armor (17540)
-- Nightmare Armor (17911)
-- Dominus Armor (19377)
-- Imperial Armor (17662)
-- Mithril Armor (17452)
+- Blue Wolf Armor (TIER 1)
+- Nightmare Armor (TIER 2)
+- Dominus Armor (TIER 3)
+- Imperial Armor (TIER 4)
+- Mithril Armor (TIER 5)
 
 **Robes**
-- Majestic Armor (17617)
-- Dynasty Armor (17253)
-- Optimus Armor (19084)
-- Cataclysmic Armor (17368)
-- Divine Armor (19159)
+- Majestic Armor (TIER )
+- Dynasty Armor (TIER 2)
+- Optimus Armor (TIER 3)
+- Cataclysmic Armor (TIER 4)
+- Divine Armor (TIER 5)
