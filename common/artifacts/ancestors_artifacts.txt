@@ -353,6 +353,87 @@ draconic_armor_orc = {
 	picture = "GFX_draconic_armor_orc"
 }
 
+# DARK CRYSTAL ARMOR
+dark_crystal_armor_human = {
+	combat_rating = 50
+	learning = 5
+	intrigue = 5
+	quality = 5
+	health = 5
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dark_crystal_armor_human"
+}
+
+dark_crystal_armor_elf = {
+	combat_rating = 50
+	learning = 5
+	intrigue = 5
+	quality = 5
+	health = 5
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dark_crystal_armor_elf"
+}
+
+dark_crystal_armor_darkelf = {
+	combat_rating = 50
+	learning = 5
+	intrigue = 5
+	quality = 5
+	health = 5
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dark_crystal_armor_darkelf"
+}
+
+dark_crystal_armor_dwarf = {
+	combat_rating = 50
+	learning = 5
+	intrigue = 5
+	quality = 5
+	health = 5
+	active = {
+		is_adult = yes
+		is_female = yes
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dark_crystal_armor_dwarf"
+}
+
+dark_crystal_armor_orc = {
+	combat_rating = 50
+	learning = 5
+	intrigue = 5
+	quality = 5
+	health = 5
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier5 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_dark_crystal_armor_orc"
+}
+
 ###########
 ## ROBES ##
 ###########
