@@ -1220,6 +1220,10 @@ character_event = {
 	hide_window = yes
 	has_character_flag = is_vee
 
+	trigger = {
+		is_adult = yes
+	}
+
 	immediate = {
 		if = {
 			limit = {
@@ -1234,6 +1238,9 @@ character_event = {
 		else = {
 			host = {
 				random_courtier = {
+					limit = {
+						is_female = no
+					}
 					save_event_target_as = vee_spouse
 				}
 			}
