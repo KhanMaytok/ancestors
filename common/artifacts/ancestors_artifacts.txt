@@ -1226,7 +1226,9 @@ divine_armor_orc = {
 	picture = "GFX_divine_armor_orc"
 }
 
-##################
-## HEAVY ARMORS ##
-##################
+################################
+## WEAPONS - SWORD AND SHIELD ##
+################################
+
+
 

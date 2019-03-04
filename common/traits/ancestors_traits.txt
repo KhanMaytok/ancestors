@@ -5,6 +5,8 @@ syrena = {
 	health = 5
 	customizer = no
 	cannot_inherit = yes
+	opposites = { khalga_trait }
+	opposite_opinion = -500
 }
 
 byakugan = {
@@ -76,7 +78,7 @@ rinnegan = {
 	learning = 20
 	defensive_plot_power_modifier = 2.0
 	plot_power_modifier = 2.0
-	monthly_character_prestige = 1
+	monthly_character_prestige = 5
 }
 
 tenseigan = {
@@ -88,7 +90,7 @@ tenseigan = {
 	learning = 20
 	defensive_plot_power_modifier = 2.0
 	plot_power_modifier = 2.0
-	monthly_character_prestige = 1
+	monthly_character_prestige = 5
 }
 
 jogan = {
@@ -102,6 +104,8 @@ khalga_trait = {
 	cached = yes
 	immortal = yes
 	customizer = no
+	opposites = { syrena }
+	opposite_opinion = -500
 }
 
 prevent_marriage = {
