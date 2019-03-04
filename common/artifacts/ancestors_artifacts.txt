@@ -434,8 +434,6 @@ dark_crystal_armor_orc = {
 	picture = "GFX_dark_crystal_armor_orc"
 }
 
-
-
 ##################
 ## HEAVY ARMORS ##
 ##################
@@ -1227,3 +1225,8 @@ divine_armor_orc = {
 	slot = torso
 	picture = "GFX_divine_armor_orc"
 }
+
+##################
+## HEAVY ARMORS ##
+##################
+
