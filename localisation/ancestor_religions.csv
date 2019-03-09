@@ -1,9 +1,10 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-THE_OLD_PAPIRES;The ancient writings;The ancient writings;The ancient writings;;Los escritos antiguos;;;;;;;;;x
+THE_ELDER_SCROLLS;The Elder scrolls;The Elder scrolls;The Elder scrolls;;Los escritos antiguos;;;;;;;;;x
 THE_CODE;The Code;The Code;The Code;;El Código;;;;;;;;;x
 HIGH_WISE;High Wise;;;;Alto Sabio;;;;;;;;;x
 ISHTAR_ISHTAR;The White Goddess;The White Goddess;The White Goddess;;La diosa blanca;;;;;;;;;x
 ISHTAR_THE_DOMINA;Domina;Domina;Domina;;Domina;;;;;;;;;x
+ISHTAR_RABBIT;The Rabbit Goddess;The Rabbit Goddess;The Rabbit Goddess;;La Diosa Conejo;;;;;;;;;x
 THE_VIR;Vir;Vir;Vir;;Vir;;;;;;;;;x
 MONTHLY_PIETY_THE_VIR;Monthly Vir;Monthly Vir;Monthly Vir;;Vir mensual;;;;;;;;;x
 ishtar_group;Ishtar;Ishtar;Ishtar;;Religiones de la Diosa Blanca;;;;;;;;;x
@@ -12,3 +13,4 @@ ishtar_religion_DESC;This mystery religion combines a series of strange ancient 
 THE_ENEMY;The enemy;The enemy;The enemy;;El enemigo;;;;;;;;;x
 STAT_PIETY_MENU_THE_VIR;Vir;Vir;Vir;Vir;Vir;;;;;;;;;x
 STAT_PIETY_DESC_THE_VIR;Vir is respected by the clergy and monastics of your religion. Like Prestige it is added to your score on the death of a ruler.;;;;;;;;;;;;;x
+STAT_PIETY_THE_VIR;Vir;Vir;Vir;Vir;;;;;;;;;;x
