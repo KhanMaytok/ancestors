@@ -72,7 +72,7 @@ character_event = {
                 character_event = { id = ACS.00202 }
             }
 
-            # HerÃ¡clidas
+            # Heráclidas
             create_character = {
                 random_traits = yes
                 female = 50
@@ -261,7 +261,7 @@ character_event = {
                 character_event = { id = ACS.00202 }
             }
 
-            # TÃ¡lib
+            # Tálib
             create_character = {
                 random_traits = yes
                 female = 50
