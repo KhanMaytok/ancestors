@@ -7,109 +7,277 @@ character_event = {
     is_triggered_only = yes
 
     immediate = {
+        # Start relatives for Tilda
         if = {
             limit = {
                 has_character_flag = is_ancient_one
             }
-            # Fill the tier 4 seats
-            set_variable = { which = count value = 2 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                    dynasty = 300000
-                }
-                new_character = {
-                    join_society = sakya_society
-                    society_rank_up = 3
-                    set_character_flag = originated_from_chinese_court
-                    character_event = { id = ACS.00201 }
-                }
+            character_event = { id = ACS.00202 }
+            # Create the husband
+            create_character = {
+                name = "Axios"
+                random_traits = yes
+                age = 40
             }
-            # Fill the tier 3 seats
-            set_variable = { which = count value = 10 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    dynasty = 300000
-                    female = no
-                }
-                new_character = {
-                    join_society = sakya_society
-                    society_rank_up = 2
-                    set_character_flag = originated_from_chinese_court                    
-                    character_event = { id = ACS.00201 }
-                }
+            new_character = {
+                save_event_target_as = tilda_husband
+                add_spouse = ROOT
+                death = { death_reason = death_missing }
+                dynasty = none
             }
-            # Fill the tier 2 seats
-            set_variable = { which = count value = 20 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
-                }
-                subtract_variable = {
-                    which = count
-                    value = 1
-                }
-                create_character = {
-                    random_traits = yes
-                    female = yes
-                    dynasty = 300000
-                }
-                new_character = {
-                    join_society = sakya_society
-                    society_rank_up = 1
-                    set_character_flag = originated_from_chinese_court
-                    character_event = { id = ACS.00201 }
-                }            
+            # The daughter
+            create_character = {
+                age = 14
+                name = "Tais"
+                female = yes
+                trait = cruel
+                trait = genius
+                trait = brilliant_strategist
+                trait = hunter
+                trait = duelist
+                dynasty = 300002
+            }
+            new_character = {
+                set_father = event_target:tilda_husband
+                set_mother = ROOT
             }
 
-            # Fill the tier 1 seats
-            set_variable = { which = count value = 30 }
-            while = {
-                limit = {
-                    check_variable = {
-                        which = count
-                        value = 1
-                    }
+            # The Adopted
+            create_character = {
+                age = 10
+                name = "Stelios"
+                trait = genius
+                trait = mastermind_theologian
+                trait = is_malnourished
+                trait = poet
+                dynasty = none
+            }            
+
+            # MAHISHMATI
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300003
+                culture="hindustani"
+	            religion="buddhist"	
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_mahishmati = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
                 }
-                subtract_variable = {
-                    which = count
-                    value = 1
+                character_event = { id = ACS.00202 }
+            }
+
+            # Heráclidas
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300004
+                culture="greek"
+	            religion="hellenic_pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_heraclidas = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
                 }
-                create_character = {
-                    random_traits = yes
-                    female = no
-                    dynasty = 300000
+                character_event = { id = ACS.00202 }
+            }
+
+            # Shao
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300005
+                culture = han
+                religion = taoist
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_shao = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
                 }
-                new_character = {
-                    join_society = sakya_society
-                    set_character_flag = originated_from_chinese_court
-                    character_event = { id = ACS.00201 }
+                character_event = { id = ACS.00202 }
+            }
+            # Koda
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300006
+                culture="samoyed"
+	            religion="baltic_pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_koda = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
                 }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Freljord
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300007
+                culture="norse"
+	            religion="norse_pagan"	
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_freljord = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }            
+            }
+
+            # Mogul
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300008
+                culture="tocharian"
+	            religion="tengri_pagan"	
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_mogul = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Skaven
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300009
+                culture="norse"
+	            religion="norse_pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_skaven = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Andiroba
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300010
+                culture="manden"
+	            religion="west_african_pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court                
+                d_mercenary_andiroba = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Jabuticaba
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300011
+                culture="songhay"
+	            religion="west_african_pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_jabuticaba = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Dalar
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300012
+                culture="irish"
+	            religion="pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_dalar = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Wallace
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300013
+                culture="scotish"
+	            religion="pagan"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_wallace = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
+            }
+
+            # Tálib
+            create_character = {
+                random_traits = yes
+                female = 50
+                dynasty = 300014
+                culture="beduin"
+	            religion="shiite"
+            }
+            new_character = {
+                join_society = sakya_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                d_mercenary_talib = {
+                    grant_title = PREV
+                    set_defacto_liege = THIS
+                }
+                character_event = { id = ACS.00202 }
             }
         }
 
@@ -213,6 +381,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -236,6 +405,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -259,6 +429,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -282,6 +453,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -305,6 +477,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -328,6 +501,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -351,6 +525,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -374,6 +549,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -397,6 +573,7 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
             }
@@ -461,6 +638,103 @@ character_event = {
                 }
                 character_event = { id = ACS.00017 days = 1 }
 			    character_event = { id = ACS.00019 days = 5 }
+            }
+        }
+	}
+}
+
+# ACS.00202 - Spawn childs for Sakya dynasties
+character_event = {
+	id = ACS.00202
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = yes
+		society_member_of = sakya_society
+	}
+
+	immediate = {
+        set_variable = { which = generating_sakyas value = 3 }
+        while = {
+            limit = {
+                check_variable = {
+                    which = generating_sakyas
+                    value = 1
+                }
+            }    
+            subtract_variable = {
+                which = generating_sakyas
+                value = 1
+            }
+            random = {
+                chance = 50
+                create_character = {
+                    female = 50
+                    dynasty = ROOT
+                    culture = ROOT
+                    random_traits = yes
+                }
+                new_character = {
+                    join_society = sakya_society
+                    society_rank_up = 2
+
+                    # Spawn rank 2 members
+                    set_variable = { which = generating_sakyas_2 value = 3 }
+                    while = {
+                        limit = {
+                            check_variable = {
+                                which = generating_sakyas_2
+                                value = 1
+                            }
+                        }    
+                        subtract_variable = {
+                            which = generating_sakyas_2
+                            value = 1
+                        }
+                        random = {
+                            chance = 50
+                            create_character = {
+                                female = 50
+                                dynasty = ROOT
+                                culture = ROOT
+                                random_traits = yes
+                            }
+                            new_character = {
+                                join_society = sakya_society
+                                society_rank_up = 1
+
+
+                                # Spawn rank 1 members
+                                set_variable = { which = generating_sakyas_3 value = 3 }
+                                while = {
+                                    limit = {
+                                        check_variable = {
+                                            which = generating_sakyas_3
+                                            value = 1
+                                        }
+                                    }    
+                                    subtract_variable = {
+                                        which = generating_sakyas_3
+                                        value = 1
+                                    }
+                                    random = {
+                                        chance = 50
+                                        create_character = {
+                                            female = 50
+                                            dynasty = ROOT
+                                            culture = ROOT
+                                            random_traits = yes
+                                        }
+                                        new_character = {
+                                            join_society = sakya_society
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 	}
@@ -793,7 +1067,7 @@ narrative_event = {
                 modifier = {
                     has_mental_disorder_trigger = yes
                     factor = 5
-                }               
+                } 
                 modifier = {
                     trait = maimed
                     factor = 20.0

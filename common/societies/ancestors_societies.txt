@@ -47,7 +47,7 @@ sakya_society = {
 
 	society_rank = {
 		level = 1
-		limit = 100 
+		limit = 300 
 		startup_limit = 10
 		modifier = {
 			is_visible = {
@@ -65,7 +65,7 @@ sakya_society = {
 
 	society_rank = {
 		level = 2
-		limit = 50
+		limit = 100
 		startup_limit = 6
 		modifier = { 
 			is_visible = {
@@ -86,7 +86,7 @@ sakya_society = {
 	
 	society_rank = {
 		level = 3
-		limit = 25 
+		limit = 39 
 		startup_limit = 3
 		modifier = {
 			is_visible = {
@@ -108,7 +108,7 @@ sakya_society = {
 
 	society_rank = {
 		level = 4
-		limit = 10
+		limit = 13
 		startup_limit = 1
 		modifier = {
 			is_visible = {

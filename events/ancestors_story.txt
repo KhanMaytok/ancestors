@@ -371,6 +371,34 @@ character_event = {
 	}
 }
 
+# ACS.00012 - Check if Vee dies without childs
+character_event = {
+	id = ACS.00012
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = is_vee
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_child = {
+					is_female = yes
+					prisoner = no
+					is_incapable = no
+					is_landed = no
+				}
+			}
+			break = yes
+		}
+		else = {
+			set_global_flag = vanished_vee
+		}
+	}
+}
+
 # ACS.00013 - Move Tilda OR Khalga to mercenary Sakya
 character_event = {
 	id = ACS.00013
@@ -602,26 +630,38 @@ narrative_event = {
 ###########################
 ### VEE Transfer essence ##
 ###########################
-# ACS.00025 - Activate the orb if Vee dies
+# ACS.00025 - Select a new Vee if she dies without childs
 character_event = {
 	id = ACS.00025
 	hide_window = yes
-	is_triggered_only = yes
-	has_character_flag = is_vee
+	is_in_society = yes
 
-	trigger = { trait = syrena }
+	trigger = {
+    	is_society_grandmaster = yes
+		society_member_of = pentaghast_society
+		NOT = { has_character_flag = already_sharingan_kid }
+		has_global_flag = vanished_vee
+    }
+
+	mean_time_to_happen = {
+		months = 5
+	}	
 
 	immediate = {
-		set_global_flag = vanished_vee
-		pentaghast_society = {
-			random_society_member = {
-				limit = {
-					is_society_grandmaster = yes
-					NOT = { has_artifact = eden_apple }
-				}
-				add_artifact = eden_apple
+		random_character = {
+			limit = {
+				is_female = yes
+				trait = sharingan
 			}
-		}        
+			add_trait = syrena
+			health = 20
+			set_character_flag = is_vee
+			set_character_flag = society_join_block
+		}
+		pentaghast_society = {
+			any_society_member = { letter_event = { id = ACS.00028 } }
+		}
+		clr_global_flag = vanished_vee
 	}
 }
 
@@ -655,13 +695,17 @@ narrative_event = {
 				}				
 				narrative_event = { id = ACS.00027}
 			}
-		}
-
-		pentaghast_society = {
-			any_society_member = {
-				letter_event = { id = ACS.00028 }
+			pentaghast_society = {
+				any_society_member = {
+					letter_event = { id = ACS.00028 }
+				}
 			}
-		}       
+		}
+		else = {
+			remove_trait = syrena
+			death = { death_reason = death_poor_health }
+			set_global_flag = vanished_vee
+		}
 	}
 
 	option = {
@@ -1176,6 +1220,10 @@ character_event = {
 	hide_window = yes
 	has_character_flag = is_vee
 
+	trigger = {
+		is_adult = yes
+	}
+
 	immediate = {
 		if = {
 			limit = {
@@ -1185,7 +1233,19 @@ character_event = {
 				save_event_target_as = vee_spouse
 			}
 			impregnate = event_target:vee_spouse
-		}		
+			break = yes
+		}
+		else = {
+			host = {
+				random_courtier = {
+					limit = {
+						is_female = no
+					}
+					save_event_target_as = vee_spouse
+				}
+			}
+			impregnate_cuckoo = event_target:vee_spouse
+		}
 	}
 }
 
@@ -1217,7 +1277,7 @@ character_event = {
 # ACS.00043 # Ensure only one Khalga
 # ACS.00045 # Spread ancestor chests
 
-# Character goes crazy if has an ancestor armor and dont have dojutsu
+# ACS.00045 - Character goes crazy if has an ancestor armor and dont have dojutsu
 character_event = {
 	id = ACS.00045
 	hide_window = yes
