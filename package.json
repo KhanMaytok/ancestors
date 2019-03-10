@@ -14,9 +14,11 @@
     "crusader",
     "kings",
     "ck2",
-    "mod"
+    "mod",
+    "ancestors",
+    "maytok"
   ],
-  "author": "Giancarlo Ventura",
+  "author": "Giancarlo Ventura <khan.maytok@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/KhanMaytok/ancestors/issues"

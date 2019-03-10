@@ -12,6 +12,7 @@
 	<a href="https://ck2.paradoxwikis.com/Patch_2.8"><img src="https://img.shields.io/badge/CK2-2.8-blue.svg" alt="CK2 3.0"></a>
 	<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1391125438"><img src="https://img.shields.io/badge/steam-page-blue.svg" alt="Steam page"></a>
 	<a><img src="https://img.shields.io/badge/Maker-take%20you!-red.svg" alt="Cassandra Shout"></a>
+	<a href="https://www.npmjs.com/package/maytok"><img alt="NPM package" src="https://img.shields.io/npm/dt/maytok.svg"></a>
 </p>
 
 <h4 align="center"Disclaimer: This is not a Naruto mod</h4>
@@ -47,9 +48,23 @@ The shinobi world is very rich and complex and I don't think I can move this wor
 
 ## Key features
 
-### Armors
+### Societies
 
-At game start
+<p>
+The Sakya society is composed of the heads of the 13 mercenary dynasties that originated from ancient times. Each head occupies the rank of "elder" in the society and follows them, from top to bottom:
+</p>
+<p>
+Captains: Political hands of society.
+</p>
+<p>
+Gentlemen: Executing hands. 
+</p>
+<p>
+Squires: New members, who are learning the norms and rules of society.
+</p>
+<p>
+Positions in the Sakya clans are familiar, i.e. all members are descended from the lineage of the original clans. Men and women are paired among other groups to avoid genetic degeneration.
+</p>
 
 ### Vee and Khalga
 
@@ -59,7 +74,7 @@ Vee is, if you accept her, the closest character of the two to you. She is consi
 
 - **Modificador especial**: La presencia de Vee en tu corte te garantiza un punto adicional de prestigio mensual. Son las ventajas de tener como cortesana a la mujer más bella del mundo.
 - **Nuevo Casus Belli**: La presencia de Vee en tu corte también te causa problemas. Cualquier persona con tierras te podrá declarar la guerra por ella. Si pierdes, Vee irá a la corte del ganador de la guerra. 
-- **Ojos carmesí**: Vee es la portadora original de los ojos carmesí­. El rasgo es capaz de evolucionar mediante eventos especiales y hacerse más poderoso. También se puede heredar, lo que permite que crees tu programa genético a largo plazo. Â¡Incluso tú podrías poseerlo si planificas bien tu dinastía!
+- **Ojos carmesí**: Vee es la portadora original de los ojos carmesí­. El rasgo es capaz de evolucionar mediante eventos especiales y hacerse más poderoso. También se puede heredar, lo que permite que crees tu programa genético a largo plazo. ¡Incluso tú podrías poseerlo si planificas bien tu dinastía!
 - **Semi-inmortalidad**: Vee, o al menos su esencia, vivirá a lo largo de toda la narrativa, pero necesita un cuerpo nuevo para transferirse cuando al viejo le llegue la hora. Solo puede transferirse a una de sus hijas, que será el nuevo recipiente. El evento se repita cada 33 años y se anulará si Vee muere.
 
 Por otro lado, Khalga es la contraparte. Puede ser el opositor del juego, o quizá no, todo depende de los eventos que experimente y tus propias decisiones. Khalga también tiene un conjunto de características:
@@ -76,27 +91,35 @@ Dos seres tan peculiares deberían tener sus seguidores. La respuesta a esto son 
 
 # Artifacts
 
-There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own. The current list, from the most basic to the most advanced is:
+There is a basic system for searching and collecting artifacts. The artifacts are upgradables and provide some features and events of their own.
+All armors grant combat rating, learning and health bonus. Christian, muslim, jewish and zoroastrian groups have negative opinion to the owner. Aztec group has a very high bonus to the owner. 
 
-- Tracker Armor (17398)
-- Nightmare Armor (2058)
-- Blue Wolf Armor (17540)
+**Light armors:**
 
-- Avadon Armor (17766)
-- Majestic Armor (136)
-- Dynasty Armor (17253)
+Grant additional intrige
 
-### TODO
-- Cataclysmic Armor (1196)
-- Draconic Armor (2013)
-- Imperial Armor (2031)
+- Tracker Armor (TIER 1)
+- Avadon Armor (TIER 2)
+- Reggios Armor (TIER 3)
+- Draconic Armor (TIER 4)
+- Dark Crystal Armor (TIER 5)
 
-- Divine Armor (2214)
-- Dark Crystal Armor (2229)
-- Dominus Armor (2229)
-- Mithril Armor (2247)
-- Optimus Armor (19084)
-- Reggios Armor (19230)
+**Heavy armors**
 
+Grants additional martial
 
+- Blue Wolf Armor (TIER 1)
+- Nightmare Armor (TIER 2)
+- Dominus Armor (TIER 3)
+- Imperial Armor (TIER 4)
+- Mithril Armor (TIER 5)
 
+**Robes**
+
+Grants additional learning
+
+- Majestic Armor (TIER )
+- Dynasty Armor (TIER 2)
+- Optimus Armor (TIER 3)
+- Cataclysmic Armor (TIER 4)
+- Divine Armor (TIER 5)

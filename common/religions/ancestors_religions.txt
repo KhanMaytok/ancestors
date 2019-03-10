@@ -18,14 +18,14 @@ ishtar_group = {
 		color = { 0.86 0.07 0.23 }
 		
 		crusade_name = CRUSADE
-		scripture_name = THE_OLD_PAPIRES
+		scripture_name = THE_ELDER_SCROLLS
 		priest_title = HIGH_WISE
 		piety_name = THE_VIR
 		
 		high_god_name = ISHTAR_ISHTAR
 		
 		god_names = {
-			ISHTAR_ISHTAR ISHTAR_THE_DOMINA
+			ISHTAR_ISHTAR ISHTAR_THE_DOMINA ISHTAR_RABBIT
 		}
 		
 		evil_god_names = {
