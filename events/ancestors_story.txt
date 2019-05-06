@@ -1,5 +1,8 @@
 NAMESPACE = ACS
 
+########################
+## TIAMAT EVENT CHAIN ##
+########################
 # ACS.00001 - Tiamat comet in the sky
 narrative_event = {
 	id = ACS.00001
@@ -88,6 +91,9 @@ character_event = {
 	}
 }
 
+#####################
+## THE SPAWN EVENT ##
+#####################
 # ACS.00004 - Spawn Senua, Olaf and Tilda and parents
 narrative_event = {
 	id = ACS.00004
