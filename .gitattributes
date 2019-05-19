@@ -2,4 +2,4 @@
 *.csv linguist-language=Erlang
 *.md linguist-language=Go
 *.dds linguist-language=Julia
-*.gfx linguist-language=Cobol
+*.gfx linguist-language=Python
