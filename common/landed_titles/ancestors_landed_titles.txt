@@ -19,10 +19,45 @@ d_mercenary_pentaghast = {
 		
 	# Cannot be vassalized
 	independent = yes
+
+	dynasty_title_names = no
 	
 	strength_growth_per_century = 1.0
 
 	mercenary_type = pentaghast_composition
+}
+
+d_mercenary_pentaghast = {
+	color={ 100 200 80 }
+	color2={ 255 255 255 }
+
+	capital = 333 # Roma		
+	# Parent Religion 
+	religion = catholic
+	
+	mercenary = no
+
+	title = "CONDOTTIERO"
+	foa = "CONDOTTIERO_FOA"
+
+	# Always exists
+	landless = yes
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+
+	dynasty_title_names = no
+	
+	strength_growth_per_century = 1.0
+
+	mercenary_type = pentaghast_composition
+}
+
+c_mercenary_pentaghast = {
+	landless = yes
 }
 
 d_mercenary_sakya = {
@@ -46,21 +81,23 @@ d_mercenary_sakya = {
 		
 	# Cannot be vassalized
 	independent = yes
+
+	dynasty_title_names = no
 	
 	strength_growth_per_century = 1.0
 
 	mercenary_type = sakya_composition
 }
 
-d_mercenary_mahishmati = {
-	color={ 100 200 81 }
+d_mercenary_sakya = {
+	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 1149 # mantua		
+	capital = 622	
 	# Parent Religion 
 	religion = buddhist
 	
-	mercenary = yes
+	mercenary = no
 
 	title = "CONDOTTIERO"
 	foa = "CONDOTTIERO_FOA"
@@ -73,305 +110,15 @@ d_mercenary_mahishmati = {
 		
 	# Cannot be vassalized
 	independent = yes
+
+	dynasty_title_names = no
 	
 	strength_growth_per_century = 1.0
 
-	mercenary_type = mahishmati_composition
+	mercenary_type = sakya_composition
 }
 
-d_mercenary_heraclidas = {
-	color={ 100 200 82 }
-	color2={ 255 255 255 }
-
-	capital = 474 # mantua		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
+c_mercenary_sakya = {
 	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = heraclidas_composition
 }
 
-d_mercenary_shao = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 1458 # Khangai		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = shao_composition
-}
-
-d_mercenary_koda = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 1587 # Neumark		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = koda_composition
-}
-
-d_mercenary_freljord = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 278 # Hålogaland		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = freljord_composition
-}
-
-d_mercenary_mogul = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 1451 # Altay		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = mogul_composition
-}
-
-d_mercenary_skaven = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 1625 # Sogn		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = skaven_composition
-}
-
-d_mercenary_andiroba = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 1760 # No named		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = andiroba_composition
-}
-
-d_mercenary_jabuticaba = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 884 # Antalo		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = jabuticaba_composition
-}
-
-d_mercenary_dalar = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 1954 # No named		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = dalar_composition
-}
-
-d_mercenary_wallace = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 44 # Atholl		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = wallace_composition
-}
-
-d_mercenary_talib = {
-	color={ 100 200 83 }
-	color2={ 255 255 255 }
-
-	capital = 719 # Mecca		
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = talib_composition
-}

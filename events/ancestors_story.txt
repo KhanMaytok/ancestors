@@ -102,11 +102,11 @@ narrative_event = {
 	picture = GFX_evt_courtiers_talking
 	is_triggered_only = yes
 
-	immediate = {		
+	immediate = {
 		create_character = {
 			name = Olaf
-			age = 28
-			culture = swedish
+			age = 33
+			culture = greek
 			religion = FROM
 			trait = cruel
 			trait = ambitious
@@ -127,14 +127,14 @@ narrative_event = {
 		}
 		new_character = {
 			set_character_flag = is_olaf
+			set_character_flag = originated_from_chinese_court
 			join_society = pentaghast_society
 			set_society_grandmaster = yes
 			set_secret_religion = ishtar_religion
-			add_artifact = eden_apple
 			dynasty = 300001
 			save_event_target_as = olaf_the_killer
-			character_event = { id = ACS.00200 } # Spawn characters for the society
-			character_event = { id = ACS.00005 days = 45 } # Olaf goes to Pentaghast mercenaries
+			character_event = { id = ACS.00005 } # Spawn pentaghast society characters
+			character_event = { id = ACS.00006 days = 60 } # Moves to the mercenary band
 		}
 		create_character = {
 			name = Tilda
@@ -156,8 +156,7 @@ narrative_event = {
 			set_character_flag = originated_from_chinese_court
 			culture = khazar
 			dynasty = 300000
-			character_event = { id = ACS.00200 days = 15 }
-			character_event = { id = ACS.00013 } # Moves to sakya mercenary band
+			character_event = { id = ACS.00006 } # Moves to the mercenary band
 		}
 		create_character = {
 			name = Senua
@@ -189,43 +188,388 @@ narrative_event = {
 	}    
 }
 
-# ACS.00005 - Olaf goes to Pentaghast mercenary band
+# ACS.00005 - Spawn secondary members of the Pentaghast Society
 character_event = {
 	id = ACS.00005
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
-		random_character = {
-            limit = { has_landed_title = d_mercenary_pentaghast }
-            character_event = { id = ACS.00006 }
-        }
+		# OLAF RELATIONS
+        if = {
+            limit = {
+                has_character_flag = is_olaf
+            }
+            create_character = {
+                name = "Ragnarr"
+                age = 60
+                culture = greek
+                religion = ishtar_religion
+                trait = ambitious
+                trait = shrewd
+                trait = physician
+                trait = diligent
+                trait = lustful
+                trait = grey_eminence
+                trait = administrator
+                health = 20
+                dynasty = 300001
+            }
+            new_character = {
+                save_event_target_as = olaf_father			
+            }
+            create_character = {
+                name = "Killa"
+                age = 55
+                female = yes
+                culture = nahuatl
+                religion = ishtar_religion
+                trait = fair
+                trait = genius
+                trait = shrewd
+                trait = physician
+                trait = diligent
+                trait = midas_touched
+                trait = administrator
+                health = 20
+                dynasty = none
+            }
+            new_character = {
+                save_event_target_as = olaf_mother			
+            }
+            create_character = {
+                name = "Rimak"
+                age = 30
+                culture = nahuatl
+                religion = ishtar_religion
+                trait = fair
+                trait = genius
+                trait = shrewd
+                trait = physician
+                trait = diligent
+                trait = midas_touched
+                trait = administrator
+                health = 20
+                dynasty = 300001
+            }
+            new_character = {
+                set_mother = event_target:olaf_mother
+                set_father = event_target:olaf_father
+                save_event_target_as = olaf_brother		
+            }
+
+            event_target:olaf_the_killer = {
+                set_mother = event_target:olaf_mother
+                set_father = event_target:olaf_father
+            }
+    
+            event_target:olaf_father = {
+                death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+            }
+            event_target:olaf_mother = {
+                death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+            }
+            event_target:olaf_brother = {
+                death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+            }
+
+            create_character = {
+                name="Gunnr"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+				set_mother = event_target:olaf_mother
+                dynasty = 300001                
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Geirdriful"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Eir"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Kara"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Rota"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Olrun"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Gondul"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Hildr"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+            create_character = {
+                name="Sigrun"
+                trait = ambitious
+                trait = fair
+                trait = genius
+			    trait = elusive_shadow
+                trait = prevent_marriage
+                trait = seductress
+                female = yes
+                culture = greek
+                religion = FROM
+                health = 20
+            }
+            new_character = {
+                join_society = pentaghast_society
+                society_rank_up = 3
+                set_character_flag = originated_from_chinese_court
+                set_father = event_target:olaf_father
+                dynasty = 300001
+                set_mother = event_target:olaf_mother
+				add_artifact = majestic_armor_dwarf
+                set_secret_religion = ishtar_religion
+                character_event = { id = ACS.00201 }
+            }
+        }        
+    }
+}
+
+# ACS.00006 - Find the current leader of the Pentaghast and Sakya mercenary band
+character_event = {
+	id = ACS.00006
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				ROOT = {
+					has_character_flag = is_ancient_one
+				}
+			}
+			random_character = {
+				limit = { has_landed_title = d_mercenary_sakya }
+				character_event = { id = ACS.00007 }				
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				ROOT = {
+					has_character_flag = is_olaf
+				}
+			}
+			random_character = {
+				limit = { has_landed_title = d_mercenary_pentaghast }
+				character_event = { id = ACS.00007 }				
+			}
+			break = yes
+		}
 	}
 }
 
-# ACS.00006 - Pentaghast leader receives Olaf
+# ACS.00007 - Pentaghast-Sakya leader receives Olaf
 character_event = {
-	id = ACS.00006
+	id = ACS.00007
 	is_triggered_only = yes
 	hide_window = yes
 
 	immediate = {
 		FROM = {
             move_character = ROOT
-			add_trait = adventurer
 			remove_trait = prevent_marriage
-			d_mercenary_pentaghast = {
-				grant_title = PREV
-            	set_defacto_liege = THIS
+
+			if = {
+				limit = {
+					FROM = {
+						has_character_flag = is_ancient_one
+					}
+				}
+				d_mercenary_sakya = {
+					grant_title = PREV
+					set_defacto_liege = THIS
+				}
+				c_mercenary_sakya = {
+					grant_title = PREV
+					set_defacto_liege = THIS
+				}
+				break = yes
 			}
-			create_character = {
-				female = yes
-				random_traits = yes
-			}
-			new_character = {
-				save_event_target_as = olaf_spouse
-			}
-			add_spouse = event_target:olaf_spouse			
+			if = {
+				limit = {
+					FROM = {
+						has_character_flag = is_olaf
+					}
+				}
+				d_mercenary_pentaghast = {
+					grant_title = PREV
+					set_defacto_liege = THIS
+				}
+				c_mercenary_pentaghast = {
+					grant_title = PREV
+					set_defacto_liege = THIS
+				}
+				break = yes
+			}				
         } 
 		FROMFROM = {
 			narrative_event = { id = ACS.00007 }

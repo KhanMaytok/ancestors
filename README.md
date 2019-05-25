@@ -118,7 +118,7 @@ Grants additional martial
 
 Grants additional learning
 
-- Majestic Armor (TIER )
+- Majestic Armor (TIER 1)
 - Dynasty Armor (TIER 2)
 - Optimus Armor (TIER 3)
 - Cataclysmic Armor (TIER 4)
