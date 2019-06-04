@@ -16,6 +16,12 @@ narrative_event = {
 		NOT = { has_global_flag = comet_tiamat }
 	}
 
+	immediate = {
+		ROOT={
+			save_event_target_as = its_me_mamma
+		}	
+	}
+
 	option = {
 		trigger = {
 			OR = {
@@ -26,7 +32,7 @@ narrative_event = {
 				}
 			}
 		}
-		name = ACS_00001_OPT_A
+		name = ACS_00001_OPT_A				
 		character_event = { id = ACS.00003 days = 32 }
 		narrative_event = { id = ACS.00004 days = 45 }
 		set_global_flag = comet_tiamat
@@ -179,7 +185,7 @@ narrative_event = {
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
-			narrative_event = { id = ACS.00008 days = 15 }
+			narrative_event = { id = ACS.00009 days = 15 }
 		}		
 	}
 
@@ -522,6 +528,7 @@ character_event = {
 				limit = { has_landed_title = d_mercenary_pentaghast }
 				character_event = { id = ACS.00007 }				
 			}
+			set_character_flag = selected_victim
 			break = yes
 		}
 	}
@@ -534,16 +541,15 @@ character_event = {
 	hide_window = yes
 
 	immediate = {
-		FROM = {
-            move_character = ROOT
-			remove_trait = prevent_marriage
-
-			if = {
-				limit = {
-					FROM = {
-						has_character_flag = is_ancient_one
-					}
+		if = {
+			limit = {
+				FROM = {
+					has_character_flag = is_ancient_one
 				}
+			}
+			FROM = {
+				move_character = ROOT
+				remove_trait = prevent_marriage
 				d_mercenary_sakya = {
 					grant_title = PREV
 					set_defacto_liege = THIS
@@ -551,15 +557,19 @@ character_event = {
 				c_mercenary_sakya = {
 					grant_title = PREV
 					set_defacto_liege = THIS
-				}
-				break = yes
+				}					
 			}
-			if = {
-				limit = {
-					FROM = {
-						has_character_flag = is_olaf
-					}
+			break = yes
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_character_flag = is_olaf
 				}
+			}
+			FROM = {
+				move_character = ROOT
+				remove_trait = prevent_marriage
 				d_mercenary_pentaghast = {
 					grant_title = PREV
 					set_defacto_liege = THIS
@@ -567,38 +577,38 @@ character_event = {
 				c_mercenary_pentaghast = {
 					grant_title = PREV
 					set_defacto_liege = THIS
-				}
-				break = yes
-			}				
-        } 
-		FROMFROM = {
-			narrative_event = { id = ACS.00007 }
-		}      
-	}
-
-	option = {
-		name = OK
-		ai_chance = { factor = 100 }
+				}					
+			}
+			break = yes
+		}		
+		event_target:its_me_mamma = { narrative_event = { id = ACS.00008 } }
 	}
 }
 
-# ACS.00007 - Player is notified about Olaf leaves the court
+
+################################################################
+## MAIN DECISION ###############################################
+## ACS.00008 - Player is notified about Olaf leaves the court ##
+################################################################
 narrative_event = {
-	id = ACS.00007
-	title = ACS_00007_TITLE
-	desc = ACS_00007_DESC
+	id = ACS.00008
+	title = ACS_00008_TITLE
+	desc = ACS_00008_DESC
 	picture = GFX_evt_courtiers_talking
 	is_triggered_only = yes
 
 	option = {
+		name = ACS_00008_OPT_A
+		set_player_character = event_target:olaf_the_killer
+	}
+	option = {
 		name = OK
-		add_artifact = tracker_armor_human
 	}
 }
 
-# ACS.00008 - Create Vee and Khalga
+# ACS.00009 - Create Vee and Khalga
 narrative_event = {
-	id = ACS.00008
+	id = ACS.00009
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -656,14 +666,14 @@ narrative_event = {
 			}
 		}
 		liege = { # Player is notified
-			narrative_event = { id = ACS.00009 days = 1 }          
+			narrative_event = { id = ACS.00010 days = 1 }          
 		}
 	}
 }
 
-# ACS.00009 - Player is notified about the twins
+# ACS.00010 - Player is notified about the twins
 narrative_event = {
-	id = ACS.00009
+	id = ACS.00010
 	title = ACS_00009_TITLE
 	desc = ACS_00009_DESC
 	picture = GFX_evt_birth
