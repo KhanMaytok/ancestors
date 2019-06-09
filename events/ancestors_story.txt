@@ -185,7 +185,7 @@ narrative_event = {
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
-			narrative_event = { id = ACS.00009 days = 15 }
+			narrative_event = { id = ACS.00009 days = 15 } # Born of Vee and Khalga
 		}		
 	}
 
@@ -268,7 +268,8 @@ character_event = {
                 set_mother = event_target:olaf_mother
                 set_father = event_target:olaf_father
             }
-    
+
+			# Olaf purgues his family
             event_target:olaf_father = {
                 death = { death_reason = death_murder killer = event_target:olaf_the_killer }
             }
@@ -279,6 +280,7 @@ character_event = {
                 death = { death_reason = death_murder killer = event_target:olaf_the_killer }
             }
 
+			# Olaf sisters
             create_character = {
                 name="Gunnr"
                 trait = ambitious
@@ -509,7 +511,10 @@ character_event = {
 		if = {
 			limit = {
 				ROOT = {
-					has_character_flag = is_ancient_one
+					OR = {
+						has_character_flag = is_ancient_one
+						has_character_flag = is_khalga
+					}
 				}
 			}
 			random_character = {
@@ -521,20 +526,22 @@ character_event = {
 		if = {
 			limit = {
 				ROOT = {
-					has_character_flag = is_olaf
+					OR = {
+						has_character_flag = is_olaf
+						has_character_flag = is_vee
+					}
 				}
 			}
 			random_character = {
 				limit = { has_landed_title = d_mercenary_pentaghast }
 				character_event = { id = ACS.00007 }				
 			}
-			set_character_flag = selected_victim
 			break = yes
 		}
 	}
 }
 
-# ACS.00007 - Pentaghast-Sakya leader receives Olaf
+# ACS.00007 - Pentaghast-Sakya leader receives Olaf-Tilda/Vee-Khalga
 character_event = {
 	id = ACS.00007
 	is_triggered_only = yes
@@ -579,9 +586,23 @@ character_event = {
 					set_defacto_liege = THIS
 				}					
 			}
+			event_target:its_me_mamma = { narrative_event = { id = ACS.00008 } }
+			break = yes			
+		}
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_character_flag = is_khalga
+						has_character_flag = is_vee
+					}					
+				}
+			}
+			FROM = {
+				move_character = ROOT					
+			}
 			break = yes
-		}		
-		event_target:its_me_mamma = { narrative_event = { id = ACS.00008 } }
+		}
 	}
 }
 
@@ -633,6 +654,7 @@ narrative_event = {
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
 			dynasty = 300001
 			health = 20
+			character_event = { id = ACS.00006 days = 65 }
 		}
 
 		# Khalga born
@@ -681,13 +703,13 @@ narrative_event = {
 
 	option = {
 		name = OK		
-		narrative_event = { id = ACS.00010 days = 15}		
+		narrative_event = { id = ACS.00011 days = 15}		
 	}
 }
 
-# ACS.00010 - Khalga flies to a foreign court
+# ACS.00011 - Khalga flies to a foreign court
 narrative_event = {
-	id = ACS.00010
+	id = ACS.00011
 	title = ACS_00010_TITLE
 	desc = ACS_00010_DESC
 	picture = GFX_evt_machines_of_war
@@ -708,82 +730,8 @@ narrative_event = {
 		name = ACS_00010_OPT_A
 		random_courtier = {
 			limit = { has_character_flag = is_khalga }
-			character_event = { id = ACS.00013 }
+			character_event = { id = ACS.00006 }
 		}
-	}
-}
-
-# ACS.00011 - Tilda gets Mercenary Sakya title
-character_event = {
-	id = ACS.00011
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		has_character_flag = is_ancient_one
-	}
-
-	immediate = {
-		d_mercenary_sakya = {
-			grant_title = PREV
-            set_defacto_liege = THIS
-		}		
-	}
-}
-
-# ACS.00012 - Check if Vee dies without childs
-character_event = {
-	id = ACS.00012
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		has_character_flag = is_vee
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				any_child = {
-					is_female = yes
-					prisoner = no
-					is_incapable = no
-					is_landed = no
-				}
-			}
-			break = yes
-		}
-		else = {
-			set_global_flag = vanished_vee
-		}
-	}
-}
-
-# ACS.00013 - Move Tilda OR Khalga to mercenary Sakya
-character_event = {
-	id = ACS.00013
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		random_character = {
-            limit = { has_landed_title = d_mercenary_sakya }
-            character_event = { id = ACS.00014 }
-        }		
-	}
-}
-
-# ACS.00014 - Tilda goes to mercenary band
-character_event = {
-	id = ACS.00014
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		FROM = {
-            move_character = ROOT
-			character_event = { id = ACS.00011 }
-        }
 	}
 }
 
