@@ -19,52 +19,32 @@ byakugan = {
 	same_opinion = 10
 	martial = 5
 
-	opposites = { sharingan mangekyo_sharingan eternal_mangekyo_sharingan }
+	opposites = { sharingan1 sharingan2 sharingan mangekyo_sharingan eternal_mangekyo_sharingan }
 	opposite_opinion = -200
 	customizer = no
 }
 
 sharingan_1 = {
 	random = no
-	intrigue = 2
-	learning = 2
-	combat_rating = 40
-	plot_power_modifier = 0.20
-	monthly_character_prestige = 1
+	combat_rating = 10
+	plot_power_modifier = 0.05
 	same_opinion = 10
-	martial = 5
+	martial = 1
 
-	opposites = { byakugan }
+	opposites = { byakugan tenseigan}
 	opposite_opinion = -200
 	customizer = no
 }
 
 sharingan_2 = {
 	random = no
-	intrigue = 2
-	learning = 2
-	combat_rating = 40
-	plot_power_modifier = 0.20
+	intrigue = 1
+	combat_rating = 20
+	plot_power_modifier = 0.10
 	monthly_character_prestige = 1
 	same_opinion = 10
-	martial = 5
-
-	opposites = { byakugan }
-	opposite_opinion = -200
-	customizer = no
-}
-
-sharingan_3 = {
-	random = no
-	intrigue = 2
-	learning = 2
-	combat_rating = 40
-	plot_power_modifier = 0.20
-	monthly_character_prestige = 1
-	same_opinion = 10
-	martial = 5
-
-	opposites = { byakugan }
+	martial = 3
+	opposites = { byakugan tenseigan}
 	opposite_opinion = -200
 	customizer = no
 }
@@ -79,7 +59,7 @@ sharingan = {
 	same_opinion = 10
 	martial = 5
 
-	opposites = { byakugan }
+	opposites = { byakugan tenseigan}
 	opposite_opinion = -200
 	customizer = no
 }
@@ -94,7 +74,7 @@ mangekyo_sharingan = {
 	monthly_character_prestige = 5
 	same_opinion = 10
 
-	opposites = { byakugan }
+	opposites = { byakugan tenseigan}
 	opposite_opinion = -200
 	customizer = no
 }
@@ -109,7 +89,7 @@ eternal_mangekyo_sharingan = {
 	monthly_character_prestige = 10
 	same_opinion = 10
 
-	opposites = { byakugan }
+	opposites = { byakugan tenseigan}
 	opposite_opinion = -200
 	customizer = no
 }

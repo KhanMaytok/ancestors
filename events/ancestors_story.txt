@@ -999,6 +999,9 @@ character_event = {
 	}
 }
 
+##########################
+## VEE LIFECYCLE EVENTS ##
+##########################
 # ACS.00023 - Notify host about Vee beauty - Select Vee current character
 character_event = {
 	id = ACS.00023
@@ -1009,6 +1012,13 @@ character_event = {
 	immediate = {
 		host = {
 			narrative_event = { id = ACS.00024 }
+		}
+		if = {
+			limit = {
+				NOT = { has_character_flag = vee_degradation }
+			}
+			set_character_flag = { vee_degradation }
+			character_event = { id = ACS.00025 days = 666 random = 666 }
 		}
 	}
 }
@@ -1028,112 +1038,35 @@ narrative_event = {
 	}
 }
 
-###########################
-### VEE Transfer essence ##
-###########################
-# ACS.00025 - Select a new Vee if she dies without childs
+# ACS.00025 - Begin the corruption event
 character_event = {
 	id = ACS.00025
 	hide_window = yes
-	is_in_society = yes
 
 	trigger = {
-    	is_society_grandmaster = yes
-		society_member_of = pentaghast_society
-		NOT = { has_character_flag = already_sharingan_kid }
-		has_global_flag = vanished_vee
+    	has_character_flag = is_vee
     }
 
-	mean_time_to_happen = {
-		months = 5
-	}	
-
 	immediate = {
-		random_character = {
-			limit = {
-				is_female = yes
-				trait = sharingan
+		liege = {
+			random_courtier = {
+				limit = {
+					is_female = yes
+					NOT = { has_character_flag = is_vee }
+				}
+				add_trait = syrena
+				add_trait = sharingan_3
+				health = 20
+				set_character_flag = is_vee
+				set_character_flag = society_join_block
+				set_character_flag = vee_degradation
 			}
-			add_trait = syrena
-			health = 20
-			set_character_flag = is_vee
-			set_character_flag = society_join_block
 		}
+		death = { death_reason = death_suicide }
 		pentaghast_society = {
 			any_society_member = { letter_event = { id = ACS.00028 } }
 		}
-		clr_global_flag = vanished_vee
-	}
-}
-
-# ACS.00026 - Check if vee has more than 33 years old
-narrative_event = {
-	id = ACS.00026
-	title = ACS_00026_TITLE
-	desc = ACS_00026_DESC
-	is_triggered_only = yes
-	has_character_flag = is_vee
-	picture = GFX_evt_vee_adolescense
-
-	trigger = { age >= 33 }
-
-	immediate = {
-		if = {
-			limit = {
-				any_child = {
-					is_female = yes
-					prisoner = no
-					is_incapable = no
-					is_landed = no
-				}
-			}
-			random_child = {
-				limit = {
-					is_female = yes
-					prisoner = no
-					is_incapable = no
-					is_landed = no
-				}				
-				narrative_event = { id = ACS.00027}
-			}
-			pentaghast_society = {
-				any_society_member = {
-					letter_event = { id = ACS.00028 }
-				}
-			}
-		}
-		else = {
-			remove_trait = syrena
-			death = { death_reason = death_poor_health }
-			set_global_flag = vanished_vee
-		}
-	}
-
-	option = {
-		name = OK
-		ai_chance = { factor = 100 }    
-	}
-}
-
-# ACS.00027 - The child is notified
-narrative_event = {
-	id = ACS.00027
-	title = ACS_00027_TITLE
-	desc = ACS_00027_DESC
-	picture = GFX_evt_courtiers_talking # To Do New picture
-	is_triggered_only = yes
-
-	option = {
-		name = ACS_00027_OPT_A
-		mother = {
-			remove_trait = syrena
-			death = { death_reason = death_poor_health }
-		}
-		add_trait = syrena
-		health = 20
-		set_character_flag = is_vee
-		set_character_flag = society_join_block
-		ai_chance = { factor = 100 }    
+		repeat_event = { id = ACS.00025 days = 666 random = 666 }
 	}
 }
 
