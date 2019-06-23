@@ -1,0 +1,13 @@
+khalga_bloodline = {
+	combat_rating = 5
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_african_waves
+	flags = { historical_bloodline bloodline_enatic_cognatic }
+}
+
+vee_bloodline = {
+	combat_rating = 5
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_african_waves
+	flags = { historical_bloodline bloodline_enatic_cognatic }
+}

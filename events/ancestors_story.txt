@@ -606,7 +606,6 @@ character_event = {
 	}
 }
 
-
 ################################################################
 ## MAIN DECISION ###############################################
 ## ACS.00008 - Player is notified about Olaf leaves the court ##
@@ -735,13 +734,83 @@ narrative_event = {
 	}
 }
 
+#########################################
+# ACS.00012 - TRAVELING EVENT. GENERIC ##
+#########################################
+character_event = {
+	id = ACS.00012
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_ruler = no
+        is_inaccessible_or_incapable_trigger = no
+	}
+
+	immediate = {
+        location = {
+            random_province = {
+                limit = {
+                    is_land = yes
+                }
+                holder_scope = {
+                    save_event_target_as = target_holding_owner
+                }
+            }            
+        }
+
+        # Move to the new holding
+        ROOT = {
+            move_character = event_target:target_holding_owner
+            religion = event_target:target_holding_owner
+            culture = event_target:target_holding_owner
+            # Convert court chaplain to the Ishtar religion to prevent burning at stake very soon in the game
+            if = {
+                limit = {
+                    society_member_of = pentaghast_society
+                }
+                location = {
+                    holder_scope = {
+                        random_courtier = {
+                            limit = {
+                                has_job_title = job_spiritual
+                            }
+                            set_secret_religion = ishtar_religion
+                        }
+                    }
+                }
+            }
+            # Special events for khalga migration
+            if = {
+                limit = {
+                    has_character_flag = is_khalga
+                }
+                character_event = { id = ACS.00014 days = 1 } # Select a courtier for pollinate from Khalga
+			    character_event = { id = ACS.00016 days = 5 } # Khalga assassinates the host
+            }
+        }
+	}
+}
+
 ###################
 ## KHALGA TRAVEL ##
 ###################
-
-# ACS.00017 - Select a courtier for pollinate from Khalga
+# ACS.00013 - Khalga traveling every year
 character_event = {
-	id = ACS.00017
+	id = ACS.00013
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+	min_age = 16
+
+	immediate = {
+		character_event = { id = ACS.00012 }
+	}
+}
+
+# ACS.00014 - Select a courtier for pollinate from Khalga
+character_event = {
+	id = ACS.00014
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -756,16 +825,16 @@ character_event = {
 						is_incapable = no
 						NOT = { has_character_flag = is_vee }
 					}
-					character_event = { id = ACS.00018 }
+					character_event = { id = ACS.00015 }
 				}
 			}
 		}		
 	}
 }
 
-# ACS.00018 - The spouse is impregnated for Khalga
+# ACS.00015 - The target is pollinated by Khalga
 character_event = {
-	id = ACS.00018
+	id = ACS.00015
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -775,9 +844,9 @@ character_event = {
 	}
 }
 
-# ACS.00019 - Khalga assassinates the host
+# ACS.00016 - Khalga assassinates the host
 character_event = {
-	id = ACS.00019
+	id = ACS.00016
 	hide_window = yes
 	is_triggered_only = yes
 	
@@ -833,9 +902,9 @@ character_event = {
 #########################
 ## KHALGA RESURRECTION ##
 #########################
-# ACS.00020 - Select a character to resurrect Khalga if he dies
+# ACS.00017 - Select a character to resurrect Khalga if he dies
 character_event = {
-	id = ACS.00020
+	id = ACS.00017
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -850,27 +919,27 @@ character_event = {
 				age = 18
 				is_female = no
 			}
-			character_event = { id = ACS.00021 }
+			character_event = { id = ACS.00018 }
 		}
 	}
 }
 
-# ACS.00021 - The character's wife is the new mother of Khalga
+# ACS.00018 - The character's wife is the new mother of Khalga
 character_event = {
-	id = ACS.00021
+	id = ACS.00018
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
 		random_spouse  = {
-			character_event = { id = ACS.00022 }            
+			character_event = { id = ACS.00019 }            
 		}        
 	}
 }
 
-# ACS.00022 - Spawn a new instance of Khalga
+# ACS.00019 - Spawn a new instance of Khalga
 character_event = {
-	id = ACS.00022
+	id = ACS.00019
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -903,6 +972,30 @@ character_event = {
 				}              
 			}
 		}
+	}
+}
+
+# ACS.00020 - Ensure the correct portrait for Khalga
+character_event = {
+	id = ACS.00020
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+
+	immediate = {
+		character_event = { id = ACS.00021 days = 3 random = 5 }
+	}
+}
+
+# ACS.00021 - Add the khalga trait few days after adulthood
+character_event = {
+	id = ACS.00021
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_khalga
+
+	immediate = {
+		add_trait = khalga_trait
 	}
 }
 
@@ -1554,30 +1647,6 @@ character_event = {
 			}
 			impregnate_cuckoo = event_target:vee_spouse
 		}
-	}
-}
-
-# ACS.00040 - Ensure the correct portrait for Khalga
-character_event = {
-	id = ACS.00040
-	is_triggered_only = yes
-	hide_window = yes
-	has_character_flag = is_khalga
-
-	immediate = {
-		character_event = { id = ACS.00041 days = 3 random = 5 }
-	}
-}
-
-# ACS.00041 - Add the khalga trait few days after adulthood
-character_event = {
-	id = ACS.00041
-	is_triggered_only = yes
-	hide_window = yes
-	has_character_flag = is_khalga
-
-	immediate = {
-		add_trait = khalga_trait
 	}
 }
 

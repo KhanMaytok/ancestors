@@ -24,6 +24,51 @@ byakugan = {
 	customizer = no
 }
 
+sharingan_1 = {
+	random = no
+	intrigue = 2
+	learning = 2
+	combat_rating = 40
+	plot_power_modifier = 0.20
+	monthly_character_prestige = 1
+	same_opinion = 10
+	martial = 5
+
+	opposites = { byakugan }
+	opposite_opinion = -200
+	customizer = no
+}
+
+sharingan_2 = {
+	random = no
+	intrigue = 2
+	learning = 2
+	combat_rating = 40
+	plot_power_modifier = 0.20
+	monthly_character_prestige = 1
+	same_opinion = 10
+	martial = 5
+
+	opposites = { byakugan }
+	opposite_opinion = -200
+	customizer = no
+}
+
+sharingan_3 = {
+	random = no
+	intrigue = 2
+	learning = 2
+	combat_rating = 40
+	plot_power_modifier = 0.20
+	monthly_character_prestige = 1
+	same_opinion = 10
+	martial = 5
+
+	opposites = { byakugan }
+	opposite_opinion = -200
+	customizer = no
+}
+
 sharingan = {
 	random = no
 	intrigue = 2
@@ -113,4 +158,16 @@ prevent_marriage = {
 	cannot_inherit = yes
 	customizer = no
 	random = no
+}
+
+khalga_trait_bloodline = {
+	customizer = no
+	random = no
+	combat_rating = 5
+}
+
+vee_trait_bloodline = {
+	customizer = no
+	random = no
+	combat_rating = 5
 }
