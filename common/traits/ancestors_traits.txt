@@ -19,7 +19,7 @@ byakugan = {
 	same_opinion = 10
 	martial = 5
 
-	opposites = { sharingan1 sharingan2 sharingan mangekyo_sharingan eternal_mangekyo_sharingan }
+	opposites = { sharingan_1 sharingan_2 sharingan mangekyo_sharingan eternal_mangekyo_sharingan }
 	opposite_opinion = -200
 	customizer = no
 }

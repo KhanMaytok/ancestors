@@ -1042,26 +1042,26 @@ narrative_event = {
 character_event = {
 	id = ACS.00025
 	hide_window = yes
+	is_triggered_only = yes
 
 	trigger = {
     	has_character_flag = is_vee
     }
 
 	immediate = {
-		liege = {
-			random_courtier = {
-				limit = {
-					is_female = yes
-					NOT = { has_character_flag = is_vee }
-				}
-				add_trait = syrena
-				add_trait = sharingan_3
-				health = 20
-				set_character_flag = is_vee
-				set_character_flag = society_join_block
-				set_character_flag = vee_degradation
+		random_courtier = {
+			limit = {
+				is_female = yes
+				NOT = { has_character_flag = is_vee }
 			}
+			add_trait = syrena
+			add_trait = sharingan_3
+			health = 20
+			set_character_flag = is_vee
+			set_character_flag = society_join_block
+			set_character_flag = vee_degradation
 		}
+
 		death = { death_reason = death_suicide }
 		pentaghast_society = {
 			any_society_member = { letter_event = { id = ACS.00028 } }
