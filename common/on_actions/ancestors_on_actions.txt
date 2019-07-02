@@ -18,7 +18,7 @@ on_yearly_pulse = {
 	}
 }
 
-on_adolescence = {
+on_adolescence_pulse = {
 	events = {
 		ACS.00023 # Vee is growing
 	}

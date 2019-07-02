@@ -1008,6 +1008,7 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	has_character_flag = is_vee
+	min_age = 13
 
 	immediate = {
 		host = {
@@ -1017,8 +1018,7 @@ character_event = {
 			limit = {
 				NOT = { has_character_flag = vee_degradation }
 			}
-			set_character_flag = { vee_degradation }
-			character_event = { id = ACS.00025 days = 666 random = 666 }
+			set_character_flag = vee_degradation
 		}
 	}
 }
@@ -1042,11 +1042,15 @@ narrative_event = {
 character_event = {
 	id = ACS.00025
 	hide_window = yes
-	is_triggered_only = yes
 
 	trigger = {
     	has_character_flag = is_vee
+		has_character_flag = vee_degradation
     }
+
+	mean_time_to_happen = {
+		months = 40
+	}
 
 	immediate = {
 		random_courtier = {
@@ -1066,7 +1070,6 @@ character_event = {
 		pentaghast_society = {
 			any_society_member = { letter_event = { id = ACS.00028 } }
 		}
-		repeat_event = { id = ACS.00025 days = 666 random = 666 }
 	}
 }
 
