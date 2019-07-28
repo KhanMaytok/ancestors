@@ -33,8 +33,8 @@ narrative_event = {
 			}
 		}
 		name = ACS_00001_OPT_A				
-		character_event = { id = ACS.00003 days = 32 }
-		narrative_event = { id = ACS.00004 days = 45 }
+		character_event = { id = ACS.00003 days = 32 } # Player is notified about tiamat devastation
+		narrative_event = { id = ACS.00004 days = 45 } # Spawn Senua, Olaf and Tilda and parents
 		set_global_flag = comet_tiamat
 		hidden_tooltip = {
 			set_variable = { which = count value = 5 }
@@ -85,7 +85,7 @@ province_event = {
 	}
 }
 
-# ACS.00003 - Player is notified about devastation
+# ACS.00003 - Player is notified about Tiamat devastation
 character_event = {
 	id = ACS.00003
 	desc = ACS_00003_DESC
@@ -165,9 +165,9 @@ narrative_event = {
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
 		}
 		create_character = {
-			name = Senua
+			name = Senua # The first for Vee
 			female = yes			
-			age = 16
+			age = 18
 			culture = pictish
 			religion = FROM
 			trait = fair
@@ -177,11 +177,13 @@ narrative_event = {
 			trait = mystic
 			trait = wroth
 			trait = paranoid
-			trait = prevent_marriage
+			trait = sharingan
+			trait = syrena
 			health = 20
 		}
 		new_character = {                        
-			set_character_flag = is_senua			
+			set_character_flag = is_vee
+			set_character_flag = vee_degradation
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
@@ -622,7 +624,7 @@ narrative_event = {
 		set_player_character = event_target:olaf_the_killer
 	}
 	option = {
-		name = OK
+		name = ACS_00008_OPT_B
 	}
 }
 
@@ -634,28 +636,6 @@ narrative_event = {
 
 	option = {
 		name = OK
-		create_character = {
-			name = Vee
-			female = yes
-			age = 0
-			culture = ROOT
-			religion = ROOT
-			trait = fair
-			trait = twin
-			trait = genius
-			trait = sharingan
-			trait = syrena
-		}
-		new_character = {
-			set_mother = ROOT   
-			set_character_flag = is_vee
-			set_character_flag = society_join_block
-			set_character_flag = originated_from_chinese_court # to prevent to go to China
-			dynasty = 300001
-			health = 20
-			character_event = { id = ACS.00006 days = 65 }
-		}
-
 		# Khalga born
 		create_character = {
 			name = Khalga
@@ -663,7 +643,6 @@ narrative_event = {
 			culture = ROOT
 			religion = ROOT
 			trait = fair
-			trait = twin
 			trait = genius
 			trait = byakugan
 			trait = strong
@@ -716,12 +695,8 @@ narrative_event = {
 
 	immediate = {
 		random_vassal = {
-			limit = {
-				is_landed = yes
-			}
-			death = {
-				death_reason = death_murder_unknown
-			}
+			limit = { is_landed = yes }
+			death = { death_reason = death_murder_unknown }
 		}
 	}
 
@@ -1002,42 +977,6 @@ character_event = {
 ##########################
 ## VEE LIFECYCLE EVENTS ##
 ##########################
-# ACS.00023 - Notify host about Vee beauty - Select Vee current character
-character_event = {
-	id = ACS.00023
-	hide_window = yes
-	is_triggered_only = yes
-	has_character_flag = is_vee
-	min_age = 13
-
-	immediate = {
-		host = {
-			narrative_event = { id = ACS.00024 }
-		}
-		if = {
-			limit = {
-				NOT = { has_character_flag = vee_degradation }
-			}
-			set_character_flag = vee_degradation
-		}
-	}
-}
-
-# ACS.00024 - Send notice to Vee host
-narrative_event = {
-	id = ACS.00024
-	title = ACS_00024_TITLE
-	desc = ACS_00024_DESC
-	picture = GFX_evt_vee_adolescense
-	is_triggered_only = yes
-
-	option = {
-		name = OK
-		ai_chance = { factor = 100 }
-		prestige = 20
-	}
-}
-
 # ACS.00025 - Begin the corruption event
 character_event = {
 	id = ACS.00025
@@ -1222,7 +1161,6 @@ character_event = {
 							add_trait = malnourished
 							random_list = {
 								100 = { add_trait = depressed }
-								100 = { add_trait = incapable }
 								100 = { add_trait = incapable }
 								100 = { add_trait = infirm }
 								100 = { add_trait = lunatic }
