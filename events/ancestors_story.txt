@@ -1095,98 +1095,68 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {		
-		# Direct Khalga sons or two father with direct get 25% byakugan
+		# Direct Khalga always get byakugan
 		if = {
 			limit = {
-				OR = {
-					true_father_even_if_dead = {
-						has_character_flag = is_khalga
-					}
-					AND ={
-						true_father_even_if_dead = {
-							has_character_flag = direct_byakugan
-						}
-						mother_even_if_dead = {
-							has_character_flag = direct_byakugan
-						}
-					}
+				true_father_even_if_dead = {
+					has_character_flag = is_khalga
 				}
 			}
-			random_list = {
-				75 = { set_character_flag = direct_byakugan }
-				25 = {
-					set_character_flag = direct_byakugan
-					add_trait = byakugan
-				}
-			}
+			set_character_flag = byakugan_gene
+			add_trait = byakugan
 		}
 		# Recesive byakugan
 		if = {
 			limit = {
 				OR = {
 					true_father_even_if_dead = {
-						has_character_flag = direct_byakugan
+						has_character_flag = byakugan_gene
 					}
 					mother_even_if_dead = {
-						has_character_flag = direct_byakugan
+						has_character_flag = byakugan_gene
 					}
 				}                
 			}
 			random_list = {
-				97 = {
-					set_character_flag = direct_byakugan
+				7 = {
+					set_character_flag = byakugan_gene
 				}
-				3 = {
-					set_character_flag = direct_byakugan
+				93 = {
+					set_character_flag = byakugan_gene
 					add_trait = byakugan
 				}
 			}
 		}
 		
-		# Vee direct sons of chiild with two direct progenitors has 25% chance
+		# Direct Vee always get sharingan
 		if = {
 			limit = {
-				OR = {
-					mother_even_if_dead = {
-						has_character_flag = is_vee
-					}
-					AND = {
-						true_father_even_if_dead = {
-							has_character_flag = direct_sharingan
-						}
-						mother_even_if_dead = {
-							has_character_flag = direct_sharingan
-						}
-					}
+				mother_even_if_dead = {
+					has_character_flag = is_vee
 				}
 			}
-			random_list = {
-				75 = { set_character_flag = direct_sharingan }
-				25 = {
-					set_character_flag = direct_sharingan
-					add_trait = sharingan
-				}
-			}
+			set_character_flag = sharingan_gene
+			add_trait = sharingan_1
 		}
 		# Recesive sharingan
 		if = {
 			limit = {
 				OR = {
 					true_father_even_if_dead = {
-						has_character_flag = direct_sharingan
+						has_character_flag = sharingan_gene
 					}
 					mother_even_if_dead = {
-						has_character_flag = direct_sharingan
+						has_character_flag = sharingan_gene
 					}
 				}                
 			}
 			random_list = {
-				97 = {
-					set_character_flag = direct_sharingan
+				7 = {
+					set_character_flag = sharingan_gene
 				}
-				3 = {
-					set_character_flag = direct_sharingan
-					add_trait = sharingan
+				93 = {
+					set_character_flag = sharingan_gene
+					add_trait = sharingan_1
 				}
 			}
 		}
@@ -1197,7 +1167,13 @@ character_event = {
 				OR = {
 					AND = {
 						true_father_even_if_dead = {
-							trait = sharingan
+							OR = {
+								trait = sharingan
+								trait = sharingan_1
+								trait = sharingan_2
+								trait = mangekyo_sharingan
+								trait = eternal_mangekyo_sharingan
+							}
 						}
 						mother_even_if_dead = {
 							trait = byakugan
@@ -1208,11 +1184,16 @@ character_event = {
 							trait = byakugan
 						}
 						mother_even_if_dead = {
-							trait = sharinganß
+							OR = {
+								trait = sharingan
+								trait = sharingan_1
+								trait = sharingan_2
+								trait = mangekyo_sharingan
+								trait = eternal_mangekyo_sharingan
+							}
 						}
 					}
 				}
-								
 			}
 			set_character_flag = f_sha_m_bya
 			character_event = { id = ACS.00030 }
