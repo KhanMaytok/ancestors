@@ -3,4 +3,4 @@
 *.md linguist-language=Go
 *.dds linguist-language=Julia
 *.gfx linguist-language=Python
-*.gfx linguist-language=Haskell
+*.gui linguist-language=Haskell
