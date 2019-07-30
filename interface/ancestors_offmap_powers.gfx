@@ -1,0 +1,7 @@
+spriteTypes = 
+{
+	spriteType = {
+		name = "GFX_elune_screen_button"
+		texturefile = "gfx\\interface\\offmap_screen\\elune_screen_button.dds"
+	}
+}

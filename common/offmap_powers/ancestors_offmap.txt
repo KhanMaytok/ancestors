@@ -1,7 +1,7 @@
 offmap_elune = {
 	name = elune_elune
 	window_name = domestic_offmaps_window
-	button_name = icon_offmaps_entry
+	button_name = icon_offmaps_elune_entry
 	currency_name = TXT_GRACE
 	currency_gain = monthly_grace
 	currency_reset_on_dynasty_change = yes

@@ -7,7 +7,7 @@ spriteTypes = {
 	}
 	spriteType = { #the background of the society menu
 		name = "GFX_society_main_background_sakya_society"
-		texturefile = "gfx\\interface\\societies\\society_bg_sakya_society.dds"
+		texturefile = "gfx\\interface\\societies\\society_bg_default.dds"
 	}
 
 	
@@ -22,7 +22,7 @@ spriteTypes = {
 	
 	spriteType = { #icons on the socities list
 		name = "GFX_icon_small_sakya_society"
-		texturefile = "gfx\\interface\\societies\\symbol_small_sakya_society.dds"
+		texturefile = "gfx\\interface\\societies\\symbol_small_the_assassins.dds"
 		noOfFrames = 2
 	}
 	spriteType = { #icons on the socities list
@@ -37,12 +37,12 @@ spriteTypes = {
 	}
 	spriteType = { #where the influence of the society is written
 		name = "GFX_society_influence_sakya_society"
-		texturefile = "gfx\\interface\\societies\\society_influence_the_assassins.dds"
+		texturefile = "gfx\\interface\\societies\\society_influence_devil_worshipers.dds"
 	}
 	
 	spriteType = { #circle around members
 		name = "GFX_society_portrait_ring_sakya_society"
-		texturefile = "gfx\\interface\\societies\\portrait_ring_the_assassins.dds"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_the_trollcrafters.dds"
 	}
 	spriteType = { #circle around members
 		name = "GFX_society_portrait_ring_pentaghast_society"
@@ -55,12 +55,12 @@ spriteTypes = {
 	}
 	spriteType = { #circle around members
 		name = "GFX_society_portrait_ring_small_pentaghast_society"
-		texturefile = "gfx\\interface\\societies\\portrait_ring_small_the_assassins.dds"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_the_trollcrafters.dds"
 	}
 	
 	spriteType = { #where your society currency is written
 		name = "GFX_society_currency_sakya_society"
-		texturefile = "gfx\\interface\\societies\\society_currency_the_assassins.dds"
+		texturefile = "gfx\\interface\\societies\\society_currency_the_trollcrafters.dds"
 	}
 	spriteType = { #where your society currency is written
 		name = "GFX_society_currency_pentaghast_society"
@@ -73,6 +73,6 @@ spriteTypes = {
 	}
 	spriteType = { #the background for the society event
 		name = "GFX_event_window_society_quest_background_pentaghast_society"
-		textureFile = "gfx/interface/society_quest/mission_bg_the_assassins.dds"
+		textureFile = "gfx/interface/society_quest/mission_bg_pentaghast_society.dds"
 	}
 }
