@@ -6,32 +6,8 @@ spriteTypes =
 		allwaystransparent = yes
 	}
 	spriteType = {
-	    name = "GFX_fertility_ritual"
-	    texturefile = "gfx\\interface\\decision_icon_fertility_ritual.dds"
-  	}
-  	spriteType = {
-		name = "GFX_evt_vee_adolescense"
-		texturefile = "gfx\\event_pictures\\vee_adolescense.tga"
-		allwaystransparent = yes
-	}
-	spriteType = {
 		name = "GFX_evt_yasaka_magatama"
 		texturefile = "gfx\\event_pictures\\yasaka_magatama.tga"
-		allwaystransparent = yes
-	}
-	spriteType = {
-		name = "GFX_evt_vee_in_bed"
-		texturefile = "gfx\\event_pictures\\vee_in_bed.tga"
-		allwaystransparent = yes
-	}
-	spriteType = {
-		name = "GFX_evt_vee_stairs"
-		texturefile = "gfx\\event_pictures\\vee_stairs.tga"
-		allwaystransparent = yes
-	}
-	spriteType = {
-		name = "GFX_evt_vee_throne"
-		texturefile = "gfx\\event_pictures\\vee_throne.tga"
 		allwaystransparent = yes
 	}
 }
