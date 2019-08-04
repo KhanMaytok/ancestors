@@ -187,6 +187,7 @@ narrative_event = {
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
 			narrative_event = { id = ACS.00009 days = 15 } # Born of Vee and Khalga
+			character_event = { id = ACS.00031 days = 120 } # Vee deletes competence
 			save_event_target_as = vee
 			c_vee = {
 				grant_title = PREV
@@ -1197,396 +1198,41 @@ character_event = {
 	}
 }
 
-# ACS.00031 - Kidnapping. Check for Pentaghast leader conditions
+# ACS.00031 - Vee eliminates competence
 character_event = {
 	id = ACS.00031
-    hide_window = yes
-    is_triggered_only = yes
-
-    is_in_society = yes
-
-    trigger = {
-    	is_society_grandmaster = yes
-		society_member_of = pentaghast_society
-		NOT = { has_character_flag = already_sharingan_kid }
-    }
-
-    immediate = {
-		narrative_event = { id = ACS.00033 } # Arrival notification
-		random_character = {
-    		limit = {
-    			trait = sharingan
-				NOT = { de_facto_liege = ROOT }
-    			NOT = { trait = in_hiding }
-    			age <= 6
-    			ai = yes
-    			is_incapable = no
-				is_landed = no
-    			NOT = { has_character_flag = is_vee }
-    			NOT = { has_character_flag = is_khalga }
-				is_female = no
-    		}
-    		move_character = ROOT
-    		imprison = yes
-    		add_trait = prevent_marriage
-			opinion = {
-				modifier = monarch_modifier
-				who = ROOT
-				years = 100
-			}
-			set_character_flag = imprisioned_for_experiments
-			mother = { narrative_event = { id = ACS.00034 } }
-			father = { narrative_event = { id = ACS.00034 } }
-			ROOT = { set_character_flag = already_sharingan_kid }
-
-			set_variable = { which = sharingan_to_kidnap value = 3 }
-			while = {
-				limit = {
-					check_variable = {
-						which = sharingan_to_kidnap
-						value = 1
-					}
-				}
-				subtract_variable = {
-					which = sharingan_to_kidnap
-					value = 1
-				}
-				random_character = {
-					limit = {
-						is_female = yes
-						NOT = { de_facto_liege = ROOT }
-						NOT = { trait = in_hiding }
-						age <= 6
-						ai = yes
-						is_incapable = no
-						is_landed = no
-						NOT = { has_character_flag = is_vee }
-					}
-					move_character = ROOT
-					imprison = yes
-					add_trait = prevent_marriage
-					opinion = {
-						modifier = monarch_modifier
-						who = ROOT
-						years = 100
-					}
-					set_character_flag = imprisioned_for_experiments
-					mother = { narrative_event = { id = ACS.00034 } }
-					father = { narrative_event = { id = ACS.00034 } }
-				}
-			}
-    	}
-	}
-}
-
-# ACS.00033 - pentaghast leader kidnap notification
-narrative_event = {
-	id = ACS.00033
-	title = ACS_00033_TITLE
-	desc = ACS_00033_DESC
-	picture = GFX_evt_courtiers_talking
-	is_triggered_only = yes
-
-    option = {
-		name = OK		
-	}
-}
-
-# ACS.00034 - Mother and father of kidnapped child notification
-narrative_event = {
-	id = ACS.00034
-	title = ACS_00034_TITLE
-	desc = ACS_00034_DESC
-	picture = GFX_evt_courtiers_talking
-	is_triggered_only = yes
-
-    option = {
-		name = OK		
-	}
-}
-
-# ACS.00035 - Reproduction of kidnapped characters
-character_event = {
-	id = ACS.00035
-	is_triggered_only = yes
 	hide_window = yes
-
-	is_in_society = yes
-
-    trigger = {
-    	is_society_grandmaster = yes
-		society_member_of = pentaghast_society
-    }
-
-    immediate = {
-		any_courtier = {
-			limit = {
-				has_character_flag = imprisioned_for_experiments
-				prisoner = no
-			}
-			imprison = yes
-		}
-    	random_courtier = {
-    		limit = {
-    			prisoner = yes
-    			OR = {
-    				trait = sharingan
-    				trait = byakugan
-    				trait = mangekyo_sharingan
-    			}
-    			age >= 16
-    			ai = yes
-    			is_female = no
-    			is_incapable = no
-    		}
-    		save_event_target_as = male_pentaghast_eugenesia
-			set_character_flag = a_happy_father
-    	}
-
-    	any_courtier = {
-    		limit = {
-    			prisoner = yes
-    			age >= 16
-    			ai = yes
-    			is_pregnant = no
-				is_female = yes
-				is_incapable = no
-    		}
-    		impregnate = event_target:male_pentaghast_eugenesia
-    	}
-    }
-}
-
-# ACS.00036 - Kidnap of Byakugan child
-character_event = {
-	id = ACS.00036
-    hide_window = yes
-    is_triggered_only = yes
-
-    is_in_society = yes
-
-    trigger = {
-    	is_society_grandmaster = yes
-		society_member_of = pentaghast_society
-		NOT = { has_character_flag = already_byakugan_kid }
-    }
-
-    immediate = {
-		narrative_event = { id = ACS.00033 } # Arrival notification
-		random_character = {
-    		limit = {
-    			trait = byakugan
-				NOT = { de_facto_liege = ROOT }
-    			NOT = { trait = in_hiding }
-    			age <= 6
-    			ai = yes
-    			is_incapable = no
-				is_landed = no
-    			NOT = { has_character_flag = is_vee }
-    			NOT = { has_character_flag = is_khalga }
-				is_female = no
-    		}
-    		move_character = ROOT
-    		imprison = yes
-    		add_trait = prevent_marriage
-			opinion = {
-				modifier = monarch_modifier
-				who = ROOT
-				years = 100
-			}
-			set_character_flag = imprisioned_for_experiments
-			mother = { narrative_event = { id = ACS.00034 } }
-			father = { narrative_event = { id = ACS.00034 } }
-			ROOT = { set_character_flag = already_byakugan_kid }
-
-			set_variable = { which = sharingan_to_kidnap value = 3 }
-			while = {
-				limit = {
-					check_variable = {
-						which = sharingan_to_kidnap
-						value = 1
-					}
-				}
-				subtract_variable = {
-					which = sharingan_to_kidnap
-					value = 1
-				}
-				random_character = {
-					limit = {
-						is_female = yes
-						NOT = { de_facto_liege = ROOT }
-						NOT = { trait = in_hiding }
-						age <= 6
-						ai = yes
-						is_incapable = no
-						is_landed = no
-						NOT = { has_character_flag = is_vee }
-					}
-					move_character = ROOT
-					imprison = yes
-					add_trait = prevent_marriage
-					opinion = {
-						modifier = monarch_modifier
-						who = ROOT
-						years = 100
-					}
-					set_character_flag = imprisioned_for_experiments
-					mother = { narrative_event = { id = ACS.00034 } }
-					father = { narrative_event = { id = ACS.00034 } }
-				}            
-			}
-    	}		
-	}
-}
-
-# ACS.00038 - Jail if mother or father are prisoners
-character_event = {
-	id = ACS.00038
 	is_triggered_only = yes
-	hide_window = yes
 
 	immediate = {
-		if = {
-			limit = {
-				OR = {
-					mother_even_if_dead = {
-						has_character_flag = imprisioned_for_experiments
-					}
-					true_father_even_if_dead = {
-						has_character_flag = imprisioned_for_experiments
-					}
-				}
+		host = {
+			any_spouse = {
+				death = { death_reason = death_murder_unknown killer = FROM }
 			}
-			set_character_flag = imprisioned_for_experiments
-			imprison = yes						
+			any_lover = {
+				death = { death_reason = death_murder_unknown killer = FROM }
+			}
+			character_event = { id = ACS.00032 }
 		}
 	}
 }
 
-# ACS.00039 - Vee has a child every year to ensure hosts
+# ACS.00032 - Host marry with Vee
 character_event = {
-	id = ACS.00039
-	is_triggered_only = yes
+	id = ACS.00032
 	hide_window = yes
-	has_character_flag = is_vee
+	is_triggered_only = yes
 
 	trigger = {
-		is_adult = yes
+		ai = yes
 	}
 
 	immediate = {
-		if = {
+		random_courtier = {
 			limit = {
-				is_married = yes
+				has_character_flag = is_vee
 			}
-			random_spouse = {
-				save_event_target_as = vee_spouse
-			}
-			impregnate = event_target:vee_spouse
-			break = yes
+			add_spouse = FROM
 		}
-		else = {
-			host = {
-				random_courtier = {
-					limit = {
-						is_female = no
-					}
-					save_event_target_as = vee_spouse
-				}
-			}
-			impregnate_cuckoo = event_target:vee_spouse
-		}
-	}
-}
-
-# ACS.00042 # Ensure only one Vee
-# ACS.00043 # Ensure only one Khalga
-# ACS.00045 # Spread ancestor chests
-
-# ACS.00045 - Character goes crazy if has an ancestor armor and dont have dojutsu
-character_event = {
-	id = ACS.00045
-	hide_window = yes
-
-	trigger = {
-		has_dojutsu_trigger = no
-		any_artifact = {
-			has_artifact_flag = ancient
-			has_artifact_flag = tier1
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 792
-		modifier = {
-			factor = 0.9
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier2
-			}
-		}
-		modifier = {
-			factor = 0.8
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier3
-			}
-		}
-		modifier = {
-			factor = 0.7
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier4
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier5
-			}
-		}
-		modifier = {
-			factor = 0.5
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier6
-			}
-		}
-		modifier = {
-			factor = 0.4
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier7
-			}
-		}
-		modifier = {
-			factor = 0.3
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier8
-			}
-		}
-		modifier = {
-			factor = 0.2
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier9
-			}
-		}
-		modifier = {
-			factor = 0.1
-			any_artifact = {
-				has_artifact_flag = ancient
-				has_artifact_flag = tier10
-			}
-		}
-	}
-
-	immediate = {
-		add_trait = lunatic
-		add_trait = possessed
-		add_trait = depressed
-		add_trait = drunkard
 	}
 }
