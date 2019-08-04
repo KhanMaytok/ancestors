@@ -165,13 +165,12 @@ narrative_event = {
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
 		}
 		create_character = {
-			name = Senua # The first for Vee
-			female = yes			
+			name = Senua # The first Vee
+			female = yes
 			age = 18
 			culture = pictish
 			religion = FROM
 			trait = fair
-			trait = stressed
 			trait = scarred
 			trait = strong
 			trait = mystic
@@ -181,18 +180,23 @@ narrative_event = {
 			trait = syrena
 			health = 20
 		}
-		new_character = {                        
+		new_character = {
 			set_character_flag = is_vee
 			set_character_flag = vee_degradation
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
 			narrative_event = { id = ACS.00009 days = 15 } # Born of Vee and Khalga
-		}		
+			save_event_target_as = vee
+			c_vee = {
+				grant_title = PREV
+				set_defacto_liege = THIS
+			}
+		}
 	}
 
 	option = {
-		name = ACS_00004_OPT_A	
+		name = ACS_00004_OPT_A
 	}    
 }
 
@@ -224,13 +228,12 @@ character_event = {
                 dynasty = 300001
             }
             new_character = {
-                save_event_target_as = olaf_father			
+                save_event_target_as = olaf_father
             }
             create_character = {
-                name = "Killa"
                 age = 55
                 female = yes
-                culture = nahuatl
+                culture = greek
                 religion = ishtar_religion
                 trait = fair
                 trait = genius
@@ -243,12 +246,11 @@ character_event = {
                 dynasty = none
             }
             new_character = {
-                save_event_target_as = olaf_mother			
+                save_event_target_as = olaf_mother
             }
             create_character = {
-                name = "Rimak"
                 age = 30
-                culture = nahuatl
+                culture = greek
                 religion = ishtar_religion
                 trait = fair
                 trait = genius
@@ -263,7 +265,7 @@ character_event = {
             new_character = {
                 set_mother = event_target:olaf_mother
                 set_father = event_target:olaf_father
-                save_event_target_as = olaf_brother		
+                save_event_target_as = olaf_brother
             }
 
             event_target:olaf_the_killer = {
@@ -302,7 +304,7 @@ character_event = {
                 set_character_flag = originated_from_chinese_court
                 set_father = event_target:olaf_father
 				set_mother = event_target:olaf_mother
-                dynasty = 300001                
+                dynasty = 300001
 				add_artifact = majestic_armor_dwarf
                 set_secret_religion = ishtar_religion
                 character_event = { id = ACS.00201 }
@@ -628,7 +630,7 @@ narrative_event = {
 	}
 }
 
-# ACS.00009 - Create Vee and Khalga
+# ACS.00009 - Create Khalga
 narrative_event = {
 	id = ACS.00009
 	hide_window = yes
@@ -661,9 +663,7 @@ narrative_event = {
 			}
 			dynasty = 300000
 			health = 20
-			mother = {
-				death = { death_reason = { death_childbirth } }
-			}
+			set_mother = event_target:vee
 		}
 		liege = { # Player is notified
 			narrative_event = { id = ACS.00010 days = 1 }          

@@ -18,12 +18,6 @@ on_yearly_pulse = {
 	}
 }
 
-on_adolescence_pulse = {
-	events = {
-		ACS.00023 # Vee is growing
-	}
-}
-
 on_death = {
 	events = {
 		ACS.00017 # Resurrect Khalga if He dies
