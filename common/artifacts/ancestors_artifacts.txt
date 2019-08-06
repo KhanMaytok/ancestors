@@ -18,7 +18,7 @@ eden_apple = {
 	active = {
 		society_member_of = pentaghast_society
 		is_society_grandmaster = yes
-		has_global_flag = vanished_vee
+		has_global_flag = vanishee_vee
 	}
 	indestructible = yes
 	picture = "GFX_eden_apple"

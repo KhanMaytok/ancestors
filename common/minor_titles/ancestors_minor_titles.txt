@@ -4,3 +4,32 @@ title_elune_emperor = {
 	show_as_title = yes
 	dignity = 1000
 }
+
+title_maid_of_honor = {
+    dignity = 0.10
+    grant_limit = 8
+    opinion_effect = 5
+
+    monthly_salary = 0.1
+    monthly_prestige = 0.1
+
+    is_unique = yes
+
+    allowed_to_hold = {
+        is_adult = yes
+		is_female = yes
+        NOT = {	trait = syrena }
+		is_sick_or_injured_trigger = no
+		has_disability_trigger = no
+		physician_bad_trigger = no
+		useless_character_trigger = no
+		prisoner = no
+		is_inaccessible_trigger = no
+    }
+
+    allowed_to_grant = {
+        any_courtier = {
+			trait = syrena
+		}
+    }
+}

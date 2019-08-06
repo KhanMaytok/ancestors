@@ -27,7 +27,6 @@ on_death = {
 on_birth = {
 	events = {
 		ACS.00029 # Dojutsu inheritance mechanics
-		ACS.00038 # Jail if mother or father are prisoners
 	}
 }
 

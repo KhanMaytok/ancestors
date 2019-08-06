@@ -122,7 +122,7 @@ c_mercenary_sakya = {
 	landless = yes
 }
 
-c_vee = {
+e_vee = {
 	color={ 245 240 10 }
 	color2={ 220 220 0 }	
 	capital = 333 # Rome	

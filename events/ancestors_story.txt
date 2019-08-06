@@ -178,21 +178,17 @@ narrative_event = {
 			trait = paranoid
 			trait = sharingan
 			trait = syrena
+			trait = prevent_marriage
 			health = 20
 		}
 		new_character = {
 			set_character_flag = is_vee
-			set_character_flag = vee_degradation
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
 			narrative_event = { id = ACS.00009 days = 15 } # Born of Vee and Khalga
 			character_event = { id = ACS.00031 days = 120 } # Vee deletes competence
 			save_event_target_as = vee
-			c_vee = {
-				grant_title = PREV
-				set_defacto_liege = THIS
-			}
 		}
 	}
 
@@ -1232,6 +1228,8 @@ character_event = {
 			limit = {
 				has_character_flag = is_vee
 			}
+			remove_trait = prevent_marriage
+			set_character_flag = vee_degradation
 			add_spouse = FROM
 		}
 	}
