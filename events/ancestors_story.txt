@@ -175,9 +175,12 @@ narrative_event = {
 			trait = strong
 			trait = mystic
 			trait = wroth
-			trait = paranoid
 			trait = sharingan
 			trait = syrena
+			trait = kind
+			trait = lustful
+			trait = diligent
+			trait = proud
 			trait = prevent_marriage
 			health = 20
 		}
