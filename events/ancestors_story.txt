@@ -190,7 +190,7 @@ narrative_event = {
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
 			narrative_event = { id = ACS.00009 days = 15 } # Born of Khalga
-			character_event = { id = ACS.00031 days = 30 } # Vee deletes competence
+			character_event = { id = ACS.00031 days = 62 } # Vee deletes competence
 			save_event_target_as = vee
 		}
 		event_target:its_me_mamma = {
