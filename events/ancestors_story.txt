@@ -130,6 +130,7 @@ narrative_event = {
 			trait = socializer
 			trait = hedonist
 			health = 10
+			dna = dhhhhjfcabh
 		}
 		new_character = {
 			set_character_flag = is_olaf
@@ -171,7 +172,6 @@ narrative_event = {
 			culture = pictish
 			religion = FROM
 			trait = fair
-			trait = scarred
 			trait = strong
 			trait = mystic
 			trait = wroth
@@ -186,9 +186,12 @@ narrative_event = {
 			dynasty = 300001
 			join_society = pentaghast_society
 			set_secret_religion = ishtar_religion
-			narrative_event = { id = ACS.00009 days = 15 } # Born of Vee and Khalga
-			character_event = { id = ACS.00031 days = 120 } # Vee deletes competence
+			narrative_event = { id = ACS.00009 days = 15 } # Born of Khalga
+			character_event = { id = ACS.00031 days = 30 } # Vee deletes competence
 			save_event_target_as = vee
+		}
+		event_target:its_me_mamma = {
+			add_lover = event_target:vee
 		}
 	}
 
@@ -620,6 +623,7 @@ narrative_event = {
 
 	option = {
 		name = ACS_00008_OPT_A
+		set_global_flag = { ancestors_pentaghast_play }
 		set_player_character = event_target:olaf_the_killer
 	}
 	option = {
@@ -989,20 +993,16 @@ character_event = {
 	}
 
 	immediate = {
-		random_courtier = {
-			limit = {
-				is_female = yes
-				NOT = { has_character_flag = is_vee }
+		liege = {
+			random_courtier = {
+				limit = {
+					is_female = yes
+					NOT = { has_character_flag = is_vee }
+					has_minor_title = title_maid_of_honor
+				}
+				death = { death_reason = death_poor_health }
 			}
-			add_trait = syrena
-			add_trait = sharingan_3
-			health = 20
-			set_character_flag = is_vee
-			set_character_flag = society_join_block
-			set_character_flag = vee_degradation
 		}
-
-		death = { death_reason = death_suicide }
 		pentaghast_society = {
 			any_society_member = { letter_event = { id = ACS.00028 } }
 		}
@@ -1203,9 +1203,15 @@ character_event = {
 	immediate = {
 		host = {
 			any_spouse = {
+				limit = {
+					NOT = { has_character_flag = is_vee }
+				}
 				death = { death_reason = death_murder_unknown killer = FROM }
 			}
 			any_lover = {
+				limit = {
+					NOT = { has_character_flag = is_vee }
+				}
 				death = { death_reason = death_murder_unknown killer = FROM }
 			}
 			character_event = { id = ACS.00032 }
@@ -1220,7 +1226,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		has_global_flag = ancestors_pentaghast_play
 	}
 
 	immediate = {
@@ -1230,7 +1236,31 @@ character_event = {
 			}
 			remove_trait = prevent_marriage
 			set_character_flag = vee_degradation
-			add_spouse = FROM
+			add_spouse = ROOT
+		}
+		# Spawn maidens of honor for Vee 
+		hidden_tooltip = {
+			set_variable = { which = s_courtiers value = 8 }
+			while = {
+				limit = {
+					check_variable = {
+						which = s_courtiers
+						value = 1
+					}
+				}
+				subtract_variable = {
+					which = s_courtiers
+					value = 1
+				}
+				create_character = {
+					culture = ROOT
+					religion = ROOT
+					female = yes
+				}
+				new_character = {
+					give_minor_title = title_maid_of_honor
+				}
+			}
 		}
 	}
 }

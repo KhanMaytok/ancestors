@@ -9,6 +9,7 @@ title_maid_of_honor = {
     dignity = 0.10
     grant_limit = 8
     opinion_effect = 5
+	realm_in_name = yes
 
     monthly_salary = 0.1
     monthly_prestige = 0.1

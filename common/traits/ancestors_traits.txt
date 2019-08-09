@@ -3,6 +3,7 @@ syrena = {
 	random = no    
 	sex_appeal_opinion = 300
 	health = 5
+	intrigue = 5
 	customizer = no
 	cannot_inherit = yes
 	opposites = { khalga_trait }
