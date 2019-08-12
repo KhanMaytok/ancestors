@@ -1035,6 +1035,7 @@ character_event = {
 									female = yes
 									culture = PREV
 									religion = PREV
+									age = 0
 								}
 								new_character = {
 									add_trait = syrena
