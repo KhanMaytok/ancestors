@@ -18,6 +18,12 @@ on_yearly_pulse = {
 	}
 }
 
+on_bi_yearly_pulse = {
+	events = {		
+		ACS.00025 # Vee migrates to another body
+	}
+}
+
 on_death = {
 	events = {
 		ACS.00017 # Resurrect Khalga if He dies

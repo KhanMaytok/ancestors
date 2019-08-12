@@ -981,21 +981,81 @@ character_event = {
 ##########################
 ## VEE LIFECYCLE EVENTS ##
 ##########################
-# ACS.00025 - Begin the corruption event
+# ACS.00025 - Vee migrates to another body
 character_event = {
 	id = ACS.00025
 	hide_window = yes
-
-	trigger = {
-    	has_character_flag = is_vee
-		has_character_flag = vee_degradation
-    }
-
-	mean_time_to_happen = {
-		months = 40
-	}
+	is_triggered_only = yes
+	has_character_flag = is_vee
+	min_age = 16
 
 	immediate = {
+		ROOT = {
+			if = {
+				limit = {
+					age >= 33
+				}
+				random_list = {
+					90 = {}
+					10 = {
+						modifier = {
+							factor = 2
+							age >= 35
+						}
+						modifier = {
+							factor = 2
+							age >= 37
+						}
+						modifier = {
+							factor = 2
+							age >= 39
+						}
+						modifier = {
+							factor = 2
+							age >= 41
+						}
+						modifier = {
+							factor = 2
+							age >= 43
+						}
+						death = { death_reason = death_suicide }
+						pentaghast_society = {
+							any_society_member = { letter_event = { id = ACS.00028 } }
+							random_society_member = {
+								limit = {
+									is_society_grandmaster = yes
+								}
+								random_courtier = {
+									limit = {
+										is_female = yes
+									}
+									save_event_target_as = new_vee_mother
+								}
+								create_character = {
+									female = yes
+									culture = PREV
+									religion = PREV
+								}
+								new_character = {
+									add_trait = syrena
+									add_trait = fair
+									add_trait = sharingan
+									add_trait = genius
+									add_trait = brooding
+									add_trait = playful
+									add_trait = fussy
+									add_trait = strong
+									add_trait = groomed
+									set_character_flag = is_vee
+									set_mother = event_target:new_vee_mother
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
 		liege = {
 			random_courtier = {
 				limit = {
@@ -1005,10 +1065,7 @@ character_event = {
 				}
 				death = { death_reason = death_poor_health }
 			}
-		}
-		pentaghast_society = {
-			any_society_member = { letter_event = { id = ACS.00028 } }
-		}
+		}		
 	}
 }
 
@@ -1238,7 +1295,6 @@ character_event = {
 				has_character_flag = is_vee
 			}
 			remove_trait = prevent_marriage
-			set_character_flag = vee_degradation
 			add_spouse = ROOT
 		}
 		# Spawn maidens of honor for Vee 
