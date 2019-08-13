@@ -137,7 +137,7 @@ narrative_event = {
 			set_character_flag = originated_from_chinese_court
 			join_society = pentaghast_society
 			set_society_grandmaster = yes
-			set_secret_religion = ishtar_religion
+			
 			dynasty = 300001
 			save_event_target_as = olaf_the_killer
 			character_event = { id = ACS.00005 } # Spawn pentaghast society characters
@@ -188,7 +188,7 @@ narrative_event = {
 			set_character_flag = is_vee
 			dynasty = 300001
 			join_society = pentaghast_society
-			set_secret_religion = ishtar_religion
+			
 			narrative_event = { id = ACS.00009 days = 15 } # Born of Khalga
 			character_event = { id = ACS.00031 days = 62 } # Vee deletes competence
 			save_event_target_as = vee
@@ -309,7 +309,7 @@ character_event = {
 				set_mother = event_target:olaf_mother
                 dynasty = 300001
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -333,7 +333,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -357,7 +357,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -381,7 +381,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -405,7 +405,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -429,7 +429,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -453,7 +453,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -477,7 +477,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -501,7 +501,7 @@ character_event = {
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
 				
-                set_secret_religion = ishtar_religion
+                
                 character_event = { id = ACS.00201 }
             }
         }        
@@ -626,7 +626,7 @@ narrative_event = {
 
 	option = {
 		name = ACS_00008_OPT_A
-		set_global_flag = { ancestors_pentaghast_play }
+		set_global_flag = ancestors_pentaghast_play
 		set_player_character = event_target:olaf_the_killer
 	}
 	option = {
@@ -754,7 +754,7 @@ character_event = {
                             limit = {
                                 has_job_title = job_spiritual
                             }
-                            set_secret_religion = ishtar_religion
+                            
                         }
                     }
                 }
@@ -993,6 +993,25 @@ character_event = {
 		ROOT = {
 			if = {
 				limit = {
+					any_courtier = {
+						has_minor_title = title_maid_of_honor
+						count < 8
+					}
+				}
+				create_character = {
+					culture = ROOT
+					religion = ROOT
+					female = yes
+				}
+				new_character = {
+					give_minor_title = title_maid_of_honor
+				}
+			}
+		}
+
+		ROOT = {
+			if = {
+				limit = {
 					age >= 33
 				}
 				random_list = {
@@ -1056,17 +1075,6 @@ character_event = {
 				}
 			}
 		}
-
-		liege = {
-			random_courtier = {
-				limit = {
-					is_female = yes
-					NOT = { has_character_flag = is_vee }
-					has_minor_title = title_maid_of_honor
-				}
-				death = { death_reason = death_poor_health }
-			}
-		}		
 	}
 }
 
@@ -1288,6 +1296,7 @@ character_event = {
 
 	trigger = {
 		has_global_flag = ancestors_pentaghast_play
+		ai = yes
 	}
 
 	immediate = {
@@ -1319,6 +1328,53 @@ character_event = {
 				}
 				new_character = {
 					give_minor_title = title_maid_of_honor
+				}
+			}
+		}
+	}
+}
+
+
+# ACS.00033 - Ensure there is females to pregnant with the new Vee
+character_event = {
+	id = ACS.00033
+	hide_window = yes
+	is_triggered_only = yes
+	is_in_society = yes
+
+	trigger = {		
+		is_society_grandmaster = yes
+		society_member_of = pentaghast_society
+		ai = yes
+		any_courtier = {				
+			is_female = yes
+			prisoner = no
+			count = 5
+		}		
+	}
+
+	immediate = {
+		hidden_tooltip = {
+			set_variable = { which = s_courtiers value = 5 }
+			while = {
+				limit = {
+					check_variable = {
+						which = s_courtiers
+						value = 1
+					}
+				}
+				subtract_variable = {
+					which = s_courtiers
+					value = 1
+				}
+				create_character = {
+					culture = ROOT
+					religion = ROOT
+					female = yes
+				}
+				new_character = {
+					add_trait = strong
+					set_character_flag = candidate_to_vee_mother
 				}
 			}
 		}

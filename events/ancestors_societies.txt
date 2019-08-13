@@ -35,22 +35,6 @@ character_event = {
             move_character = event_target:target_holding_owner
             religion = event_target:target_holding_owner
             culture = event_target:target_holding_owner
-            # Convert court chaplain to the Ishtar religion to prevent burning at stake very soon in the game
-            if = {
-                limit = {
-                    society_member_of = pentaghast_society
-                }
-                location = {
-                    holder_scope = {
-                        random_courtier = {
-                            limit = {
-                                has_job_title = job_spiritual
-                            }
-                            set_secret_religion = ishtar_religion
-                        }
-                    }
-                }
-            }
             # Special events for khalga migration
             if = {
                 limit = {
@@ -445,7 +429,6 @@ narrative_event = {
 
     option = {
         name = ACS_00218_OPT_A
-        set_secret_religion = ishtar_religion
         random_character = {
             limit = {
                 trait = syrena
@@ -743,7 +726,6 @@ character_event = {
 							factor = 5
 							pentaghast_society = { num_of_society_members < 10 }
 						}
-						set_secret_religion = ishtar_religion
 
 						join_society = pentaghast_society
 						random_list = { # Artificially increase society influence for balance purposes
