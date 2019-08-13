@@ -237,7 +237,7 @@ offmap_elune = {
 		}
 
 		religion = {
-			pentaghast_religion = { # default religion for new emperor
+			ishtar_religion = { # default religion for new emperor
 				value = 99 # if any other value reaches 100, it will be picked instead (unless equal, then it will randomize)
 			}
 			FROM = {
