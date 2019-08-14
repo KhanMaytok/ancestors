@@ -1,11 +1,26 @@
-has_dojutsu_trigger = {
-    OR = {
-        trait = sharingan
-        trait = byakugan
+has_sharingan_family_dojutsu = {
+	OR = {
+		trait = sharingan_1
+		trait = sharingan_2
+        trait = sharingan        
         trait = mangekyo_sharingan
         trait = eternal_mangekyo_sharingan
+        trait = rinnegan      
+    }
+}
+
+has_byakugan_family_dojutsu = {
+	OR = {
+        trait = byakugan
         trait = rinnegan
         trait = tenseigan
         trait = jogan        
+    }
+}
+
+has_dojutsu_trigger = {
+    OR = {
+		has_byakugan_family_dojutsu = yes
+		has_sharingan_family_dojutsu = yes       
     }
 }
