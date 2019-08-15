@@ -1111,7 +1111,7 @@ character_event = {
 				}
 			}
 			set_character_flag = sharingan_gene
-			add_trait = sharingan_1
+			add_trait = sharingan
 		}
 		# Recesive sharingan
 		if = {
@@ -1131,7 +1131,7 @@ character_event = {
 				}
 				93 = {
 					set_character_flag = sharingan_gene
-					add_trait = sharingan_1
+					add_trait = sharingan
 				}
 			}
 		}
@@ -1144,8 +1144,6 @@ character_event = {
 						true_father_even_if_dead = {
 							OR = {
 								trait = sharingan
-								trait = sharingan_1
-								trait = sharingan_2
 								trait = mangekyo_sharingan
 								trait = eternal_mangekyo_sharingan
 							}
@@ -1161,8 +1159,6 @@ character_event = {
 						mother_even_if_dead = {
 							OR = {
 								trait = sharingan
-								trait = sharingan_1
-								trait = sharingan_2
 								trait = mangekyo_sharingan
 								trait = eternal_mangekyo_sharingan
 							}

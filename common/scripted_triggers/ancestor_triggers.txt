@@ -1,7 +1,5 @@
 has_sharingan_family_dojutsu = {
 	OR = {
-		trait = sharingan_1
-		trait = sharingan_2
         trait = sharingan        
         trait = mangekyo_sharingan
         trait = eternal_mangekyo_sharingan
