@@ -1018,58 +1018,28 @@ character_event = {
 					90 = {}
 					10 = {
 						modifier = {
-							factor = 2
+							factor = 1.5
 							age >= 35
 						}
 						modifier = {
-							factor = 2
+							factor = 1.5
 							age >= 37
 						}
 						modifier = {
-							factor = 2
+							factor = 1.5
 							age >= 39
 						}
 						modifier = {
-							factor = 2
+							factor = 1.5
 							age >= 41
 						}
 						modifier = {
-							factor = 2
+							factor = 1.5
 							age >= 43
 						}
 						death = { death_reason = death_suicide }
 						pentaghast_society = {
 							any_society_member = { letter_event = { id = ACS.00028 } }
-							random_society_member = {
-								limit = {
-									is_society_grandmaster = yes
-								}
-								random_courtier = {
-									limit = {
-										is_female = yes
-									}
-									save_event_target_as = new_vee_mother
-								}
-								create_character = {
-									female = yes
-									culture = PREV
-									religion = PREV
-									age = 0
-								}
-								new_character = {
-									add_trait = syrena
-									add_trait = fair
-									add_trait = sharingan
-									add_trait = genius
-									add_trait = brooding
-									add_trait = playful
-									add_trait = fussy
-									add_trait = strong
-									add_trait = groomed
-									set_character_flag = is_vee
-									set_mother = event_target:new_vee_mother
-								}
-							}
 						}
 					}
 				}
@@ -1375,6 +1345,49 @@ character_event = {
 				new_character = {
 					add_trait = strong
 					set_character_flag = candidate_to_vee_mother
+				}
+			}
+		}
+	}
+}
+
+# ACS.00034 - Resurrect Vee if she dies
+character_event = {
+	id = ACS.00034
+	hide_window = yes
+	is_triggered_only = yes
+	is_in_society = yes
+
+	immediate = {
+		pentaghast_society = {
+			random_society_member = {
+				limit = {
+					is_society_grandmaster = yes
+				}
+				random_courtier = {
+					limit = {
+						is_female = yes
+					}
+					save_event_target_as = new_vee_mother
+				}
+				create_character = {
+					female = yes
+					culture = event_target:new_vee_mother
+					religion = event_target:new_vee_mother
+					age = 0
+				}
+				new_character = {
+					add_trait = syrena
+					add_trait = fair
+					add_trait = sharingan
+					add_trait = genius
+					add_trait = brooding
+					add_trait = playful
+					add_trait = fussy
+					add_trait = strong
+					add_trait = groomed
+					set_character_flag = is_vee
+					set_mother = event_target:new_vee_mother
 				}
 			}
 		}

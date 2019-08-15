@@ -28,6 +28,7 @@ on_bi_yearly_pulse = {
 on_death = {
 	events = {
 		ACS.00017 # Resurrect Khalga if He dies
+		ACS.00034 # Resurrect Vee if she dies
 	}
 }
 
