@@ -1142,26 +1142,18 @@ character_event = {
 				OR = {
 					AND = {
 						true_father_even_if_dead = {
-							OR = {
-								trait = sharingan
-								trait = mangekyo_sharingan
-								trait = eternal_mangekyo_sharingan
-							}
+							has_sharingan_family_dojutsu = yes
 						}
 						mother_even_if_dead = {
-							trait = byakugan
+							has_byakugan_family_dojutsu = yes
 						}
 					}
 					AND = {
 						true_father_even_if_dead = {
-							trait = byakugan
+							has_byakugan_family_dojutsu = yes
 						}
 						mother_even_if_dead = {
-							OR = {
-								trait = sharingan
-								trait = mangekyo_sharingan
-								trait = eternal_mangekyo_sharingan
-							}
+							has_sharingan_family_dojutsu = yes
 						}
 					}
 				}
