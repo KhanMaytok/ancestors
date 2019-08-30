@@ -8,7 +8,7 @@ narrative_event = {
 	id = ACS.00001
 	title = ACS_00001_TITLE
 	desc = ACS_00001_DESC
-	is_triggered_only = yes    
+	is_triggered_only = yes
 	ai = no
 	picture = GFX_evt_tiamat
 
@@ -19,7 +19,7 @@ narrative_event = {
 	immediate = {
 		ROOT={
 			save_event_target_as = its_me_mamma
-		}	
+		}
 	}
 
 	option = {
@@ -33,20 +33,20 @@ narrative_event = {
 			}
 		}
 		name = ACS_00001_OPT_A				
-		character_event = { id = ACS.00003 days = 32 } # Player is notified about tiamat devastation
+		character_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
 		narrative_event = { id = ACS.00004 days = 45 } # Spawn Senua, Olaf and Tilda and parents
 		set_global_flag = comet_tiamat
 		hidden_tooltip = {
-			set_variable = { which = count value = 5 }
+			set_variable = { which = provs value = 5 }
 			while = {
 				limit = {
 					check_variable = {
-						which = count
+						which = provs
 						value = 1
 					}
 				}
 				subtract_variable = {
-					which = count
+					which = provs
 					value = 1
 				}
 				random_province = {
@@ -54,8 +54,8 @@ narrative_event = {
 						not = { owner = { character = ROOT } }
 						is_land =  yes
 					}
-					province_event = { id = ACS.00002 days = 30 }					
-				}            
+					province_event = { id = ACS.00002 days = 30 }
+				}
 			}
 		}
 	}
@@ -65,11 +65,11 @@ narrative_event = {
 province_event = {
 	id = ACS.00002
 	hide_window = yes
-	is_triggered_only = yes    
+	is_triggered_only = yes
 
 	immediate = { # burn it all
 		add_province_modifier = { name = devastated_by_tiamat years = 20 }
-		spawn_disease = tuberculosis		
+		spawn_disease = tuberculosis
 		any_province_character = {
 			death = { death_reason = death_murder_unknown_combustion }
 		}
@@ -90,7 +90,7 @@ character_event = {
 	id = ACS.00003
 	desc = ACS_00003_DESC
 	picture = GFX_evt_emissary_byzantine
-	is_triggered_only = yes    
+	is_triggered_only = yes
 
 	option = {
 		name = OK
@@ -200,7 +200,7 @@ narrative_event = {
 
 	option = {
 		name = ACS_00004_OPT_A
-	}    
+	}
 }
 
 # ACS.00005 - Spawn secondary members of the Pentaghast Society
@@ -308,8 +308,6 @@ character_event = {
                 set_father = event_target:olaf_father
 				set_mother = event_target:olaf_mother
                 dynasty = 300001
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -332,8 +330,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -356,8 +352,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -380,8 +374,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -404,8 +396,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -428,8 +418,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -452,8 +440,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -476,8 +462,6 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
             create_character = {
@@ -500,11 +484,9 @@ character_event = {
                 set_father = event_target:olaf_father
                 dynasty = 300001
                 set_mother = event_target:olaf_mother
-				
-                
                 character_event = { id = ACS.00201 }
             }
-        }        
+        }
     }
 }
 
@@ -1291,7 +1273,6 @@ character_event = {
 		}
 	}
 }
-
 
 # ACS.00033 - Ensure there is females to pregnant with the new Vee
 character_event = {
