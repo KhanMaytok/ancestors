@@ -116,13 +116,15 @@ prevent_marriage = {
 	random = no
 }
 
-khalga_trait_bloodline = {
+khalga_blood = {
+	agnatic = yes
 	customizer = no
 	random = no
 	combat_rating = 5
 }
 
-vee_trait_bloodline = {
+vee_blood = {
+	enatic = yes
 	customizer = no
 	random = no
 	combat_rating = 5

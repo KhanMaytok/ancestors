@@ -16,3 +16,7 @@ khalga_trait;Khalga;Khalga;Khalga;;Khalga;;;;;;;;;x
 khalga_trait_desc;Be careful;Be careful;Be careful;;Procede con cuidado;;;;;;;;;x
 prevent_marriage;No marriage or inherit;No marriage or inherit;No marriage or inherit;;Impedido;;;;;;;;;x
 prevent_marriage_desc;Due strange circunstances, this character can not marry with anyone or inherit titles;Due strange circunstances, this character can not marry with anyone or inherit titles;Due strange circunstances, this character can not marry with anyone or inherit titles;;Debido a extrañas circunstancias, esta persona no puede casarse ni heredar títulos.;;;;;;;;;x
+khalga_blood;K lineage;K lineage;K lineage;;Linaje K;;;;;;;;;x
+khalga_blood_desc;This person has a special ancestry;This person has a special ancestry;This person has a special ancestry;;Esta persona tiene un ancestro especial;;;;;;;;;x
+vee_blood;V lineage;V lineage;V lineage;;Linaje V;;;;;;;;;x
+vee_blood_desc;This person has a special ancestry;This person has a special ancestry;This person has a special ancestry;;Esta persona tiene un ancestro especial;;;;;;;;;x

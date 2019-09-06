@@ -69,4 +69,18 @@ spriteTypes = {
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate_linear.lua"
 	}
+	spriteType = {
+        name = "GFX_trait_khalga_blood"
+        texturefile = "gfx/traits/khalga_blood.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+	spriteType = {
+        name = "GFX_trait_vee_blood"
+        texturefile = "gfx/traits/vee_blood.tga"
+        noOfFrames = 1
+        norefcount = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
 }

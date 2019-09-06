@@ -137,7 +137,6 @@ narrative_event = {
 			set_character_flag = originated_from_chinese_court
 			join_society = pentaghast_society
 			set_society_grandmaster = yes
-			
 			dynasty = 300001
 			save_event_target_as = olaf_the_killer
 			character_event = { id = ACS.00005 } # Spawn pentaghast society characters
@@ -182,6 +181,7 @@ narrative_event = {
 			trait = diligent
 			trait = proud
 			trait = prevent_marriage
+			trait = vee_blood
 			health = 20
 		}
 		new_character = {
@@ -636,6 +636,7 @@ narrative_event = {
 			trait = strong
 			trait = prevent_marriage
 			trait = travelling
+			trait = khalga_blood
 		}
 		new_character = {
 			set_mother = ROOT
@@ -1051,70 +1052,43 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
-	immediate = {		
-		# Direct Khalga always get byakugan
+	trigger = {
+		OR = {
+			true_father_even_if_dead = {
+				trait = khalga_blood
+			}
+			mother_even_if_dead = {
+				trait = vee_blood
+			}
+		}
+	}
+
+	immediate = {
+		# BYAKUGAN INHERITANCE
 		if = {
 			limit = {
 				true_father_even_if_dead = {
-					has_character_flag = is_khalga
+					trait = khalga_blood
 				}
 			}
-			set_character_flag = byakugan_gene
-			add_trait = byakugan
-		}
-		# Recesive byakugan
-		if = {
-			limit = {
-				OR = {
-					true_father_even_if_dead = {
-						has_character_flag = byakugan_gene
-					}
-					mother_even_if_dead = {
-						has_character_flag = byakugan_gene
-					}
-				}                
-			}
+			add_trait = khalga_blood
 			random_list = {
-				7 = {
-					set_character_flag = byakugan_gene
-				}
-				93 = {
-					set_character_flag = byakugan_gene
-					add_trait = byakugan
-				}
-			}
+				7 = { add_trait = byakugan }
+				93 = { }
+			}			
 		}
-		
-		# Direct Vee always get sharingan
+
+		# SHARINGAN INHERITANCE
 		if = {
 			limit = {
 				mother_even_if_dead = {
-					has_character_flag = is_vee
+					trait = vee_blood
 				}
 			}
-			set_character_flag = sharingan_gene
-			add_trait = sharingan
-		}
-		# Recesive sharingan
-		if = {
-			limit = {
-				OR = {
-					true_father_even_if_dead = {
-						has_character_flag = sharingan_gene
-					}
-					mother_even_if_dead = {
-						has_character_flag = sharingan_gene
-					}
-				}                
-			}
+			add_trait = vee_blood
 			random_list = {
-				7 = {
-					set_character_flag = sharingan_gene
-				}
-				93 = {
-					set_character_flag = sharingan_gene
-					add_trait = sharingan
-				}
+				7 = { add_trait = sharingan }
+				93 = { }
 			}
 		}
 
@@ -1284,7 +1258,6 @@ character_event = {
 	trigger = {		
 		is_society_grandmaster = yes
 		society_member_of = pentaghast_society
-		ai = yes
 		any_courtier = {				
 			is_female = yes
 			prisoner = no
