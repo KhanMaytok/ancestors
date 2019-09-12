@@ -635,7 +635,6 @@ narrative_event = {
 			trait = byakugan
 			trait = strong
 			trait = prevent_marriage
-			trait = travelling
 			trait = khalga_blood
 		}
 		new_character = {
@@ -915,7 +914,6 @@ character_event = {
 			trait = byakugan
 			trait = strong
 			trait = prevent_marriage
-			trait = travelling
 		}
 		new_character = {
 			set_mother = ROOT           
