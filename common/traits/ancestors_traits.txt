@@ -117,14 +117,12 @@ prevent_marriage = {
 }
 
 khalga_blood = {
-	agnatic = yes
 	customizer = no
 	random = no
 	combat_rating = 5
 }
 
 vee_blood = {
-	enatic = yes
 	customizer = no
 	random = no
 	combat_rating = 5
