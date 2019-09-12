@@ -1208,15 +1208,32 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = {
-		has_global_flag = ancestors_pentaghast_play
-		ai = yes
-	}
-
 	immediate = {
+		ROOT = {
+			random_courtier = {
+				limit = {
+					has_character_flag = is_vee
+				}
+				remove_trait = prevent_marriage
+			}
+		}
+		ROOT = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				random_courtier = {
+					limit = {
+						has_character_flag = is_vee
+					}
+					add_spouse = ROOT
+				}
+			}
+		}
 		random_courtier = {
 			limit = {
 				has_character_flag = is_vee
+				liege = { ai = yes }
 			}
 			remove_trait = prevent_marriage
 			add_spouse = ROOT
