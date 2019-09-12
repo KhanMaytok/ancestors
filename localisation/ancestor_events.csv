@@ -44,6 +44,20 @@ ACS_00033_DESC;A lot of children have come to experiment. I hope we will accompl
 ACS_00034_TITLE;Tragedy;Tragedy;Tragedy;;Tragedia;;;;;;;;;x
 ACS_00034_DESC;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;;¡Alguien se ha llevado a mi tesoro! Mi retoño ha sido arrancado de mi. Maldito sea quien lo hizo.;;;;;;;;;x
 
+ACS_00035_DESC;A maid of honor has been hired for the most beautiful woman in the world. Try to keep her comfortable.;A maid of honor has been hired for the most beautiful woman in the world. Try to keep her comfortable.;A maid of honor has been hired for the most beautiful woman in the world. Try to keep her comfortable.;;Se ha contratado una dama de honor para la mujer más hermosa del mundo. Procura mantenerla acomodada.;;;;;;;;;x
+
+
+
+
+
+
+
+
+
+
+
+
+
 ACS_00206_TITLE;Dinner;Dinner;Dinner;;Cena;;;;;;;;;x
 ACS_00206_DESC;It's a very lively night and you have a dinner with [pentaghast_recruiter.GetFirstName]. After talking about a lot of things, [pentaghast_recruiter.GetSheHe] looks you straight in the eyes and asks you a question: "Do you remember the comet that flew through the skies some time ago? I've traveled a lot and heard some barbarians say it's a herald of ancient forgotten gods, older than any other.;It's a very lively night and you have a dinner with [pentaghast_recruiter.GetFirstName]. After talking about a lot of things, [pentaghast_recruiter.GetSheHe] looks you straight in the eyes and asks you a question: "Do you remember the comet that flew through the skies some time ago? I've traveled a lot and heard some barbarians say it's a herald of ancient forgotten gods, older than any other.;It's a very lively night and you have a dinner with [pentaghast_recruiter.GetFirstName]. After talking about a lot of things, [pentaghast_recruiter.GetSheHe] looks you straight in the eyes and asks you a question: "Do you remember the comet that flew through the skies some time ago? I've traveled a lot and heard some barbarians say it's a herald of ancient forgotten gods, older than any other.;;Es una noche muy animada y tienes una cena con [pentaghast_recruiter.GetTitledName]. Después de conversar sobre muchos temas, te mira directamente a los ojos y te hace una pregunta: “¿Recuerdas el cometa que surcó los cielos hace algún tiempo? He viajado mucho y escuché que algunos bárbaros cuentan que son signos de dioses olvidados.”;;;;;;;;x
 ACS_00206_OPT_A;Tell me more about this;Tell me more about this;Tell me more about this;;Cuéntame más sobre esto;;;;;;;;;x
@@ -142,3 +156,4 @@ ACS_00403_DESC;My coffers are empty, but the coffers of my vassals are full. The
 ACS_00403_OPT_D;I'm so tired.;I'm so tired.;I'm so tired.;;Estoy muy cansado.;;;;;;;;;x
 
 ACS_00409_DESC;Night falls and I am in my room, meditating. Suddenly, [From.GetName] appears in front of me. It has a glimmer of greed, but also of pain. "I've come to kill you," he tells me.;Night falls and I am in my room, meditating. Suddenly, [From.GetName] appears in front of me. It has a glimmer of greed, but also of pain. "I've come to kill you," he tells me.;Night falls and I am in my room, meditating. Suddenly, [From.GetName] appears in front of me. It has a glimmer of greed, but also of pain. "I've come to kill you," he tells me.;;Cae la noche y estoy en mi cuarto, meditando. De repente, [From.GetName] se presenta ante mí. Tiene en la mirada un brillo de codicia, pero también de dolor. "He venido a matarte", me dice.;;;;;;;;;x
+

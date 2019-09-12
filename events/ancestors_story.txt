@@ -970,7 +970,6 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	has_character_flag = is_vee
-	min_age = 16
 
 	immediate = {
 		ROOT = {
@@ -989,6 +988,7 @@ character_event = {
 				new_character = {
 					give_minor_title = title_maid_of_honor
 				}
+				liege = { character_event = { id = ACS.00035 } }
 			}
 		}
 
@@ -1020,7 +1020,7 @@ character_event = {
 							factor = 1.5
 							age >= 43
 						}
-						death = { death_reason = death_suicide }
+						death = { death_reason = death_poor_health }
 						pentaghast_society = {
 							any_society_member = { letter_event = { id = ACS.00028 } }
 						}
@@ -1248,12 +1248,13 @@ character_event = {
 	}
 }
 
-# ACS.00033 - Ensure there is females to pregnant with the new Vee
+# ACS.00033 - Ensure there are females to pregnant with the new Vee
 character_event = {
 	id = ACS.00033
 	hide_window = yes
 	is_triggered_only = yes
 	is_in_society = yes
+	only_rulers = yes
 
 	trigger = {		
 		is_society_grandmaster = yes
@@ -1261,6 +1262,7 @@ character_event = {
 		any_courtier = {				
 			is_female = yes
 			prisoner = no
+			has_character_flag = candidate_to_vee_mother
 			count = 5
 		}		
 	}
@@ -1283,6 +1285,7 @@ character_event = {
 					culture = ROOT
 					religion = ROOT
 					female = yes
+					age = 16
 				}
 				new_character = {
 					add_trait = strong
@@ -1298,7 +1301,7 @@ character_event = {
 	id = ACS.00034
 	hide_window = yes
 	is_triggered_only = yes
-	is_in_society = yes
+	has_character_flag = is_vee
 
 	immediate = {
 		pentaghast_society = {
@@ -1309,6 +1312,7 @@ character_event = {
 				random_courtier = {
 					limit = {
 						is_female = yes
+						has_character_flag = candidate_to_vee_mother
 					}
 					save_event_target_as = new_vee_mother
 				}
@@ -1317,21 +1321,37 @@ character_event = {
 					culture = event_target:new_vee_mother
 					religion = event_target:new_vee_mother
 					age = 0
+					trait = syrena
+					trait = fair
+					trait = sharingan
+					trait = genius
+					trait = brooding
+					trait = playful
+					trait = fussy
+					trait = strong
+					trait = groomed
 				}
 				new_character = {
-					add_trait = syrena
-					add_trait = fair
-					add_trait = sharingan
-					add_trait = genius
-					add_trait = brooding
-					add_trait = playful
-					add_trait = fussy
-					add_trait = strong
-					add_trait = groomed
 					set_character_flag = is_vee
 					set_mother = event_target:new_vee_mother
 				}
+				event_target:new_vee_mother = {
+					death = { death_reason = { death_childbirth } }
+				}
 			}
 		}
+	}
+}
+
+# ACS.00035 - Host is notified about the new Vee honor maiden
+character_event = {
+	id = ACS.00035
+	picture = GFX_evt_courtiers_talking
+	desc = ACS_00035_DESC
+	is_triggered_only = yes
+	ai = no
+
+	option = {
+		name = OK
 	}
 }
