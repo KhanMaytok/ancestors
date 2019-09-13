@@ -912,6 +912,7 @@ character_event = {
 			trait = fair
 			trait = genius
 			trait = byakugan
+			trait = khalga_blood
 			trait = strong
 			trait = prevent_marriage
 		}
@@ -1200,7 +1201,7 @@ character_event = {
 	}
 }
 
-# ACS.00032 - Host marry with Vee
+# ACS.00032 - AI Host marry with Vee
 character_event = {
 	id = ACS.00032
 	hide_window = yes
@@ -1300,10 +1301,11 @@ character_event = {
 					culture = ROOT
 					religion = ROOT
 					female = yes
-					age = 16
+					age = 18
+					trait = strong
+					trait = prevent_marriage
 				}
 				new_character = {
-					add_trait = strong
 					set_character_flag = candidate_to_vee_mother
 				}
 			}
@@ -1345,6 +1347,7 @@ character_event = {
 					trait = fussy
 					trait = strong
 					trait = groomed
+					trait = vee_blood
 				}
 				new_character = {
 					set_character_flag = is_vee

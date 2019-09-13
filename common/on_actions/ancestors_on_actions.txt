@@ -38,12 +38,3 @@ on_adulthood = {
 		ACS.00029 # Dojutsu inheritance mechanics
 	}
 }
-
-# A character has switched their society interest
-# Root = Character
-# From = Society
-on_character_switch_society_interest = {
-	events = {
-		ACS.00203 # Begin societies recruitment
-	}
-}
