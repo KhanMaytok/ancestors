@@ -6,4 +6,4 @@
 gfx/traits/* linguist-language=Julia
 gfx/interface/* linguist-language=C
 gfx/event_pictures/* linguist-language=Java
-gfx/flags/* linguist-language=R
+*.tga linguist-language=R
