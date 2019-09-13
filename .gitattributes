@@ -1,6 +1,9 @@
 *.txt linguist-language=Rust
 *.csv linguist-language=Erlang
 *.md linguist-language=Go
-*.dds linguist-language=Julia
 *.gfx linguist-language=Python
 *.gui linguist-language=Haskell
+gfx/traits/* linguist-language=Julia
+gfx/interface/* linguist-language=C
+gfx/event_pictures/* linguist-language=Java
+gfx/flags/* linguist-language=R

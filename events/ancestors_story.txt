@@ -182,7 +182,6 @@ narrative_event = {
 			trait = proud
 			trait = prevent_marriage
 			trait = vee_blood
-			health = 20
 		}
 		new_character = {
 			set_character_flag = is_vee
