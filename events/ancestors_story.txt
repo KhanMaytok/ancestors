@@ -606,12 +606,18 @@ narrative_event = {
 	is_triggered_only = yes
 
 	option = {
+		trigger = {
+			has_game_rule = {
+				name = acs_bleeding_edge
+				value = on
+			}
+		}
 		name = ACS_00008_OPT_A
 		set_global_flag = ancestors_pentaghast_play
 		set_player_character = event_target:olaf_the_killer
 	}
 	option = {
-		name = ACS_00008_OPT_B
+		name = OK
 	}
 }
 

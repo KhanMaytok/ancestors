@@ -65,3 +65,31 @@ character_event = {
         }
 	}
 }
+
+# ACS.00043 - Ensure only one Khalga
+character_event = {
+	id = ACS.90043
+	is_triggered_only = yes
+	hide_window = yes
+	ai = no
+
+	trigger = {
+		NOT = { has_global_flag = upd_0_6_0 }
+	}
+
+	immediate = {
+		any_character = {
+			limit = {
+				trait = sharingan
+			}
+			add_trait = vee_blood
+		}
+		any_character = {
+			limit = {
+				trait = byakugan
+			}
+			add_trait = khalga_blood
+		}
+		set_global_flag = upd_0_6_0
+	}
+}
