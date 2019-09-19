@@ -7,7 +7,7 @@ title_elune_emperor = {
 
 title_maid_of_honor = {
     dignity = 0.10
-    grant_limit = 8
+    grant_limit = 7
     opinion_effect = 5
 	realm_in_name = yes
 
@@ -17,8 +17,8 @@ title_maid_of_honor = {
     is_unique = yes
 
     allowed_to_hold = {
-        is_adult = yes
 		is_female = yes
+		is_married = no
         NOT = {	trait = syrena }
 		is_sick_or_injured_trigger = no
 		has_disability_trigger = no
@@ -29,8 +29,6 @@ title_maid_of_honor = {
     }
 
     allowed_to_grant = {
-        any_courtier = {
-			trait = syrena
-		}
+        trait = syrena
     }
 }

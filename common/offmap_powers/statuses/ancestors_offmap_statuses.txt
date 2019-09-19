@@ -1,0 +1,21 @@
+elune_stable = {
+	frame = 1
+}
+elune_unrest = {
+	frame = 1
+}
+elune_civil_war = {
+	frame = 1
+}
+elune_famine = {
+	frame = 1
+}
+elune_plague = {
+	frame = 1
+}
+elune_golden_age = {
+	frame = 1
+}
+elune_conquest = {
+	frame = 1
+}

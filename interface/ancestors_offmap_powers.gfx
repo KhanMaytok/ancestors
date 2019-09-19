@@ -4,4 +4,9 @@ spriteTypes =
 		name = "GFX_elune_screen_button"
 		texturefile = "gfx\\interface\\offmap_screen\\elune_screen_button.dds"
 	}
+	spriteType = {
+		name = "GFX_offmap_status_elune"
+		texturefile = "gfx\\interface\\offmap_screen\\china_status_placeholder.dds"
+		noOfFrames = 9
+	}
 }

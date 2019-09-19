@@ -22,14 +22,13 @@ offmap_elune = {
 		china_expansionist
 	}
 	statuses = {
-		china_stable
-		china_unrest
-		china_civil_war
-		china_mongol_invasion
-		china_jurchen_invasion
-		china_famine
-		china_plague
-		china_golden_age
+		elune_stable
+		elune_unrest
+		elune_civil_war
+		elune_famine
+		elune_plague
+		elune_golden_age
+		elune_conquest
 	}
 	buttons = {
 		offmap_gifts = {

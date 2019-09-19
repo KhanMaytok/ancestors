@@ -166,6 +166,7 @@ narrative_event = {
 		}
 		create_character = {
 			name = Senua # The first Vee
+			dna = qqovluyitrm
 			female = yes
 			age = 18
 			culture = pictish
@@ -662,7 +663,7 @@ narrative_event = {
 	}
 }
 
-# ACS.00010 - Player is notified about the twins
+# ACS.00010 - Player is notified about Khalga
 narrative_event = {
 	id = ACS.00010
 	title = ACS_00009_TITLE
@@ -672,7 +673,7 @@ narrative_event = {
 
 	option = {
 		name = OK		
-		narrative_event = { id = ACS.00011 days = 15}		
+		narrative_event = { id = ACS.00011 days = 15 }		
 	}
 }
 
@@ -730,22 +731,6 @@ character_event = {
             move_character = event_target:target_holding_owner
             religion = event_target:target_holding_owner
             culture = event_target:target_holding_owner
-            # Convert court chaplain to the Ishtar religion to prevent burning at stake very soon in the game
-            if = {
-                limit = {
-                    society_member_of = pentaghast_society
-                }
-                location = {
-                    holder_scope = {
-                        random_courtier = {
-                            limit = {
-                                has_job_title = job_spiritual
-                            }
-                            
-                        }
-                    }
-                }
-            }
             # Special events for khalga migration
             if = {
                 limit = {
@@ -873,7 +858,6 @@ character_event = {
 	id = ACS.00017
 	hide_window = yes
 	is_triggered_only = yes
-
 	has_character_flag = is_khalga
 
 	immediate = {
@@ -933,9 +917,7 @@ character_event = {
 			}
 			# Khalga takes the essence, so kill the mother
 			mother = {
-				death = {
-					death_reason = death_childbirth
-				}              
+				death = { death_reason = death_childbirth }              
 			}
 		}
 	}
@@ -949,7 +931,7 @@ character_event = {
 	has_character_flag = is_khalga
 
 	immediate = {
-		character_event = { id = ACS.00021 days = 3 random = 5 }
+		character_event = { id = ACS.00021 days = 3 }
 	}
 }
 
@@ -976,23 +958,48 @@ character_event = {
 	has_character_flag = is_vee
 
 	immediate = {
+		# Check if Vee has enough maidens - Recruit maidens between the vassal's daughters
 		ROOT = {
 			if = {
 				limit = {
-					any_courtier = {
-						has_minor_title = title_maid_of_honor
-						count < 8
+					liege = {
+						any_courtier = {
+							has_minor_title = title_maid_of_honor
+							count < 7
+						}
 					}
 				}
-				create_character = {
-					culture = ROOT
-					religion = ROOT
-					female = yes
+				liege = {
+					save_event_target_as = vee_liege
+					any_vassal = {
+						limit = {
+							num_of_children >= 1
+							any_child = {
+								is_female = yes
+								is_married = no
+								is_adult = no
+								is_inaccessible_or_incapable_trigger = no
+							}
+						}
+						random_child = {
+							limit = {
+								is_female = yes
+								is_married = no
+								is_adult = no
+								is_inaccessible_or_incapable_trigger = no
+							}
+							save_event_target_as = maiden_child
+							move_character = event_target:vee_liege
+							give_minor_title = title_maid_of_honor
+							opinion = {
+								modifier = opinion_loyal_servant
+								who = ROOT
+							}
+						}
+					}
+					character_event = { id = ACS.00035 }
+					# TO-DO : Child parents receives notification		
 				}
-				new_character = {
-					give_minor_title = title_maid_of_honor
-				}
-				liege = { character_event = { id = ACS.00035 } }
 			}
 		}
 
@@ -1231,38 +1238,6 @@ character_event = {
 						has_character_flag = is_vee
 					}
 					add_spouse = ROOT
-				}
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = is_vee
-				liege = { ai = yes }
-			}
-			remove_trait = prevent_marriage
-			add_spouse = ROOT
-		}
-		# Spawn maidens of honor for Vee 
-		hidden_tooltip = {
-			set_variable = { which = s_courtiers value = 8 }
-			while = {
-				limit = {
-					check_variable = {
-						which = s_courtiers
-						value = 1
-					}
-				}
-				subtract_variable = {
-					which = s_courtiers
-					value = 1
-				}
-				create_character = {
-					culture = ROOT
-					religion = ROOT
-					female = yes
-				}
-				new_character = {
-					give_minor_title = title_maid_of_honor
 				}
 			}
 		}
