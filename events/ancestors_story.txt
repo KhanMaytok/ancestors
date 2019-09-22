@@ -17,7 +17,7 @@ narrative_event = {
 	}
 
 	immediate = {
-		ROOT={
+		ROOT = {
 			save_event_target_as = its_me_mamma
 		}
 	}
@@ -607,17 +607,6 @@ narrative_event = {
 	is_triggered_only = yes
 
 	option = {
-		trigger = {
-			has_game_rule = {
-				name = acs_bleeding_edge
-				value = on
-			}
-		}
-		name = ACS_00008_OPT_A
-		set_global_flag = ancestors_pentaghast_play
-		set_player_character = event_target:olaf_the_killer
-	}
-	option = {
 		name = OK
 	}
 }
@@ -655,7 +644,6 @@ narrative_event = {
 			}
 			dynasty = 300000
 			health = 20
-			set_mother = event_target:vee
 		}
 		liege = { # Player is notified
 			narrative_event = { id = ACS.00010 days = 1 }          
@@ -1213,86 +1201,6 @@ character_event = {
 	}
 }
 
-# ACS.00032 - AI Host marry with Vee
-character_event = {
-	id = ACS.00032
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		ROOT = {
-			random_courtier = {
-				limit = {
-					has_character_flag = is_vee
-				}
-				remove_trait = prevent_marriage
-			}
-		}
-		ROOT = {
-			if = {
-				limit = {
-					ai = yes
-				}
-				random_courtier = {
-					limit = {
-						has_character_flag = is_vee
-					}
-					add_spouse = ROOT
-				}
-			}
-		}
-	}
-}
-
-# ACS.00033 - Ensure there are females to pregnant with the new Vee
-character_event = {
-	id = ACS.00033
-	hide_window = yes
-	is_triggered_only = yes
-	is_in_society = yes
-	only_rulers = yes
-
-	trigger = {		
-		is_society_grandmaster = yes
-		society_member_of = pentaghast_society
-		any_courtier = {				
-			is_female = yes
-			prisoner = no
-			has_character_flag = candidate_to_vee_mother
-			count = 5
-		}		
-	}
-
-	immediate = {
-		hidden_tooltip = {
-			set_variable = { which = s_courtiers value = 5 }
-			while = {
-				limit = {
-					check_variable = {
-						which = s_courtiers
-						value = 1
-					}
-				}
-				subtract_variable = {
-					which = s_courtiers
-					value = 1
-				}
-				create_character = {
-					culture = ROOT
-					religion = ROOT
-					female = yes
-					age = 18
-					trait = strong
-					trait = prevent_marriage
-				}
-				new_character = {
-					set_character_flag = candidate_to_vee_mother
-				}
-			}
-		}
-	}
-}
-
 # ACS.00034 - Resurrect Vee if she dies
 character_event = {
 	id = ACS.00034
@@ -1306,17 +1214,11 @@ character_event = {
 				limit = {
 					is_society_grandmaster = yes
 				}
-				random_courtier = {
-					limit = {
-						is_female = yes
-						has_character_flag = candidate_to_vee_mother
-					}
-					save_event_target_as = new_vee_mother
-				}
+				save_event_target_as = pentaghast_leader
 				create_character = {
 					female = yes
-					culture = event_target:new_vee_mother
-					religion = event_target:new_vee_mother
+					culture = event_target:pentaghast_leader
+					religion = event_target:pentaghast_leader
 					age = 0
 					trait = syrena
 					trait = fair
@@ -1328,13 +1230,12 @@ character_event = {
 					trait = strong
 					trait = groomed
 					trait = vee_blood
+					trait = prevent_marriage
+					dynasty = event_target:pentaghast_leader
 				}
 				new_character = {
 					set_character_flag = is_vee
-					set_mother = event_target:new_vee_mother
-				}
-				event_target:new_vee_mother = {
-					death = { death_reason = { death_childbirth } }
+					set_father = event_target:pentaghast_leader
 				}
 			}
 		}
@@ -1351,5 +1252,332 @@ character_event = {
 
 	option = {
 		name = OK
+	}
+}
+
+# ACS.00036 - Select Vee in adulthood. Tournament
+character_event = {
+	id = ACS.00036
+	picture = GFX_evt_courtiers_talking
+	desc = ACS_00035_DESC
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_vee
+
+	trigger = {
+		NOT = { has_character_flag = married_in_tournament }
+	}
+
+	immediate = {
+		character_event = { id = ACS.00038 days = 60 } # Tournament start
+		any_playable_ruler = { # Select suitable rulers for the tournament
+			limit = {
+				is_landed = yes
+				can_marry = yes
+				age = 16
+				NOT = { age = 50 }
+				is_inaccessible_or_incapable_trigger = no
+				is_female = no
+				NOT = { has_character_flag = attending_tournament }
+				NOT = { has_character_flag = do_not_disturb }
+				NOT = { trait = celibate }
+				NOT = { trait = eunuch }
+			}
+			character_event = { id = ACS.00037 } # Characters receives letter
+		}
+		any_character = {
+			limit = {
+				is_heir = yes
+				can_marry = yes
+				age = 16
+				NOT = { age = 50 }
+				is_inaccessible_or_incapable_trigger = no
+				is_female = no
+				NOT = { has_character_flag = attending_tournament }
+				NOT = { has_character_flag = do_not_disturb }
+				NOT = { trait = celibate }
+				NOT = { trait = eunuch }
+			}
+			narrative_event = { id = ACS.00037 } # Characters receives letterl
+		}
+	}
+}
+
+# ACS.00037 - Characters receives letter
+narrative_event = {
+	id = ACS.00037
+	title = "TOURNAMENTTITLE"
+	desc = "ACS_00037_DESC"
+	picture = "GFX_evt_vee_tournament_invitation"
+	is_triggered_only = yes
+
+	trigger = { is_inaccessible_or_incapable_trigger = no }
+
+	option = {
+		name = "EVTOPTA70000"
+		ai_chance = {
+			factor = 100
+			modifier  = {
+				factor = 0.001
+				ai = yes
+				is_inaccessible_or_incapable_trigger = yes
+			}
+		}
+		prestige = 100
+		set_character_flag = attending_tournament
+		set_character_flag = do_not_disturb
+		set_character_flag = attending_vee_tournament
+		hidden_tooltip = { character_event = { id = 70999 days = 300 } } # Safety catch flag clearing
+	}
+	option = {
+		name = "EVTOPTB70000"
+		ai_chance = {
+			factor = 0.1
+		}
+	}
+}
+
+# ACS.00038 - Tournament start
+character_event = {
+	id = ACS.00038
+	is_triggered_only = yes
+	hide_window = yes
+
+	option = {
+		name = "EVTOPTA70001"
+		
+		trigger = {}
+		
+		hidden_tooltip = {
+			# Injuries
+			any_playable_ruler = {
+				limit = {
+					has_character_flag = attending_vee_tournament
+				}
+				character_event = { id = 70050 days = 1 random = 15 }
+				#Set score
+				character_event = { id = 70060 days = 46 }
+			}
+			# Select winner
+			character_event = { id = ACS.00039 days = 50 } # Original : 70061
+			# Notify winner
+			narrative_event = { id = ACS.00040 days = 52 } # Marry with Vee
+		}
+	}
+}
+
+# ACS.00039 - Select the winner
+character_event = {
+	id = ACS.00039
+	hide_window = yes	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_15
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_15
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_14
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_14
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_13
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_13
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_12
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_12
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_11
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_11
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_10
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_10
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_09
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_09
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_08
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_08
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_07
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_07
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_06
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_06
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_05
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_05
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_04
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_04
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_03
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_03
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_02
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_02
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_01
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_01
+			set_character_flag = tournament_vee_winner
+			break = yes
+		}
+		random_character = {
+			limit = {
+				has_character_flag = tourney_score_00
+				has_character_flag = attending_vee_tournament
+			}
+			clr_character_flag = tourney_score_00
+			set_character_flag = tournament_vee_winner
+		}
+	}
+}
+
+# ACS.00040 - Winner marries with vee
+narrative_event = {
+	id = ACS.00040
+	title = "TOURNAMENTTITLE"
+	desc = "ACS_00040_DESC"
+	picture = "GFX_evt_vee_tournament_invitation"
+	is_triggered_only = yes
+
+	immediate = {		
+		random_character = {
+			limit = {
+				has_character_flag = tournament_vee_winner
+			}
+			add_spouse = ROOT
+			add_lover = ROOT
+			clr_character_flag = attending_vee_tournament
+			clr_character_flag = do_not_disturb
+			clr_character_flag = attending_tournament
+			clr_character_flag = tournament_vee_winner
+
+			any_character = {
+				limit = {
+					has_character_flag = attending_vee_tournament
+				}
+				character_event = { id = ACS.00041 days = 3 } # Other characters receive notification
+			}
+		}
+
+		# Vee effects
+		remove_trait = prevent_marriage
+		set_character_flag = married_in_tournament
+	}
+
+	option = {
+		name = ACS_00040_OPT_A
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# ACS.00041 - Other characters receive notification
+character_event = {
+	id = ACS.00041
+	title = "TOURNAMENTTITLE"
+	desc = "ACS_00041_DESC"
+	picture = "GFX_evt_vee_tournament_invitation"
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = attending_tournament
+		clr_character_flag = attending_vee_tournament
+		clr_character_flag = do_not_disturb
+	}
+
+	option = {
+		name = ACS_00041_OPT_A
+		ai_chance = {
+			factor = 100
+		}
 	}
 }

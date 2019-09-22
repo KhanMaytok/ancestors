@@ -39,20 +39,16 @@ ACS_00027_OPT_A;Everything is fine?;Everything is fine?;Everything is fine?;;¿Oc
 ACS_00028_TITLE;The White Goddess;The White Goddess;The White Goddess;;La Diosa Blanca;;;;;;;;;x
 ACS_00028_DESC;The incarnation of our goddess has consumed a life to prolong her own. Each time is closer to perfection and with it, the domain of the rest of the world.;The incarnation of our goddess has consumed a life to prolong her own. Each time is closer to perfection and with it, the domain of the rest of the world.;The incarnation of our goddess has consumed a life to prolong her own. Each time is closer to perfection and with it, the domain of the rest of the world.;;La encarnación de nuestra diosa ha consumido una vida para prolongar la suya propia. Cada vez se encuentra más cerca de la perfección y con ella, del dominio del resto del mundo.;;;;;;;;;x
 
-ACS_00033_TITLE;Fresh meat;Fresh meat;Fresh meat;;Carne fresca;;;;;;;;;x
-ACS_00033_DESC;A lot of children have come to experiment. I hope we will accomplish great things with them.;A lot of children have come to experiment. I hope we will accomplish great things with them.;A lot of children have come to experiment. I hope we will accomplish great things with them.;;Un lote de niños ha llegado para experimentar. Tengo esperanza de que lograremos grandes cosas con ellos.;;;;;;;;;x
+ACS_00035_DESC;The daughters of several of your vassals have entered the service of the most beautiful woman in the world, who resides in your court.;The daughters of several of your vassals have entered the service of the most beautiful woman in the world, who resides in your court.;The daughters of several of your vassals have entered the service of the most beautiful woman in the world, who resides in your court.;;Las hijas de varios de tus vasallos han entrado al servicio de la mujer más bella de mundo, que reside en tu corte.;;;;;;;;;x
 
-ACS_00034_TITLE;Tragedy;Tragedy;Tragedy;;Tragedia;;;;;;;;;x
-ACS_00034_DESC;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;Someone has taken my treasure! My offspring has been plucked from me. Cursed be he who did it.;;¡Alguien se ha llevado a mi tesoro! Mi retoño ha sido arrancado de mi. Maldito sea quien lo hizo.;;;;;;;;;x
+ACS_00037_DESC;The Steel Dawn mercenaries have given the world a new woman, the most beautiful of all. A grandiose tournament will be held by her hand.;The Steel Dawn mercenaries have given the world a new woman, the most beautiful of all. A grandiose tournament will be held by her hand.;The Steel Dawn mercenaries have given the world a new woman, the most beautiful of all. A grandiose tournament will be held by her hand.;;Los mercenarios del Amanecer de Acero le han dado al mundo a una nueva mujer, la más hermosa de todas. Se realizará un torneo grandioso por su mano.;;;;;;;;;x
 
-ACS_00035_DESC;A maid of honor has been hired for the most beautiful woman in the world. Try to keep her comfortable.;A maid of honor has been hired for the most beautiful woman in the world. Try to keep her comfortable.;A maid of honor has been hired for the most beautiful woman in the world. Try to keep her comfortable.;;Se ha contratado una dama de honor para la mujer más hermosa del mundo. Procura mantenerla acomodada.;;;;;;;;;x
+ACS_00040_DESC;I won. All of them. I have defeated them in clean combat. Now, the prize waits before me. Delicate and upright like a lily, the most beautiful woman in the world will be my wife.\nMarriage is celebrated immediately under the light of the stars.;I won. All of them. I have defeated them in clean combat. Now, the prize waits before me. Delicate and upright like a lily, the most beautiful woman in the world will be my wife.\nMarriage is celebrated immediately under the light of the stars.;I won. All of them. I have defeated them in clean combat. Now, the prize waits before me. Delicate and upright like a lily, the most beautiful woman in the world will be my wife.\nMarriage is celebrated immediately under the light of the stars.;;He ganado. A todos ellos. Los he vencido en combate limpio. Ahora, el premio espera ante mí. Delicada y enhiesta como una azucena, la mujer más hermosa del mundo será mi esposa.\nEl matrimonio se celebra de inmediato bajo la luz de las estrellas.;;;;;;;;;x
 
+ACS_00040_OPT_A;The most glorious day of my life;The most glorious day of my life;The most glorious day of my life;;El día más glorioso de mi vida;;;;;;;;;x
 
-
-
-
-
-
+ACS_00041_DESC;The tournament by the hand of [From.GetTitledNameWithNick] has ended and the winner has been [From.Spouse.GetTitledNameWithNick];The tournament by the hand of [From.GetTitledNameWithNick] has ended and the winner has been [From.Spouse.GetTitledNameWithNick];The tournament by the hand of [From.GetTitledNameWithNick] has ended and the winner has been [From.Spouse.GetTitledNameWithNick];;El torneo por la mano de [From.GetTitledNameWithNick] ha terminado y el vencedor ha sido [FromSpouse..GetTitledNameWithNick];;;;;;;;;x
+ACS_00041_OPT_A;A fateful day;A fateful day;A fateful day;;Un día aciago;;;;;;;;;x
 
 
 

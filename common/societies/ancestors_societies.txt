@@ -33,7 +33,8 @@ sakya_society = {
 	}
 
 	show_society = {
-		age = 16		
+		age = 16
+		ai = yes
 	}
 
 	potential = {
@@ -308,7 +309,8 @@ pentaghast_society = {
 	}
 
 	show_society = {
-		age = 16		
+		age = 16
+		ai = yes		
 	}
 
 	potential = {

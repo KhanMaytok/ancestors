@@ -16,7 +16,6 @@ on_society_bi_yearly_pulse = {
 on_yearly_pulse = {
 	events = {		
 		ACS.00013 # Khalga traveling every year
-		ACS.00033 # Ensure there is females to pregnant with the new Vee
 	}
 }
 
@@ -37,5 +36,6 @@ on_adulthood = {
 	events = {
 		ACS.00020 # Ensure the correct portrait for Khalga
 		ACS.00029 # Dojutsu inheritance mechanics
+		ACS.00036 # Vee tournament
 	}
 }

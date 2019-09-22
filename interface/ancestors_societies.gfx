@@ -1,16 +1,13 @@
 spriteTypes = {
-	#### tutorial_society #####
-	
 	spriteType = { #the background of the society menu
 		name = "GFX_society_main_background_pentaghast_society"
-		texturefile = "gfx\\interface\\societies\\society_bg_pentaghast_society.dds"
+		texturefile = "gfx\\interface\\societies\\society_bg_default.dds"
 	}
 	spriteType = { #the background of the society menu
 		name = "GFX_society_main_background_sakya_society"
 		texturefile = "gfx\\interface\\societies\\society_bg_default.dds"
 	}
 
-	
 	spriteType = { #the background of the side menu with the members/other societies
 		name = "GFX_society_expansion_background_pentaghast_society"
 		texturefile = "gfx\\interface\\societies\\society_exp_bg_devil_worshiper.dds"
