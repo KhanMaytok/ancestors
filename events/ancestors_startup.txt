@@ -1,6 +1,6 @@
-# ACS.00042 - Ensure only one Vee
+# ACS.90041 - Ensure only one Vee
 character_event = {
-	id = ACS.00042
+	id = ACS.90041
 	is_triggered_only = yes
 	hide_window = yes
 	ai = no
@@ -32,9 +32,9 @@ character_event = {
 	}
 }
 
-# ACS.00043 - Ensure only one Khalga
+# ACS.90042 - Ensure only one Khalga
 character_event = {
-	id = ACS.00043
+	id = ACS.90042
 	is_triggered_only = yes
 	hide_window = yes
 	ai = no

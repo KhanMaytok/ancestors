@@ -1,8 +1,8 @@
 on_startup = {
 	events = {
 		ACS.00001 # Comet
-		ACS.00042 # Ensure only one Vee
-		ACS.00043 # Ensure only one Khalga
+		ACS.90041 # Ensure only one Vee
+		ACS.90042 # Ensure only one Khalga
 		ACS.90043 # Update 0.6.0
 	}
 }

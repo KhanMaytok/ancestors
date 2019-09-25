@@ -20,6 +20,13 @@ narrative_event = {
 		ROOT = {
 			save_event_target_as = its_me_mamma
 		}
+		random_character = {
+			limit = {
+				has_landed_title = c_venezia
+				is_merchant_republic = yes
+			}
+			character_event = { id = ACS.00042 } # Kill a entire patrician family
+		}
 	}
 
 	option = {
@@ -34,7 +41,6 @@ narrative_event = {
 		}
 		name = ACS_00001_OPT_A				
 		character_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
-		narrative_event = { id = ACS.00004 days = 45 } # Spawn Senua, Olaf and Tilda and parents
 		set_global_flag = comet_tiamat
 		hidden_tooltip = {
 			set_variable = { which = provs value = 5 }
@@ -101,47 +107,37 @@ character_event = {
 ## THE SPAWN EVENT ##
 #####################
 # ACS.00004 - Spawn Senua, Olaf and Tilda and parents
-narrative_event = {
+character_event = {
 	id = ACS.00004
-	title = ACS_00004_TITLE
-	desc = ACS_00004_DESC
-	picture = GFX_evt_courtiers_talking
 	is_triggered_only = yes
+	hide_window = yes
 
 	immediate = {
-		create_character = {
-			name = Olaf
-			age = 33
-			culture = greek
-			religion = FROM
-			trait = cruel
-			trait = ambitious
-			trait = elusive_shadow
-			trait = scarred_high
-			trait = bastard
-			trait = shrewd
-			trait = genius
-			trait = hunter
-			trait = diligent
-			trait = lustful
-			trait = prevent_marriage
-			trait = robust
-			trait = strategist
-			trait = socializer
-			trait = hedonist
-			health = 10
-			dna = dhhhhjfcabh
-		}
-		new_character = {
-			set_character_flag = is_olaf
-			set_character_flag = originated_from_chinese_court
-			join_society = pentaghast_society
-			set_society_grandmaster = yes
-			dynasty = 300001
-			save_event_target_as = olaf_the_killer
-			character_event = { id = ACS.00005 } # Spawn pentaghast society characters
-			character_event = { id = ACS.00006 days = 60 } # Moves to the mercenary band
-		}
+		set_name = "Olaf"
+		add_trait = cruel
+		add_trait = ambitious
+		add_trait = elusive_shadow
+		add_trait = shrewd
+		add_trait = genius
+		add_trait = hunter
+		add_trait = diligent
+		add_trait = lustful
+		add_trait = robust
+		add_trait = strategist
+		add_trait = socializer
+		add_trait = hedonist
+		health = 2
+		set_character_flag = is_olaf
+		set_character_flag = originated_from_chinese_court
+		join_society = pentaghast_society
+		set_society_grandmaster = yes
+		dynasty = 300001
+		wealth = 300
+		save_event_target_as = olaf_the_killer
+		character_event = { id = ACS.00005 } # Spawn pentaghast society characters
+	}
+
+	immediate = {
 		create_character = {
 			name = Tilda
 			female = yes
@@ -153,7 +149,7 @@ narrative_event = {
 			trait = quick
 			trait = strong
 			trait = shrewd
-			health = 10
+			health = 2
 		}
 		new_character = {
 			set_character_flag = is_ancient_one
@@ -166,11 +162,13 @@ narrative_event = {
 		}
 		create_character = {
 			name = Senua # The first Vee
+			dynasty = none
 			dna = qqovluyitrm
 			female = yes
 			age = 18
 			culture = pictish
 			religion = FROM
+			health = 2
 			trait = fair
 			trait = strong
 			trait = mystic
@@ -181,20 +179,15 @@ narrative_event = {
 			trait = lustful
 			trait = diligent
 			trait = proud
-			trait = prevent_marriage
 			trait = vee_blood
 		}
 		new_character = {
 			set_character_flag = is_vee
 			dynasty = 300001
-			join_society = pentaghast_society
-			
-			narrative_event = { id = ACS.00009 days = 15 } # Born of Khalga
-			character_event = { id = ACS.00031 days = 62 } # Vee deletes competence
+			join_society = pentaghast_society			
+			character_event = { id = ACS.00009 days = 15 } # Born of Khalga
 			save_event_target_as = vee
-		}
-		event_target:its_me_mamma = {
-			add_lover = event_target:vee
+			add_spouse = event_target:olaf_the_killer
 		}
 	}
 
@@ -227,7 +220,7 @@ character_event = {
                 trait = lustful
                 trait = grey_eminence
                 trait = administrator
-                health = 20
+                health = 2
                 dynasty = 300001
             }
             new_character = {
@@ -245,7 +238,7 @@ character_event = {
                 trait = diligent
                 trait = midas_touched
                 trait = administrator
-                health = 20
+                health = 2
                 dynasty = none
             }
             new_character = {
@@ -262,7 +255,7 @@ character_event = {
                 trait = diligent
                 trait = midas_touched
                 trait = administrator
-                health = 20
+                health = 2
                 dynasty = 300001
             }
             new_character = {
@@ -278,13 +271,13 @@ character_event = {
 
 			# Olaf purgues his family
             event_target:olaf_father = {
-                death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+                death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
             }
             event_target:olaf_mother = {
-                death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+                death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
             }
             event_target:olaf_brother = {
-                death = { death_reason = death_murder killer = event_target:olaf_the_killer }
+                death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
             }
 
 			# Olaf sisters
@@ -299,7 +292,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -321,7 +314,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -343,7 +336,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -365,7 +358,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -387,7 +380,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -409,7 +402,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -431,7 +424,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -453,7 +446,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -475,7 +468,7 @@ character_event = {
                 female = yes
                 culture = greek
                 religion = FROM
-                health = 20
+                health = 2
             }
             new_character = {
                 join_society = pentaghast_society
@@ -508,21 +501,6 @@ character_event = {
 			}
 			random_character = {
 				limit = { has_landed_title = d_mercenary_sakya }
-				character_event = { id = ACS.00007 }				
-			}
-			break = yes
-		}
-		if = {
-			limit = {
-				ROOT = {
-					OR = {
-						has_character_flag = is_olaf
-						has_character_flag = is_vee
-					}
-				}
-			}
-			random_character = {
-				limit = { has_landed_title = d_mercenary_pentaghast }
 				character_event = { id = ACS.00007 }				
 			}
 			break = yes
@@ -560,27 +538,6 @@ character_event = {
 		if = {
 			limit = {
 				FROM = {
-					has_character_flag = is_olaf
-				}
-			}
-			FROM = {
-				move_character = ROOT
-				remove_trait = prevent_marriage
-				d_mercenary_pentaghast = {
-					grant_title = PREV
-					set_defacto_liege = THIS
-				}
-				c_mercenary_pentaghast = {
-					grant_title = PREV
-					set_defacto_liege = THIS
-				}					
-			}
-			event_target:its_me_mamma = { narrative_event = { id = ACS.00008 } }
-			break = yes			
-		}
-		if = {
-			limit = {
-				FROM = {
 					OR = {
 						has_character_flag = is_khalga
 						has_character_flag = is_vee
@@ -595,24 +552,8 @@ character_event = {
 	}
 }
 
-################################################################
-## MAIN DECISION ###############################################
-## ACS.00008 - Player is notified about Olaf leaves the court ##
-################################################################
-narrative_event = {
-	id = ACS.00008
-	title = ACS_00008_TITLE
-	desc = ACS_00008_DESC
-	picture = GFX_evt_courtiers_talking
-	is_triggered_only = yes
-
-	option = {
-		name = OK
-	}
-}
-
 # ACS.00009 - Create Khalga
-narrative_event = {
+character_event = {
 	id = ACS.00009
 	hide_window = yes
 	is_triggered_only = yes
@@ -622,15 +563,18 @@ narrative_event = {
 		# Khalga born
 		create_character = {
 			name = Khalga
+			female = no
 			age = 0
 			culture = ROOT
 			religion = ROOT
+			dynasty = none
 			trait = fair
 			trait = genius
 			trait = byakugan
 			trait = strong
 			trait = prevent_marriage
 			trait = khalga_blood
+			trait = bastard
 		}
 		new_character = {
 			set_mother = ROOT
@@ -643,42 +587,31 @@ narrative_event = {
 				duration = -1
 			}
 			dynasty = 300000
-			health = 20
+			health = 2
 		}
-		liege = { # Player is notified
-			narrative_event = { id = ACS.00010 days = 1 }          
+		liege = {
+			character_event = { id = ACS.00010 days = 1 }          
 		}
 	}
 }
 
 # ACS.00010 - Player is notified about Khalga
-narrative_event = {
+character_event = {
 	id = ACS.00010
-	title = ACS_00009_TITLE
-	desc = ACS_00009_DESC
-	picture = GFX_evt_birth
 	is_triggered_only = yes
+	hide_window = yes
 
 	option = {
 		name = OK		
-		narrative_event = { id = ACS.00011 days = 15 }		
+		character_event = { id = ACS.00011 days = 15 }		
 	}
 }
 
 # ACS.00011 - Khalga flies to a foreign court
-narrative_event = {
+character_event = {
 	id = ACS.00011
-	title = ACS_00010_TITLE
-	desc = ACS_00010_DESC
-	picture = GFX_evt_machines_of_war
 	is_triggered_only = yes
-
-	immediate = {
-		random_vassal = {
-			limit = { is_landed = yes }
-			death = { death_reason = death_murder_unknown }
-		}
-	}
+	hide_window = yes
 
 	option = {
 		name = ACS_00010_OPT_A
@@ -759,7 +692,8 @@ character_event = {
 				any_courtier = {
 					limit = {
 						is_pregnant = no
-						is_adult = yes
+						age >= 16
+						age <= 50
 						is_female = yes
 						is_incapable = no
 						NOT = { has_character_flag = is_vee }
@@ -884,14 +818,17 @@ character_event = {
 	immediate = {
 		create_character = {
 			age = 0
+			female = no
 			culture = FROM
 			religion = FROM
+			dynasty = none
 			trait = fair
 			trait = genius
 			trait = byakugan
 			trait = khalga_blood
 			trait = strong
 			trait = prevent_marriage
+			trait = bastard
 		}
 		new_character = {
 			set_mother = ROOT           
@@ -1176,31 +1113,6 @@ character_event = {
 	}
 }
 
-# ACS.00031 - Vee eliminates competence
-character_event = {
-	id = ACS.00031
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		host = {
-			any_spouse = {
-				limit = {
-					NOT = { has_character_flag = is_vee }
-				}
-				death = { death_reason = death_murder_unknown killer = FROM }
-			}
-			any_lover = {
-				limit = {
-					NOT = { has_character_flag = is_vee }
-				}
-				death = { death_reason = death_murder_unknown killer = FROM }
-			}
-			character_event = { id = ACS.00032 }
-		}
-	}
-}
-
 # ACS.00034 - Resurrect Vee if she dies
 character_event = {
 	id = ACS.00034
@@ -1209,34 +1121,29 @@ character_event = {
 	has_character_flag = is_vee
 
 	immediate = {
-		pentaghast_society = {
-			random_society_member = {
-				limit = {
-					is_society_grandmaster = yes
-				}
-				save_event_target_as = pentaghast_leader
-				create_character = {
-					female = yes
-					culture = event_target:pentaghast_leader
-					religion = event_target:pentaghast_leader
-					age = 0
-					trait = syrena
-					trait = fair
-					trait = sharingan
-					trait = genius
-					trait = brooding
-					trait = playful
-					trait = fussy
-					trait = strong
-					trait = groomed
-					trait = vee_blood
-					trait = prevent_marriage
-					dynasty = event_target:pentaghast_leader
-				}
-				new_character = {
-					set_character_flag = is_vee
-					set_father = event_target:pentaghast_leader
-				}
+		dynasty_head = {
+			save_event_target_as = pentaghast_leader
+			create_character = {
+				female = yes
+				culture = event_target:pentaghast_leader
+				religion = event_target:pentaghast_leader
+				age = 0
+				trait = syrena
+				trait = fair
+				trait = sharingan
+				trait = genius
+				trait = brooding
+				trait = playful
+				trait = fussy
+				trait = strong
+				trait = groomed
+				trait = vee_blood
+				trait = prevent_marriage
+				dynasty = event_target:pentaghast_leader
+			}
+			new_character = {
+				set_character_flag = is_vee
+				set_father = event_target:pentaghast_leader
 			}
 		}
 	}
@@ -1327,6 +1234,19 @@ narrative_event = {
 		set_character_flag = attending_tournament
 		set_character_flag = do_not_disturb
 		set_character_flag = attending_vee_tournament
+		any_war = {
+			limit = {
+				NOT = { 
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
+				}				
+				attacker = { character = ROOT }
+			}
+			end_war = whitepeace
+		}
+		add_trait = travelling
 		hidden_tooltip = { character_event = { id = 70999 days = 300 } } # Safety catch flag clearing
 	}
 	option = {
@@ -1350,7 +1270,7 @@ character_event = {
 		
 		hidden_tooltip = {
 			# Injuries
-			any_playable_ruler = {
+			any_character = {
 				limit = {
 					has_character_flag = attending_vee_tournament
 				}
@@ -1538,6 +1458,7 @@ narrative_event = {
 			clr_character_flag = do_not_disturb
 			clr_character_flag = attending_tournament
 			clr_character_flag = tournament_vee_winner
+			remove_trait = travelling
 
 			any_character = {
 				limit = {
@@ -1572,6 +1493,7 @@ character_event = {
 		clr_character_flag = attending_tournament
 		clr_character_flag = attending_vee_tournament
 		clr_character_flag = do_not_disturb
+		remove_trait = travelling
 	}
 
 	option = {
@@ -1581,3 +1503,51 @@ character_event = {
 		}
 	}
 }
+
+# ACS.00042 - Kill a entire patrician family
+character_event = {
+	id = ACS.00042
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		character_event = { id = ACS.00043 days = 3 }
+		
+		any_vassal = {
+			set_character_flag = check_for_dissapears
+		}
+
+		random_vassal = {
+			limit = {
+				is_patrician = yes
+				ai = yes
+			}
+			any_dynasty_member = {
+				death = {
+					death_reason = death_murder_unknown
+				}
+			}
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}		
+	}	
+}
+
+# ACS.00043 - Select the new patrician
+character_event = {
+	id = ACS.00043
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				is_patrician = yes
+				ai = yes
+				NOT = { has_character_flag = check_for_dissapears }
+			}
+			character_event = { id = ACS.00004 }			
+		} 
+	}
+} 

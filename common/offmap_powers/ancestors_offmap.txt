@@ -14,7 +14,7 @@ offmap_elune = {
 	beginning_of_history = 618.6.18
 	sound = china_interaction_interface
 	display_trigger = {
-		always = yes
+		has_character_flag = deprevated_soon
 	}
 	policies = {
 		china_open
