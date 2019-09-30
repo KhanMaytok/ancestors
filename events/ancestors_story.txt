@@ -631,8 +631,15 @@ character_event = {
 	hide_window = yes
 
 	trigger = {
-		is_ruler = no
-        is_inaccessible_or_incapable_trigger = no
+		OR = {
+			AND = {
+				is_ruler = no
+				is_inaccessible_or_incapable_trigger = no
+			}
+			AND = {
+				has_character_flag = is_khalga
+			}
+		}
 	}
 
 	immediate = {
@@ -649,17 +656,24 @@ character_event = {
 
         # Move to the new holding
         ROOT = {
-            move_character = event_target:target_holding_owner
-            religion = event_target:target_holding_owner
-            culture = event_target:target_holding_owner
             # Special events for khalga migration
             if = {
                 limit = {
                     has_character_flag = is_khalga
-                }
+                }	
+				liege = {
+					save_event_target_as = khalga_liege
+					set_character_flag = khalga_luege
+				}
+				any_demesne_title = {
+					gain_title = event_target:khalga_liege
+				}							
                 character_event = { id = ACS.00014 days = 1 } # Select a courtier for pollinate from Khalga
 			    character_event = { id = ACS.00016 days = 5 } # Khalga assassinates the host
             }
+			move_character = event_target:target_holding_owner
+            religion = event_target:target_holding_owner
+            culture = event_target:target_holding_owner
         }
 	}
 }
@@ -953,7 +967,7 @@ character_event = {
 							age >= 41
 						}
 						modifier = {
-							factor = 1.5
+							factor = 10.5
 							age >= 43
 						}
 						death = { death_reason = death_poor_health }
