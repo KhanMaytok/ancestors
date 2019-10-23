@@ -18,7 +18,7 @@ narrative_event = {
 
 	immediate = {
 		ROOT = {
-			save_event_target_as = its_me_mamma
+			narrative_event = { id = ACS.00044 days = 60 } # New Helena appears
 		}
 		random_character = {
 			limit = {
@@ -126,6 +126,7 @@ character_event = {
 		add_trait = strategist
 		add_trait = socializer
 		add_trait = hedonist
+		add_trait = seducer
 		health = 2
 		set_character_flag = is_olaf
 		set_character_flag = originated_from_chinese_court
@@ -168,7 +169,7 @@ character_event = {
 			age = 18
 			culture = pictish
 			religion = FROM
-			health = 2
+			health = 5
 			trait = fair
 			trait = strong
 			trait = mystic
@@ -180,6 +181,7 @@ character_event = {
 			trait = diligent
 			trait = proud
 			trait = vee_blood
+			trait = seductress
 		}
 		new_character = {
 			set_character_flag = is_vee
@@ -703,7 +705,7 @@ character_event = {
 	immediate = {
 		location = {
 			holder_scope = {
-				any_courtier = {
+				random_courtier = {
 					limit = {
 						is_pregnant = no
 						age >= 16
@@ -1561,7 +1563,83 @@ character_event = {
 				ai = yes
 				NOT = { has_character_flag = check_for_dissapears }
 			}
+			any_demesne_title = {
+				set_name = "Pentaghast"
+				set_short_name = "Pentaghast"
+			}
+			family_palace = {
+				set_name = "Pentaghast"
+				set_short_name = "Pentaghast"
+			}
 			character_event = { id = ACS.00004 }			
 		} 
 	}
 } 
+
+# ACS.00044 - New Helena appears
+narrative_event = {
+	id = ACS.00044
+	title = ACS_00044_TITLE
+	desc = ACS_00044_DESC
+	picture = GFX_evt_enter_vee
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
+# ACS.00045 - Vee has childs every 2 years to balance Khalga's byakugan
+character_event = {
+	id = ACS.00045
+	hide_window = yes
+	is_triggered_only = yes
+	has_character_flag = is_vee
+
+	immediate = {
+		ROOT = {
+			if = {
+				limit = {
+					is_married = yes
+				}
+				random_spouse = {
+					save_event_target_as = vee_spouse
+				}
+				ROOT = {
+					impregnate = event_target:vee_spouse
+				}
+			}
+		}
+	}
+}
+
+# ACS.00046 - Assign flag and trait if Vee spouse dies
+character_event = {
+	id = ACS.00046
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_spouse = {
+			has_character_flag = is_vee
+		}
+	}
+
+	immediate = {
+		ROOT = {
+			if = {
+				limit = {
+					any_spouse = {
+						has_character_flag = is_vee
+					}
+				}
+				random_spouse = {
+					limit = {
+						has_character_flag = is_vee
+					}
+					add_trait = prevent_marriage
+				}
+			}
+		}
+	}
+}
