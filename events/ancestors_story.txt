@@ -500,13 +500,13 @@ character_event = {
                 }	
 				liege = {
 					save_event_target_as = khalga_liege
-					set_character_flag = khalga_luege
+					set_character_flag = khalga_liege
 				}
 				any_demesne_title = {
 					gain_title = event_target:khalga_liege
 				}							
-                character_event = { id = ACS.00014 days = 1 } # Select a courtier for pollinate from Khalga
-			    character_event = { id = ACS.00016 days = 5 } # Khalga assassinates the host
+                character_event = { id = ACS.00014 days = 3 } # Select a courtier for pollinate from Khalga
+			    character_event = { id = ACS.00016 days = 6 } # Khalga assassinates the host
             }
 			move_character = event_target:target_holding_owner
             religion = event_target:target_holding_owner
@@ -543,7 +543,7 @@ character_event = {
 				random_courtier = {
 					limit = {
 						is_pregnant = no
-						age >= 16
+						age >= 15
 						age <= 50
 						is_female = yes
 						is_incapable = no
