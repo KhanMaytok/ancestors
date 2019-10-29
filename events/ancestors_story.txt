@@ -845,6 +845,12 @@ character_event = {
 				trait = khalga_blood
 			}
 			mother_even_if_dead = {
+				trait = khalga_blood
+			}
+			true_father_even_if_dead = {
+				trait = vee_blood
+			}
+			mother_even_if_dead = {
 				trait = vee_blood
 			}
 		}
@@ -854,8 +860,13 @@ character_event = {
 		# BYAKUGAN INHERITANCE
 		if = {
 			limit = {
-				true_father_even_if_dead = {
-					trait = khalga_blood
+				OR = {
+					true_father_even_if_dead = {
+						trait = khalga_blood
+					}
+					mother_even_if_dead = {
+						trait = khalga_blood
+					}
 				}
 			}
 			add_trait = khalga_blood
@@ -868,8 +879,13 @@ character_event = {
 		# SHARINGAN INHERITANCE
 		if = {
 			limit = {
-				mother_even_if_dead = {
-					trait = vee_blood
+				OR = {
+					true_father_even_if_dead = {
+						trait = vee_blood
+					}
+					mother_even_if_dead = {
+						trait = vee_blood
+					}
 				}
 			}
 			add_trait = vee_blood
