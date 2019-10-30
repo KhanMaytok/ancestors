@@ -329,11 +329,9 @@ character_event = {
 	immediate = {
 		if = {
 			limit = {
-				ROOT = {
-					OR = {
-						has_character_flag = is_ancient_one
-						has_character_flag = is_khalga
-					}
+				OR = {
+					has_character_flag = is_ancient_one
+					has_character_flag = is_khalga
 				}
 			}
 			random_character = {
@@ -377,12 +375,13 @@ character_event = {
 				FROM = {
 					OR = {
 						has_character_flag = is_khalga
-						has_character_flag = is_vee
 					}					
 				}
 			}
 			FROM = {
-				move_character = ROOT					
+				move_character = ROOT	
+				set_mother = ROOT
+				dynasty = none
 			}
 			break = yes
 		}
