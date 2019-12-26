@@ -16,26 +16,25 @@ narrative_event = {
 		NOT = { has_global_flag = comet_tiamat }
 	}
 
-	immediate = {
-		ROOT = {
-			narrative_event = { id = ACS.00044 days = 60 } # New Helena appears
-		}
+	immediate = { #  A candidate for a merchant republic
 		random_character = {
 			limit = {
 				has_landed_title = c_venezia
 				is_merchant_republic = yes
 			}
-			character_event = { id = ACS.00042 } # Kill a entire patrician family
+			character_event = { id = ACS.00002 } # Kill a entire patrician family
 		}
 		random_character = { # Spawn for another merchant republic
 			limit = {
 				is_merchant_republic = yes
 			}
-			character_event = { id = ACS.00042 days = 3 } # Kill a entire patrician family
+			character_event = { id = ACS.00002 days = 5 } # Kill a entire patrician family
 		}
 	}
 
 	option = {
+		name = ACS_00001_OPT_A
+		set_global_flag = comet_tiamat
 		trigger = {
 			OR = {
 				multiplayer = no
@@ -45,10 +44,9 @@ narrative_event = {
 				}
 			}
 		}
-		name = ACS_00001_OPT_A				
 		character_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
-		set_global_flag = comet_tiamat
-		hidden_tooltip = {
+
+		hidden_tooltip = { # Loop for the provinces
 			set_variable = { which = provs value = 5 }
 			while = {
 				limit = {
@@ -66,36 +64,64 @@ narrative_event = {
 						not = { owner = { character = ROOT } }
 						is_land =  yes
 					}
-					province_event = { id = ACS.00002 days = 30 }
+					add_province_modifier = { name = devastated_by_tiamat years = 20 }
+					spawn_disease = tuberculosis
+					any_province_character = {
+						death = { death_reason = death_murder_unknown_combustion }
+					}
+					any_province_holding = {
+						limit = {
+							is_capital = no
+						}
+						destroy_settlement = yes
+					}
+					any_neighbor_province = {
+						limit = {
+							is_land = yes
+						}
+						spawn_disease = tuberculosis
+					}
 				}
 			}
 		}
 	}
 }
 
-# ACS.00002 - Tiamat comet causes devastation
-province_event = {
+# ACS.00002 - Kill a entire patrician family
+character_event = {
 	id = ACS.00002
 	hide_window = yes
 	is_triggered_only = yes
 
-	immediate = { # burn it all
-		add_province_modifier = { name = devastated_by_tiamat years = 20 }
-		spawn_disease = tuberculosis
-		any_province_character = {
-			death = { death_reason = death_murder_unknown_combustion }
-		}
-		any_province_holding = {
-			destroy_settlement = yes
-		}
-		any_neighbor_province = {
-			limit = {
-				is_land = yes
-			}
-			spawn_disease = tuberculosis
-		}
+	trigger = {
+		NOT = { has_global_flag = infiltered_venezia }
 	}
+
+	immediate = {
+		set_global_flag = infiltered_venezia
+		
+		any_vassal = {
+			set_character_flag = check_for_dissapears
+		}
+
+		random_vassal = {
+			limit = {
+				is_patrician = yes
+				ai = yes
+			}
+			any_dynasty_member = {
+				death = {
+					death_reason = death_murder_unknown
+				}
+			}
+			death = {
+				death_reason = death_murder_unknown
+			}
+		}
+		character_event = { id = ACS.00043 days = 3 }		
+	}	
 }
+
 
 # ACS.00003 - Player is notified about Tiamat devastation
 character_event = {
@@ -136,6 +162,7 @@ character_event = {
 		health = 2
 		set_character_flag = is_olaf
 		set_character_flag = originated_from_chinese_court
+		set_character_flag = immune_tuberculosis
 		join_society = pentaghast_society
 		set_society_grandmaster = yes
 		dynasty = 300001
@@ -146,9 +173,9 @@ character_event = {
 
 	immediate = {
 		create_character = {
-			name = Tilda
+			name = "Tilda"
 			female = yes
-			age = 41
+			age = 33
 			culture = scottish
 			religion = buddhist
 			trait = mystic
@@ -156,47 +183,16 @@ character_event = {
 			trait = quick
 			trait = strong
 			trait = shrewd
-			health = 2
 		}
 		new_character = {
 			set_character_flag = is_ancient_one
 			join_society = sakya_society
 			set_society_grandmaster = yes 
 			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
 			culture = khazar
 			dynasty = 300000
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
-		}
-		create_character = {
-			name = Senua # The first Vee
-			dynasty = none
-			dna = qqovluyitrm
-			female = yes
-			age = 18
-			culture = pictish
-			religion = FROM
-			health = 5
-			trait = fair
-			trait = strong
-			trait = mystic
-			trait = wroth
-			trait = sharingan
-			trait = syrena
-			trait = kind
-			trait = lustful
-			trait = diligent
-			trait = proud
-			trait = vee_blood
-			trait = seductress
-		}
-		new_character = {
-			set_character_flag = is_vee
-			dynasty = 300001
-			join_society = pentaghast_society			
-			character_event = { id = ACS.00009 } # Born of Khalga
-			save_event_target_as = vee
-			add_spouse = event_target:olaf_the_killer
-			set_character_flag = originated_from_chinese_court
 		}
 	}
 }
@@ -208,7 +204,7 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		# OLAF RELATIONS
+		# OLAF FAMILY
         if = {
             limit = {
                 has_character_flag = is_olaf
@@ -224,7 +220,6 @@ character_event = {
                 trait = lustful
                 trait = grey_eminence
                 trait = administrator
-                health = 2
                 dynasty = 300001
             }
             new_character = {
@@ -311,10 +306,69 @@ character_event = {
 					join_society = pentaghast_society
 					society_rank_up = 3
 					set_character_flag = originated_from_chinese_court
+					set_character_flag = immune_tuberculosis
 					set_father = event_target:olaf_father
 					set_mother = event_target:olaf_mother
 					dynasty = 300001
 				}
+			}
+
+			# KHALGA
+			create_character = {
+				name = Khalga
+				dynasty = 300000
+				female = no
+				age = 0
+				culture = pictish
+				religion = ROOT
+				dynasty = none
+				trait = fair
+				trait = genius
+				trait = byakugan
+				trait = strong
+				trait = prevent_marriage
+				trait = khalga_blood
+				trait = bastard
+			}
+			new_character = {
+				set_character_flag = is_khalga
+				set_character_flag = society_join_block
+				set_character_flag = originated_from_chinese_court # to prevent to go to China
+				set_character_flag = wolf_blood_first_generation
+				set_character_flag = immune_tuberculosis
+				add_character_modifier = {
+					name = wolf_child
+					duration = -1
+				}
+				character_event = { id = ACS.00006 days = 3 }
+			}
+			# VEE
+			create_character = {
+				name = Vee
+				dynasty = 300001
+				dna = qqovluyitrm
+				female = yes
+				age = 0
+				culture = pictish
+				religion = ROOT
+				trait = fair
+				trait = strong
+				trait = mystic
+				trait = wroth
+				trait = sharingan
+				trait = syrena
+				trait = kind
+				trait = lustful
+				trait = diligent
+				trait = proud
+				trait = vee_blood
+				trait = seductress
+			}
+			new_character = {
+				set_character_flag = is_vee	
+				set_character_flag = society_join_block	
+				set_character_flag = originated_from_chinese_court
+				set_character_flag = immune_tuberculosis
 			}
         }
     }
@@ -372,88 +426,17 @@ character_event = {
 		}
 		if = {
 			limit = {
-				FROM = {
-					OR = {
-						has_character_flag = is_khalga
-					}					
+				FROM = {					
+					has_character_flag = is_khalga
 				}
 			}
 			FROM = {
-				move_character = ROOT	
-				set_mother = ROOT
+				move_character = ROOT
 				dynasty = none
+				culture = ROOT
+				religion = ROOT
 			}
 			break = yes
-		}
-	}
-}
-
-# ACS.00009 - Create Khalga
-character_event = {
-	id = ACS.00009
-	hide_window = yes
-	is_triggered_only = yes
-
-	option = {
-		name = OK
-		# Khalga born
-		create_character = {
-			name = Khalga
-			female = no
-			age = 0
-			culture = ROOT
-			religion = ROOT
-			dynasty = none
-			trait = fair
-			trait = genius
-			trait = byakugan
-			trait = strong
-			trait = prevent_marriage
-			trait = khalga_blood
-			trait = bastard
-		}
-		new_character = {
-			set_mother = ROOT
-			set_character_flag = is_khalga
-			set_character_flag = society_join_block
-			set_character_flag = originated_from_chinese_court # to prevent to go to China
-			set_character_flag = wolf_blood_first_generation
-			add_character_modifier = {
-				name = wolf_child
-				duration = -1
-			}
-			dynasty = 300000
-			health = 2
-		}
-		liege = {
-			character_event = { id = ACS.00010 days = 1 }          
-		}
-	}
-}
-
-# ACS.00010 - Player is notified about Khalga
-character_event = {
-	id = ACS.00010
-	is_triggered_only = yes
-	hide_window = yes
-
-	option = {
-		name = OK		
-		character_event = { id = ACS.00011 days = 15 }		
-	}
-}
-
-# ACS.00011 - Khalga flies to a foreign court
-character_event = {
-	id = ACS.00011
-	is_triggered_only = yes
-	hide_window = yes
-
-	option = {
-		name = ACS_00010_OPT_A
-		random_courtier = {
-			limit = { has_character_flag = is_khalga }
-			character_event = { id = ACS.00006 }
 		}
 	}
 }
@@ -1370,47 +1353,12 @@ character_event = {
 	}
 }
 
-# ACS.00042 - Kill a entire patrician family
-character_event = {
-	id = ACS.00042
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		NOT = { has_global_flag = infiltered_venezia }
-	}
-
-	immediate = {
-		set_global_flag = infiltered_venezia
-		character_event = { id = ACS.00043 days = 3 }
-		
-		any_vassal = {
-			set_character_flag = check_for_dissapears
-		}
-
-		random_vassal = {
-			limit = {
-				is_patrician = yes
-				ai = yes
-			}
-			any_dynasty_member = {
-				death = {
-					death_reason = death_murder_unknown
-				}
-			}
-			death = {
-				death_reason = death_murder_unknown
-			}
-		}		
-	}	
-}
-
 # ACS.00043 - Select the new patrician
 character_event = {
 	id = ACS.00043
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_vassal = {
 			limit = {
@@ -1419,7 +1367,7 @@ character_event = {
 				NOT = { has_character_flag = check_for_dissapears }
 			}
 			any_demesne_title = {
-				set_name = "Pentaghast"
+				set_name = "Pentaghast" 
 				set_short_name = "Pentaghast"
 			}
 			family_palace = {
