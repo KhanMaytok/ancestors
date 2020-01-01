@@ -1,4 +1,4 @@
-# ACS.90041 - Ensure only one Vee
+# ACS.90041 - Ensure Unique characters
 character_event = {
 	id = ACS.90041
 	is_triggered_only = yes
@@ -16,6 +16,7 @@ character_event = {
 	}
 
 	immediate = {
+		### Ensure only one Vee
 		random_character = {
             limit = {            
                 has_character_flag = is_vee
@@ -29,27 +30,7 @@ character_event = {
             }
             death = { death_reason = death_platypus }
         }
-	}
-}
-
-# ACS.90042 - Ensure only one Khalga
-character_event = {
-	id = ACS.90042
-	is_triggered_only = yes
-	hide_window = yes
-	ai = no
-
-    trigger = {
-		OR = {
-			multiplayer = no
-			AND = {
-				multiplayer = yes
-				is_multiplayer_host_character = yes
-			}
-		}
-	}
-
-	immediate = {
+		### Ensure only one Khalga
 		random_character = {
             limit = {            
                 has_character_flag = is_khalga
@@ -66,7 +47,7 @@ character_event = {
 	}
 }
 
-# ACS.00043 - Ensure only one Khalga
+# ACS.90043 - Ensure only one Khalga
 character_event = {
 	id = ACS.90043
 	is_triggered_only = yes
