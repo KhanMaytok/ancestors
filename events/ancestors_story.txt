@@ -14,9 +14,19 @@ narrative_event = {
 
 	trigger = {
 		NOT = { has_global_flag = comet_tiamat }
+		OR = {
+			multiplayer = no
+			AND = {
+				multiplayer = yes
+				is_multiplayer_host_character = yes
+			}
+		}
 	}
 
-	immediate = { #  A candidate for a merchant republic
+	option = {
+		name = ACS_00001_OPT_A
+		set_global_flag = comet_tiamat
+
 		random_character = {
 			limit = {
 				has_landed_title = c_venezia
@@ -30,20 +40,7 @@ narrative_event = {
 			}
 			character_event = { id = ACS.00002 days = 5 } # Kill a entire patrician family
 		}
-	}
 
-	option = {
-		name = ACS_00001_OPT_A
-		set_global_flag = comet_tiamat
-		trigger = {
-			OR = {
-				multiplayer = no
-				AND = {
-					multiplayer = yes
-					is_multiplayer_host_character = yes
-				}
-			}
-		}
 		character_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
 
 		hidden_tooltip = { # Loop for the provinces
@@ -118,10 +115,9 @@ character_event = {
 				death_reason = death_murder_unknown
 			}
 		}
-		character_event = { id = ACS.00043 days = 3 }		
+		character_event = { id = ACS.00043 days = 3 } # Select the new Patrician
 	}	
 }
-
 
 # ACS.00003 - Player is notified about Tiamat devastation
 character_event = {
@@ -150,7 +146,7 @@ character_event = {
 		add_trait = ambitious
 		add_trait = elusive_shadow
 		add_trait = shrewd
-		add_trait = genius
+		add_trait = quick
 		add_trait = hunter
 		add_trait = diligent
 		add_trait = lustful
@@ -159,25 +155,24 @@ character_event = {
 		add_trait = socializer
 		add_trait = hedonist
 		add_trait = seducer
-		health = 2
 		set_character_flag = is_olaf
 		set_character_flag = originated_from_chinese_court
 		set_character_flag = immune_tuberculosis
 		join_society = pentaghast_society
 		set_society_grandmaster = yes
 		dynasty = 300001
-		wealth = 300
 		save_event_target_as = olaf_the_killer
-		character_event = { id = ACS.00005 } # Spawn pentaghast society characters
-	}
 
-	immediate = {
 		create_character = {
 			name = "Tilda"
 			female = yes
 			age = 33
 			culture = scottish
-			religion = buddhist
+			religion = tengri_pagan
+			trait = brilliant_strategist
+			trait = cavalry_leader
+			trait = flat_terrain_leader
+			trait = master_of_flame
 			trait = mystic
 			trait = prevent_marriage
 			trait = quick
@@ -185,193 +180,249 @@ character_event = {
 			trait = shrewd
 		}
 		new_character = {
-			set_character_flag = is_ancient_one
-			join_society = sakya_society
-			set_society_grandmaster = yes 
+			set_character_flag = is_ancient_one			
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
 			culture = khazar
 			dynasty = 300000
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
 		}
+
+		# Olaf Dynasty members
+		create_character = {
+			age = 60
+			culture = greek
+			religion = ishtar_religion
+			trait = ambitious
+			trait = shrewd
+			trait = physician
+			trait = diligent
+			trait = lustful
+			trait = grey_eminence
+			trait = administrator
+			dynasty = 300001
+		}
+		new_character = {
+			save_event_target_as = olaf_father
+		}
+		create_character = {
+			age = 55
+			female = yes
+			culture = greek
+			religion = ishtar_religion
+			trait = fair
+			trait = genius
+			trait = shrewd
+			trait = physician
+			trait = diligent
+			trait = midas_touched
+			trait = administrator
+			dynasty = none
+		}
+		new_character = {
+			save_event_target_as = olaf_mother
+		}
+		create_character = {
+			age = 30
+			culture = greek
+			religion = ishtar_religion
+			trait = fair
+			trait = genius
+			trait = shrewd
+			trait = physician
+			trait = diligent
+			trait = midas_touched
+			trait = administrator
+			dynasty = 300001
+		}
+		new_character = {
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
+			save_event_target_as = olaf_brother
+		}
+		event_target:olaf_the_killer = {
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
+		}
+		# Olaf purges his family
+		event_target:olaf_father = {
+			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
+		}
+		event_target:olaf_mother = {
+			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
+		}
+		event_target:olaf_brother = {
+			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
+		}
+
+		set_variable = { which = olaf_sisters value = 10 }
+		while = {
+			limit = {
+				check_variable = {
+					which = olaf_sisters
+					value = 1
+				}
+			}
+			subtract_variable = {
+				which = olaf_sisters
+				value = 1
+			}
+			create_character = {
+				trait = ambitious
+				trait = fair
+				trait = genius
+				trait = elusive_shadow
+				trait = seductress
+				female = yes
+				culture = greek
+				religion = FROM
+			}
+			new_character = {
+				join_society = pentaghast_society
+				society_rank_up = 3
+				set_character_flag = originated_from_chinese_court
+				set_character_flag = immune_tuberculosis
+				set_father = event_target:olaf_father
+				set_mother = event_target:olaf_mother
+				dynasty = 300001
+			}
+		}
+
+		# KHALGA
+		create_character = {
+			name = Khalga
+			female = no
+			age = 0
+			culture = pictish
+			religion = ROOT
+			dynasty = none
+			trait = fair
+			trait = genius
+			trait = byakugan
+			trait = strong
+			trait = prevent_marriage
+			trait = khalga_blood
+			trait = bastard
+		}
+		new_character = {
+			set_character_flag = is_khalga
+			set_character_flag = society_join_block
+			set_character_flag = originated_from_chinese_court # to prevent to go to China
+			set_character_flag = wolf_blood_first_generation
+			set_character_flag = immune_tuberculosis
+			add_character_modifier = {
+				name = wolf_child
+				duration = -1
+			}
+			character_event = { id = ACS.00006 days = 3 }
+		}
+		# VEE
+		create_character = {
+			name = Vee
+			dynasty = 300001
+			dna = qqovluyitrm
+			female = yes
+			age = 0
+			culture = pictish
+			religion = ROOT
+			trait = fair
+			trait = strong
+			trait = mystic
+			trait = wroth
+			trait = sharingan
+			trait = syrena
+			trait = kind
+			trait = lustful
+			trait = diligent
+			trait = proud
+			trait = vee_blood
+			trait = seductress
+		}
+		new_character = {
+			set_character_flag = is_vee	
+			set_character_flag = society_join_block	
+			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
+			set_father = event_target:olaf_the_killer
+		}
 	}
 }
 
-# ACS.00005 - Spawn secondary members of the Pentaghast Society
+# ACS.00005 - Create characters for Pentaghast and Sakya
 character_event = {
 	id = ACS.00005
 	hide_window = yes
 	is_triggered_only = yes
+	is_in_society = yes
+
+	trigger = {
+		OR = {
+			society_member_of = pentaghast_society
+			society_member_of = sakya_society
+		}
+		is_society_grandmaster = yes
+	}
 
 	immediate = {
-		# OLAF FAMILY
-        if = {
-            limit = {
-                has_character_flag = is_olaf
-            }
-            create_character = {
-                age = 60
-                culture = greek
-                religion = ishtar_religion
-                trait = ambitious
-                trait = shrewd
-                trait = physician
-                trait = diligent
-                trait = lustful
-                trait = grey_eminence
-                trait = administrator
-                dynasty = 300001
-            }
-            new_character = {
-                save_event_target_as = olaf_father
-            }
-            create_character = {
-                age = 55
-                female = yes
-                culture = greek
-                religion = ishtar_religion
-                trait = fair
-                trait = genius
-                trait = shrewd
-                trait = physician
-                trait = diligent
-                trait = midas_touched
-                trait = administrator
-                health = 2
-                dynasty = none
-            }
-            new_character = {
-                save_event_target_as = olaf_mother
-            }
-            create_character = {
-                age = 30
-                culture = greek
-                religion = ishtar_religion
-                trait = fair
-                trait = genius
-                trait = shrewd
-                trait = physician
-                trait = diligent
-                trait = midas_touched
-                trait = administrator
-                health = 2
-                dynasty = 300001
-            }
-            new_character = {
-                set_mother = event_target:olaf_mother
-                set_father = event_target:olaf_father
-                save_event_target_as = olaf_brother
-            }
-
-            event_target:olaf_the_killer = {
-                set_mother = event_target:olaf_mother
-                set_father = event_target:olaf_father
-            }
-
-			# Olaf purges his family
-            event_target:olaf_father = {
-                death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
-            }
-            event_target:olaf_mother = {
-                death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
-            }
-            event_target:olaf_brother = {
-                death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
-            }
-
-			set_variable = { which = olaf_sisters value = 10 }
-			while = {
+		pentaghast_society = {
+			any_society_member = { # Ranks up any society member
 				limit = {
-					check_variable = {
-						which = olaf_sisters
-						value = 1
-					}
+					prisoner = no
+					NOT = { trait = incapable }
+					is_in_society = yes
+					society_rank < 3
+					society_can_rank_up = yes
 				}
-				subtract_variable = {
-					which = olaf_sisters
-					value = 1
+				random_list = {
+					75 = {}
+					25 = { society_rank_up = 1 }
+				}
+			}
+			if = { # Recruit more members
+				limit = {
+					num_of_society_members < 100
 				}
 				create_character = {
-					trait = ambitious
-					trait = fair
-					trait = genius
-					trait = elusive_shadow
-					trait = seductress
-					female = yes
-					culture = greek
-					religion = FROM
-					health = 2
+					female = 50
+					culture = random
+					dynasty = none
+					religion = ROOT
 				}
 				new_character = {
 					join_society = pentaghast_society
-					society_rank_up = 3
-					set_character_flag = originated_from_chinese_court
-					set_character_flag = immune_tuberculosis
-					set_father = event_target:olaf_father
-					set_mother = event_target:olaf_mother
-					dynasty = 300001
 				}
 			}
-
-			# KHALGA
-			create_character = {
-				name = Khalga
-				dynasty = 300000
-				female = no
-				age = 0
-				culture = pictish
-				religion = ROOT
-				dynasty = none
-				trait = fair
-				trait = genius
-				trait = byakugan
-				trait = strong
-				trait = prevent_marriage
-				trait = khalga_blood
-				trait = bastard
-			}
-			new_character = {
-				set_character_flag = is_khalga
-				set_character_flag = society_join_block
-				set_character_flag = originated_from_chinese_court # to prevent to go to China
-				set_character_flag = wolf_blood_first_generation
-				set_character_flag = immune_tuberculosis
-				add_character_modifier = {
-					name = wolf_child
-					duration = -1
+		}
+		sakya_society = {
+			any_society_member = { # Ranks up any society member
+				limit = {
+					prisoner = no
+					NOT = { trait = incapable }
+					is_in_society = yes
+					society_rank < 3
+					society_can_rank_up = yes
 				}
-				character_event = { id = ACS.00006 days = 3 }
+				random_list = {
+					75 = {}
+					25 = { society_rank_up = 1 }
+				}
 			}
-			# VEE
-			create_character = {
-				name = Vee
-				dynasty = 300001
-				dna = qqovluyitrm
-				female = yes
-				age = 0
-				culture = pictish
-				religion = ROOT
-				trait = fair
-				trait = strong
-				trait = mystic
-				trait = wroth
-				trait = sharingan
-				trait = syrena
-				trait = kind
-				trait = lustful
-				trait = diligent
-				trait = proud
-				trait = vee_blood
-				trait = seductress
+			if = { # Recruit more members
+				limit = {
+					num_of_society_members < 100
+				}
+				create_character = {
+					female = 50
+					culture = random
+					dynasty = none
+					religion = ROOT
+				}
+				new_character = {
+					join_society = sakya_society
+				}
 			}
-			new_character = {
-				set_character_flag = is_vee	
-				set_character_flag = society_join_block	
-				set_character_flag = originated_from_chinese_court
-				set_character_flag = immune_tuberculosis
-			}
-        }
-    }
+		}
+	}
 }
 
 # ACS.00006 - Find the current leader of the Pentaghast and Sakya mercenary band
@@ -420,7 +471,9 @@ character_event = {
 				c_mercenary_sakya = {
 					grant_title = PREV
 					set_defacto_liege = THIS
-				}					
+				}
+				join_society = sakya_society
+				set_society_grandmaster = yes 					
 			}
 			break = yes
 		}
@@ -432,7 +485,6 @@ character_event = {
 			}
 			FROM = {
 				move_character = ROOT
-				dynasty = none
 				culture = ROOT
 				religion = ROOT
 			}
@@ -462,24 +514,24 @@ character_event = {
 	}
 
 	immediate = {
-        location = {
-            random_province = {
-                limit = {
-                    is_land = yes
-                }
-                holder_scope = {
-                    save_event_target_as = target_holding_owner
-                }
-            }            
-        }
+		location = {
+			random_province = {
+				limit = {
+					is_land = yes
+				}
+				holder_scope = {
+					save_event_target_as = target_holding_owner
+				}
+			}            
+		}
 
-        # Move to the new holding
-        ROOT = {
-            # Special events for khalga migration
-            if = {
-                limit = {
-                    has_character_flag = is_khalga
-                }	
+		# Move to the new holding
+		ROOT = {
+			# Special events for khalga migration
+			if = {
+				limit = {
+					has_character_flag = is_khalga
+				}	
 				liege = {
 					save_event_target_as = khalga_liege
 					set_character_flag = khalga_liege
@@ -487,13 +539,13 @@ character_event = {
 				any_demesne_title = {
 					gain_title = event_target:khalga_liege
 				}							
-                character_event = { id = ACS.00014 days = 3 } # Select a courtier for pollinate from Khalga
-			    character_event = { id = ACS.00016 days = 6 } # Khalga assassinates the host
-            }
+				character_event = { id = ACS.00014 days = 3 } # Select a courtier for pollinate from Khalga
+				character_event = { id = ACS.00016 days = 6 } # Khalga assassinates the host
+			}
 			move_character = event_target:target_holding_owner
-            religion = event_target:target_holding_owner
-            culture = event_target:target_holding_owner
-        }
+			religion = event_target:target_holding_owner
+			culture = event_target:target_holding_owner
+		}
 	}
 }
 

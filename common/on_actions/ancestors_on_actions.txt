@@ -1,15 +1,14 @@
 on_startup = {
 	events = {
 		ACS.00001 # Comet
-		ACS.90041 # Ensure only one Vee
-		ACS.90042 # Ensure only one Khalga
+		ACS.90041 # Ensure unique characters
 		ACS.90043 # Update 0.6.0
 	}
 }
 
 on_society_bi_yearly_pulse = {
 	events = {		
-		ACS.00227 # Force join AI characters to societies
+		ACS.00005 # Create characters for Pentaghast and Sakya
 	}
 }
 

@@ -106,6 +106,7 @@ bubonic_plague = {
 		max_nb_province = 20	# ignored if 0
 
 		can_outbreak = {
+			has_global_flag = in_development
 			total_years_played = 8
 			NOT = { has_global_flag = prima_macula_happened }
 		}
