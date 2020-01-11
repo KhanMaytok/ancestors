@@ -1,48 +1,18 @@
-bubonic_plague = {
+prima_macula = {
 	rip = yes
-	contagiousness = 0.55
+	contagiousness = 0.99
 	outbreak_chance = 0.01
 	effect = {
-		local_tax_modifier = -0.75
-		supply_limit = -4
-		max_attrition = 0.075
+		local_tax_modifier = -0.99
+		supply_limit = -10
+		max_attrition = 0.99
 	}
 	yearly_province_pulse = {
-		random_list = {		
-			10 = {
-				modifier = {
-					factor = 1.1
-					hospital_level = 1
-				}
-				modifier = {
-					factor = 1.1
-					hospital_level = 2
-				}
-				modifier = {
-					factor = 1.1
-					hospital_level = 3
-				}
-				modifier = {
-					factor = 1.1
-					hospital_level = 4
-				}
-				modifier = {
-					factor = 1.1
-					hospital_level = 5
-				}
-				modifier = {
-					factor = 1.1
-					hospital_level = 6
-				}
-			}
-			90 = {
-				increase_depopulation_effect = yes
-			}
-		}
+		increase_depopulation_effect = yes
 	}
 	icon = 4
 	tooltip = BUBONIC_PLAGUE_INFO
-	months = 36
+	months = 60
 	trait = has_prima_macula
 	character_infection_chances = {
 		months = 3
