@@ -1498,3 +1498,29 @@ character_event = {
 		}
 	}
 }
+
+#########################
+## PRIMA MACULA EVENTS ##
+#########################
+# ACS.00047 - Assign flag and trait if Vee spouse dies
+character_event = {
+	id = ACS.00047
+	hide_window = yes
+	is_triggered_only = yes
+	ai = no
+
+	trigger = {
+		NOT = { has_global_flag = prima_macula_spawned }
+		total_years_played = 5
+	}
+
+	immediate = {
+		set_global_flag = prima_macula_spawned
+		random_province = {
+			limit = {
+				is_land = yes
+			}
+			spawn_disease = bubonic_plague
+		}
+	}
+}
