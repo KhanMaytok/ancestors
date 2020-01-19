@@ -100,37 +100,13 @@ prevent_marriage = {
 khalga_blood = {
 	customizer = no
 	random = no
-	combat_rating = 5
+	agnatic = yes
+	enatic = yes
 }
 
 vee_blood = {
 	customizer = no
 	random = no
-	combat_rating = 5
-}
-
-has_prima_macula = {
-	is_epidemic = yes
-	is_illness = yes
-	
-	sex_appeal_opinion = -400
-
-	general_opinion = -100
-	
-	diplomacy_penalty = -10
-	stewardship_penalty = -10
-	martial_penalty = -10
-	intrigue_penalty = -10
-	learning_penalty = -10
-	
-	health_penalty = -10
-	fertility_penalty = -0.9
-	
-	combat_rating = -100
-	
-	customizer = no
-
-	male_insult_adj = INSULT_POX_RIDDEN
-	female_insult_adj = INSULT_POX_RIDDEN
-	child_insult_adj = INSULT_POX_RIDDEN
+	agnatic = yes
+	enatic = yes
 }

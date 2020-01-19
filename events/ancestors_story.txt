@@ -611,47 +611,7 @@ character_event = {
 	immediate = {
 		location = {
 			holder_scope = {
-				random_list = {
-					10 = {
-						death = { death_reason = death_murder_unknown killer = FROMFROM }
-					}
-					10 = {
-						death = { death_reason = death_murder_unknown_beheading killer = FROMFROM }
-					}
-					10 = {
-						death = { death_reason = death_murder_unknown_fall killer = FROMFROM }
-					}
-					10 = {
-						death = { death_reason = death_murder_unknown_drowning killer = FROMFROM }
-					}
-					10 = {
-						death = { death_reason = death_murder_unknown_snakes killer = FROMFROM }
-					}
-					10 = {
-						death = { death_reason = death_murder_unknown_butchered killer = FROMFROM }
-					}
-					10 = {
-						death = { death_reason = death_murder_unknown_arrow killer = FROMFROM }
-					}
-					5 = {
-						death = { death_reason = death_murder_unknown_strangle killer = FROMFROM }
-					}
-					5 = {
-						death = { death_reason = death_murder_unknown_fear killer = FROMFROM }
-					}
-					5 = {
-						death = { death_reason = death_murder_unknown_lightning killer = FROMFROM }
-					}
-					5 = {
-						death = { death_reason = death_murder_unknown_combustion killer = FROMFROM }
-					}
-					5 = {
-						death = { death_reason = death_murder_unknown_crows killer = FROMFROM }
-					}
-					5 = {
-						death = { death_reason = death_murder_unknown_possessed_fall killer = FROMFROM }
-					}
-				}
+				death = { death_reason = death_murder_unknown killer = FROMFROM }
 			}
 		}
 	}
@@ -875,18 +835,8 @@ character_event = {
 
 	trigger = {
 		OR = {
-			true_father_even_if_dead = {
-				trait = khalga_blood
-			}
-			mother_even_if_dead = {
-				trait = khalga_blood
-			}
-			true_father_even_if_dead = {
-				trait = vee_blood
-			}
-			mother_even_if_dead = {
-				trait = vee_blood
-			}
+			trait = khalga_blood
+			trait = vee_blood
 		}
 	}
 
@@ -894,16 +844,21 @@ character_event = {
 		# BYAKUGAN INHERITANCE
 		if = {
 			limit = {
-				OR = {
-					true_father_even_if_dead = {
-						trait = khalga_blood
-					}
-					mother_even_if_dead = {
-						trait = khalga_blood
-					}
+				true_father_even_if_dead = {
+					trait = khalga_blood
 				}
 			}
-			add_trait = khalga_blood
+			random_list = {
+				7 = { add_trait = byakugan }
+				93 = { }
+			}			
+		}
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					trait = khalga_blood
+				}
+			}
 			random_list = {
 				7 = { add_trait = byakugan }
 				93 = { }
@@ -913,106 +868,67 @@ character_event = {
 		# SHARINGAN INHERITANCE
 		if = {
 			limit = {
-				OR = {
-					true_father_even_if_dead = {
-						trait = vee_blood
-					}
-					mother_even_if_dead = {
-						trait = vee_blood
-					}
-				}
+				true_father_even_if_dead = {
+					trait = vee_blood
+				}				
 			}
-			add_trait = vee_blood
+			random_list = {
+				7 = { add_trait = sharingan }
+				93 = { }
+			}
+		}
+		if = {
+			limit = {
+				mother_even_if_dead = {
+					trait = vee_blood
+				}				
+			}
 			random_list = {
 				7 = { add_trait = sharingan }
 				93 = { }
 			}
 		}
 
-		# Checks if mather and father has different dojutsu
+		# Checks if has the two bloodlines
 		if = {
 			limit = {
-				OR = {
-					AND = {
-						true_father_even_if_dead = {
-							has_sharingan_family_dojutsu = yes
-						}
-						mother_even_if_dead = {
-							has_byakugan_family_dojutsu = yes
-						}
-					}
-					AND = {
-						true_father_even_if_dead = {
-							has_byakugan_family_dojutsu = yes
-						}
-						mother_even_if_dead = {
-							has_sharingan_family_dojutsu = yes
-						}
-					}
-				}
-			}
-			set_character_flag = f_sha_m_bya
-			character_event = { id = ACS.00030 }
-		}
-	}
-}
-
-# ACS.00030 - RH child gets some problems
-character_event = {
-	id = ACS.00030
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = {
-				mother = { has_character_flag = dojutsu_rh }
+				trait = khalga_blood
+				trait =  vee_blood
 			}
 			random_list = {
-				90 = { # 90 % of children will die
-					death = { death_reason = death_poor_health }
+				999999 = {
+					add_trait = malnourished
+					add_trait = depressed
+					add_trait = incapable
+					add_trait = infirm
+					add_trait = lunatic
+					add_trait = maimed
+					add_trait = scarred_high
+					add_trait = wounded
+					add_trait = blinded
+					add_trait = clubfooted
+					add_trait = dwarf
+					add_trait = harelip
+					add_trait = hunchback
+					add_trait = imbecile
+					add_trait = inbred
+					add_trait = lisp
+					add_trait = slow
+					add_trait = stutter
+					add_trait = weak
 				}
-				10 = {
-					random_list = {
-						999 = {
-							add_trait = malnourished
-							random_list = {
-								100 = { add_trait = depressed }
-								100 = { add_trait = incapable }
-								100 = { add_trait = infirm }
-								100 = { add_trait = lunatic }
-								100 = { add_trait = maimed }
-								100 = { add_trait = scarred_high }
-								100 = { add_trait = wounded }
-								100 = { add_trait = blinded }
-							}
-							random_list = {
-								100 = { add_trait = clubfooted }
-								100 = { add_trait = dwarf }
-								100 = { add_trait = harelip }
-								100 = { add_trait = hunchback }
-								100 = { add_trait = imbecile }
-								100 = { add_trait = inbred }
-								100 = { add_trait = lisp }
-								100 = { add_trait = slow }
-								100 = { add_trait = stutter }
-								100 = { add_trait = weak }
-							}
-						}
-						1 = {
-							add_trait = rinnegan
-							add_trait = genius
-							add_trait = fair
-						}
-					}
+				1 = {
+					add_trait = rinnegan
+					add_trait = genius
+					add_trait = fair
 				}
 			}
 		}
-		else = {
-			mother = { set_character_flag = dojutsu_rh }
-		}
 	}
 }
+
+# ACS.00030 - AVAILABLE
+
 
 # ACS.00034 - Resurrect Vee if she dies
 character_event = {
