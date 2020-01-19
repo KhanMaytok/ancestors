@@ -728,102 +728,18 @@ character_event = {
 	has_character_flag = is_vee
 
 	immediate = {
-		# Check if Vee has enough maidens - Recruit maidens between the vassal's daughters
-		ROOT = {
-			if = {
-				limit = {
-					liege = {
-						any_courtier = {
-							has_minor_title = title_maid_of_honor
-							count < 7
-						}
-					}
-				}
-				liege = {
-					save_event_target_as = vee_liege
-					any_vassal = {
-						limit = {
-							num_of_children >= 1
-							any_child = {
-								is_female = yes
-								is_married = no
-								is_adult = no
-								is_inaccessible_or_incapable_trigger = no
-							}
-						}
-						random_child = {
-							limit = {
-								is_female = yes
-								is_married = no
-								is_adult = no
-								is_inaccessible_or_incapable_trigger = no
-							}
-							save_event_target_as = maiden_child
-							move_character = event_target:vee_liege
-							give_minor_title = title_maid_of_honor
-							opinion = {
-								modifier = opinion_loyal_servant
-								who = ROOT
-							}
-						}
-					}
-					character_event = { id = ACS.00035 }
-					# TO-DO : Child parents receives notification		
-				}
-			}
-		}
-
 		ROOT = {
 			if = {
 				limit = {
 					age >= 33
 				}
-				random_list = {
-					90 = {}
-					10 = {
-						modifier = {
-							factor = 1.5
-							age >= 35
-						}
-						modifier = {
-							factor = 1.5
-							age >= 37
-						}
-						modifier = {
-							factor = 1.5
-							age >= 39
-						}
-						modifier = {
-							factor = 1.5
-							age >= 41
-						}
-						modifier = {
-							factor = 10.5
-							age >= 43
-						}
-						death = { death_reason = death_poor_health }
-						pentaghast_society = {
-							any_society_member = { letter_event = { id = ACS.00028 } }
-						}
-					}
-				}
+				death = { death_reason = death_poor_health }
 			}
 		}
 	}
 }
 
-# ACS.00028 - Send a letter to Pentaghast members notifying transfer essence
-letter_event = {
-	id = ACS.00028
-	title = ACS_00028_TITLE
-	desc = ACS_00028_DESC
-	is_triggered_only = yes
-
-	option = {
-		name = OK
-		ai_chance = { factor = 100 }    
-	}
-}
+# ACS.00028 - AVAILABLE
 
 ##############################################
 # ACS.00029 - Dojutsu inheritance mechanics ##
@@ -966,30 +882,17 @@ character_event = {
 	}
 }
 
-# ACS.00035 - Host is notified about the new Vee honor maiden
-character_event = {
-	id = ACS.00035
-	picture = GFX_evt_courtiers_talking
-	desc = ACS_00035_DESC
-	is_triggered_only = yes
-	ai = no
-
-	option = {
-		name = OK
-	}
-}
+# ACS.00035 - AVAILABLE
 
 # ACS.00036 - Select Vee in adulthood. Tournament
 character_event = {
 	id = ACS.00036
-	picture = GFX_evt_courtiers_talking
-	desc = ACS_00035_DESC
 	is_triggered_only = yes
 	hide_window = yes
 	has_character_flag = is_vee
 
 	trigger = {
-		NOT = { has_character_flag = married_in_tournament }
+		is_married = no
 	}
 
 	immediate = {
@@ -1021,6 +924,7 @@ character_event = {
 				NOT = { has_character_flag = do_not_disturb }
 				NOT = { trait = celibate }
 				NOT = { trait = eunuch }
+				liege = { is_landed = yes }
 			}
 			narrative_event = { id = ACS.00037 } # Characters receives letterl
 		}
@@ -1372,6 +1276,7 @@ character_event = {
 			if = {
 				limit = {
 					is_married = yes
+					is_pregnant = no
 				}
 				random_spouse = {
 					save_event_target_as = vee_spouse
