@@ -337,6 +337,7 @@ character_event = {
 			trait = proud
 			trait = vee_blood
 			trait = seductress
+			trait = prevent_marriage
 		}
 		new_character = {
 			set_character_flag = is_vee	
@@ -344,6 +345,7 @@ character_event = {
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
 			set_father = event_target:olaf_the_killer
+			culture = event_target:olaf_the_killer
 		}
 	}
 }

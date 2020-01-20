@@ -1,6 +1,6 @@
 sakya_society = {
 	primary_attribute = intrigue
-	is_secret = no
+	is_secret = yes
 	devil_worshipper = no
 	opinion_to_other_members = +10
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
@@ -271,7 +271,7 @@ sakya_society = {
 
 pentaghast_society = {
 	primary_attribute = intrigue
-	is_secret = no
+	is_secret = yes
 	devil_worshipper = no
 	opinion_to_other_members = +10
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
