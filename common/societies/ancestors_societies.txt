@@ -280,7 +280,6 @@ pentaghast_society = {
 	society_rank_up_decision = request_to_rank_up_within_society
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
-	associated_religion = ishtar_religion
 	society_influence = no
 	
 	active = { }
