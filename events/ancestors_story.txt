@@ -40,6 +40,15 @@ narrative_event = {
 			}
 			character_event = { id = ACS.00002 days = 5 } # Kill a entire patrician family
 		}
+		random_character = { # Spawn for another merchant republic
+			limit = {
+				is_ruler = yes
+				is_landed = yes
+				real_tier = COUNT
+			}
+			set_character_flag = transition_to_republic
+			character_event = { id = ACS.00002 days = 15 } # Kill a entire patrician family
+		}
 
 		character_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
 
@@ -96,6 +105,13 @@ character_event = {
 
 	immediate = {
 		set_global_flag = infiltered_venezia
+
+		if = {
+			limit = {
+				has_character_flag = transition_to_republic
+			}
+			set_government_type = merchant_republic_government
+		}
 		
 		any_vassal = {
 			set_character_flag = check_for_dissapears
