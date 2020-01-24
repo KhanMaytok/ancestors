@@ -44,7 +44,7 @@ narrative_event = {
 			limit = {
 				is_ruler = yes
 				is_landed = yes
-				real_tier = COUNT
+				real_tier = DUKE
 			}
 			set_character_flag = transition_to_republic
 			character_event = { id = ACS.00002 days = 15 } # Kill a entire patrician family
