@@ -45,6 +45,7 @@ narrative_event = {
 				is_ruler = yes
 				is_landed = yes
 				real_tier = DUKE
+				ai = yes
 			}
 			set_character_flag = transition_to_republic
 			character_event = { id = ACS.00002 days = 15 } # Kill a entire patrician family
@@ -180,11 +181,22 @@ character_event = {
 		save_event_target_as = olaf_the_killer
 
 		create_character = {
+			female = yes
+			age = 18
+			culture = ROOT
+			religion = ROOT
+		}
+		new_character = {
+			add_spouse = ROOT
+			add_lover = ROOT
+		}
+
+		create_character = {
 			name = "Tilda"
 			female = yes
 			age = 33
-			culture = scottish
-			religion = tengri_pagan
+			culture = ROOT
+			religion = ROOT
 			trait = brilliant_strategist
 			trait = cavalry_leader
 			trait = flat_terrain_leader
@@ -199,7 +211,6 @@ character_event = {
 			set_character_flag = is_ancient_one			
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
-			culture = khazar
 			dynasty = 300000
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
 		}
@@ -207,7 +218,7 @@ character_event = {
 		# Olaf Dynasty members
 		create_character = {
 			age = 60
-			culture = greek
+			culture = event_target:olaf_the_killer
 			religion = event_target:olaf_the_killer
 			trait = ambitious
 			trait = shrewd
@@ -224,7 +235,7 @@ character_event = {
 		create_character = {
 			age = 55
 			female = yes
-			culture = greek
+			culture = event_target:olaf_the_killer
 			religion = event_target:olaf_the_killer
 			trait = fair
 			trait = genius
@@ -240,7 +251,7 @@ character_event = {
 		}
 		create_character = {
 			age = 30
-			culture = greek
+			culture = event_target:olaf_the_killer
 			religion = event_target:olaf_the_killer
 			trait = fair
 			trait = genius
@@ -290,8 +301,9 @@ character_event = {
 				trait = elusive_shadow
 				trait = seductress
 				female = yes
-				culture = greek
-				religion = FROM
+				culture = ROOT
+				religion = ROOT
+				dynasty = 300001
 			}
 			new_character = {
 				join_society = pentaghast_society
@@ -300,7 +312,7 @@ character_event = {
 				set_character_flag = immune_tuberculosis
 				set_father = event_target:olaf_father
 				set_mother = event_target:olaf_mother
-				dynasty = 300001
+				
 			}
 		}
 
@@ -308,9 +320,9 @@ character_event = {
 		create_character = {
 			name = Khalga
 			female = no
-			age = 0
-			culture = pictish
-			religion = ROOT
+			age = 5
+			culture = event_target:olaf_the_killer
+			religion = event_target:olaf_the_killer
 			dynasty = none
 			trait = fair
 			trait = genius
@@ -318,7 +330,12 @@ character_event = {
 			trait = strong
 			trait = prevent_marriage
 			trait = khalga_blood
+			trait = duelist
+			trait = gamer
+			trait = socializer
+			trait = strategist
 			trait = bastard
+			trait = seducer
 		}
 		new_character = {
 			set_character_flag = is_khalga
@@ -338,13 +355,12 @@ character_event = {
 			dynasty = 300001
 			dna = qqovluyitrm
 			female = yes
-			age = 0
-			culture = pictish
-			religion = ROOT
+			age = 15
+			culture = event_target:olaf_the_killer
+			religion = event_target:olaf_the_killer
 			trait = fair
 			trait = strong
 			trait = mystic
-			trait = wroth
 			trait = sharingan
 			trait = syrena
 			trait = kind
@@ -354,6 +370,11 @@ character_event = {
 			trait = vee_blood
 			trait = seductress
 			trait = prevent_marriage
+			trait = bastard
+			trait = ambitious
+			trait = cynical
+			trait = erudite
+			trait = gregarious
 		}
 		new_character = {
 			set_character_flag = is_vee	
