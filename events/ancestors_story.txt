@@ -709,10 +709,15 @@ character_event = {
 			trait = fair
 			trait = genius
 			trait = byakugan
-			trait = khalga_blood
 			trait = strong
 			trait = prevent_marriage
+			trait = khalga_blood
+			trait = duelist
+			trait = gamer
+			trait = socializer
+			trait = strategist
 			trait = bastard
+			trait = seducer
 		}
 		new_character = {
 			set_mother = ROOT           
