@@ -1,4 +1,4 @@
 sakya_composition = {
-    knights = 150
+    sakya_bucelarii = 150
     levy_size = 1
 }

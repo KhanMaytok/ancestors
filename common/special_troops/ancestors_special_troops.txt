@@ -1,0 +1,11 @@
+sakya_bucelarii = {
+    morale = 30
+    maintenance = 10
+    phase_skirmish_attack = 13
+    phase_melee_attack = 13
+    phase_pursue_attack = 13
+    phase_skirmish_defense = 13
+    phase_melee_defense = 13
+    phase_pursue_defense = 13
+    base_type = heavy_cavalry
+}
