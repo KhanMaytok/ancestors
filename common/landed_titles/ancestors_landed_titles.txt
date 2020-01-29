@@ -51,7 +51,7 @@ d_mercenary_sakya = {
 
 	dynasty_title_names = no
 	
-	strength_growth_per_century = 1.0
+	strength_growth_per_century = 0.00
 
 	mercenary_type = sakya_composition
 }
