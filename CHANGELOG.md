@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optimized initial characters generation
 - Vee independient generation, Senua is gone
 - Societies will generate new members over time
+- Bubonic plague at game start
 
 ## [0.6.1] - 2019-09-18
 ### Added

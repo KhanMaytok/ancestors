@@ -15,7 +15,6 @@ on_society_bi_yearly_pulse = {
 on_yearly_pulse = {
 	events = {
 		ACS.00013 # Khalga traveling every year
-		ACS.00047 # Starts a prima macula outreak
 	}
 }
 

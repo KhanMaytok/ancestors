@@ -72,7 +72,6 @@ narrative_event = {
 						is_land =  yes
 					}
 					add_province_modifier = { name = devastated_by_tiamat years = 20 }
-					spawn_disease = tuberculosis
 					any_province_character = {
 						death = { death_reason = death_murder_unknown_combustion }
 					}
@@ -81,12 +80,6 @@ narrative_event = {
 							is_capital = no
 						}
 						destroy_settlement = yes
-					}
-					any_neighbor_province = {
-						limit = {
-							is_land = yes
-						}
-						spawn_disease = tuberculosis
 					}
 				}
 			}
@@ -343,6 +336,7 @@ character_event = {
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
 			set_character_flag = wolf_blood_first_generation
 			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 			add_character_modifier = {
 				name = wolf_child
 				duration = -1
@@ -381,8 +375,13 @@ character_event = {
 			set_character_flag = society_join_block	
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 			set_father = event_target:olaf_the_killer
 			culture = event_target:olaf_the_killer
+		}
+
+		96 = {
+			spawn_disease = bubonic_plague
 		}
 	}
 }
@@ -1341,32 +1340,6 @@ character_event = {
 				}
 				add_trait = prevent_marriage
 			}
-		}
-	}
-}
-
-#########################
-## PRIMA MACULA EVENTS ##
-#########################
-# ACS.00047 - Spawn black death after Khalga 5 years
-character_event = {
-	id = ACS.00047
-	hide_window = yes
-	is_triggered_only = yes
-	ai = no
-
-	trigger = {
-		NOT = { has_global_flag = prima_macula_spawned }
-		total_years_played = 5
-	}
-
-	immediate = {
-		set_global_flag = prima_macula_spawned
-		random_province = {
-			limit = {
-				is_land = yes
-			}
-			spawn_disease = bubonic_plague
 		}
 	}
 }
