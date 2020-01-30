@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vee independient generation, Senua is gone
 - Societies will generate new members over time
 - Bubonic plague at game start
+- Delete custom societies
 
 ## [0.6.1] - 2019-09-18
 ### Added
