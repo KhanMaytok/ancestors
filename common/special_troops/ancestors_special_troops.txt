@@ -1,6 +1,6 @@
 sakya_bucelarii = {
     morale = 30
-    maintenance = 10
+    maintenance = 13
     phase_skirmish_attack = 13
     phase_melee_attack = 13
     phase_pursue_attack = 13

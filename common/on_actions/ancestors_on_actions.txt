@@ -6,12 +6,6 @@ on_startup = {
 	}
 }
 
-on_society_bi_yearly_pulse = {
-	events = {		
-		ACS.00005 # Create characters for Pentaghast and Sakya
-	}
-}
-
 on_yearly_pulse = {
 	events = {
 		ACS.00013 # Khalga traveling every year

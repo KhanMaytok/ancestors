@@ -168,7 +168,6 @@ character_event = {
 		set_character_flag = is_olaf
 		set_character_flag = originated_from_chinese_court
 		set_character_flag = immune_tuberculosis
-		join_society = pentaghast_society
 		set_society_grandmaster = yes
 		dynasty = 300001
 		save_event_target_as = olaf_the_killer
@@ -299,7 +298,6 @@ character_event = {
 				dynasty = 300001
 			}
 			new_character = {
-				join_society = pentaghast_society
 				society_rank_up = 3
 				set_character_flag = originated_from_chinese_court
 				set_character_flag = immune_tuberculosis
@@ -386,82 +384,8 @@ character_event = {
 	}
 }
 
-# ACS.00005 - Create characters for Pentaghast and Sakya
-character_event = {
-	id = ACS.00005
-	hide_window = yes
-	is_triggered_only = yes
-	is_in_society = yes
+# ACS.00005 - AVAILABLE
 
-	trigger = {
-		OR = {
-			society_member_of = pentaghast_society
-			society_member_of = sakya_society
-		}
-		is_society_grandmaster = yes
-	}
-
-	immediate = {
-		pentaghast_society = {
-			any_society_member = { # Ranks up any society member
-				limit = {
-					prisoner = no
-					NOT = { trait = incapable }
-					is_in_society = yes
-					society_rank < 3
-					society_can_rank_up = yes
-				}
-				random_list = {
-					75 = {}
-					25 = { society_rank_up = 1 }
-				}
-			}
-			if = { # Recruit more members
-				limit = {
-					num_of_society_members < 100
-				}
-				create_character = {
-					female = 50
-					culture = random
-					dynasty = none
-					religion = ROOT
-				}
-				new_character = {
-					join_society = pentaghast_society
-				}
-			}
-		}
-		sakya_society = {
-			any_society_member = { # Ranks up any society member
-				limit = {
-					prisoner = no
-					NOT = { trait = incapable }
-					is_in_society = yes
-					society_rank < 3
-					society_can_rank_up = yes
-				}
-				random_list = {
-					75 = {}
-					25 = { society_rank_up = 1 }
-				}
-			}
-			if = { # Recruit more members
-				limit = {
-					num_of_society_members < 100
-				}
-				create_character = {
-					female = 50
-					culture = random
-					dynasty = none
-					religion = ROOT
-				}
-				new_character = {
-					join_society = sakya_society
-				}
-			}
-		}
-	}
-}
 
 # ACS.00006 - Find the current leader of the Pentaghast and Sakya mercenary band
 character_event = {
