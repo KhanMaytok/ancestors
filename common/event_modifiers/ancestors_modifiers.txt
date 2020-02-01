@@ -1,8 +1,3 @@
-had_pentaghast_fertility_ritual = {
-	fertility = 0.2
-	icon = 75
-}
-
 devastated_by_tiamat = {
 	icon = 106
 	disease_defence = -1.0
@@ -11,18 +6,6 @@ devastated_by_tiamat = {
 	local_build_cost_modifier = 3.0
 	local_build_time_modifier = 3.0
 	supply_limit = -20.0
-}
-
-
-visited_by_pentaghast = {
-	icon = 106
-	local_revolt_risk = 6.66
-}
-
-orichalcum_statue = {
-	icon = 52
-	fertility = 0.2
-	monthly_character_prestige = 0.10
 }
 
 used_sharingan_1 = {

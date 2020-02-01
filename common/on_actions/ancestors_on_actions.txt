@@ -6,16 +6,16 @@ on_startup = {
 	}
 }
 
-on_yearly_pulse = {
+on_bi_yearly_pulse = {
 	events = {
-		ACS.00013 # Khalga traveling every year
+		ACS.00025 # Vee migrates to another body
+		ACS.00045 # Vee has childs every 2 years to balance Khalga's byakugan
 	}
 }
 
-on_bi_yearly_pulse = {
-	events = {		
-		ACS.00025 # Vee migrates to another body
-		ACS.00045 # Vee has childs every 2 years to balance Khalga's byakugan
+on_five_year_pulse = {
+	events = {
+		ACS.00013 # Khalga traveling every year	
 	}
 }
 
@@ -24,6 +24,12 @@ on_death = {
 		ACS.00017 # Resurrect Khalga if He dies
 		ACS.00034 # Resurrect Vee if she dies
 		ACS.00046 # Assign flag and trait if Vee spouse dies
+	}
+}
+
+on_birth = {
+	events = {
+		ACS.00014 # Ensure inherit Khalga trait for cuckoo
 	}
 }
 
