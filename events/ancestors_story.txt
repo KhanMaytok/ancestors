@@ -274,39 +274,6 @@ character_event = {
 			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
 		}
 
-		set_variable = { which = olaf_sisters value = 10 }
-		while = {
-			limit = {
-				check_variable = {
-					which = olaf_sisters
-					value = 1
-				}
-			}
-			subtract_variable = {
-				which = olaf_sisters
-				value = 1
-			}
-			create_character = {
-				trait = ambitious
-				trait = fair
-				trait = genius
-				trait = elusive_shadow
-				trait = seductress
-				female = yes
-				culture = ROOT
-				religion = ROOT
-				dynasty = 300001
-			}
-			new_character = {
-				society_rank_up = 3
-				set_character_flag = originated_from_chinese_court
-				set_character_flag = immune_tuberculosis
-				set_father = event_target:olaf_father
-				set_mother = event_target:olaf_mother
-				
-			}
-		}
-
 		# KHALGA
 		create_character = {
 			name = Khalga

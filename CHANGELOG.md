@@ -5,13 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
 - Vee tournament
 - Optimized initial characters generation
 - Vee independient generation, Senua is gone
 - Societies will generate new members over time
 - Bubonic plague at game start
 - Delete custom societies
+- Deleted bloodlines
+- Seleted Olaf sisters
+- Add Olaf childs 
 
 ## [0.6.1] - 2019-09-18
 ### Added
