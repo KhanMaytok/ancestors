@@ -167,6 +167,7 @@ character_event = {
 		set_character_flag = is_olaf
 		set_character_flag = originated_from_chinese_court
 		set_character_flag = immune_tuberculosis
+		set_character_flag = immune_bubonic_plague
 		set_society_grandmaster = yes
 		dynasty = 300001
 		save_event_target_as = olaf_the_killer
@@ -182,6 +183,8 @@ character_event = {
 			add_spouse = ROOT
 			add_lover = ROOT
 			save_event_target_as = olaf_spouse
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 		}
 
 		create_character = { # Olaf child 1
@@ -190,10 +193,13 @@ character_event = {
 			random_traits = yes
 			culture = ROOT
 			religion = ROOT
+			dynasty = 300001
 		}
 		new_character = {
 			set_father = event_target:olaf_the_killer
 			set_mother = event_target:olaf_spouse
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 		}
 
 		create_character = { # Olaf child 2
@@ -202,10 +208,13 @@ character_event = {
 			random_traits = yes
 			culture = ROOT
 			religion = ROOT
+			dynasty = 300001
 		}
 		new_character = {
 			set_father = event_target:olaf_the_killer
 			set_mother = event_target:olaf_spouse
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 		}
 
 		create_character = {
@@ -228,6 +237,7 @@ character_event = {
 			set_character_flag = is_ancient_one			
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 			dynasty = 300000
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
 		}
@@ -359,6 +369,7 @@ character_event = {
 			trait = cynical
 			trait = erudite
 			trait = gregarious
+			trait = lefthanded
 		}
 		new_character = {
 			set_character_flag = is_vee	
@@ -454,7 +465,7 @@ character_event = {
 ###################
 ## KHALGA TRAVEL ##
 ###################
-# ACS.00013 - Khalga traveling every two years
+# ACS.00013 - Khalga traveling every 5 years
 character_event = {
 	id = ACS.00013
 	is_triggered_only = yes
@@ -545,18 +556,8 @@ character_event = {
 
 	immediate = {
 		random_spouse  = {
-			character_event = { id = ACS.00019 }            
-		}        
-	}
-}
-
-# ACS.00019 - Spawn a new instance of Khalga
-character_event = {
-	id = ACS.00019
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
+			save_event_target_as = khalga_mother			
+		}
 		create_character = {
 			age = 0
 			female = no
@@ -570,14 +571,11 @@ character_event = {
 			trait = prevent_marriage
 			trait = khalga_blood
 			trait = duelist
-			trait = gamer
-			trait = socializer
-			trait = strategist
 			trait = bastard
 			trait = seducer
 		}
 		new_character = {
-			set_mother = ROOT           
+			set_mother = event_target:khalga_mother           
 			set_character_flag = is_khalga
 			set_character_flag = society_join_block
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
@@ -590,9 +588,11 @@ character_event = {
 			mother = {
 				death = { death_reason = death_childbirth }              
 			}
-		}
+		} 
 	}
 }
+
+# ACS.00019 - AVAILABLE
 
 # ACS.00020 - Ensure the correct portrait for Khalga
 character_event = {
@@ -661,20 +661,14 @@ character_event = {
 		# BYAKUGAN INHERITANCE
 		if = {
 			limit = {
-				true_father_even_if_dead = {
-					trait = khalga_blood
-				}
-			}
-			random_list = {
-				7 = { add_trait = byakugan }
-				93 = { }
-			}			
-		}
-		if = {
-			limit = {
-				mother_even_if_dead = {
-					trait = khalga_blood
-				}
+				OR = {
+					true_father_even_if_dead = {
+						trait = khalga_blood
+					}
+					mother_even_if_dead = {
+						trait = khalga_blood
+					}
+				}				
 			}
 			random_list = {
 				7 = { add_trait = byakugan }
@@ -685,20 +679,15 @@ character_event = {
 		# SHARINGAN INHERITANCE
 		if = {
 			limit = {
-				true_father_even_if_dead = {
-					trait = vee_blood
-				}				
-			}
-			random_list = {
-				7 = { add_trait = sharingan }
-				93 = { }
-			}
-		}
-		if = {
-			limit = {
-				mother_even_if_dead = {
-					trait = vee_blood
-				}				
+				OR = {
+					true_father_even_if_dead = {
+						trait = vee_blood
+					}
+					mother_even_if_dead = {
+						trait = vee_blood
+					}
+				}
+								
 			}
 			random_list = {
 				7 = { add_trait = sharingan }
@@ -710,7 +699,7 @@ character_event = {
 		if = {
 			limit = {
 				trait = khalga_blood
-				trait =  vee_blood
+				trait = vee_blood
 			}
 			random_list = {
 				999999 = {
@@ -736,8 +725,6 @@ character_event = {
 				}
 				1 = {
 					add_trait = rinnegan
-					add_trait = genius
-					add_trait = fair
 				}
 			}
 		}
@@ -745,7 +732,6 @@ character_event = {
 }
 
 # ACS.00030 - AVAILABLE
-
 
 # ACS.00034 - Resurrect Vee if she dies
 character_event = {
@@ -762,22 +748,30 @@ character_event = {
 				culture = event_target:pentaghast_leader
 				religion = event_target:pentaghast_leader
 				age = 0
-				trait = syrena
 				trait = fair
-				trait = sharingan
-				trait = genius
-				trait = brooding
-				trait = playful
-				trait = fussy
 				trait = strong
-				trait = groomed
+				trait = mystic
+				trait = sharingan
+				trait = syrena
+				trait = kind
+				trait = lustful
+				trait = diligent
+				trait = proud
 				trait = vee_blood
+				trait = seductress
 				trait = prevent_marriage
+				trait = bastard
+				trait = ambitious
+				trait = cynical
+				trait = erudite
+				trait = gregarious
+				trait = lefthanded
 				dynasty = event_target:pentaghast_leader
 			}
 			new_character = {
 				set_character_flag = is_vee
 				set_father = event_target:pentaghast_leader
+				set_character_flag = immune_bubonic_plague
 			}
 		}
 	}
@@ -785,6 +779,9 @@ character_event = {
 
 # ACS.00035 - AVAILABLE
 
+########################
+## TOURNAMENT FOR VEE ##
+########################
 # ACS.00036 - Select Vee in adulthood. Tournament
 character_event = {
 	id = ACS.00036
@@ -798,9 +795,8 @@ character_event = {
 
 	immediate = {
 		character_event = { id = ACS.00038 days = 60 } # Tournament start
-		any_playable_ruler = { # Select suitable rulers for the tournament
+		any_character = { # Select suitable rulers for the tournament
 			limit = {
-				is_landed = yes
 				can_marry = yes
 				age = 16
 				NOT = { age = 50 }
@@ -811,25 +807,9 @@ character_event = {
 				NOT = { trait = celibate }
 				NOT = { trait = eunuch }
 				NOT = { dynasty = 300001 }
+				NOT = { has_character_flag = is_khalga }
 			}
 			character_event = { id = ACS.00037 } # Characters receives letter
-		}
-		any_character = {
-			limit = {
-				is_heir = yes
-				can_marry = yes
-				age = 16
-				NOT = { age = 50 }
-				is_inaccessible_or_incapable_trigger = no
-				is_female = no
-				NOT = { has_character_flag = attending_tournament }
-				NOT = { has_character_flag = do_not_disturb }
-				NOT = { trait = celibate }
-				NOT = { trait = eunuch }
-				liege = { is_landed = yes }
-				NOT = { dynasty = 300001 }
-			}
-			narrative_event = { id = ACS.00037 } # Characters receives letterl
 		}
 	}
 }
@@ -842,7 +822,17 @@ narrative_event = {
 	picture = "GFX_evt_vee_tournament_invitation"
 	is_triggered_only = yes
 
-	trigger = { is_inaccessible_or_incapable_trigger = no }
+	trigger = {
+		is_inaccessible_or_incapable_trigger = no
+		NOT = {
+			any_war = {				
+				OR = {
+					using_cb = crusade
+					using_cb = new_crusade
+				}
+			}
+		}
+	}
 
 	option = {
 		name = "EVTOPTA70000"
@@ -854,9 +844,25 @@ narrative_event = {
 			}
 		}
 		prestige = 100
+
+		# Clear any previous tournament flags
+		clr_character_flag = tournament_begins
+		clr_character_flag = winner
+		clr_character_flag = second_place
+		clr_character_flag = third_place
+		clr_character_flag = attending_tournament
+		clr_character_flag = attending_tournament_event
+		clr_character_flag = tournament_third_place
+		clr_character_flag = tournament_second_place
+		clr_character_flag = tournament_winner
+		clr_character_flag = do_not_disturb
+		clr_character_flag = tournament_vee_winner
+
+		# Set flags for new tournament
 		set_character_flag = attending_tournament
 		set_character_flag = do_not_disturb
 		set_character_flag = attending_vee_tournament
+		clr_character_flag = tournament_has_ended
 		any_war = {
 			limit = {
 				NOT = { 
@@ -888,14 +894,27 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA70001"
-		
+
+		dynasty_head = {
+			any_war = {
+				limit = {
+					NOT = { 
+						OR = {
+							using_cb = crusade
+							using_cb = new_crusade
+						}
+					}
+				}
+				end_war = whitepeace
+			}
+		}
+
 		hidden_tooltip = {
-			# Injuries
 			any_character = {
 				limit = {
 					has_character_flag = attending_vee_tournament
 				}
-				character_event = { id = 70050 days = 1 random = 15 }
+				character_event = { id = 70050 days = 1 random = 15 } # Injuries
 				#Set score
 				character_event = { id = 70060 days = 46 }
 			}
@@ -1074,7 +1093,6 @@ narrative_event = {
 				has_character_flag = tournament_vee_winner
 			}
 			add_spouse = ROOT
-			add_lover = ROOT
 			clr_character_flag = attending_vee_tournament
 			clr_character_flag = do_not_disturb
 			clr_character_flag = attending_tournament
@@ -1089,9 +1107,9 @@ narrative_event = {
 			}
 		}
 
-		# Vee effects
-		remove_trait = prevent_marriage
-		set_character_flag = married_in_tournament
+		dynasty_head = {
+			narrative_event = { id = ACS.00044 } # Dynasty head receives notification
+		}
 	}
 
 	option = {
@@ -1151,7 +1169,18 @@ character_event = {
 	}
 } 
 
-# ACS.00044 - AVAILABLE
+# ACS.00044 - Vee's dynasty heaad receives a letter
+narrative_event = {
+	id = ACS.00044
+	title = "TOURNAMENTTITLE"
+	desc = "ACS_00044_DESC"
+	picture = "GFX_evt_vee_tournament_invitation"
+	is_triggered_only = yes
+
+	option = {
+		name = OK		
+	}
+}
 
 # ACS.00045 - Vee has childs every 2 years to balance Khalga's byakugan
 character_event = {

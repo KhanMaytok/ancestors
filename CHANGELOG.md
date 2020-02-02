@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deleted bloodlines
 - Seleted Olaf sisters
 - Add Olaf childs 
+- Khalga don't kill the husband after cuckoo
+- Modify Vee tournament performance and flags
 
 ## [0.6.1] - 2019-09-18
 ### Added
