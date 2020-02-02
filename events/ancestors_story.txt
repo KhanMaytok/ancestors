@@ -503,20 +503,42 @@ character_event = {
 	}
 }
 
-# ACS.00014 - Ensure inherit Khalga trait for cuckoo
+# ACS.00014 - Ensure inherit Khalga or Vee trait for cuckoo
 character_event = {
 	id = ACS.00014
 	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
-		true_father_even_if_dead = {
-			trait = khalga_blood
+		OR = {
+			true_father_even_if_dead = {
+				trait = khalga_blood
+			}
+			true_father_even_if_dead = {
+				trait = vee_blood
+			}
 		}
+		
 	}
 
 	immediate = {
-		add_trait = khalga_blood
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = khalga_blood
+				}
+			}
+			add_trait = khalga_blood			
+		}
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = vee_blood
+				}
+			}
+			add_trait = vee_blood			
+		}
+		
 	}
 }
 
@@ -907,6 +929,7 @@ character_event = {
 				}
 				end_war = whitepeace
 			}
+			narrative_event = { id = ACS.00047 }
 		}
 
 		hidden_tooltip = {
@@ -1098,6 +1121,7 @@ narrative_event = {
 			clr_character_flag = attending_tournament
 			clr_character_flag = tournament_vee_winner
 			remove_trait = travelling
+			add_trait = ambitious
 
 			any_character = {
 				limit = {
@@ -1169,7 +1193,7 @@ character_event = {
 	}
 } 
 
-# ACS.00044 - Vee's dynasty heaad receives a letter
+# ACS.00044 - Vee's dynasty head receives a letter
 narrative_event = {
 	id = ACS.00044
 	title = "TOURNAMENTTITLE"
@@ -1230,3 +1254,17 @@ character_event = {
 		}
 	}
 }
+
+# ACS.00047 - Vee dynasty head start tournament notification
+narrative_event = {
+	id = ACS.00047
+	title = "TOURNAMENTTITLE"
+	desc = "ACS_00047_DESC"
+	picture = "GFX_evt_vee_tournament_invitation"
+	is_triggered_only = yes
+
+	option = {
+		name = OK		
+	}
+}
+
