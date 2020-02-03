@@ -99,7 +99,6 @@ character_event = {
 
 	immediate = {
 		set_global_flag = infiltered_venezia
-
 		if = {
 			limit = {
 				has_character_flag = transition_to_republic
@@ -109,6 +108,34 @@ character_event = {
 		
 		any_vassal = {
 			set_character_flag = check_for_dissapears
+		}
+
+		# Create OLAF
+		create_character = {
+			dynasty = 300001
+			religion = ROOT
+			culture = ROOT
+			trait = cruel
+			trait = ambitious
+			trait = elusive_shadow
+			trait = shrewd
+			trait = quick
+			trait = hunter
+			trait = diligent
+			trait = lustful
+			trait = robust
+			trait = strategist
+			trait = socializer
+			trait = hedonist
+			trait = seducer
+		}
+		new_character = {
+			set_character_flag = is_olaf
+			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
+			create_family_palace = yes
+			character_event = { id = ACS.00004 }
 		}
 
 		random_vassal = {
@@ -125,7 +152,6 @@ character_event = {
 				death_reason = death_murder_unknown
 			}
 		}
-		character_event = { id = ACS.00043 days = 3 } # Select the new Patrician
 	}	
 }
 
@@ -151,25 +177,6 @@ character_event = {
 	hide_window = yes
 
 	immediate = {
-		add_trait = cruel
-		add_trait = ambitious
-		add_trait = elusive_shadow
-		add_trait = shrewd
-		add_trait = quick
-		add_trait = hunter
-		add_trait = diligent
-		add_trait = lustful
-		add_trait = robust
-		add_trait = strategist
-		add_trait = socializer
-		add_trait = hedonist
-		add_trait = seducer
-		set_character_flag = is_olaf
-		set_character_flag = originated_from_chinese_court
-		set_character_flag = immune_tuberculosis
-		set_character_flag = immune_bubonic_plague
-		set_society_grandmaster = yes
-		dynasty = 300001
 		save_event_target_as = olaf_the_killer
 
 		create_character = { # Olaf spouse
@@ -458,14 +465,12 @@ character_event = {
 	}
 }
 
-
 # ACS.00012 - AVAILABLE
-
 
 ###################
 ## KHALGA TRAVEL ##
 ###################
-# ACS.00013 - Khalga traveling every 5 years
+# ACS.00013 - Khalga travelling every 5 years
 character_event = {
 	id = ACS.00013
 	is_triggered_only = yes
@@ -483,18 +488,36 @@ character_event = {
 		}
 
 		# Select a suitable female
-		random_character = {
+		random_playable_ruler = {
 			limit = {
-				is_female = yes
-				NOT = { has_character_flag = is_vee }
-				is_pregnant = no
-				is_inaccessible_or_incapable_trigger = no
-				trait = fair
-				age >= 15
-				age <= 50				
+				is_female = no
+				is_landed = yes
+				any_spouse = {
+					is_female = yes
+					NOT = { has_character_flag = is_vee }
+					is_pregnant = no
+					is_inaccessible_or_incapable_trigger = no
+					trait = fair
+					age >= 15
+					age <= 50
+				}
 			}
 			save_event_target_as = target_for_zeus
-			impregnate_cuckoo = ROOT
+		}
+
+		event_target:target_for_zeus = {
+			random_spouse = {
+				limit = {
+					is_female = yes
+					NOT = { has_character_flag = is_vee }
+					is_pregnant = no
+					is_inaccessible_or_incapable_trigger = no
+					trait = fair
+					age >= 15
+					age <= 50
+				}
+				impregnate_cuckoo = ROOT
+			}
 		}
 
 		move_character = event_target:target_for_zeus
@@ -518,7 +541,6 @@ character_event = {
 				trait = vee_blood
 			}
 		}
-		
 	}
 
 	immediate = {
@@ -538,7 +560,6 @@ character_event = {
 			}
 			add_trait = vee_blood			
 		}
-		
 	}
 }
 
@@ -637,6 +658,7 @@ character_event = {
 
 	immediate = {
 		add_trait = khalga_trait
+		add_trait = travelling
 	}
 }
 
@@ -1167,31 +1189,7 @@ character_event = {
 	}
 }
 
-# ACS.00043 - Select the new patrician
-character_event = {
-	id = ACS.00043
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		random_vassal = {
-			limit = {
-				is_patrician = yes
-				ai = yes
-				NOT = { has_character_flag = check_for_dissapears }
-			}
-			any_demesne_title = {
-				set_name = "Pentaghast" 
-				set_short_name = "Pentaghast"
-			}
-			family_palace = {
-				set_name = "Pentaghast"
-				set_short_name = "Pentaghast"
-			}
-			character_event = { id = ACS.00004 }			
-		} 
-	}
-} 
+# ACS.00043 - AVAILABLE
 
 # ACS.00044 - Vee's dynasty head receives a letter
 narrative_event = {
@@ -1231,7 +1229,7 @@ character_event = {
 	}
 }
 
-# ACS.00046 - Assign flag and trait if Vee spouse dies
+# ACS.00046 - Vee returns to dynasty head if husband dies
 character_event = {
 	id = ACS.00046
 	hide_window = yes
@@ -1249,7 +1247,16 @@ character_event = {
 				limit = {
 					has_character_flag = is_vee
 				}
-				add_trait = prevent_marriage
+				dynasty_head = {
+					save_event_target_as = dynasty_target
+				}
+				move_character = event_target:dynasty_target
+				any_child = {
+					limit = {
+						age <= 15
+					}
+					move_character = event_target:dynasty_target
+				}
 			}
 		}
 	}
