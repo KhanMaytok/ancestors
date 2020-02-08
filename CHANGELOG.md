@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ensure Khalga and Vee trait inheritance on cuckoo
 - Khalga travelling trait on adulthood
 - Vee searches a suitable spouse if not married
+- Delete BLEEDING_EDGE game rule
 
 ## [0.6.1] - 2019-09-18
 ### Added
