@@ -821,7 +821,21 @@ character_event = {
 	}
 }
 
-# ACS.00035 - AVAILABLE
+# ACS.00035 - Notification to all dynasty members of Vee
+narrative_event = {
+	id = ACS.00035
+	title = ACS_00035_TITLE
+	desc = ACS_00035_DESC
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+	}
+
+	option = {
+		name = OK
+	}
+}
 
 ########################
 ##    VEE PARTNER     ##
@@ -835,13 +849,18 @@ character_event = {
 
 	trigger = {
 		is_married = no
+		NOT = { has_character_flag = vee_looking_partner }
 	}
 
 	immediate = {
-		character_event = { id = ACS.00039 days = 15 } # Select the winner
-		character_event = { id = ACS.00040 days = 30 } # Select the winner
+		set_character_flag = vee_looking_partner
+		character_event = { id = ACS.00039 days = 15 } # Flag for the winner
+		narrative_event = { id = ACS.00040 days = 30 } # Notify the winner
 		liege = {
 			save_event_target_as = vee_liege
+		}
+		any_dynasty_member = {
+			narrative_event = { id = ACS.00035 }
 		}
 		any_character = {
 			limit = {
@@ -855,15 +874,24 @@ character_event = {
 				NOT = { trait = celibate }
 				NOT = { trait = eunuch }
 				NOT = { has_character_flag = is_khalga }
+				OR = {
+					real_tier = EMPEROR
+					real_tier = KING
+					real_tier = DUKE
+					real_tier = COUNT
+					real_tier = BARON
+				}
+				is_landed = yes
 			}
-			character_event = { id = ACS.00037 } # Notification for participation
+			letter_event = { id = ACS.00037 } # Notification for participation
 		}
 	}
 }
 
 # ACS.00037 - Notification for participation
-character_event = {
+letter_event = {
 	id = ACS.00037
+	desc = ACS_00037_DESC
 	is_triggered_only = yes
 
 	option = {
@@ -885,77 +913,45 @@ character_event = {
 	hide_window = yes
 
 	immediate = {
+		character_event = { id = ACS.00042 days = 45 } # Clean flags, trait and modifiers
 		random_list = {
-			10 = { # EMPEROR list
-				set_character_flag = evaluation_vee_score_8
+			20 = { # EMPEROR list
+				set_character_flag = evaluation_vee_score_5
 				modifier = {
 					factor = 0
 					OR = {
 						real_tier = KING
 						real_tier = DUKE
 						real_tier = COUNT
+						real_tier = BARON
 					}
 				}
-			}
-			10 = { # EMPEROR heir list
-				set_character_flag = evaluation_vee_score_7
-				modifier = {
-					factor = 0
-					NOT = {
-						is_heir = yes
-						liege = {
-							real_tier = EMPEROR
-						}
-					}
-				}
-			}
-			10 = { # KING tier list
-				set_character_flag = evaluation_vee_score_6
-				modifier = {
-					factor = 0
-					OR = {
-						real_tier = EMPEROR
-						real_tier = DUKE
-						real_tier = COUNT
-					}
-				}
-			}
-			10 = { # KING heir tier list
-				set_character_flag = evaluation_vee_score_5
-				modifier = {
-					factor = 0
-					NOT = {
-						is_heir = yes
-						liege = {
-							real_tier = KING
-						}
-					}
-				}
-			}
-			10 = { # DUKE tier list
+			}			
+			20 = { # KING tier list
 				set_character_flag = evaluation_vee_score_4
 				modifier = {
 					factor = 0
 					OR = {
 						real_tier = EMPEROR
-						real_tier = KING
+						real_tier = DUKE
 						real_tier = COUNT
+						real_tier = BARON
 					}
 				}
 			}
-			10 = { # DUKE heir tier list
+			20 = { # DUKE tier list
 				set_character_flag = evaluation_vee_score_3
 				modifier = {
 					factor = 0
-					NOT = {
-						is_heir = yes
-						liege = {
-							real_tier = DUKE
-						}
+					OR = {
+						real_tier = EMPEROR
+						real_tier = KING
+						real_tier = COUNT
+						real_tier = BARON
 					}
 				}
 			}
-			10 = { # COUNT tier list
+			20 = { # COUNT tier list
 				set_character_flag = evaluation_vee_score_2
 				modifier = {
 					factor = 0
@@ -963,18 +959,19 @@ character_event = {
 						real_tier = EMPEROR
 						real_tier = KING
 						real_tier = DUKE
+						real_tier = BARON
 					}
 				}
 			}
-			10 = { # COUNT heir tier list
+			20 = { # BARON heir tier list
 				set_character_flag = evaluation_vee_score_1
 				modifier = {
 					factor = 0
-					NOT = {
-						is_heir = yes
-						liege = {
-							real_tier = COUNT
-						}
+					OR = {
+						real_tier = EMPEROR
+						real_tier = KING
+						real_tier = DUKE
+						real_tier = COUNT
 					}
 				}
 			}
@@ -989,33 +986,6 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_character = {
-			limit = {
-				has_character_flag = evaluation_vee_score_8
-				has_character_flag = evaluation_for_vee
-			}
-			clr_character_flag = evaluation_vee_score_8
-			set_character_flag = tournament_vee_winner
-			break = yes
-		}
-		random_character = {
-			limit = {
-				has_character_flag = evaluation_vee_score_7
-				has_character_flag = evaluation_for_vee
-			}
-			clr_character_flag = evaluation_vee_score_7
-			set_character_flag = tournament_vee_winner
-			break = yes
-		}
-		random_character = {
-			limit = {
-				has_character_flag = evaluation_vee_score_6
-				has_character_flag = evaluation_for_vee
-			}
-			clr_character_flag = evaluation_vee_score_6
-			set_character_flag = tournament_vee_winner
-			break = yes
-		}
 		random_character = {
 			limit = {
 				has_character_flag = evaluation_vee_score_5
@@ -1064,7 +1034,7 @@ character_event = {
 	}
 }
 
-# ACS.00039 - Select the winner and send a notification
+# ACS.00040 - Select the winner and send a notification
 character_event = {
 	id = ACS.00040
 	is_triggered_only = yes
@@ -1078,21 +1048,43 @@ character_event = {
 			narrative_event = { id = ACS.00041 }
 		}
 	}
-
 }
 
 # ACS.00041 - Winner receives a fancy notification
 narrative_event = {
 	id = ACS.00041
+	title = ACS_00041_TITLE
+	desc = ACS_00041_DESC
 	is_triggered_only = yes
 
 	option = {
-		name = ACS_00041_OPT_A
+		name = OK
 		FROMFROM = {
 			add_spouse = ROOT
-		}
+			clr_character_flag = vee_looking_partner
+			any_dynasty_member = {
+				narrative_event = { id = ACS.00047 }
+			}
+		}		
+	}
+}
 
-		
+# ACS.00042 - Clean flags, trait and modifiers
+character_event = {
+	id = ACS.00042
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		remove_character_modifier = will_not_marry
+		remove_trait = cannot_marry
+		clr_character_flag = tournament_vee_winner
+		clr_character_flag = evaluation_for_vee
+		clr_character_flag = evaluation_vee_score_1
+		clr_character_flag = evaluation_vee_score_2
+		clr_character_flag = evaluation_vee_score_3
+		clr_character_flag = evaluation_vee_score_4
+		clr_character_flag = evaluation_vee_score_5
 	}
 }
 
@@ -1148,5 +1140,21 @@ character_event = {
 				}
 			}
 		}
+	}
+}
+
+# ACS.00047 - Notification to all dynasty members of Vee after marriage
+narrative_event = {
+	id = ACS.00047
+	title = ACS_00035_TITLE
+	desc = ACS_00047_DESC
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+	}
+
+	option = {
+		name = OK
 	}
 }

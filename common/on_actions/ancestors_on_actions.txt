@@ -6,6 +6,12 @@ on_startup = {
 	}
 }
 
+on_yearly_pulse = {
+	events = {
+		ACS.00036 # Vee tournament
+	}
+}
+
 on_bi_yearly_pulse = {
 	events = {
 		ACS.00025 # Vee migrates to another body
