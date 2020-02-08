@@ -15,9 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Seleted Olaf sisters
 - Add Olaf childs 
 - Khalga don't kill the husband after cuckoo
-- Modify Vee tournament performance and flags
 - Ensure Khalga and Vee trait inheritance on cuckoo
 - Khalga travelling trait on adulthood
+- Vee searches a suitable spouse if not married
 
 ## [0.6.1] - 2019-09-18
 ### Added

@@ -1065,6 +1065,7 @@ narrative_event = {
 			any_dynasty_member = {
 				narrative_event = { id = ACS.00047 }
 			}
+			add_trait = ambitious
 		}		
 	}
 }
@@ -1146,7 +1147,7 @@ character_event = {
 # ACS.00047 - Notification to all dynasty members of Vee after marriage
 narrative_event = {
 	id = ACS.00047
-	title = ACS_00035_TITLE
+	title = ACS_00047_TITLE
 	desc = ACS_00047_DESC
 	is_triggered_only = yes
 
