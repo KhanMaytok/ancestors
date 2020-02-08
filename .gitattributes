@@ -4,6 +4,5 @@
 *.gfx linguist-language=Java
 *.gui linguist-language=Haskell
 gfx/traits/* linguist-language=Julia
-gfx/interface/* linguist-language=Python
+gfx/flags/* linguist-language=Python
 gfx/event_pictures/* linguist-language=C
-*.tga linguist-language=R

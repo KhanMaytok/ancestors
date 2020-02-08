@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Khalga travelling trait on adulthood
 - Vee searches a suitable spouse if not married
 - Delete BLEEDING_EDGE game rule
+- Updated git attributes
 
 ## [0.6.1] - 2019-09-18
 ### Added
