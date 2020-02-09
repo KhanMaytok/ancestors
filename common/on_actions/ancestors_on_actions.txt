@@ -43,6 +43,5 @@ on_adulthood = {
 	events = {
 		ACS.00020 # Ensure the correct portrait for Khalga
 		ACS.00029 # Dojutsu inheritance mechanics
-		ACS.00036 # Vee tournament
 	}
 }

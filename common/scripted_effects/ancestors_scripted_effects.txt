@@ -1,0 +1,33 @@
+create_khalga_effect = {
+	create_character = {
+		age = 26
+		female = no
+		culture = ROOT
+		religion = ROOT
+		dynasty = none
+		trait = fair
+		trait = genius
+		trait = byakugan
+		trait = strong
+		trait = prevent_marriage
+		trait = khalga_blood
+		trait = duelist
+		trait = gamer
+		trait = socializer
+		trait = strategist
+		trait = seducer
+		trait = travelling
+		trait = khalga_trait
+	}
+	new_character = {
+		set_character_flag = is_khalga
+		set_character_flag = society_join_block
+		set_character_flag = originated_from_chinese_court # to prevent to go to China
+		set_character_flag = wolf_blood_first_generation
+		set_character_flag = immune_bubonic_plague
+		add_character_modifier = {
+			name = wolf_child
+			duration = -1
+		}
+	}
+}

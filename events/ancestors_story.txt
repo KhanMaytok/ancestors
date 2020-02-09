@@ -334,7 +334,6 @@ character_event = {
 			trait = gamer
 			trait = socializer
 			trait = strategist
-			trait = bastard
 			trait = seducer
 		}
 		new_character = {
@@ -371,7 +370,7 @@ character_event = {
 			trait = vee_blood
 			trait = seductress
 			trait = prevent_marriage
-			trait = bastard
+			trait = legit_bastard
 			trait = ambitious
 			trait = cynical
 			trait = erudite
@@ -490,39 +489,17 @@ character_event = {
 		# Select a suitable female
 		random_playable_ruler = {
 			limit = {
-				is_female = no
+				is_female = yes
 				is_landed = yes
-				any_spouse = {
-					is_female = yes
-					NOT = { has_character_flag = is_vee }
-					is_pregnant = no
-					is_inaccessible_or_incapable_trigger = no
-					trait = fair
-					age >= 15
-					age <= 50
-				}
+				is_pregnant = no
+				age >= 16
+				age <= 50
 			}
+			impregnate_cuckoo = ROOT
 			save_event_target_as = target_for_zeus
 		}
-
-		event_target:target_for_zeus = {
-			random_spouse = {
-				limit = {
-					is_female = yes
-					NOT = { has_character_flag = is_vee }
-					is_pregnant = no
-					is_inaccessible_or_incapable_trigger = no
-					trait = fair
-					age >= 15
-					age <= 50
-				}
-				impregnate_cuckoo = ROOT
-			}
-		}
-
-		move_character = event_target:target_for_zeus
-		religion = event_target:target_for_zeus
-		culture = event_target:target_for_zeus
+		death = { death_reason = death_poor_health }
+		create_khalga_effect = yes
 	}
 }
 
@@ -586,54 +563,12 @@ character_event = {
 				age = 18
 				is_female = no
 			}
-			character_event = { id = ACS.00018 }
+			create_khalga_effect = yes
 		}
 	}
 }
 
-# ACS.00018 - The character's wife is the new mother of Khalga
-character_event = {
-	id = ACS.00018
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		random_spouse  = {
-			save_event_target_as = khalga_mother			
-		}
-		create_character = {
-			age = 0
-			female = no
-			culture = FROM
-			religion = FROM
-			dynasty = none
-			trait = fair
-			trait = genius
-			trait = byakugan
-			trait = strong
-			trait = prevent_marriage
-			trait = khalga_blood
-			trait = duelist
-			trait = bastard
-			trait = seducer
-		}
-		new_character = {
-			set_mother = event_target:khalga_mother           
-			set_character_flag = is_khalga
-			set_character_flag = society_join_block
-			set_character_flag = originated_from_chinese_court # to prevent to go to China
-			set_character_flag = wolf_blood_first_generation
-			add_character_modifier = {
-				name = wolf_child
-				duration = -1
-			}
-			# Khalga takes the essence, so kill the mother
-			mother = {
-				death = { death_reason = death_childbirth }              
-			}
-		} 
-	}
-}
+# ACS.00018 - AVAILABLE
 
 # ACS.00019 - AVAILABLE
 
@@ -702,9 +637,26 @@ character_event = {
 	}
 
 	immediate = {
+		# BYAKUGAN INHERITANCE BOTH
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					trait = khalga_blood
+				}
+				mother_even_if_dead = {
+					trait = khalga_blood
+				}							
+			}
+			set_character_flag = evaluated_both_byakugan
+			random_list = {
+				15 = { add_trait = byakugan }
+				85 = { }
+			}			
+		}
 		# BYAKUGAN INHERITANCE
 		if = {
 			limit = {
+				NOT = { has_character_flag = evaluated_both_byakugan }
 				OR = {
 					true_father_even_if_dead = {
 						trait = khalga_blood
@@ -722,7 +674,23 @@ character_event = {
 
 		# SHARINGAN INHERITANCE
 		if = {
+			limit = {				
+				true_father_even_if_dead = {
+					trait = vee_blood
+				}
+				mother_even_if_dead = {
+					trait = vee_blood
+				}
+			}
+			set_character_flag = evaluated_both_sharingan
+			random_list = {
+				15 = { add_trait = sharingan }
+				85 = { }
+			}
+		}
+		if = {
 			limit = {
+				NOT = { has_character_flag = evaluated_both_sharingan }
 				OR = {
 					true_father_even_if_dead = {
 						trait = vee_blood
@@ -804,7 +772,7 @@ character_event = {
 				trait = vee_blood
 				trait = seductress
 				trait = prevent_marriage
-				trait = bastard
+				trait = legit_bastard
 				trait = ambitious
 				trait = cynical
 				trait = erudite
@@ -849,11 +817,10 @@ character_event = {
 
 	trigger = {
 		is_married = no
-		NOT = { has_character_flag = vee_looking_partner }
+		age >= 16
 	}
 
 	immediate = {
-		set_character_flag = vee_looking_partner
 		character_event = { id = ACS.00039 days = 15 } # Flag for the winner
 		narrative_event = { id = ACS.00040 days = 30 } # Notify the winner
 		liege = {
@@ -1061,7 +1028,6 @@ narrative_event = {
 		name = OK
 		FROMFROM = {
 			add_spouse = ROOT
-			clr_character_flag = vee_looking_partner
 			any_dynasty_member = {
 				narrative_event = { id = ACS.00047 }
 			}
@@ -1157,5 +1123,57 @@ narrative_event = {
 
 	option = {
 		name = OK
+	}
+}
+
+# ACS.00048 - Select random independent Duke to rebelion
+character_event = {
+	id = ACS.00048
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		random_playable_ruler = {
+			limit = {
+				OR = {
+					NOT = { has_character_flag = faction_independence_ultimatum_taken }
+					had_character_flag = { flag = faction_independence_ultimatum_taken days = 7 }
+				}
+				liege = {
+					independent = yes
+					in_revolt = no
+					NOT = { war_with = ROOT }
+					NOT = { reverse_has_truce = ROOT }
+				}
+				prisoner = no
+				NOT = {
+					any_realm_title = {
+						NOT = { higher_tier_than = count }
+						is_occupied = yes
+					}
+				}
+			}
+			character_event = { id = ACS.00049 }
+		}
+	}
+}
+
+# ACS.00049 - Select random independent Duke to rebelion
+character_event = {
+	id = ACS.00049
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		leave_faction = all
+		join_faction = {
+			faction = faction_independence
+			ignore_requirements = yes
+		}
+		liege = {
+			letter_event = { id = 8035 days = 3 tooltip = "EVTTOOLTIP8005" }
+		}			
+		set_character_flag = faction_independence_ultimatum_taken
+		add_trait = rinnegan
 	}
 }
