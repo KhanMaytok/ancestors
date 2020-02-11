@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vee searches a suitable spouse if not married
 - Delete BLEEDING_EDGE game rule
 - Updated git attributes
+- Evaluation for both parents or one parent dojutsu
 
 ## [0.6.1] - 2019-09-18
 ### Added

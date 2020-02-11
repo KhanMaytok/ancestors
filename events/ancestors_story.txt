@@ -496,10 +496,8 @@ character_event = {
 				age <= 50
 			}
 			impregnate_cuckoo = ROOT
-			save_event_target_as = target_for_zeus
 		}
 		death = { death_reason = death_poor_health }
-		create_khalga_effect = yes
 	}
 }
 
@@ -554,17 +552,15 @@ character_event = {
 	is_triggered_only = yes
 	has_character_flag = is_khalga
 
+	trigger = {
+		NOT = { has_character_flag = dont_resucite }
+	}
+
 	immediate = {
 		random_playable_ruler = {
-			limit = {
-				adventurer = no
-				is_landed = yes 
-				is_married = yes 
-				age = 18
-				is_female = no
-			}
+			save_event_target_as = new_khalga_ruler
 			create_khalga_effect = yes
-		}
+		}		
 	}
 }
 
@@ -699,7 +695,6 @@ character_event = {
 						trait = vee_blood
 					}
 				}
-								
 			}
 			random_list = {
 				7 = { add_trait = sharingan }
