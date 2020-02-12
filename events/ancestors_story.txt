@@ -182,9 +182,23 @@ character_event = {
 		create_character = { # Olaf spouse
 			female = yes
 			age = 18
-			random_traits = yes
+			trait = grey_eminence
+			trait = physician
+			trait = scarred
+			trait = fair
+			trait = quick
+			trait = shrewd
+			trait = gardener
+			trait = poet
+			trait = diligent
+			trait = lustful
+			trait = proud
+			trait = brave
+			trait = erudite
+			trait = defensive_leader
 			culture = ROOT
 			religion = ROOT
+			dynasty = none
 		}
 		new_character = {
 			add_spouse = ROOT
@@ -196,7 +210,7 @@ character_event = {
 
 		create_character = { # Olaf child 1
 			female = yes
-			age = 10
+			age = 7
 			random_traits = yes
 			culture = ROOT
 			religion = ROOT
@@ -211,7 +225,7 @@ character_event = {
 
 		create_character = { # Olaf child 2
 			female = no
-			age = 7
+			age = 3
 			random_traits = yes
 			culture = ROOT
 			religion = ROOT
@@ -224,7 +238,7 @@ character_event = {
 			set_character_flag = immune_bubonic_plague
 		}
 
-		create_character = {
+		create_character = { # TILDA
 			name = "Tilda"
 			female = yes
 			age = 33
@@ -239,18 +253,20 @@ character_event = {
 			trait = quick
 			trait = strong
 			trait = shrewd
+			dynasty = 300000
 		}
 		new_character = {
 			set_character_flag = is_ancient_one			
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
-			dynasty = 300000
 			character_event = { id = ACS.00006 } # Moves to the mercenary band
+			create_sakya_child_effect = yes
+			create_sakya_child_effect = yes
+			create_sakya_child_effect = yes
 		}
 
-		# Olaf Dynasty members
-		create_character = {
+		create_character = { # Olaf father
 			age = 60
 			culture = event_target:olaf_the_killer
 			religion = event_target:olaf_the_killer
@@ -266,7 +282,8 @@ character_event = {
 		new_character = {
 			save_event_target_as = olaf_father
 		}
-		create_character = {
+
+		create_character = { # Olaf mother
 			age = 55
 			female = yes
 			culture = event_target:olaf_the_killer
@@ -283,7 +300,8 @@ character_event = {
 		new_character = {
 			save_event_target_as = olaf_mother
 		}
-		create_character = {
+
+		create_character = { # Olaf brother. Bruh
 			age = 30
 			culture = event_target:olaf_the_killer
 			religion = event_target:olaf_the_killer
@@ -301,6 +319,63 @@ character_event = {
 			set_father = event_target:olaf_father
 			save_event_target_as = olaf_brother
 		}
+
+		create_character = { # Olaf 1st sister
+			female = yes
+			age = 18
+			trait = grey_eminence
+			trait = physician
+			trait = scarred
+			trait = fair
+			trait = quick
+			trait = shrewd
+			trait = gardener
+			trait = poet
+			trait = diligent
+			trait = lustful
+			trait = proud
+			trait = brave
+			trait = erudite
+			trait = defensive_leader
+			culture = ROOT
+			religion = ROOT
+			dynasty = 300001
+		}
+		new_character = {
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
+			create_pentaghast_child_effect = yes
+			create_pentaghast_child_effect = yes
+		}
+
+		create_character = { # Olaf 2nd sister
+			female = yes
+			age = 18
+			trait = grey_eminence
+			trait = physician
+			trait = scarred
+			trait = fair
+			trait = quick
+			trait = shrewd
+			trait = gardener
+			trait = poet
+			trait = diligent
+			trait = lustful
+			trait = proud
+			trait = brave
+			trait = erudite
+			trait = defensive_leader
+			culture = ROOT
+			religion = ROOT
+			dynasty = 300001
+		}
+		new_character = {
+			set_mother = event_target:olaf_mother
+			set_father = event_target:olaf_father
+			create_pentaghast_child_effect = yes
+			create_pentaghast_child_effect = yes
+		}
+
 		event_target:olaf_the_killer = {
 			set_mother = event_target:olaf_mother
 			set_father = event_target:olaf_father

@@ -31,3 +31,28 @@ create_khalga_effect = {
 		}
 	}
 }
+
+create_pentaghast_child_effect = {
+	create_character = {
+		age = 0
+		female = 50
+		dynasty = 300001
+	}
+	new_character = {
+		set_mother = PREV
+		set_immune_to_pruning = yes
+	}
+}
+
+create_sakya_child_effect = {
+	create_character = {
+		age = 0
+		female = 50
+		dynasty = 300000
+	}
+	new_character = {
+		set_mother = PREV
+		set_immune_to_pruning = yes
+	}
+}
+

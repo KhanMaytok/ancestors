@@ -30,7 +30,6 @@ on_death = {
 		ACS.00017 # Resurrect Khalga if He dies
 		ACS.00034 # Resurrect Vee if she dies
 		ACS.00046 # Assign flag and trait if Vee spouse dies
-		ACS.00030 # Chance for get Mangekyo if a friend or lover die in battle
 	}
 }
 
