@@ -41,7 +41,7 @@ character_event = {
         any_character = {
             limit = {
                 has_character_flag = is_khalga
-                NOT = { has_character_flag = purge_dont_kill }
+                NOT = { has_character_flag = dont_kill_at_purge }
             }
 			set_character_flag = dont_resucite
             death = { death_reason = death_poor_health }
