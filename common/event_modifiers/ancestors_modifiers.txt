@@ -8,66 +8,7 @@ devastated_by_tiamat = {
 	supply_limit = -20.0
 }
 
-used_sharingan_1 = {
-	icon = 82
-	fertility = -0.01
-	health = -0.5
-	combat_rating = -10
-}
-
-used_sharingan_2 = {
-	icon = 82
-	fertility = -0.5
-	health = -2.5
-	combat_rating = -25
-}
-
-used_sharingan_3 = {
-	icon = 82
-	fertility = -1.0
-	health = -10.0
-	combat_rating = -50
-}
-
-used_sharingan_4 = {
-	icon = 82
-	fertility = -15.0
-	health = -15.0
-	combat_rating = -100
-}
-
-used_sharingan_5 = {
-	icon = 82
-	fertility = -100.0
-	health = -30.0
-	combat_rating = -200
-}
-
-amaterasu = {
-	icon = 81
-	combat_rating = 20
-}
-
-tsukuyomi = {
-	icon = 81
-	combat_rating = 20
-}
-
-susanoo = {
-	icon = 81
-	combat_rating = 20
-}
-
-kamui = {
-	icon = 81
-	combat_rating = 20
-}
-
-kotoamatsukami = {
-	icon = 81
-	combat_rating = 20
-}
-
-ancestor_chest = {
-	icon = 4
+married_with_vee = {
+	icon = 39
+	monthly_character_prestige = 1
 }

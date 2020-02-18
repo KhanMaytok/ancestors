@@ -878,7 +878,7 @@ narrative_event = {
 ########################
 ##    VEE PARTNER     ##
 ########################
-# ACS.00036 - Select Vee in adulthood. Tournament
+# ACS.00036 - Search a spouse for Vee if she isn't married
 character_event = {
 	id = ACS.00036
 	is_triggered_only = yes
@@ -1096,13 +1096,19 @@ narrative_event = {
 
 	option = {
 		name = OK
-		FROMFROM = {
+		FROMFROM = { # Vee
 			add_spouse = ROOT
 			any_dynasty_member = {
 				narrative_event = { id = ACS.00047 }
 			}
+		}
+		ROOT = {
+			add_character_modifier = {
+				name = married_with_vee
+				duration = -1
+			}
 			add_trait = ambitious
-		}		
+		}
 	}
 }
 
