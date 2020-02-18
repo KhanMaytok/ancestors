@@ -1240,9 +1240,10 @@ character_event = {
 	immediate = {
 		FROM = {
 			save_event_target_as = sha_attacker
+			export_to_variable = { which = adventurer_treasury value = treasury }
 		}
 
-		
+
 	}	
 }
 
