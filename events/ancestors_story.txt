@@ -1183,3 +1183,66 @@ narrative_event = {
 		name = OK
 	}
 }
+
+
+##############################
+## MANGEKYO EVENTS ###########
+##############################
+
+character_event = {
+	id =  ACS.00048
+	title = ACS_00048_TITLE
+	desc = ACS_00048_DESC
+	is_triggered_only = yes
+
+	trigger = {
+		has_trait = sharingan
+		has_trait = ambitious
+		OR = {
+			num_of_friends >= 1
+			num_of_lovers >= 1
+		}
+	}
+
+	option = {
+		trigger = {
+			num_of_friends >= 1
+		}
+		random_friend = {
+			character_event = { id = ACS.00049 }
+		}
+		
+	}
+
+	option = {
+		name = name_1
+		trigger = {
+			num_of_lovers >= 1
+		}
+		random_lover = {
+			character_event = { id = ACS.00049 }
+		}
+		custom_tooltip = "name_1.tooltip"
+	}
+
+	option = {
+		name = name2
+		custom_tooltip = "name2.tooltip"
+	}
+}
+
+character_event = {
+	id = ACS.00049
+	title = ACS_00049_TITLE
+	desc = ACS_00049_DESC
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			save_event_target_as = sha_attacker
+		}
+
+		
+	}	
+}
+
