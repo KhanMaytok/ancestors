@@ -141,15 +141,16 @@ character_event = {
 		random_vassal = {
 			limit = {
 				is_patrician = yes
+				NOT = { has_character_flag = is_olaf }
 				ai = yes
 			}
 			any_dynasty_member = {
 				death = {
-					death_reason = death_murder_unknown
+					death_reason = death_poor_health
 				}
 			}
 			death = {
-				death_reason = death_murder_unknown
+				death_reason = death_poor_health
 			}
 		}
 	}	
@@ -519,13 +520,13 @@ character_event = {
 					set_defacto_liege = THIS
 				}
 				join_society = sakya_society
-				set_society_grandmaster = yes 					
+				set_society_grandmaster = yes
 			}
 			break = yes
 		}
 		if = {
 			limit = {
-				FROM = {					
+				FROM = {
 					has_character_flag = is_khalga
 				}
 			}
@@ -643,30 +644,9 @@ character_event = {
 
 # ACS.00019 - AVAILABLE
 
-# ACS.00020 - Ensure the correct portrait for Khalga
-character_event = {
-	id = ACS.00020
-	is_triggered_only = yes
-	hide_window = yes
-	has_character_flag = is_khalga
+# ACS.00020 - AVAILABLE
 
-	immediate = {
-		character_event = { id = ACS.00021 days = 3 }
-	}
-}
-
-# ACS.00021 - Add the khalga trait few days after adulthood
-character_event = {
-	id = ACS.00021
-	is_triggered_only = yes
-	hide_window = yes
-	has_character_flag = is_khalga
-
-	immediate = {
-		add_trait = khalga_trait
-		add_trait = travelling
-	}
-}
+# ACS.00021 - AVAILABLE
 
 ##########################
 ## VEE LIFECYCLE EVENTS ##
@@ -1178,6 +1158,8 @@ character_event = {
 				any_child = {
 					limit = {
 						age <= 15
+						is_landed = no
+						is_ruler = no
 					}
 					move_character = event_target:dynasty_target
 				}
@@ -1199,57 +1181,5 @@ narrative_event = {
 
 	option = {
 		name = OK
-	}
-}
-
-# ACS.00048 - Select random independent Duke to rebelion
-character_event = {
-	id = ACS.00048
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		random_playable_ruler = {
-			limit = {
-				OR = {
-					NOT = { has_character_flag = faction_independence_ultimatum_taken }
-					had_character_flag = { flag = faction_independence_ultimatum_taken days = 7 }
-				}
-				liege = {
-					independent = yes
-					in_revolt = no
-					NOT = { war_with = ROOT }
-					NOT = { reverse_has_truce = ROOT }
-				}
-				prisoner = no
-				NOT = {
-					any_realm_title = {
-						NOT = { higher_tier_than = count }
-						is_occupied = yes
-					}
-				}
-			}
-			character_event = { id = ACS.00049 }
-		}
-	}
-}
-
-# ACS.00049 - Select random independent Duke to rebelion
-character_event = {
-	id = ACS.00049
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		leave_faction = all
-		join_faction = {
-			faction = faction_independence
-			ignore_requirements = yes
-		}
-		liege = {
-			letter_event = { id = 8035 days = 3 tooltip = "EVTTOOLTIP8005" }
-		}			
-		set_character_flag = faction_independence_ultimatum_taken
-		add_trait = rinnegan
 	}
 }
