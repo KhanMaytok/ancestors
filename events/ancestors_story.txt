@@ -1193,11 +1193,13 @@ character_event = {
 	id =  ACS.00048
 	title = ACS_00048_TITLE
 	desc = ACS_00048_DESC
+	picture = GFX_evt_tiamat
 	is_triggered_only = yes
 
 	trigger = {
-		has_trait = sharingan
-		has_trait = ambitious
+		trait = sharingan
+		trait = ambitious
+		NOT = { trait = mangekyo_sharingan }
 		OR = {
 			num_of_friends >= 1
 			num_of_lovers >= 1
@@ -1211,39 +1213,49 @@ character_event = {
 		random_friend = {
 			character_event = { id = ACS.00049 }
 		}
-		
+		name = "friend_kill"
 	}
 
 	option = {
-		name = name_1
+		name = "lover_kill"
 		trigger = {
 			num_of_lovers >= 1
 		}
 		random_lover = {
 			character_event = { id = ACS.00049 }
 		}
-		custom_tooltip = "name_1.tooltip"
 	}
 
 	option = {
-		name = name2
-		custom_tooltip = "name2.tooltip"
+		name = "OK"
 	}
 }
 
 character_event = {
 	id = ACS.00049
-	title = ACS_00049_TITLE
-	desc = ACS_00049_DESC
+	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
 		FROM = {
 			save_event_target_as = sha_attacker
-			export_to_variable = { which = adventurer_treasury value = treasury }
 		}
 
+		# Test the general intrigue to a silent assassination
+		IF = {
+			limit = {
+				FROM = {
+					attribute_diff = { character = ROOT attribute = intrigue value > 10 }
+				}
+			}
+			death = { death_reason = death_murder_unknown killer = FROM }
+			FROM = {
+				add_trait = mangekyo_sharingan
+				remove_trait = sharingan
+			}
+		}
+		ELSE = {
 
+		}
 	}	
 }
-
