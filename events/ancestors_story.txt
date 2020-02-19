@@ -1237,25 +1237,80 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		FROM = {
-			save_event_target_as = sha_attacker
-		}
+		ROOT = { save_event_target_as = combatant_2  set_character_flag = ee_combatant_2 }
+		FROM = { save_event_target_as = combatant_1  set_character_flag = ee_combatant_1 }
 
 		# Test the general intrigue to a silent assassination
-		IF = {
+		if = {
 			limit = {
 				FROM = {
 					attribute_diff = { character = ROOT attribute = intrigue value > 10 }
 				}
 			}
-			death = { death_reason = death_murder_unknown killer = FROM }
+			character_event = { id = ACS.00051 } # defender death
 			FROM = {
-				add_trait = mangekyo_sharingan
-				remove_trait = sharingan
+				character_event = { id = ACS.00050 } # attacker gets mangekyo
 			}
 		}
-		ELSE = {
-
+		else = {
+			FROM = { character_event = { id = ACS.00052 } }
 		}
 	}	
 }
+
+character_event = {
+	id = ACS.00050
+	title = ACS_00050_TITLE
+	desc = ACS_00050_DESC
+	picture = GFX_evt_tiamat
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		add_trait = mangekyo_sharingan
+		remove_trait = sharingan
+	}
+}
+
+character_event = {
+	id = ACS.00051
+	title = ACS_00051_TITLE
+	desc = ACS_00051_DESC
+	picture = GFX_evt_tiamat
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		death = { death_reason = death_murder_unknown killer = FROMFROM }
+	}
+}
+
+##################################################
+## This should end with the dead of one of them ##
+##################################################
+
+character_event = {
+    id = ACS.00052 # HFP.10100
+    is_triggered_only = yes
+    hide_window = yes
+    trigger = {        
+    }
+
+    immediate = {
+        ### Room for any existing pre-conditions (is this an initiation duel? Is this a Challenge for a title?):
+        # -- set here, or in previous event/decision...
+       
+        #Chooses a body part for injury (if it occurs), also for loc purposes (effect handles both characters)
+        set_potential_injury_flag_effect = yes
+
+        #Scripted effect requiring event-targets combatant_1 & combatant_2! RAW NUMBERS...
+        evaluate_duel_result_score_effect = yes
+
+        #Room for extra special calculations... (based on traits, and other special circumstances?)
+        evaluate_extra_duel_result_score_effect = yes
+
+        #Send the correct result event (from random_list)...
+        send_mangekyo_duel_result_event_effect = yes 
+    }
+}
+
