@@ -223,4 +223,3 @@ send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 		}
 	}
 }
-
