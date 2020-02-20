@@ -1188,12 +1188,12 @@ narrative_event = {
 ##############################
 ## MANGEKYO EVENTS ###########
 ##############################
-
-character_event = {
+# ACS.00048 - Choice for the mangekyo every 5 years
+narrative_event = {
 	id =  ACS.00048
 	title = ACS_00048_TITLE
 	desc = ACS_00048_DESC
-	picture = GFX_evt_tiamat
+	picture = GFX_evt_spymaster
 	is_triggered_only = yes
 
 	trigger = {
@@ -1207,58 +1207,50 @@ character_event = {
 	}
 
 	option = {
+		name = ACS_00048_OPT_A
 		trigger = {
 			num_of_friends >= 1
 		}
 		random_friend = {
-			character_event = { id = ACS.00049 }
+			narrative_event = { id = ACS.00049 }
 		}
-		name = "friend_kill"
 	}
 
 	option = {
-		name = "lover_kill"
+		name = ACS_00048_OPT_B
 		trigger = {
 			num_of_lovers >= 1
 		}
 		random_lover = {
-			character_event = { id = ACS.00049 }
+			narrative_event = { id = ACS.00049 }
 		}
 	}
 
 	option = {
-		name = "OK"
+		name = ACS_00048_OPT_C
 	}
 }
 
-character_event = {
+# ACS.00048 - Intrigue or duel with the defender
+narrative_event = {
 	id = ACS.00049
-	hide_window = yes
+	title = ACS_00049_TITLE
+	desc = ACS_00049_DESC
+	picture = GFX_evt_spymaster
 	is_triggered_only = yes
 
 	immediate = {
-		ROOT = { save_event_target_as = combatant_2  set_character_flag = ee_combatant_2 }
-		FROM = { save_event_target_as = combatant_1  set_character_flag = ee_combatant_1 }
-
-		# Test the general intrigue to a silent assassination
-		if = {
-			limit = {
-				FROM = {
-					attribute_diff = { character = ROOT attribute = intrigue value > 10 }
-				}
-			}
-			character_event = { id = ACS.00051 } # defender death
-			FROM = {
-				character_event = { id = ACS.00050 } # attacker gets mangekyo
-			}
-		}
-		else = {
-			FROM = { character_event = { id = ACS.00052 } }
+		save_event_target_as = combatant_2
+		character_event = { id = ACS.00051 }
+		FROM = {
+			save_event_target_as = combatant_1
+			character_event = { id = ACS.00052 }
 		}
 	}	
 }
 
-character_event = {
+# ACS.00050 - The attacker gets the mangekyo
+narrative_event = {
 	id = ACS.00050
 	title = ACS_00050_TITLE
 	desc = ACS_00050_DESC
@@ -1272,6 +1264,7 @@ character_event = {
 	}
 }
 
+# ACS.00051 - Defender surprised by the attacker
 character_event = {
 	id = ACS.00051
 	title = ACS_00051_TITLE
@@ -1280,8 +1273,7 @@ character_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = OK
-		death = { death_reason = death_murder_unknown killer = FROMFROM }
+		name = ACS_00051_OPT_A
 	}
 }
 
@@ -1296,10 +1288,7 @@ character_event = {
     trigger = {        
     }
 
-    immediate = {
-        ### Room for any existing pre-conditions (is this an initiation duel? Is this a Challenge for a title?):
-        # -- set here, or in previous event/decision...
-       
+    immediate = {      
         #Chooses a body part for injury (if it occurs), also for loc purposes (effect handles both characters)
         set_potential_injury_flag_effect = yes
 
@@ -1313,4 +1302,3 @@ character_event = {
         send_mangekyo_duel_result_event_effect = yes 
     }
 }
-

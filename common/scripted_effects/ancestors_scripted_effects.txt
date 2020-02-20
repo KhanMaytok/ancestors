@@ -58,7 +58,7 @@ create_sakya_child_effect = {
 
 send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 	random_list = {
-		30 = { #LETHAL for both...
+		20 = { #LETHAL for both...
 			trigger = {}
 			additive_modifier = {
 				duel_result_score_decent_trigger = yes #Score: fairly evenly matched
@@ -107,7 +107,7 @@ send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 			event_target:combatant_2 = { character_event = { id = HFP.10102 days = 1 } } #double death event (defender)
 		}
 
-		35 = { #LETHAL for attacker...
+		40 = { #LETHAL for attacker...
 			trigger = {}
 			additive_modifier = {
 				duel_result_score_low_group_trigger = yes #Score: you were outmatched
@@ -168,7 +168,7 @@ send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 			}
 		}
 
-		35 = { #LETHAL for defender...
+		40 = { #LETHAL for defender...
 			trigger = {}
 			additive_modifier = {
 				duel_result_score_high_group_trigger = yes #Score: they were outmatched
@@ -219,7 +219,7 @@ send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 			}
 
 			character_event = { id = ACS.00050 }
-			character_event = { id = HFP.10103 } #"I decapitated someone!" event sent to winner...			
+			character_event = { id = HFP.10103 } #"I decapitated someone!" event sent to winner...		
 		}
 	}
 }
