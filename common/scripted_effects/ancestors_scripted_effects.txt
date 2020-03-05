@@ -2,22 +2,23 @@ create_khalga_effect = {
 	create_character = {
 		age = 26
 		female = no
-		culture = event_target:new_khalga_ruler
-		religion = event_target:new_khalga_ruler
+		culture = event_target:khalga_lover
+		religion = event_target:khalga_lover
 		dynasty = none
+		trait = mastermind_theologian
+		trait = physician
 		trait = fair
 		trait = genius
+		trait = erudite
 		trait = byakugan
 		trait = strong
 		trait = prevent_marriage
 		trait = khalga_blood
-		trait = duelist
-		trait = gamer
-		trait = socializer
-		trait = strategist
 		trait = seducer
-		trait = travelling
 		trait = khalga_trait
+		trait = patient
+		trait = proud
+		trait = lustful
 	}
 	new_character = {
 		set_character_flag = is_khalga
@@ -29,6 +30,8 @@ create_khalga_effect = {
 			name = wolf_child
 			duration = -1
 		}
+		save_event_target_as = khalga
+		give_minor_title = title_court_physician
 	}
 }
 
@@ -163,7 +166,7 @@ send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 
 				event_target:combatant_2 = {
 					set_character_flag = someone_died
-					character_event = { id = HFP.10103 days = 1 } #"I decapitated someone!" event sent to winner...
+					character_event = { id = ACS.00052 days = 1 } #"I decapitated someone!" event sent to winner...
 				}
 			}
 		}
@@ -218,8 +221,8 @@ send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				set_character_flag = injury_kills
 			}
 
-			character_event = { id = ACS.00050 }
-			character_event = { id = HFP.10103 } #"I decapitated someone!" event sent to winner...		
+			character_event = { id = ACS.00050 } # Set the sharingan
+			character_event = { id = ACS.00052 } # HFP.10103 "I decapitated someone!" event sent to winner...
 		}
 	}
 }

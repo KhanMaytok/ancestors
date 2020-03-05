@@ -562,17 +562,7 @@ character_event = {
 			gain_title = event_target:khalga_liege
 		}
 
-		# Select a suitable female
-		random_playable_ruler = {
-			limit = {
-				is_female = yes
-				is_landed = yes
-				is_pregnant = no
-				age >= 16
-				age <= 50
-			}
-			impregnate_cuckoo = ROOT
-		}
+		# And... kill khalga
 		death = { death_reason = death_poor_health }
 	}
 }
@@ -621,7 +611,7 @@ character_event = {
 #########################
 ## KHALGA RESURRECTION ##
 #########################
-# ACS.00017 - Select a character to resurrect Khalga if he dies
+# ACS.00017 - Resurrect Khalga and move him to a new ruler
 character_event = {
 	id = ACS.00017
 	hide_window = yes
@@ -633,10 +623,20 @@ character_event = {
 	}
 
 	immediate = {
+		# Select a suitable female
 		random_playable_ruler = {
-			save_event_target_as = new_khalga_ruler
+			limit = {
+				is_female = yes
+				is_landed = yes
+				is_pregnant = no
+				age >= 16
+				age <= 50
+			}
+			save_event_target_as = khalga_lover
 			create_khalga_effect = yes
-		}		
+			impregnate_cuckoo = event_target:khalga
+			add_lover = event_target:khalga
+		}	
 	}
 }
 
@@ -1193,7 +1193,7 @@ narrative_event = {
 	id =  ACS.00048
 	title = ACS_00048_TITLE
 	desc = ACS_00048_DESC
-	picture = GFX_evt_spymaster
+	picture = GFX_evt_bloodlines
 	is_triggered_only = yes
 
 	trigger = {
@@ -1208,36 +1208,53 @@ narrative_event = {
 
 	option = {
 		name = ACS_00048_OPT_A
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				trait = craven
+			}
+		}
 		trigger = {
 			num_of_friends >= 1
 		}
 		random_friend = {
+			add_character_flag = mangekyo_friend
 			narrative_event = { id = ACS.00049 }
 		}
 	}
 
 	option = {
 		name = ACS_00048_OPT_B
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				trait = craven
+			}
+		}
 		trigger = {
 			num_of_lovers >= 1
 		}
 		random_lover = {
+			add_character_flag = mangekyo_lover
 			narrative_event = { id = ACS.00049 }
 		}
 	}
 
 	option = {
 		name = ACS_00048_OPT_C
+		ai_chance = {
+			factor = 1
+		}
 	}
 }
 
 # ACS.00048 - Intrigue or duel with the defender
 narrative_event = {
 	id = ACS.00049
-	title = ACS_00049_TITLE
-	desc = ACS_00049_DESC
-	picture = GFX_evt_spymaster
 	is_triggered_only = yes
+	hide_window = yes
 
 	immediate = {
 		save_event_target_as = combatant_2
@@ -1246,7 +1263,7 @@ narrative_event = {
 			save_event_target_as = combatant_1
 			character_event = { id = ACS.00052 }
 		}
-	}	
+	}
 }
 
 # ACS.00050 - The attacker gets the mangekyo
@@ -1288,7 +1305,10 @@ character_event = {
     trigger = {        
     }
 
-    immediate = {      
+    immediate = {     
+		#Chooses a weapon for mainly loc purposes (but has a tiny effect on outcomes, too)...
+		set_dueling_weapon_effect = yes
+        event_target:combatant_2 = { set_dueling_weapon_effect = yes } 
         #Chooses a body part for injury (if it occurs), also for loc purposes (effect handles both characters)
         set_potential_injury_flag_effect = yes
 
@@ -1300,5 +1320,251 @@ character_event = {
 
         #Send the correct result event (from random_list)...
         send_mangekyo_duel_result_event_effect = yes 
+    }
+}
+
+# ACS.00052"I decapitated someone!" event sent to winner...
+character_event = {
+    id = ACS.00052
+	desc = ACS_00052_DESC
+    picture = GFX_evt_duel_scene
+    border = GFX_event_normal_frame_war
+    title = getDuelTitle
+    is_triggered_only = yes
+
+    immediate = {
+        sound_effect = duel_win
+        set_winner_flags_and_save_opponent_effect = yes
+    }
+
+    picture = {
+        picture = GFX_evt_duel_team #snowy picture
+        trigger = {
+            capital_scope = {
+                location = { is_winter = yes }
+            }
+        }
+    }
+
+    ### Regular option: ###
+
+    option = {
+        name = {
+            text = EVTOPTA_HFP_10103_default #I... Yes, that was on purpose!
+            trigger = {
+                NOR = {
+                    trait = duelist
+                    trait = kind
+                    is_rival = event_target:other_combatant
+                    is_friend = event_target:other_combatant
+                    event_target:other_combatant = { duelist_skill_compared_to_prev_low_group_trigger = yes }
+                    duelist_skill_is_high_group_trigger = yes
+                }
+            }
+        }
+        name = {
+            text = EVTOPTA_HFP_10103_duelist #Another victorious match.
+            trigger = {
+                OR = {
+                    trait = duelist
+                    event_target:other_combatant = { duelist_skill_compared_to_prev_low_group_trigger = yes }
+                    duelist_skill_is_high_group_trigger = yes
+                }
+            }
+        }
+        name = {
+            text = EVTOPTA_HFP_10103_sad #I'm sorry it had to end this way.
+            trigger = {
+                OR = {
+                    trait = kind
+                    is_friend = event_target:other_combatant
+                }
+            }
+        }
+        name = {
+            text = EVTOPTA_HFP_10103_mean #Your death makes sense
+            trigger = {
+                OR = {
+                    trait = cruel
+                    is_rival = event_target:other_combatant
+                }
+            }
+        }
+        custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+        add_blood_splatter_effect = yes
+
+        tooltip = {
+            event_target:other_combatant = {
+                if = {
+                    limit = {
+                        has_character_flag = injury_face
+                        has_character_flag = desc_A #decapitation desc
+                        has_nickname = no
+                    }
+                    give_nickname = nick_the_headless
+                }
+            }
+            event_target:other_combatant = {
+                show_scope_change = no
+                death = {
+                    death_reason = death_duel
+                    killer = ROOT
+                }
+            }
+        }
+        hidden_effect = {
+            event_target:other_combatant = { character_event = { id = HFP.10104 } } #"I was decapitated" event
+        }
+        trigger = {
+            NOT = { event_target:combatant_1 = { has_character_flag = claim_duel@event_target:combatant_2 } }
+        }
+    }
+    
+    ###### Claim duels Options: #########
+
+    option = { #If claim duel, the following options are displayed instead...
+        name = {
+            text = EVTOPTA_HF_10103_default #You brought your own death.
+            trigger = {
+                #always available for randomization
+            }
+        }
+        name = {
+            text = EVTOPTA_HF_10103_sad #Curse you, for making me do this!
+            trigger = {
+                OR = {
+                    trait = kind
+                    is_friend = event_target:other_combatant
+                }
+                NOT = { is_rival = event_target:other_combatant }
+            }
+        }
+        name = {
+            text = EVTOPTA_HF_10103_mean #I had a feeling I would have to destroy you.
+            trigger = {
+                OR = {
+                    trait = cruel
+                    is_rival = event_target:other_combatant
+                }
+                NOT = { is_friend = event_target:other_combatant }
+            }
+        }
+        custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+        add_blood_splatter_effect = yes
+
+        
+        tooltip = {
+            handle_claim_duel_result_effect = yes #Claim duels only...
+            event_target:other_combatant = {
+                if = {
+                    limit = {
+                        has_character_flag = injury_face
+                        has_character_flag = desc_A #decapitation desc
+                        has_nickname = no
+                    }
+                    give_nickname = nick_the_headless
+                }
+            }
+            event_target:other_combatant = {
+                show_scope_change = no
+                death = {
+                    death_reason = death_duel
+                    killer = ROOT
+                }
+            }
+        }
+        hidden_effect = {
+            event_target:other_combatant = { character_event = { id = HFP.10104 } } #"I was decapitated (CLAIM DUEL VERSION)" event
+        }
+        ai_chance = {
+            factor = 20
+            modifier = {
+                factor = 2
+                trait = impaler
+            }
+            modifier = {
+                factor = 1.1
+                trait = cruel
+            }
+            modifier = {
+                factor = 5
+                is_rival = event_target:other_combatant
+            }
+        }
+        trigger = {
+            event_target:combatant_1 = { has_character_flag = claim_duel@event_target:combatant_2 }
+        }
+    }
+    option = { #If KIND/CHARITABLE/ETC: spare their life?
+        name = EVTOPTB_HF_10103 #Or... we could make a deal?
+        tooltip_info_custom = available_because_benevolent_tt
+
+        custom_tooltip = { text = you_win_the_duel_tt }
+        custom_tooltip = { text = EVTOPTB_HF_10103_TT }
+            
+        apply_merciful_modifier_effect = yes
+
+        tooltip = { # *actually* added further down the line...
+            if = { limit = { has_character_flag = is_rival_fight }
+                prestige = 100
+            }
+            else = { prestige = 50 }
+        
+            add_character_modifier = {
+                modifier = recent_duel_victory
+                months = 12 #also clears upon new duel!
+            }
+        }
+        
+        hidden_effect = {
+            event_target:other_combatant = {
+                if = {
+                    limit = {
+                        character = event_target:combatant_1
+                        has_character_flag = attacker_using_poison@event_target:combatant_2
+                    }
+                    set_character_flag = is_spared_poisoner
+                }
+                character_event = { id = HF.10104 }  #"I could be spared (CLAIM DUEL VERSION)" event 
+            }
+        }
+
+        ai_chance = {
+            factor = 10
+            likes_other_combatant_score = yes
+            modifier = {
+                factor = 1.5
+                has_character_modifier = the_merciful
+            }
+        }
+
+        trigger = {
+            event_target:combatant_1 = { has_character_flag = claim_duel@event_target:combatant_2 }
+            OR = {
+                trait = kind
+                trait = charitable
+                trait = temperate
+                trait = humble
+                trait = patient
+                trait = trusting
+            }
+            OR = {
+                character = event_target:combatant_2 #You are the defender
+
+                AND = { # OR, you are the attacker, but the defender also has claims on YOUR titles
+                    character = event_target:combatant_1
+                    any_demesne_title = {
+                        event_target:combatant_2 = { has_strong_claim = PREV }
+                    }
+                }
+            }
+        }
+    }
+    after = {
+        tooltip = {
+            clean_up_after_duel_effect = yes
+        }
     }
 }

@@ -1,7 +1,7 @@
 syrena = {
 	cached = yes
 	random = no    
-	sex_appeal_opinion = 300
+	sex_appeal_opinion = 500
 	health = 20
 	intrigue = 5
 	customizer = no

@@ -61,6 +61,7 @@ character_event = {
 	}
 
 	immediate = {
+		NOT = { set_global_flag = upd_0_6_0 }
 		any_character = {
 			limit = {
 				trait = sharingan

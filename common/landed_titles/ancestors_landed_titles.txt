@@ -4,12 +4,14 @@ d_mercenary_sakya = {
 
 	capital = 622	
 	# Parent Religion 
-	religion = buddhist
+	religion = orthodox	
+	culture = turkish
 	
 	mercenary = yes
 
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	title_female = "CAPTAIN_FEMALE"
 
 	# Always exists
 	landless = yes
@@ -19,8 +21,6 @@ d_mercenary_sakya = {
 		
 	# Cannot be vassalized
 	independent = yes
-
-	dynasty_title_names = no
 	
 	strength_growth_per_century = 0.0
 

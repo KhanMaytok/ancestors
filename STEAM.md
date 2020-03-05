@@ -1,8 +1,8 @@
 [img]https://i.imgur.com/p7Fv1Z6.gif[/img]
 
-This mod is a work in progress. Many features will be added periodically. I am releasing the mod with the purpose of discovering bugs and knowing the opinion of the users. The mod doesn't have CTD bugs and is safe to test.
+This mod is a work in progress. Many features will be added periodically. I'm releasing the mod with the purpose of discovering bugs and get the opinion of the users. The mod doesn't have CTD bugs and is safe to test.
 
-You can check the last features in the [url=github.com/khanmaytok/ancestors] Github repo [/url]. If you found a bug or a translation error you can made a pull request
+You can check the last features in the [url=github.com/khanmaytok/ancestors] Github repo [/url]. If you found a bug or a translation error you can made a pull request.
 
 [img]https://i.imgur.com/NbgDT3D.png[/img]
 

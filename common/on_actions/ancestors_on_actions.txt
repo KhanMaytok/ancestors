@@ -21,13 +21,14 @@ on_bi_yearly_pulse = {
 
 on_five_year_pulse = {
 	events = {
-		ACS.00013 # Khalga traveling every year	
+		ACS.00013 # Khalga traveling every year
+		ACS.00048 # Choice for the mangekyo every 5 years
 	}
 }
 
 on_death = {
 	events = {
-		ACS.00017 # Resurrect Khalga if He dies
+		ACS.00017 # Resurrect Khalga and move him to a new ruler
 		ACS.00034 # Resurrect Vee if she dies
 		ACS.00046 # Assign flag and trait if Vee spouse dies
 	}

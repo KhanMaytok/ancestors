@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_khalga_dragon_katana"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\khalga_dragon_katana.dds"
+	}
+	spriteType = {
+		name = "GFX_khalga_dragon_katana_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\khalga_dragon_katana_small.dds"
+	}
+}
