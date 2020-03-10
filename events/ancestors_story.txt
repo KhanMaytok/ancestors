@@ -247,8 +247,8 @@ character_event = {
 			name = "Tilda"
 			female = yes
 			age = 33
-			culture = ROOT
-			religion = ROOT
+			culture = location
+			religion = location
 			trait = brilliant_strategist
 			trait = cavalry_leader
 			trait = flat_terrain_leader
@@ -559,7 +559,33 @@ character_event = {
 	}
 }
 
-# ACS.00012 - AVAILABLE
+# ACS.00008 - Purge an entire patrician family to distribute trade posts
+character_event = {
+	id = ACS.00008
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_patrician = yes
+		primary_title = {
+			has_title_flag = is_pentaghast_nest
+		}
+	}
+
+	immediate = {
+		random_vassal = {
+			limit = {
+				NOT = { dynasty = 300001 }
+			}
+			any_dynasty_member = {
+				death = { death_reason = death_missing }
+			}
+			death = { death_reason = death_missing }
+		}
+	}
+}
+
+# ACS.00012 - Add trade post to Pentaghast nest
 character_event = {
 	id = ACS.00012
 	hide_window = yes
