@@ -1,4 +1,6 @@
 # ACS.90041 - Ensure Unique characters
+namespace = ACS
+
 character_event = {
 	id = ACS.90041
 	is_triggered_only = yes
@@ -46,34 +48,5 @@ character_event = {
 			set_character_flag = dont_resucite
             death = { death_reason = death_poor_health }
         }
-	}
-}
-
-# ACS.90043 - Ensure only one Khalga
-character_event = {
-	id = ACS.90043
-	is_triggered_only = yes
-	hide_window = yes
-	ai = no
-
-	trigger = {
-		NOT = { has_global_flag = upd_0_6_0 }
-	}
-
-	immediate = {
-		NOT = { set_global_flag = upd_0_6_0 }
-		any_character = {
-			limit = {
-				trait = sharingan
-			}
-			add_trait = vee_blood
-		}
-		any_character = {
-			limit = {
-				trait = byakugan
-			}
-			add_trait = khalga_blood
-		}
-		set_global_flag = upd_0_6_0
 	}
 }
