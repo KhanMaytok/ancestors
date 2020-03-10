@@ -8,6 +8,7 @@ on_startup = {
 on_yearly_pulse = {
 	events = {
 		ACS.00036 # Vee tournament
+		ACS.00005 # Add free tradepost to patricians  on pentaghast nest
 	}
 }
 
@@ -22,6 +23,12 @@ on_five_year_pulse = {
 	events = {
 		ACS.00013 # Khalga traveling every year
 		ACS.00048 # Choice for the mangekyo every 5 years
+	}
+}
+
+on_decade_pulse = {
+	events = {
+		ACS.00008 # Purge an entire patrician family to distribute trade posts
 	}
 }
 

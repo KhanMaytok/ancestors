@@ -473,7 +473,7 @@ character_event = {
 	}
 }
 
-# ACS.00005 - AVAILABLE
+# ACS.00005 - Add free tradepost to patricians  on pentaghast nest
 character_event = {
 	id = ACS.00005
 	hide_window = yes
