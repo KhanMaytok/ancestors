@@ -10,13 +10,6 @@ khalga_dragon_katana = {
 	combat_rating = 2
 }
 
-jewel_of_bless = {
-	stacking = yes
-	flags = { ancestors jewel }
-	picture = "GFX_jewel_of_bless"
-	slot = weapon
-}
-
 #####################
 ## BEGINNER ARMORS ##
 #####################

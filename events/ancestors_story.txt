@@ -114,6 +114,10 @@ character_event = {
 			set_title_flag = is_pentaghast_nest
 		}
 
+		location = {
+			set_province_flag = is_pentaghast_nest
+		}
+
 		# Create OLAF
 		create_character = {
 			dynasty = 300001
@@ -247,8 +251,8 @@ character_event = {
 			name = "Tilda"
 			female = yes
 			age = 33
-			culture = location
-			religion = location
+			culture = ROOT
+			religion = ROOT
 			trait = brilliant_strategist
 			trait = cavalry_leader
 			trait = flat_terrain_leader
@@ -585,6 +589,37 @@ character_event = {
 	}
 }
 
+# ACS.00009 - Marry every single Pentaghast male
+character_event = {
+	id = ACS.00009
+	is_triggered_only = yes
+	hide_window = yes
+	only_men = yes
+
+	trigger = {
+		dynasty = 300001
+		can_marry = yes
+		is_married = no
+		is_adult = yes
+		age > 24
+	}
+
+	immediate = {
+		create_character = {
+			random_traits = yes
+			culture = ROOT
+			religion = ROOT
+			dynasty = none
+			female = yes
+			age = 18
+		}
+		new_character = {
+			add_spouse = ROOT
+		}
+	}
+}
+
+
 # ACS.00012 - Add trade post to Pentaghast nest
 character_event = {
 	id = ACS.00012
@@ -670,7 +705,77 @@ character_event = {
 	}
 }
 
-# ACS.00015 - AVAILABLE
+# ACS.00015 - Reduce the troups of the under siege main pentaghast province
+character_event = {
+	id = ACS.00015
+	desc = EVTDESC62000
+	title = EVTNAME62000
+	
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	notification = yes
+
+	trigger = {
+		siege = {
+			is_attacker = yes
+			location = {
+				has_province_flag = is_pentaghast_nest
+			}
+		}
+	}
+	
+	immediate = {
+		siege = {
+			troops = -0.25
+		}
+			
+		siege = {
+			enemy = {
+				morale = 0.25
+				troops = -0.025
+				leader = {
+					any_liege = {
+						limit = {
+							war_with = ROOT
+							NOT = {
+								ROOT = {
+									liege = { has_landed_title = e_rebels }
+								}
+							}
+						}
+						character_event = { id = 62030 }
+					}
+					if = {
+						limit = {
+							war_with = ROOT
+						}
+						character_event = { id = 62030 }
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA62000
+		
+		tooltip = {
+			siege = {
+				troops = -0.25
+			}
+				
+			siege = {
+				enemy = {
+					morale = 0.25
+					troops = -0.025
+				}
+			}
+		}
+	}
+}
 
 # ACS.00016 - AVAILABLE
 
@@ -964,6 +1069,7 @@ character_event = {
 					real_tier = BARON
 				}
 				is_landed = yes
+				is_patrician = no
 			}
 			letter_event = { id = ACS.00037 } # Notification for participation
 		}
@@ -1137,6 +1243,7 @@ narrative_event = {
 	id = ACS.00041
 	title = ACS_00041_TITLE
 	desc = ACS_00041_DESC
+	picture = GFX_evt_emissary_byzantine
 	is_triggered_only = yes
 
 	option = {
@@ -1238,6 +1345,7 @@ narrative_event = {
 	id = ACS.00047
 	title = ACS_00047_TITLE
 	desc = ACS_00047_DESC
+	picture = GFX_evt_emissary_byzantine
 	is_triggered_only = yes
 
 	trigger = {
@@ -1326,8 +1434,8 @@ letter_event = {
 		character_event = { id = ACS.00051 days = 3 }
 		FROM = {
 			save_event_target_as = combatant_1
-			character_event = { id = ACS.00050 days = 3 }
-			character_event = { id = ACS.00052 days = 4 } # The DUEL
+			narrative_event = { id = ACS.00050 days = 3 }
+			narrative_event = { id = ACS.00052 days = 4 } # The DUEL
 		}
 	}
 
@@ -1350,7 +1458,7 @@ narrative_event = {
 }
 
 # ACS.00051 - The defender decides
-character_event = {
+narrative_event = {
 	id = ACS.00051
 	title = ACS_00051_TITLE
 	desc = ACS_00051_DESC
