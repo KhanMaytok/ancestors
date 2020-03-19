@@ -167,6 +167,7 @@ character_event = {
 # ACS.00003 - Player is notified about Tiamat devastation
 narrative_event = {
 	id = ACS.00003
+	title = ACS_00003_TITLE
 	desc = ACS_00003_DESC
 	picture = GFX_evt_emissary_byzantine
 	is_triggered_only = yes
