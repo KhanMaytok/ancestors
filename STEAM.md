@@ -27,6 +27,10 @@ There is a very small chance of obtaining the Rinnegan by the above method.
 In the real life it is not the way in that genetics works, but dojutsu inheritance for this mod fits roleplay and strategic breeding. So, you should carefully monitor the traits of two characters before you marry them if you want to get opportunity to those wonderful eyes.
 
 
+[b]How can I get a Mangekyo Sharingan?[/b]
+You need two traits: ambitious and sharingan. Every 5 years, you get an event with the choice of kill a lover or a friend. I you win, you get a Mangekyo 
+
+
 [b]Who is Khalga?[/b]
 The original owner of the Byakugan is a wandering traveler, a lover of the good life and women. He has a tendency to visit the courts of female rulers and leave his seed there. After a maximum period of 5 years, Khalga will disappear from the court and move to another one, with different appearance, culture and religion. Therefore, Khalga is immortal, changing his body with every journey.
 

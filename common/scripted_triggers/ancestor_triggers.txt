@@ -22,3 +22,13 @@ has_dojutsu_trigger = {
 		has_sharingan_family_dojutsu = yes       
     }
 }
+
+is_the_main_player_trigger = {
+	OR = {
+		multiplayer = no
+		AND = {
+			multiplayer = yes
+			is_multiplayer_host_character = yes
+		}
+	}
+}

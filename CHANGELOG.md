@@ -5,8 +5,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- A new full tradepost for all Pentaghast nest patricians every year
+- Kill a entire patrician family in Pentaghast nest to distribute trade posts
 
-## [1.0.1]
+### Changed
+- Improve performance in Pentaghast buff events
+- Main player evaluation in a custom trigger
+
+### Deleted
+- Flag for Pentaghast primary title
+
+### Fixed
+- Missing narrative event title
+
+## [1.0.1] - 2019-03-19
 ### Fixed
 - Missing narrative event title
 
