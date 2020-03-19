@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vee death is triggered at random 33 - 40 years old
 - Dojutsu inheritance percentaje is now 7%
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.6.1...v1.0.0
-[0.6.1]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.6.0...v0.6.1
+[Unreleased]: https://github.com/KhanMaytok/ancestors/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/KhanMaytok/ancestors/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/KhanMaytok/ancestors/compare/v0.6.1...v1.0.0
+[0.6.1]: https://github.com/KhanMaytok/ancestors/compare/v0.6.0...v0.6.1
