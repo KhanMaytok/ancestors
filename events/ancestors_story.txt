@@ -346,10 +346,6 @@ character_event = {
 			set_father = event_target:olaf_father
 			create_pentaghast_child_effect = yes
 			create_pentaghast_child_effect = yes
-			c_vee_governor = {
-				grant_title = PREV
-				set_defacto_liege = THIS
-			}
 		}
 
 		create_character = { # Olaf 2nd sister
@@ -519,7 +515,6 @@ character_event = {
 				limit = { has_landed_title = d_mercenary_sakya }
 				character_event = { id = ACS.00007 }				
 			}
-			break = yes
 		}
 	}
 }
