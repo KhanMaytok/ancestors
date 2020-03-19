@@ -4,7 +4,8 @@
 The shinobi world is very rich and complex. Unfortunately, I don't think I have the time to fully dedicate myself to developing a complete mod on Naruto. This mod has transferred one of my favorite features to the world of Crusader Kings 2: The dojutsu.
 
 [b]I have an old version. Are there breaking changes?[/b]
-I tried to wrote events to no BC, but since the initial events are very different,[b] you should made a fresh campaign start.[/b]
+I tried to wrote events to no BC, but since the initial events are very different,[b] you should made a fresh campaign start.[/b].
+If you want to check a complete list of changes in this new version, visit the [url=https://github.com/KhanMaytok/ancestors/blob/master/CHANGELOG.md]CHANGELOG.[/url]
 
 [b]How can I get a Sharingan/Byakugan?[/b]
 The mod has its own very small Lore. The initial sources of the dojutsu are two characters: Vee (sharingan) and Khalga (byakugan). Each Dojutsu comes with a parallel feature that is passed on to the descendants and serves as a method of control. The rules of transmission are as follows:
