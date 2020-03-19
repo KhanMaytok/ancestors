@@ -1,0 +1,218 @@
+create_khalga_effect = {
+	create_character = {
+		age = 26
+		female = no
+		culture = event_target:khalga_lover
+		religion = event_target:khalga_lover
+		dynasty = none
+		attributes = {
+			martial = 1
+			diplomacy = 5
+			stewardship = 2
+			intrigue = 12
+			learning = 12
+		}
+		trait = mastermind_theologian
+		trait = physician
+		trait = fair
+		trait = genius
+		trait = erudite
+		trait = byakugan
+		trait = strong
+		trait = prevent_marriage
+		trait = khalga_blood
+		trait = seducer
+		trait = khalga_trait
+		trait = patient
+		trait = proud
+		trait = lustful
+	}
+	new_character = {
+		set_character_flag = is_khalga
+		set_character_flag = society_join_block
+		set_character_flag = originated_from_chinese_court # to prevent to go to China
+		set_character_flag = wolf_blood_first_generation
+		set_character_flag = immune_bubonic_plague
+		add_character_modifier = {
+			name = wolf_child
+			duration = -1
+		}
+		save_event_target_as = chr_khalga
+		any_courtier = {
+			remove_title = title_court_physician
+		}
+		give_minor_title = title_court_physician
+	}
+}
+
+create_pentaghast_child_effect = {
+	create_character = {
+		age = 0
+		female = no
+		dynasty = 300001
+	}
+	new_character = {
+		set_mother = PREV
+		set_character_flag = immune_bubonic_plague
+		set_immune_to_pruning = yes
+	}
+}
+
+create_sakya_child_effect = {
+	create_character = {
+		age = 0
+		female = no
+		dynasty = 300000
+	}
+	new_character = {
+		set_mother = PREV
+		set_character_flag = immune_bubonic_plague
+		set_immune_to_pruning = yes
+	}
+}
+
+send_mangekyo_duel_result_event_effect = { # Runs via the attacker/combatant_1
+	random_list = {
+		20 = { #LETHAL for both...
+			trigger = {}
+			additive_modifier = {
+				duel_result_score_decent_trigger = yes #Score: fairly evenly matched
+				value = 1
+			}
+			additive_modifier = { #Both have highest skill
+				is_the_best_duelist_trigger = yes
+				event_target:combatant_2 = { is_the_best_duelist_trigger = yes }
+				value = 1
+			}
+			additive_modifier = { #Both have the worst skill
+				is_the_worst_duelist_trigger = yes
+				event_target:combatant_2 = { is_the_worst_duelist_trigger = yes }
+				value = 5
+			}
+			if = {
+				limit = { #Both have the best skill
+					is_the_best_duelist_trigger = yes
+					event_target:combatant_2 = { is_the_best_duelist_trigger = yes }
+				}
+				set_character_flag = elegant_double_KO
+				event_target:combatant_2 = { set_character_flag = elegant_double_KO }
+			}
+			if = {
+				limit = { #Both have the worst skill
+					is_the_worst_duelist_trigger = yes
+					event_target:combatant_2 = { is_the_worst_duelist_trigger = yes }
+				}
+				set_character_flag = clumsy_double_KO
+				event_target:combatant_2 = { set_character_flag = clumsy_double_KO }
+			}
+			
+			#mostly to deal with Kinslayer effect and tooltips...
+			death = { death_reason = death_missing }
+			narrative_event = { id = ACS.00053 }
+			event_target:combatant_2 = {
+				death = { death_reason = death_missing }
+				narrative_event = { id = ACS.00053 }
+			}
+		}
+
+		40 = { #LETHAL for attacker...
+			trigger = {}
+			additive_modifier = {
+				duel_result_score_low_group_trigger = yes #Score: you were outmatched
+				value = 5
+			}
+			additive_modifier = {
+				duel_result_score_the_worst_trigger = yes #Score: REALLY outmatched
+				value = 10
+			}
+			additive_modifier = {
+				is_bad_duelist_trigger = yes #Skill: bad
+				value = 20
+			}
+			additive_modifier = {
+				is_terrible_duelist_trigger = yes #Skill: terrible
+				value = 30
+			}
+			additive_modifier = {
+				is_the_worst_duelist_trigger = yes #Skill: the worst
+				value = 40
+			}
+			additive_modifier = {
+				has_character_flag = defender_using_poison@event_target:combatant_1 #Defender used poison
+				value = 30
+			}
+			additive_modifier = {
+				has_character_flag = poison_can_fail_against@event_target:combatant_1 #Attacker might catch the poison
+				value = -25
+			}
+			additive_modifier = {
+				event_target:dueling_weapon_2 = { #Defender is using a *gun*
+					has_artifact_flag = gun
+				}
+				NOT = {
+					event_target:dueling_weapon_1 = {
+						has_artifact_flag = gun
+					}
+				}
+				value = 30
+			}
+
+			death = { death_reason = death_missing }
+
+			event_target:combatant_2 = {
+				narrative_event = { id = ACS.00055 }
+			}
+		}
+
+		40 = { #LETHAL for defender...
+			trigger = {}
+			additive_modifier = {
+				duel_result_score_high_group_trigger = yes #Score: they were outmatched
+				value = 5
+			}
+			additive_modifier = {
+				duel_result_score_the_best_trigger = yes #Score: REALLY outmatched
+				value = 10
+			}
+			additive_modifier = {
+				event_target:combatant_2 = { is_bad_duelist_trigger = yes } #Their Skill: bad
+				value = 20
+			}
+			additive_modifier = {
+				event_target:combatant_2 = { is_terrible_duelist_trigger = yes } #Their Skill: terrible
+				value = 30
+			}
+			additive_modifier = {
+				event_target:combatant_2 = { is_the_worst_duelist_trigger = yes } #Their Skill: the worst
+				value = 40
+			}
+			additive_modifier = {
+				has_character_flag = attacker_using_poison@event_target:combatant_2 #Attacker used poison
+				value = 30
+			}
+			additive_modifier = {
+				has_character_flag = poison_can_fail_against@event_target:combatant_2 #Defender might catch the poison
+				value = -25
+			}
+			additive_modifier = {
+				event_target:dueling_weapon_1 = { #Attacker is using a *gun*
+					has_artifact_flag = gun
+				}
+				NOT = {
+					event_target:dueling_weapon_2 = {
+						has_artifact_flag = gun
+					}
+				}
+				value = 30
+			}
+			
+			event_target:combatant_2 = {
+				death = { death_reason = death_missing }
+			}
+
+			remove_trait = sharingan
+			add_trait = mangekyo_sharingan
+			narrative_event = { id = ACS.00054 }
+		}
+	}
+}

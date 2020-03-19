@@ -1,8 +1,3 @@
-had_pentaghast_fertility_ritual = {
-	fertility = 0.2
-	icon = 75
-}
-
 devastated_by_tiamat = {
 	icon = 106
 	disease_defence = -1.0
@@ -13,78 +8,19 @@ devastated_by_tiamat = {
 	supply_limit = -20.0
 }
 
-
-visited_by_pentaghast = {
-	icon = 106
-	local_revolt_risk = 6.66
+married_with_vee = {
+	icon = 39
+	monthly_character_prestige = 1
 }
 
-orichalcum_statue = {
-	icon = 52
-	fertility = 0.2
-	monthly_character_prestige = 0.10
-}
-
-used_sharingan_1 = {
-	icon = 82
-	fertility = -0.01
-	health = -0.5
-	combat_rating = -10
-}
-
-used_sharingan_2 = {
-	icon = 82
-	fertility = -0.5
-	health = -2.5
-	combat_rating = -25
-}
-
-used_sharingan_3 = {
-	icon = 82
-	fertility = -1.0
-	health = -10.0
-	combat_rating = -50
-}
-
-used_sharingan_4 = {
-	icon = 82
-	fertility = -15.0
-	health = -15.0
-	combat_rating = -100
-}
-
-used_sharingan_5 = {
-	icon = 82
-	fertility = -100.0
-	health = -30.0
-	combat_rating = -200
-}
-
-amaterasu = {
-	icon = 81
-	combat_rating = 20
-}
-
-tsukuyomi = {
-	icon = 81
-	combat_rating = 20
-}
-
-susanoo = {
-	icon = 81
-	combat_rating = 20
-}
-
-kamui = {
-	icon = 81
-	combat_rating = 20
-}
-
-kotoamatsukami = {
-	icon = 81
-	combat_rating = 20
-}
-
-ancestor_chest = {
-	icon = 4
+depopulated_by_sakya = {
+	city_tax_modifier = -0.60
+	castle_tax_modifier = -0.60
+	temple_tax_modifier = -0.60
+	tribal_tax_modifier = -0.60
+	levy_size = -0.6
+	garrison_size = -0.6
+	supply_limit = -6
+	icon = 3
+	major = yes
 }

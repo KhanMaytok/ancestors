@@ -1,77 +1,17 @@
-d_mercenary_pentaghast = {
-	color={ 100 200 80 }
-	color2={ 255 255 255 }
-
-	capital = 333 # Roma		
-	# Parent Religion 
-	religion = catholic
-	
-	mercenary = yes
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-
-	dynasty_title_names = no
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = pentaghast_composition
-}
-
-d_mercenary_pentaghast = {
-	color={ 100 200 80 }
-	color2={ 255 255 255 }
-
-	capital = 333 # Roma		
-	# Parent Religion 
-	religion = catholic
-	
-	mercenary = no
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-
-	dynasty_title_names = no
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = pentaghast_composition
-}
-
-c_mercenary_pentaghast = {
-	landless = yes
-}
-
 d_mercenary_sakya = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
 	capital = 622	
 	# Parent Religion 
-	religion = buddhist
+	religion = orthodox	
+	culture = turkish
 	
 	mercenary = yes
 
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
+	title = "CAPTAIN"
+	foa = "CAPTAIN_FOA"
+	title_female = "CAPTAIN_FEMALE"
 
 	# Always exists
 	landless = yes
@@ -81,69 +21,8 @@ d_mercenary_sakya = {
 		
 	# Cannot be vassalized
 	independent = yes
-
-	dynasty_title_names = no
 	
-	strength_growth_per_century = 1.0
+	strength_growth_per_century = 0.0
 
 	mercenary_type = sakya_composition
-}
-
-d_mercenary_sakya = {
-	color={ 100 200 80 }
-	color2={ 255 255 255 }
-
-	capital = 622	
-	# Parent Religion 
-	religion = buddhist
-	
-	mercenary = no
-
-	title = "CONDOTTIERO"
-	foa = "CONDOTTIERO_FOA"
-
-	# Always exists
-	landless = yes
-	
-	# Cannot be held as a secondary title
-	primary = yes
-		
-	# Cannot be vassalized
-	independent = yes
-
-	dynasty_title_names = no
-	
-	strength_growth_per_century = 1.0
-
-	mercenary_type = sakya_composition
-}
-
-c_mercenary_sakya = {
-	landless = yes
-}
-
-e_vee = {
-	color={ 245 240 10 }
-	color2={ 220 220 0 }	
-	capital = 333 # Rome	
-	assimilate = no
-	
-	title_female = "WESTERN_GOVERNOR_FEMALE"
-	title = "WESTERN_GOVERNOR_MALE"
-	foa = "WESTERN_GOVERNOR_TITLE_FOA"
-	short_name = yes
-	#location_ruler_title = yes
-	
-	# Always exists
-	landless = yes
-	
-	# Cannot be vassalized
-	independent = yes
-
-	# Cannot be held as a secondary title
-	primary = yes	
-	dynasty_title_names = no	
-	can_be_claimed = no
-	can_be_usurped = no	
-	extra_ai_eval_troops = 7500
 }

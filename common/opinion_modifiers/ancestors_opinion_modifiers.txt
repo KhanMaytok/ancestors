@@ -1,7 +1,0 @@
-opinion_hypnotized_with_sharingan = {
-	opinion = 10
-}
-
-monarch_modifier = {
-	opinion = 100
-}

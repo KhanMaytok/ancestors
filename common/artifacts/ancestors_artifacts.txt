@@ -1,28 +1,13 @@
-jewel_of_soul = {
-	stacking = yes
-	flags = { ancestors jewel }
-	picture = "GFX_jewel_of_soul"
-	slot = weapon
-}
-
-jewel_of_bless = {
-	stacking = yes
-	flags = { ancestors jewel }
-	picture = "GFX_jewel_of_bless"
-	slot = weapon
-}
-
-eden_apple = {
+khalga_dragon_katana = {
 	stacking = no
-	flags = { ancestors jewel }
-	active = {
-		society_member_of = pentaghast_society
-		is_society_grandmaster = yes
-		has_global_flag = vanishee_vee
-	}
-	indestructible = yes
-	picture = "GFX_eden_apple"
-	learning = 9
+	quality = 5
+	flags = { ancestors khalga sword }
+	picture = "GFX_khalga_dragon_katana"
+	slot = weapon
+	#active = {
+	#	has_character_flag = is_khalga
+	#}
+	combat_rating = 2
 }
 
 #####################
@@ -71,6 +56,38 @@ volt_warframe = {
 	active = {
 		is_adult = yes
 		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_volt_warframe"	
+}
+
+nidus_warframe = {
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	intrigue = 1
+	active = {
+		is_adult = yes
+		is_female = no
+	}
+	flags = { ancestors armor tier1 }
+	stacking = yes
+	slot = torso
+	picture = "GFX_volt_warframe"	
+}
+
+saryn_warframe = {
+	combat_rating = 10
+	learning = 1
+	quality = 1
+	health = 1
+	intrigue = 1
+	active = {
+		is_adult = yes
+		is_female = yes
 	}
 	flags = { ancestors armor tier1 }
 	stacking = yes

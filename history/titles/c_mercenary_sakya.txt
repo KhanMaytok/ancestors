@@ -1,6 +1,0 @@
-400.1.1={
-	law=succ_feudal_elective
-}
-768.1.1={
-	law = succ_feudal_elective
-}

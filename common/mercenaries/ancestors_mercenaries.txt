@@ -1,11 +1,4 @@
-pentaghast_composition = {
-    levy_size = 4
-    light_infantry = 100
-    archers = 100
-    light_cavalry = 100
-}
-
 sakya_composition = {
-    knights = 100
+    sakya_bucelarii = 150
     levy_size = 1
 }

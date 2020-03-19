@@ -1,41 +1,61 @@
 on_startup = {
 	events = {
 		ACS.00001 # Comet
-		ACS.00042 # Ensure only one Vee
-		ACS.00043 # Ensure only one Khalga
-		ACS.90043 # Update 0.6.0
-	}
-}
-
-on_society_bi_yearly_pulse = {
-	events = {		
-		ACS.00227 # Force join AI characters to societies
+		ACS.90041 # Ensure unique characters
 	}
 }
 
 on_yearly_pulse = {
-	events = {		
-		ACS.00013 # Khalga traveling every year
-		ACS.00033 # Ensure there is females to pregnant with the new Vee
+	events = {
+		ACS.00036 # Vee tournament
+		ACS.00005 # Add free tradepost to patricians  on pentaghast nest
 	}
 }
 
 on_bi_yearly_pulse = {
-	events = {		
+	events = {
 		ACS.00025 # Vee migrates to another body
+		ACS.00045 # Vee has childs every 2 years to balance Khalga's byakugan
+	}
+}
+
+on_five_year_pulse = {
+	events = {
+		ACS.00013 # Khalga traveling every year
+		ACS.00048 # Choice for the mangekyo every 5 years
+		ACS.00009 # Marry every single Pentaghast male
+	}
+}
+
+on_decade_pulse = {
+	events = {
+		ACS.00008 # Purge an entire patrician family to distribute trade posts
 	}
 }
 
 on_death = {
 	events = {
-		ACS.00017 # Resurrect Khalga if He dies
+		ACS.00017 # Resurrect Khalga and move him to a new ruler
 		ACS.00034 # Resurrect Vee if she dies
+		ACS.00046 # Assign flag and trait if Vee spouse dies
+	}
+}
+
+on_birth = {
+	events = {
+		ACS.00014 # Ensure inherit Khalga trait for cuckoo
 	}
 }
 
 on_adulthood = {
 	events = {
-		ACS.00020 # Ensure the correct portrait for Khalga
 		ACS.00029 # Dojutsu inheritance mechanics
 	}
+}
+
+#on siege pulse
+on_siege_pulse = {
+	events = {
+		ACS.00015 # Reduce the troups of the under siege main pentaghast province
+	}	
 }
