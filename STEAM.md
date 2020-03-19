@@ -7,6 +7,10 @@ The shinobi world is very rich and complex. Unfortunately, I don't think I have 
 I tried to wrote events to no BC, but since the initial events are very different,[b] you should made a fresh campaign start.[/b].
 If you want to check a complete list of changes in this new version, visit the [url=https://github.com/KhanMaytok/ancestors/blob/master/CHANGELOG.md]CHANGELOG.[/url]
 
+[b]Your mod doesn't work with my set of mods. Can you fix that problem?[/b]
+Yes of course. I can write a compatibility patch to work with your mod. Just drop a message [url=https://steamcommunity.com/workshop/filedetails/discussion/1516819698/1863867579004156761/]here[/url]
+
+
 [b]How can I get a Sharingan/Byakugan?[/b]
 The mod has its own very small Lore. The initial sources of the dojutsu are two characters: Vee (sharingan) and Khalga (byakugan). Each Dojutsu comes with a parallel feature that is passed on to the descendants and serves as a method of control. The rules of transmission are as follows:
 
