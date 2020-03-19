@@ -12,3 +12,15 @@ married_with_vee = {
 	icon = 39
 	monthly_character_prestige = 1
 }
+
+depopulated_by_sakya = {
+	city_tax_modifier = -0.60
+	castle_tax_modifier = -0.60
+	temple_tax_modifier = -0.60
+	tribal_tax_modifier = -0.60
+	levy_size = -0.6
+	garrison_size = -0.6
+	supply_limit = -6
+	icon = 3
+	major = yes
+}

@@ -51,7 +51,7 @@ narrative_event = {
 			character_event = { id = ACS.00002 days = 15 } # Kill a entire patrician family
 		}
 
-		character_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
+		narrative_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
 
 		hidden_tooltip = { # Loop for the provinces
 			set_variable = { which = provs value = 5 }
@@ -165,7 +165,7 @@ character_event = {
 }
 
 # ACS.00003 - Player is notified about Tiamat devastation
-character_event = {
+narrative_event = {
 	id = ACS.00003
 	desc = ACS_00003_DESC
 	picture = GFX_evt_emissary_byzantine
@@ -589,7 +589,7 @@ character_event = {
 	}
 }
 
-# ACS.00009 - Marry every single Pentaghast male
+# ACS.00009 - Marry every single Pentaghast and Sakya male
 character_event = {
 	id = ACS.00009
 	is_triggered_only = yes
@@ -597,7 +597,10 @@ character_event = {
 	only_men = yes
 
 	trigger = {
-		dynasty = 300001
+		OR = {
+			dynasty = 300001
+			dynasty = 300000
+		}
 		can_marry = yes
 		is_married = no
 		is_adult = yes
@@ -618,7 +621,6 @@ character_event = {
 		}
 	}
 }
-
 
 # ACS.00012 - Add trade post to Pentaghast nest
 character_event = {
