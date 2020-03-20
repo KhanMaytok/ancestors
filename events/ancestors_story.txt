@@ -14,13 +14,7 @@ narrative_event = {
 
 	trigger = {
 		NOT = { has_global_flag = comet_tiamat }
-		OR = {
-			multiplayer = no
-			AND = {
-				multiplayer = yes
-				is_multiplayer_host_character = yes
-			}
-		}
+		is_the_main_player_trigger = yes
 	}
 
 	option = {
@@ -108,10 +102,6 @@ character_event = {
 		
 		any_vassal = {
 			set_character_flag = check_for_dissapears
-		}
-
-		primary_title = {
-			set_title_flag = is_pentaghast_nest
 		}
 
 		location = {
@@ -483,21 +473,26 @@ character_event = {
 	id = ACS.00005
 	hide_window = yes
 	is_triggered_only = yes
+	ai = no
 
 	trigger = {
-		is_patrician = yes
-		primary_title = {
-			has_title_flag = is_pentaghast_nest
-		}
+		is_the_main_player_trigger = yes
 	}
 
 	immediate = {
-		character_event = { id = ACS.00012 }
-		any_vassal = {
+		random_province = {
 			limit = {
-				is_patrician = yes
+				has_province_flag = is_pentaghast_nest
 			}
-			character_event = { id = ACS.00012 }
+			holder_scope = {
+				character_event = { id = ACS.00012 }
+				any_vassal = {
+					limit = {
+						is_patrician = yes
+					}
+					character_event = { id = ACS.00012 }
+				}
+			}
 		}
 	}
 }
@@ -520,7 +515,6 @@ character_event = {
 				limit = { has_landed_title = d_mercenary_sakya }
 				character_event = { id = ACS.00007 }				
 			}
-			break = yes
 		}
 	}
 }
@@ -569,24 +563,31 @@ character_event = {
 	id = ACS.00008
 	is_triggered_only = yes
 	hide_window = yes
+	ai = no
 
 	trigger = {
-		is_patrician = yes
-		primary_title = {
-			has_title_flag = is_pentaghast_nest
-		}
+		is_the_main_player_trigger = yes
 	}
 
 	immediate = {
-		random_vassal = {
+		random_province = {
 			limit = {
-				NOT = { dynasty = 300001 }
+				has_province_flag = is_pentaghast_nest
 			}
-			any_dynasty_member = {
-				death = { death_reason = death_missing }
+			holder_scope = {
+				random_vassal = {
+					limit = {
+						NOT = { dynasty = 300001 }
+						is_patrician = yes
+						ai = yes
+					}
+					any_dynasty_member = {
+						death = { death_reason = death_missing }
+					}
+					death = { death_reason = death_missing }
+				}
 			}
-			death = { death_reason = death_missing }
-		}
+		}		
 	}
 }
 
@@ -642,7 +643,65 @@ character_event = {
 			ROOT = {
 				create_tradepost = PREV
 			}
-		}
+			add_to_extra_holding = { type = trade_post building = tr_port_1 }
+			add_to_extra_holding = { type = trade_post building = tr_port_2 }
+			add_to_extra_holding = { type = trade_post building = tr_port_3 }
+
+			add_to_extra_holding = { type = trade_post building = tr_enclave_1 }
+			add_to_extra_holding = { type = trade_post building = tr_enclave_2 }
+			add_to_extra_holding = { type = trade_post building = tr_enclave_3 }
+
+			add_to_extra_holding = { type = trade_post building = tr_garrison_1 }
+			add_to_extra_holding = { type = trade_post building = tr_garrison_2 }
+			add_to_extra_holding = { type = trade_post building = tr_garrison_3 }
+
+			add_to_extra_holding = { type = trade_post building = trade_offices_1 }
+			add_to_extra_holding = { type = trade_post building = trade_offices_2 }
+			add_to_extra_holding = { type = trade_post building = trade_offices_3 }
+		}	
+		family_palace = {
+			add_building = fp_mansion_1
+			add_building = fp_mansion_2
+			add_building = fp_mansion_3
+			add_building = fp_mansion_4
+			add_building = fp_mansion_5
+
+			add_building = fp_barracks_1
+			add_building = fp_barracks_2
+			add_building = fp_barracks_3
+
+			add_building = fp_stable_1
+			add_building = fp_stable_2
+			add_building = fp_stable_3
+
+			add_building = fp_bowyer_1
+			add_building = fp_bowyer_2
+			add_building = fp_bowyer_3
+
+			add_building = fp_shipyard_1
+			add_building = fp_shipyard_2
+			add_building = fp_shipyard_3
+
+			add_building = fp_warehouse_1
+			add_building = fp_warehouse_2
+			add_building = fp_warehouse_3
+
+			add_building = fp_garden_1
+			add_building = fp_garden_2
+			add_building = fp_garden_3
+
+			add_building = fp_cellar_1
+			add_building = fp_cellar_2
+			add_building = fp_cellar_3
+
+			add_building = fp_shrine_1
+			add_building = fp_shrine_2
+			add_building = fp_shrine_3
+
+			add_building = fp_vault_1
+			add_building = fp_vault_2
+			add_building = fp_vault_3
+		}	
 	}
 }
 
