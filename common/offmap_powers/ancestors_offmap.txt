@@ -14,6 +14,7 @@ offmap_vee = {
 	beginning_of_history = 618.6.18
 	sound = china_interaction_interface
 	display_trigger = {
+		has_global_flag = leaked_events_acs
 	}
 	policies = {
 		china_open
