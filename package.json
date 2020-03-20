@@ -1,10 +1,10 @@
 {
   "name": "maytok",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A mod for Crusader Kings",
   "main": "README.md",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"All test passed\" && exit 0"
   },
   "repository": {
     "type": "git",

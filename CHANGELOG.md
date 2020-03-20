@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.2] - 2019-03-20
 ### Added
 - A new full tradepost for all Pentaghast nest patricians every year
 - Kill a entire patrician family in Pentaghast nest to distribute trade posts
@@ -12,12 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Improve performance in Pentaghast buff events
 - Main player evaluation in a custom trigger
+- Sakya banner (WIP)
 
-### Deleted
+### Removed
 - Flag for Pentaghast primary title
 
 ### Fixed
 - Missing narrative event title
+- Offmap power leak
 
 ## [1.0.1] - 2019-03-19
 ### Fixed
@@ -42,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Evaluation for both parents or one parent dojutsu
 - Updated git attributes
 
-## Deleted
+## Removed
 - No bloodlines (DLC exclusive)
 - BLEEDING_EDGE game rule
 
@@ -58,7 +62,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vee death is triggered at random 33 - 40 years old
 - Dojutsu inheritance percentaje is now 7%
 
-[Unreleased]: https://github.com/KhanMaytok/ancestors/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/KhanMaytok/ancestors/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/KhanMaytok/ancestors/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/KhanMaytok/ancestors/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/KhanMaytok/ancestors/compare/v0.6.1...v1.0.0
 [0.6.1]: https://github.com/KhanMaytok/ancestors/compare/v0.6.0...v0.6.1
+[0.6.0]: https://github.com/KhanMaytok/ancestors/releases/tag/v0.6.0
