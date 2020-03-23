@@ -47,3 +47,16 @@ When she comes of age, Vee gets an event that decides which of her multiple sing
 The Pentaghast are Vee's guests and she belongs to their dynasty. The Pentaghasts become patricians of Venice at the beginning of every game. If Venice is not available, in patricians of any merchant republic and if there are no merchant republics in the game, one is created at random. Therefore, this mod requires the type of merchant republic government to be present in the game.
 
 Khalga, Vee and the Pentaghast will be provided with customized events as the mod is developed. For now, to ensure the survival of the Pentaghast, they have been given advantages already to the republic where they belong. One such advantage is one that successfully prevents any attempt to besiege their main province. Therefore, never besiege their home! You are warned.
+
+
+[img]https://i.imgur.com/AspVOsG.jpg[/img]
+
+[list]
+[*] New events to make Vee even more useful for your character
+[*] Bijuu system
+[*] More roleplaying on Vee marriage
+[*] Khalga lategame events
+[*] Dojutsu events
+[*] Rinnegan jutsu
+[*] Eternal Mangekyo event chain
+[/list]

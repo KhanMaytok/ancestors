@@ -42,6 +42,10 @@ create_khalga_effect = {
 			remove_title = title_court_physician
 		}
 		give_minor_title = title_court_physician
+		add_artifact = khalga_dragon_katana
+	}
+	1 = { # Province, to ensure staticness?
+		province_event = { id = ACS.00010 days = 5 }
 	}
 }
 

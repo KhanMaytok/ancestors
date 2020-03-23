@@ -4,10 +4,11 @@ khalga_dragon_katana = {
 	flags = { ancestors khalga sword }
 	picture = "GFX_khalga_dragon_katana"
 	slot = weapon
-	#active = {
-	#	has_character_flag = is_khalga
-	#}
-	combat_rating = 2
+	active = {
+		has_character_flag = is_khalga
+	}
+	combat_rating = 9
+	monthly_character_prestige = 1
 }
 
 #####################

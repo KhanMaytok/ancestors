@@ -422,6 +422,7 @@ character_event = {
 				name = wolf_child
 				duration = -1
 			}
+			add_artifact = khalga_dragon_katana
 			character_event = { id = ACS.00006 days = 3 }
 		}
 		# VEE
@@ -436,7 +437,7 @@ character_event = {
 			trait = fair
 			trait = strong
 			trait = mystic
-			trait = sharingan
+			trait = mangekyo_sharingan
 			trait = syrena
 			trait = kind
 			trait = lustful
@@ -620,6 +621,24 @@ character_event = {
 		}
 		new_character = {
 			add_spouse = ROOT
+		}
+	}
+}
+
+# ACS.00010 - Destroy Khalga sword after death
+province_event = {
+	id = ACS.00010
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		holder_scope = {
+			random_character = {
+				limit = {
+					has_artifact = khalga_dragon_katana
+				}
+				destroy_artifact = khalga_dragon_katana
+			}
 		}
 	}
 }
@@ -924,6 +943,15 @@ character_event = {
 		# BYAKUGAN INHERITANCE BOTH
 		if = {
 			limit = {
+				OR = {
+					has_character_flag = is_vee
+					has_character_flag = is_khalga
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = {
 				true_father_even_if_dead = {
 					trait = khalga_blood
 				}
@@ -1038,6 +1066,7 @@ character_event = {
 		dynasty_head = {
 			save_event_target_as = pentaghast_leader
 			create_character = {
+				name = "Vee"
 				female = yes
 				culture = event_target:pentaghast_leader
 				religion = event_target:pentaghast_leader
@@ -1045,7 +1074,7 @@ character_event = {
 				trait = fair
 				trait = strong
 				trait = mystic
-				trait = sharingan
+				trait = mangekyo_sharingan
 				trait = syrena
 				trait = kind
 				trait = lustful
@@ -1315,6 +1344,8 @@ narrative_event = {
 			any_dynasty_member = {
 				narrative_event = { id = ACS.00047 }
 			}
+			culture = ROOT
+			religion = ROOT
 		}
 		ROOT = {
 			add_character_modifier = {
@@ -1600,3 +1631,286 @@ narrative_event = {
 	}  
 }
 
+############################
+## VEE DIPLOMATIC OPTIONS ##
+############################
+# ACS.00056 - Vee annual tombola
+character_event = {
+	id = ACS.00056
+	is_triggered_only = yes
+	hide_window = yes
+	has_character_flag = is_vee
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+	}
+
+	immediate = {
+		random_list = {
+			25 = { character_event = { id = ACS.00060 } }
+			25 = { character_event = { id = ACS.00061 } }
+			25 = { character_event = { id = ACS.00062 } }
+			25 = { character_event = { id = ACS.00063 } }
+		}
+		random_list = {
+			25 = { character_event = { id = ACS.00064 } }
+			25 = { character_event = { id = ACS.00065 } }
+			25 = { character_event = { id = ACS.00066 } }
+			25 = { character_event = { id = ACS.00067 } }
+		}
+	}
+}
+
+
+# ACS.00060 - Vee increase opinion in vassal
+character_event = {
+	id = ACS.00060
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+	}
+
+	immediate = {
+		liege = {
+			random_vassal = {
+				limit = {
+					is_priest = no
+					NOT = { is_liege_of = ROOT }
+					NOT = { character = ROOT }
+					OR = {
+						primary_title = { higher_tier_than = BARON }
+						same_liege = ROOT
+					}
+				}
+				character_event = { id = 20100 days = 7 }
+			}
+		}
+	}
+}
+
+# ACS.00061 - Vee increase clan sentient in vassal
+character_event = {
+	id = ACS.00061
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+		liege = {
+			is_nomadic = yes
+		}
+	}
+	
+	immediate = {
+		liege = {
+			clan_title = {
+				save_event_target_as = liege_clan
+			}
+		}
+		random_vassal = {
+			limit = {
+				is_nomadic = yes
+			}
+			save_event_target_as = target_chief
+		}
+	}
+	
+	option = {
+		name = EVTOPTA20235 # Increase the sentiments vs the Khan's Clan
+		
+		event_target:target_chief = {
+			show_scope_change = no
+			clan_title = {
+				show_scope_change = no
+				clan_opinion = {
+					who = event_target:liege_clan
+					modifier = clan_propaganda_effort
+					years = 5
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			liege = { character_event = { id = 20236 } }
+		}
+	}
+}
+
+# ACS.00062: Vee Fabricate claims
+character_event = {
+	id = ACS.00062
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+		liege = {
+			is_nomadic = no
+		}
+	}
+
+	immediate = {
+		liege = {
+			save_event_target_as = vee_liege
+		}
+		random_playable_ruler = {
+			limit = {
+				num_of_vassals > 1
+				is_landed = yes
+				higher_real_tier_than = BARON
+			}
+			primary_title = {
+				# TO-DO Custom messages for every tier and notification
+				add_claim = event_target:vee_liege
+			}
+		}
+	}
+}
+
+# ACS.00063 - Vee sows dissent between a local noble and his liege
+character_event = {
+	id = ACS.00063
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+	}
+
+	immediate = {
+		liege = {
+			save_event_target_as = vee_liege
+		}
+		random_playable_ruler = {
+			limit = {
+				independent = no
+				NOT = { is_vassal_or_below_of = event_target:vee_liege }
+			}
+			character_event = { id = 20160 days = 7 }
+		}
+	}
+}
+
+# ACS.00064 - Raise taxes from peasants 
+character_event = {
+	id = ACS.00064
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+		liege = {
+			is_tribal = no
+			is_nomadic = no
+		}
+	}
+
+	immediate = {
+		liege = {
+			global_tax_modifier = 0.1
+			global_revolt_risk = -0.1
+			letter_event = { id = 20200 tooltip = "EVTTOOLTIP20200" }
+		}
+	}
+}
+
+# ACS.00065 - Vee convert a province to a ROOT culture - STEWARDSHIP
+character_event = {
+	id = ACS.00065
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+		any_realm_province = {
+			NOT = { culture = ROOT }
+		}
+	}
+
+	immediate = {
+		random_realm_province = {
+			culture = ROOT
+		}
+		# TO-DO: Notification to the liege
+	}
+}
+
+# ACS.00066 - Oversee construction - STEWARDSHIP
+character_event = {
+	id = ACS.00066
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+	}
+
+	immediate = {
+		liege = {
+			build_time_modifier = -0.25
+			letter_event = { id = 20230 tooltip = "EVTTOOLTIP20230" }
+		}
+	}
+}
+
+# ACS.00067 - Spawn troops in war - STEWARDSHIP
+character_event = {
+	id = ACS.00067
+	is_triggered_only = yes
+	hide_window = yes
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		vee_can_do_council_work_trigger = yes
+		liege = { is_tribal = yes }
+	}
+
+	immediate = {
+		liege = {
+			monthly_character_prestige = 0.1
+			if = {
+				limit = {
+					war = yes
+				}
+				liege = { character_event = { id = 20209 } }
+			}
+		}
+	}
+}

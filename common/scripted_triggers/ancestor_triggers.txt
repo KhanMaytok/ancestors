@@ -32,3 +32,10 @@ is_the_main_player_trigger = {
 		}
 	}
 }
+
+vee_can_do_council_work_trigger = {
+	is_married = yes
+	NOT = { has_character_modifier = bedridden_illness }
+	NOT = { trait = incapable }
+	prisoner = no
+}
