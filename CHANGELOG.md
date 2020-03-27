@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2019-03-27
+## Fixed
+- Missing offmap governor title
+
 ## [1.1.0] - 2019-03-23
 ## Added
 - Diplomatic events for Vee.
