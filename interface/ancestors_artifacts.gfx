@@ -7,4 +7,12 @@ spriteTypes = {
 		name = "GFX_khalga_dragon_katana_small"
 		texturefile = "gfx\\interface\\inventory\\artifacts\\khalga_dragon_katana_small.dds"
 	}
+	spriteType = {
+		name = "GFX_excalibur_warframe"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\excalibur_warframe.dds"
+	}
+	spriteType = {
+		name = "GFX_excalibur_warframe_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\excalibur_warframe_small.dds"
+	}
 }

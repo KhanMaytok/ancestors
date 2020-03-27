@@ -83,4 +83,9 @@ spriteTypes = {
         norefcount = yes
         effectFile = "gfx/FX/buttonstate.lua"
     }
+	spriteType = {
+		name = "GFX_offmap_status_vee"
+		texturefile = "gfx\\interface\\offmap_screen\\vee_status_placeholder.dds"
+		noOfFrames = 9
+	}
 }

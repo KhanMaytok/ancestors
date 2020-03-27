@@ -2,3 +2,17 @@ title_elune_emperor;Wimari;Wimari;Wimari;;Wimari;;;;;;;;;x
 title_elune_emperor_female;Wimari;Wimari;Wimari;;Wimari;;;;;;;;;x
 elune_elune;Si;Si;Si;;Si;;;;;;;;;x
 elune_elune_full;Si Empire;Empire Si;Sisisches Kaiserreich;;Imperio Si;;;;;;;;;x
+
+vee_status_newborn;Infant;Infant;Infant;;Infant;;;;;;;;;x
+vee_status_child;Child;Child;Child;;Child;;;;;;;;;x
+vee_status_adolescence;Teenager;Teenager;Teenager;;Teenager;;;;;;;;;x
+vee_status_adulthood;Nubile;Nubile;Nubile;;Nubile;;;;;;;;;x
+vee_status_married;Married;Married;Married;;Married;;;;;;;;;x
+vee_status_single;Single;Single;Single;;Single;;;;;;;;;x
+
+vee_status_newborn_desc;Infant;Infant;Infant;;Infant;;;;;;;;;x
+vee_status_child_desc;Child;Child;Child;;Child;;;;;;;;;x
+vee_status_adolescence_desc;Teenager;Teenager;Teenager;;Teenager;;;;;;;;;x
+vee_status_adulthood_desc;Nubile;Nubile;Nubile;;Nubile;;;;;;;;;x
+vee_status_married_desc;Married;Married;Married;;Married;;;;;;;;;x
+vee_status_single_desc;Single;Single;Single;;Single;;;;;;;;;x
