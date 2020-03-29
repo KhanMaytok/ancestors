@@ -21,8 +21,31 @@ narrative_event = {
 		name = ACS_00001_OPT_A
 		set_global_flag = comet_tiamat
 
+		random_character = {
+			limit = {
+				has_landed_title = c_venezia
+				is_merchant_republic = yes
+			}
+			character_event = { id = ACS.00002 } # Kill a entire patrician family
+		}
+		random_character = { # Spawn for another merchant republic
+			limit = {
+				is_merchant_republic = yes
+			}
+			character_event = { id = ACS.00002 days = 5 } # Kill a entire patrician family
+		}
+		random_character = { # Spawn for another merchant republic
+			limit = {
+				is_ruler = yes
+				is_landed = yes
+				real_tier = DUKE
+				ai = yes
+			}
+			set_character_flag = transition_to_republic
+			character_event = { id = ACS.00002 days = 15 } # Kill a entire patrician family
+		}
+
 		narrative_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
-		narrative_event = { id = ACS.00004 } # Spawn initial characters
 
 		hidden_tooltip = { # Loop for the provinces
 			set_variable = { which = provs value = 5 }
@@ -58,7 +81,78 @@ narrative_event = {
 	}
 }
 
-# ACS.00002 - AVAILABLE
+# ACS.00002 - Kill a entire patrician family
+character_event = {
+	id = ACS.00002
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = infiltered_venezia }
+	}
+
+	immediate = {
+		set_global_flag = infiltered_venezia
+		if = {
+			limit = {
+				has_character_flag = transition_to_republic
+			}
+			set_government_type = merchant_republic_government
+		}
+
+		any_vassal = {
+			set_character_flag = check_for_dissapears
+		}
+
+		location = {
+			set_province_flag = is_pentaghast_nest
+		}
+
+		# Create OLAF
+		create_character = {
+			dynasty = 300001
+			religion = ROOT
+			culture = ROOT
+			trait = cruel
+			trait = ambitious
+			trait = elusive_shadow
+			trait = shrewd
+			trait = quick
+			trait = hunter
+			trait = diligent
+			trait = lustful
+			trait = robust
+			trait = strategist
+			trait = socializer
+			trait = hedonist
+			trait = seducer
+		}
+		new_character = {
+			set_character_flag = is_olaf
+			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
+			create_family_palace = yes
+			character_event = { id = ACS.00004 }
+		}
+
+		random_vassal = {
+			limit = {
+				is_patrician = yes
+				NOT = { has_character_flag = is_olaf }
+				ai = yes
+			}
+			any_dynasty_member = {
+				death = {
+					death_reason = death_poor_health
+				}
+			}
+			death = {
+				death_reason = death_poor_health
+			}
+		}
+	}	
+}
 
 # ACS.00003 - Player is notified about Tiamat devastation
 narrative_event = {
