@@ -14,7 +14,7 @@ offmap_vee = {
 	beginning_of_history = 754.1.1
 	sound = china_interaction_interface
 	display_trigger = {
-		# has_global_flag = leaked_events_acs
+		has_global_flag = leaked_events_acs
 	}
 	policies = {
 		vee_policy_open
@@ -32,20 +32,20 @@ offmap_vee = {
 	buttons = {
 		offmap_gifts = {
 			is_active_trigger = {
-				china_offmap_tribute_decisions_enabled_trigger = yes
+				always = no
 			}
 		}
 		offmap_boons = {
 			is_active_trigger = {
-				china_offmap_boon_decisions_enabled_trigger = yes
+				always = no
 			}
 		}
 		offmap_hostility = {
 			is_active_trigger = {
-				china_offmap_hostile_decisions_enabled_trigger = yes
+				always = no
 			}
 			display_trigger = {
-				NOT = { offmap_china = { offmap_ruler = { dynasty = FROM } } }
+				always = no
 			}
 		}
 		offmap_hostility2 = {

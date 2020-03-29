@@ -6,18 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2019-03-29
+### Deprecated
+- Vee Offmap power
+
 ## [1.1.1] - 2019-03-27
-## Fixed
+### Fixed
 - Missing offmap governor title
 
 ## [1.1.0] - 2019-03-23
-## Added
+### Added
 - Diplomatic events for Vee.
 
-## Changed
+### Changed
 - Vee static name.
 
-## Fixed
+### Fixed
 - Vee is out of mangekyo event now.
 
 ## [1.0.2] - 2019-03-20

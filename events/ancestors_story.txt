@@ -819,7 +819,7 @@ character_event = {
 		ROOT = {
 			if = {
 				limit = {
-					age >= 33
+					age >= 40
 				}
 				death = { death_reason = death_poor_health }
 			}
