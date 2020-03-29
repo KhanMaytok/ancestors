@@ -22,6 +22,7 @@ narrative_event = {
 		set_global_flag = comet_tiamat
 
 		narrative_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
+		narrative_event = { id = ACS.00004 } # Spawn initial characters
 
 		hidden_tooltip = { # Loop for the provinces
 			set_variable = { which = provs value = 5 }
@@ -368,13 +369,11 @@ character_event = {
 			culture = event_target:olaf_the_killer
 		}
 
-		96 = {
-			spawn_disease = bubonic_plague
-		}
+		start_outbreak = bubonic_plague
 	}
 }
 
-# ACS.00005 - Add free tradepost to patricians  on pentaghast nest
+# ACS.00005 - Add free tradepost to patricians on pentaghast nest
 character_event = {
 	id = ACS.00005
 	hide_window = yes
@@ -588,7 +587,6 @@ character_event = {
 			add_building = fp_mansion_2
 			add_building = fp_mansion_3
 			add_building = fp_mansion_4
-			add_building = fp_mansion_5
 
 			add_building = fp_barracks_1
 			add_building = fp_barracks_2
@@ -1003,7 +1001,6 @@ character_event = {
 				set_character_flag = immune_tuberculosis
 				set_character_flag = immune_bubonic_plague
 				set_father = event_target:pentaghast_leader
-				set_character_flag = immune_bubonic_plague
 			}
 		}
 	}
@@ -1742,8 +1739,6 @@ character_event = {
 
 	immediate = {
 		liege = {
-			global_tax_modifier = 0.1
-			global_revolt_risk = -0.1
 			letter_event = { id = 20200 tooltip = "EVTTOOLTIP20200" }
 		}
 	}
@@ -1790,7 +1785,6 @@ character_event = {
 
 	immediate = {
 		liege = {
-			build_time_modifier = -0.25
 			letter_event = { id = 20230 tooltip = "EVTTOOLTIP20230" }
 		}
 	}
@@ -1813,7 +1807,6 @@ character_event = {
 
 	immediate = {
 		liege = {
-			monthly_character_prestige = 0.1
 			if = {
 				limit = {
 					war = yes

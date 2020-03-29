@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2019-03-29
+## Fixed
+- Bad improvement level on family palace for pentaghast nest
+- Initial event chain broken
+
 ## [1.1.2] - 2019-03-29
 ### Deprecated
 - Vee Offmap power
