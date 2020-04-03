@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.5] - 2019-03-29
+### Added
+- Localisation for jogan trait
+
+### Changed
+- Pentaghast and Sakya get married more earlier
+- Vee childs every 5 years
+- Vee council events with custom localisation
+
 ## [1.1.4] - 2019-03-29
 ## Fixed
 - Repair event ACS.00002 due bad commit
@@ -90,7 +99,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vee death is triggered at random 33 - 40 years old.
 - Dojutsu inheritance percentaje is now 7%.
 
-[Unreleased]: https://github.com/KhanMaytok/ancestors/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/KhanMaytok/ancestors/compare/v1.1.5...HEAD
+[1.1.5]: https://github.com/KhanMaytok/ancestors/compare/v1.1.4...v1.1.5
+[1.1.4]: https://github.com/KhanMaytok/ancestors/compare/v1.1.3...v1.1.4
+[1.1.3]: https://github.com/KhanMaytok/ancestors/compare/v1.1.2...v1.1.3
+[1.1.2]: https://github.com/KhanMaytok/ancestors/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/KhanMaytok/ancestors/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/KhanMaytok/ancestors/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/KhanMaytok/ancestors/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/KhanMaytok/ancestors/compare/v1.0.0...v1.0.1

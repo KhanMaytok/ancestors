@@ -20,4 +20,9 @@ spriteTypes =
 		texturefile = "gfx\\event_pictures\\enter_vee.tga"
 		allwaystransparent = yes
 	}
+	spriteType = {
+		name = "GFX_evt_vee_diplo_notify"
+		texturefile = "gfx\\event_pictures\\vee_diplo_notify.tga"
+		allwaystransparent = yes
+	}
 }
