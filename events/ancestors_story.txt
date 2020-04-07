@@ -623,23 +623,7 @@ character_event = {
 	}
 }
 
-# ACS.00010 - Destroy Khalga sword after death
-province_event = {
-	id = ACS.00010
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		holder_scope = {
-			random_character = {
-				limit = {
-					has_artifact = khalga_dragon_katana
-				}
-				destroy_artifact = khalga_dragon_katana
-			}
-		}
-	}
-}
+# ACS.00010 - AVAILABLE
 
 # ACS.00012 - Add trade post to Pentaghast nest
 character_event = {
@@ -1805,5 +1789,77 @@ narrative_event = {
 				}
 			}
 		}
+	}
+}
+
+# ACS.00090 - Varkana migration events
+character_event = {
+	id = ACS.00090
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_offmap_governor = offmap_vee
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { government = nomadic_government }
+			}
+			primary_title = {
+				set_title_nomad = { title = THIS status = no }
+			}
+				
+			set_government_type = feudal_government
+			set_government_type = nomadic_government
+		}	
+
+
+		any_demesne_title = {
+			set_title_flag = marked_for_delete
+		}
+		
+		random_province = {
+			limit = {
+				is_land = yes
+			}
+			add_holding_slot = 1
+			build_holding = { type = castle holder = ROOT }
+		}
+
+		any_demesne_title = {
+			limit = {
+				has_title_flag = marked_for_delete
+				tier = BARON
+			}
+			destroy_settlement = THIS
+			destroy_landed_title = THIS
+		}
+
+		capital_holding = {
+			convert_to = NOMAD
+		}
+
+		#any_demesne_title = {			
+		#	if = {
+		#		limit = {
+		#			is_landless_type_title = no
+		#			has_title_flag = marked_for_delete
+		#		}
+		#		activate_title = { title = THIS status = no }
+		#		destroy_landed_title = THIS
+		#	}
+		#}
+
+			#b_pentaghast_host = { 
+				#ROOT = { capital = PREV } 
+
+			#}
+			# province_event = { id = ACS.00091 years = 5 }
+		
+		#e_vee_governor = {
+		#	grant_title = ROOT
+		#}
 	}
 }

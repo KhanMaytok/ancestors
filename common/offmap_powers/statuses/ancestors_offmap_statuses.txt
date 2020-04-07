@@ -11,17 +11,17 @@ vee_status_child = {
 }
 
 vee_status_adolescence = {
-	frame = 2
+	frame = 3
 }
 
 vee_status_adulthood = {
-	frame = 2
+	frame = 4
 }
 
 vee_status_married = {
-	frame = 2
+	frame = 5
 }
 
 vee_status_single = {
-	frame = 2
+	frame = 6
 }

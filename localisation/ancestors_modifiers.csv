@@ -14,3 +14,5 @@ sakya_bucelarii_defensive;Sakya horse riders Defensive;Sakya horse riders Defens
 sakya_bucelarii_morale;Sakya horse riders Morale;Sakya horse riders Morale;Sakya horse riders Morale;;Sakya horse riders Morale;;;;;;;;;x
 sakya_bucelarii_modifier;Combat Modifier boost to Sakya horse riders Troops: $PERC$;Combat Modifier boost to Sakya horse riders Troops: $PERC$;Combat Modifier boost to Sakya horse riders Troops: $PERC$;;Combat Modifier boost to Sakya horse riders Troops: $PERC$;;;;;;;;;x
 depopulated_by_sakya;Tsukuyomi;Tsukuyomi;Tsukuyomi;;Tsukuyomi;;;;;;;;;x
+peace_deal_with_vee;Peace Deal With Varkâna;Accord de paix avec la Varkâna;Friedensvertrag mit Varkâna;;Acuerdo de paz con Varkâna;;;;;;;;;x
+peace_deal_with_vee_desc;The Varkâna Empire will not attack this ruler while the peace deal is active.;L'Empire Varkâna n'attaquera pas ce seigneur tant que l'accord de paix est valable.;Das Varkânasische Reich wird diesen Herrscher fr die Zeit des Friedensvertrages nicht angreifen.;;El imperio Varkâna no atacará a este gobernante mientras el acuerdo de paz está activo.;;;;;;;;;x

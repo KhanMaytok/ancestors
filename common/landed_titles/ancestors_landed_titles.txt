@@ -27,7 +27,7 @@ d_mercenary_sakya = {
 	mercenary_type = sakya_composition
 }
 
-c_vee_governor = {
+e_vee_governor = {
 	color={ 245 240 10 }
 	color2={ 220 220 0 }
 	
@@ -45,8 +45,8 @@ c_vee_governor = {
 	landless = yes
 
 	# Cannot be held as a secondary title
-	primary = yes
-	independent = yes
+	#primary = yes
+	#independent = yes
 
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 	

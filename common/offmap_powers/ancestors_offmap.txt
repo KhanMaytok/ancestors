@@ -6,15 +6,15 @@ offmap_vee = {
 	currency_gain = monthly_grace
 	currency_reset_on_dynasty_change = yes
 	holder_title = title_vee_emperor
-	governor_title = c_vee_governor
+	governor_title = e_vee_governor
 	tier = emperor
 	non_aggression_modifier = peace_deal_with_vee
-	coa_religion = norse_pagan
-	government = confucian_bureaucracy
+	coa_religion = tengri_pagan
+	government = nomadic_government
 	beginning_of_history = 754.1.1
 	sound = china_interaction_interface
 	display_trigger = {
-		has_global_flag = leaked_events_acs
+		#has_global_flag = leaked_events_acs
 	}
 	policies = {
 		vee_policy_open

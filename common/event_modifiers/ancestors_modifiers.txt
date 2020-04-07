@@ -24,3 +24,8 @@ depopulated_by_sakya = {
 	icon = 3
 	major = yes
 }
+
+peace_deal_with_vee = {
+	icon = 95
+	monthly_character_prestige = 1
+}
