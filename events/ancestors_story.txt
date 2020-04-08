@@ -454,7 +454,7 @@ character_event = {
 			trait = lefthanded
 		}
 		new_character = {
-			set_character_flag = is_vee	
+			set_character_flag = is_vee
 			set_character_flag = society_join_block	
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
@@ -1810,16 +1810,15 @@ character_event = {
 			primary_title = {
 				set_title_nomad = { title = THIS status = no }
 			}
-				
+
 			set_government_type = feudal_government
 			set_government_type = nomadic_government
 		}	
 
-
 		any_demesne_title = {
 			set_title_flag = marked_for_delete
 		}
-		
+
 		random_province = {
 			limit = {
 				is_land = yes
@@ -1839,27 +1838,56 @@ character_event = {
 
 		capital_holding = {
 			convert_to = NOMAD
+			add_pentaghast_nomad_buildings_effect = yes
 		}
+		capital_scope = {
+			holder_scope = {
+				narrative_event = { id = ACS.00091 }
+			}
+		}
+	}
+}
 
-		#any_demesne_title = {			
-		#	if = {
-		#		limit = {
-		#			is_landless_type_title = no
-		#			has_title_flag = marked_for_delete
-		#		}
-		#		activate_title = { title = THIS status = no }
-		#		destroy_landed_title = THIS
-		#	}
-		#}
+# ACS.00091 - Province holder receives visit message
+narrative_event = {
+	id = ACS.00091
+	title = ACS_00091_TITLE
+	desc = ACS_00091_DESC
+	picture = GFX_evt_china_golden_age
+	border = GFX_event_narrative_frame_diplomacy
+	is_triggered_only = yes
 
-			#b_pentaghast_host = { 
-				#ROOT = { capital = PREV } 
-
-			#}
-			# province_event = { id = ACS.00091 years = 5 }
-		
-		#e_vee_governor = {
-		#	grant_title = ROOT
-		#}
+	option = {
+		name = ACS_00091_OPT_A
+		trigger = {
+			wealth = 501
+		}
+		wealth = -500
+		FROM = { wealth = 500 }
+		add_offmap_currency = { offmap = offmap_vee value = 50 }
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = ACS_00091_OPT_B
+		trigger = {
+			wealth = 251
+		}
+		wealth = -250
+		FROM = { wealth = 250 }
+		add_offmap_currency = { offmap = offmap_vee value = 25 }
+		ai_chance = {
+			factor = 9
+		}
+	}
+	option = {
+		name = ACS_00091_OPT_C
+		wealth = -125
+		FROM = { wealth = 125 }
+		add_offmap_currency = { offmap = offmap_vee value = 12 }
+		ai_chance = {
+			factor = 1
+		}
 	}
 }
