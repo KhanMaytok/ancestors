@@ -8,7 +8,6 @@ on_startup = {
 on_yearly_pulse = {
 	events = {
 		ACS.00036 # Vee tournament
-		ACS.00005 # Add free tradepost to patricians  on pentaghast nest		
 	}
 }
 
@@ -16,6 +15,7 @@ on_bi_yearly_pulse = {
 	events = {
 		ACS.00025 # Vee migrates to another body
 		ACS.00056 # Vee biannual tombola
+		ACS.00090 # Varkana migration events
 	}
 }
 
@@ -25,12 +25,6 @@ on_five_year_pulse = {
 		ACS.00048 # Choice for the mangekyo every 5 years
 		ACS.00009 # Marry every single Pentaghast male
 		ACS.00045 # Vee has childs every 5 years to balance Khalga's byakugan
-	}
-}
-
-on_decade_pulse = {
-	events = {
-		ACS.00008 # Purge an entire patrician family to distribute trade posts
 	}
 }
 
@@ -55,8 +49,8 @@ on_adulthood = {
 }
 
 #on siege pulse
-on_siege_pulse = {
+on_war_started  = {
 	events = {
-		ACS.00015 # Reduce the troups of the under siege main pentaghast province
+		ACS.00015 # Create troups for pentaghast defender
 	}	
 }

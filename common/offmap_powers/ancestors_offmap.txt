@@ -265,10 +265,10 @@ offmap_vee = {
 	}
 	holder_succession = {
 		is_female = {					# chances of getting a female holder, as a percentage: if the total is >= 100, the new holder will always be female. If the total is <= 0, the new holder will always be male
-			value = 10
+			value = 100
 		}
 		culture = {	
-			norse = { # default culture for new emperor
+			greek = { # default culture for new emperor
 				value = 99 # if any other value reaches 100, it will be picked instead
 			}
 			FROM = { # default culture for new emperor
@@ -289,7 +289,7 @@ offmap_vee = {
 		}
 
 		religion = {
-			norse_pagan = { # default religion for new emperor
+			hellenic_pagan = { # default religion for new emperor
 				value = 99 # if any other value reaches 100, it will be picked instead (unless equal, then it will randomize)
 			}
 			FROM = {

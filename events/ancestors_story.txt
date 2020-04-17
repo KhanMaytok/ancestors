@@ -21,151 +21,53 @@ narrative_event = {
 		name = ACS_00001_OPT_A
 		set_global_flag = comet_tiamat
 
-		random_character = {
-			limit = {
-				has_landed_title = c_venezia
-				is_merchant_republic = yes
-			}
-			character_event = { id = ACS.00002 } # Kill a entire patrician family
-		}
-		random_character = { # Spawn for another merchant republic
-			limit = {
-				is_merchant_republic = yes
-			}
-			character_event = { id = ACS.00002 days = 5 } # Kill a entire patrician family
-		}
-		random_character = { # Spawn for another merchant republic
-			limit = {
-				is_ruler = yes
-				is_landed = yes
-				real_tier = DUKE
-				ai = yes
-			}
-			set_character_flag = transition_to_republic
-			character_event = { id = ACS.00002 days = 15 } # Kill a entire patrician family
-		}
-
-		narrative_event = { id = ACS.00003 days = 32 } # Player is notified about Tiamat devastation
-
-		hidden_tooltip = { # Loop for the provinces
-			set_variable = { which = provs value = 5 }
-			while = {
-				limit = {
-					check_variable = {
-						which = provs
-						value = 1
-					}
-				}
-				subtract_variable = {
-					which = provs
-					value = 1
-				}
-				random_province = {
-					limit = {
-						not = { owner = { character = ROOT } }
-						is_land =  yes
-					}
-					add_province_modifier = { name = devastated_by_tiamat years = 20 }
-					any_province_character = {
-						death = { death_reason = death_murder_unknown_combustion }
-					}
-					any_province_holding = {
-						limit = {
-							is_capital = no
-						}
-						destroy_settlement = yes
-					}
+		hidden_tooltip = {
+			# Universe generation
+			offmap_vee = {
+				governor = {
+					set_name = "Ivar"
+					dynasty = 300001
+					religion = hellenic_pagan
+					culture = greek
+					add_trait = cruel
+					add_trait = ambitious
+					add_trait = elusive_shadow
+					add_trait = shrewd
+					add_trait = quick
+					add_trait = hunter
+					add_trait = diligent
+					add_trait = lustful
+					add_trait = robust
+					add_trait = strategist
+					add_trait = socializer
+					add_trait = hedonist
+					add_trait = seducer
+					set_character_flag = is_olaf
+					set_character_flag = originated_from_chinese_court
+					set_character_flag = immune_tuberculosis
+					set_character_flag = immune_bubonic_plague
+					character_event =  { id = ACS.00004 days = 3 }
 				}
 			}
+			narrative_event = { id = ACS.00002 days = 3 } # Enter Vee Notification
 		}
 	}
 }
 
-# ACS.00002 - Kill a entire patrician family
-character_event = {
-	id = ACS.00002
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		NOT = { has_global_flag = infiltered_venezia }
-	}
-
-	immediate = {
-		set_global_flag = infiltered_venezia
-		if = {
-			limit = {
-				has_character_flag = transition_to_republic
-			}
-			set_government_type = merchant_republic_government
-		}
-
-		any_vassal = {
-			set_character_flag = check_for_dissapears
-		}
-
-		location = {
-			set_province_flag = is_pentaghast_nest
-		}
-
-		# Create OLAF
-		create_character = {
-			dynasty = 300001
-			religion = ROOT
-			culture = ROOT
-			trait = cruel
-			trait = ambitious
-			trait = elusive_shadow
-			trait = shrewd
-			trait = quick
-			trait = hunter
-			trait = diligent
-			trait = lustful
-			trait = robust
-			trait = strategist
-			trait = socializer
-			trait = hedonist
-			trait = seducer
-		}
-		new_character = {
-			set_character_flag = is_olaf
-			set_character_flag = originated_from_chinese_court
-			set_character_flag = immune_tuberculosis
-			set_character_flag = immune_bubonic_plague
-			create_family_palace = yes
-			character_event = { id = ACS.00004 }
-		}
-
-		random_vassal = {
-			limit = {
-				is_patrician = yes
-				NOT = { has_character_flag = is_olaf }
-				ai = yes
-			}
-			any_dynasty_member = {
-				death = {
-					death_reason = death_poor_health
-				}
-			}
-			death = {
-				death_reason = death_poor_health
-			}
-		}
-	}	
-}
-
-# ACS.00003 - Player is notified about Tiamat devastation
+# ACS.00002 - ENTER VEE
 narrative_event = {
-	id = ACS.00003
-	title = ACS_00003_TITLE
-	desc = ACS_00003_DESC
+	id = ACS.00002
+	title = ACS_00002_TITLE
+	desc = ACS_00002_DESC
 	picture = GFX_evt_emissary_byzantine
 	is_triggered_only = yes
 
 	option = {
-		name = OK
+		name = OK	
 	}
 }
+
+# ACS.00003 - AVAILABLE
 
 #####################
 ## THE SPAWN EVENT ##
@@ -179,33 +81,41 @@ character_event = {
 	immediate = {
 		save_event_target_as = olaf_the_killer
 
-		create_character = { # Olaf spouse
-			female = yes
-			age = 18
-			trait = grey_eminence
-			trait = physician
-			trait = scarred
-			trait = fair
-			trait = quick
-			trait = shrewd
-			trait = gardener
-			trait = poet
-			trait = diligent
-			trait = lustful
-			trait = proud
-			trait = brave
-			trait = erudite
-			trait = defensive_leader
-			culture = ROOT
-			religion = ROOT
+		create_character = {
+			name = Vee
 			dynasty = none
+			dna = qqovluyitrm
+			female = yes
+			age = 16
+			culture = event_target:olaf_the_killer
+			religion = event_target:olaf_the_killer
+			trait = fair
+			trait = strong
+			trait = mystic
+			trait = mangekyo_sharingan
+			trait = syrena
+			trait = kind
+			trait = lustful
+			trait = diligent
+			trait = proud
+			trait = vee_blood
+			trait = seductress
+			trait = prevent_marriage
+			trait = ambitious
+			trait = cynical
+			trait = erudite
+			trait = gregarious
+			trait = lefthanded
 		}
 		new_character = {
 			add_spouse = ROOT
-			add_lover = ROOT
-			save_event_target_as = olaf_spouse
+			set_character_flag = is_vee
+			set_character_flag = society_join_block
+			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
+			set_father = event_target:olaf_the_killer
+			culture = event_target:olaf_the_killer
 		}
 
 		create_character = { # Olaf child 1
@@ -218,7 +128,6 @@ character_event = {
 		}
 		new_character = {
 			set_father = event_target:olaf_the_killer
-			set_mother = event_target:olaf_spouse
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
 		}
@@ -233,7 +142,6 @@ character_event = {
 		}
 		new_character = {
 			set_father = event_target:olaf_the_killer
-			set_mother = event_target:olaf_spouse
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
 		}
@@ -242,8 +150,8 @@ character_event = {
 			name = "Tilda"
 			female = yes
 			age = 33
-			culture = ROOT
-			religion = ROOT
+			culture = khazar
+			religion = tengri_pagan
 			trait = brilliant_strategist
 			trait = cavalry_leader
 			trait = flat_terrain_leader
@@ -415,86 +323,15 @@ character_event = {
 			set_character_flag = is_khalga
 			set_character_flag = society_join_block
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
-			set_character_flag = wolf_blood_first_generation
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
-			add_character_modifier = {
-				name = wolf_child
-				duration = -1
-			}
-			add_artifact = khalga_dragon_katana
 			character_event = { id = ACS.00006 days = 3 }
 		}
-		# VEE
-		create_character = {
-			name = Vee
-			dynasty = 300001
-			dna = qqovluyitrm
-			female = yes
-			age = 15
-			culture = event_target:olaf_the_killer
-			religion = event_target:olaf_the_killer
-			trait = fair
-			trait = strong
-			trait = mystic
-			trait = mangekyo_sharingan
-			trait = syrena
-			trait = kind
-			trait = lustful
-			trait = diligent
-			trait = proud
-			trait = vee_blood
-			trait = seductress
-			trait = prevent_marriage
-			trait = legit_bastard
-			trait = ambitious
-			trait = cynical
-			trait = erudite
-			trait = gregarious
-			trait = lefthanded
-		}
-		new_character = {
-			set_character_flag = is_vee
-			set_character_flag = society_join_block	
-			set_character_flag = originated_from_chinese_court
-			set_character_flag = immune_tuberculosis
-			set_character_flag = immune_bubonic_plague
-			set_father = event_target:olaf_the_killer
-			culture = event_target:olaf_the_killer
-		}
-
 		start_outbreak = bubonic_plague
 	}
 }
 
-# ACS.00005 - Add free tradepost to patricians on pentaghast nest
-character_event = {
-	id = ACS.00005
-	hide_window = yes
-	is_triggered_only = yes
-	ai = no
-
-	trigger = {
-		is_the_main_player_trigger = yes
-	}
-
-	immediate = {
-		random_province = {
-			limit = {
-				has_province_flag = is_pentaghast_nest
-			}
-			holder_scope = {
-				character_event = { id = ACS.00012 }
-				any_vassal = {
-					limit = {
-						is_patrician = yes
-					}
-					character_event = { id = ACS.00012 }
-				}
-			}
-		}
-	}
-}
+# ACS.00005 - AVAILABLE
 
 # ACS.00006 - Find the current leader of the Pentaghast and Sakya mercenary band
 character_event = {
@@ -557,38 +394,7 @@ character_event = {
 	}
 }
 
-# ACS.00008 - Purge an entire patrician family to distribute trade posts
-character_event = {
-	id = ACS.00008
-	is_triggered_only = yes
-	hide_window = yes
-	ai = no
-
-	trigger = {
-		is_the_main_player_trigger = yes
-	}
-
-	immediate = {
-		random_province = {
-			limit = {
-				has_province_flag = is_pentaghast_nest
-			}
-			holder_scope = {
-				random_vassal = {
-					limit = {
-						NOT = { dynasty = 300001 }
-						is_patrician = yes
-						ai = yes
-					}
-					any_dynasty_member = {
-						death = { death_reason = death_missing }
-					}
-					death = { death_reason = death_missing }
-				}
-			}
-		}		
-	}
-}
+# ACS.00008 - AVAILABLE
 
 # ACS.00009 - Marry every single Pentaghast and Sakya male
 character_event = {
@@ -625,85 +431,8 @@ character_event = {
 
 # ACS.00010 - AVAILABLE
 
-# ACS.00012 - Add trade post to Pentaghast nest
-character_event = {
-	id = ACS.00012
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_patrician = yes
-	}
-
-	immediate = {
-		random_province = {
-			limit = {
-				has_trade_post = no
-				port = yes
-			}
-			ROOT = {
-				create_tradepost = PREV
-			}
-			add_to_extra_holding = { type = trade_post building = tr_port_1 }
-			add_to_extra_holding = { type = trade_post building = tr_port_2 }
-			add_to_extra_holding = { type = trade_post building = tr_port_3 }
-
-			add_to_extra_holding = { type = trade_post building = tr_enclave_1 }
-			add_to_extra_holding = { type = trade_post building = tr_enclave_2 }
-			add_to_extra_holding = { type = trade_post building = tr_enclave_3 }
-
-			add_to_extra_holding = { type = trade_post building = tr_garrison_1 }
-			add_to_extra_holding = { type = trade_post building = tr_garrison_2 }
-			add_to_extra_holding = { type = trade_post building = tr_garrison_3 }
-
-			add_to_extra_holding = { type = trade_post building = trade_offices_1 }
-			add_to_extra_holding = { type = trade_post building = trade_offices_2 }
-			add_to_extra_holding = { type = trade_post building = trade_offices_3 }
-		}	
-		family_palace = {
-			add_building = fp_mansion_1
-			add_building = fp_mansion_2
-			add_building = fp_mansion_3
-			add_building = fp_mansion_4
-
-			add_building = fp_barracks_1
-			add_building = fp_barracks_2
-			add_building = fp_barracks_3
-
-			add_building = fp_stable_1
-			add_building = fp_stable_2
-			add_building = fp_stable_3
-
-			add_building = fp_bowyer_1
-			add_building = fp_bowyer_2
-			add_building = fp_bowyer_3
-
-			add_building = fp_shipyard_1
-			add_building = fp_shipyard_2
-			add_building = fp_shipyard_3
-
-			add_building = fp_warehouse_1
-			add_building = fp_warehouse_2
-			add_building = fp_warehouse_3
-
-			add_building = fp_garden_1
-			add_building = fp_garden_2
-			add_building = fp_garden_3
-
-			add_building = fp_cellar_1
-			add_building = fp_cellar_2
-			add_building = fp_cellar_3
-
-			add_building = fp_shrine_1
-			add_building = fp_shrine_2
-			add_building = fp_shrine_3
-
-			add_building = fp_vault_1
-			add_building = fp_vault_2
-			add_building = fp_vault_3
-		}	
-	}
-}
+# ACS.00011 - AVAILABLE
+# ACS.00012 - AVAILABLE
 
 ###################
 ## KHALGA TRAVEL ##
@@ -726,7 +455,7 @@ character_event = {
 		}
 
 		# And... kill khalga
-		death = { death_reason = death_suicide_poison }
+		death = { death_reason = death_missing }
 	}
 }
 
@@ -770,71 +499,35 @@ character_event = {
 # ACS.00015 - Reduce the troups of the under siege main pentaghast province
 character_event = {
 	id = ACS.00015
-	desc = EVTDESC62000
-	title = EVTNAME62000
-	
-	picture = GFX_evt_siege
-	border = GFX_event_normal_frame_war
-
+	hide_window = yes
 	is_triggered_only = yes
-	
-	notification = yes
 
 	trigger = {
-		siege = {
-			is_attacker = yes
-			location = {
-				has_province_flag = is_pentaghast_nest
-			}
+		ROOT = {
+			is_offmap_governor = offmap_vee
 		}
 	}
 	
 	immediate = {
-		siege = {
-			troops = -0.25
+		spawn_unit = {
+			province = location
+			owner = ROOT
+			troops = {
+				horse_archers = { 10000 10000 }
+				light_infantry = { 10000 10000 }
+				knights = { 10000 10000 }
+			}
+			attrition = 0.0
+			disband_on_peace = yes
+			maintenance = no
 		}
-			
-		siege = {
-			enemy = {
-				morale = 0.25
-				troops = -0.025
-				leader = {
-					any_liege = {
-						limit = {
-							war_with = ROOT
-							NOT = {
-								ROOT = {
-									liege = { has_landed_title = e_rebels }
-								}
-							}
-						}
-						character_event = { id = 62030 }
-					}
-					if = {
-						limit = {
-							war_with = ROOT
-						}
-						character_event = { id = 62030 }
-					}
-				}
+		spawn_fleet = {
+			province = closest_to_capital
+			owner = ROOT
+			troops = {
+				galleys = { 200 200 }
 			}
-		}
-	}
-
-	option = {
-		name = EVTOPTA62000
-		
-		tooltip = {
-			siege = {
-				troops = -0.25
-			}
-				
-			siege = {
-				enemy = {
-					morale = 0.25
-					troops = -0.025
-				}
-			}
+			disband_on_peace = yes
 		}
 	}
 }
@@ -869,11 +562,24 @@ character_event = {
 			create_khalga_effect = yes
 			impregnate_cuckoo = event_target:chr_khalga
 			add_lover = event_target:chr_khalga
+			narrative_event = { id = ACS.00018 }
 		}	
 	}
 }
 
-# ACS.00018 - AVAILABLE
+# ACS.00018 - Message to female ruler. Khalga seduction
+narrative_event = {
+	id = ACS.00018
+	title = ACS_00018_TITLE
+	desc = ACS_00018_DESC
+	picture = GFX_evt_emissary_byzantine
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT		
+	}
+
+}
 
 # ACS.00019 - AVAILABLE
 
@@ -1044,42 +750,44 @@ character_event = {
 	has_character_flag = is_vee
 
 	immediate = {
-		dynasty_head = {
-			save_event_target_as = pentaghast_leader
-			create_character = {
-				name = "Vee"
-				female = yes
-				culture = event_target:pentaghast_leader
-				religion = event_target:pentaghast_leader
-				age = 0
-				trait = fair
-				trait = strong
-				trait = mystic
-				trait = mangekyo_sharingan
-				trait = syrena
-				trait = kind
-				trait = lustful
-				trait = diligent
-				trait = proud
-				trait = vee_blood
-				trait = seductress
-				trait = prevent_marriage
-				trait = legit_bastard
-				trait = ambitious
-				trait = cynical
-				trait = erudite
-				trait = gregarious
-				trait = lefthanded
-				dynasty = event_target:pentaghast_leader
+		offmap_vee = {
+			governor = {
+				save_event_target_as = pentaghast_leader
+				create_character = {
+					name = "Vee"
+					female = yes
+					culture = event_target:pentaghast_leader
+					religion = event_target:pentaghast_leader
+					age = 0
+					trait = fair
+					trait = strong
+					trait = mystic
+					trait = mangekyo_sharingan
+					trait = syrena
+					trait = kind
+					trait = lustful
+					trait = diligent
+					trait = proud
+					trait = vee_blood
+					trait = seductress
+					trait = prevent_marriage
+					trait = ambitious
+					trait = cynical
+					trait = erudite
+					trait = gregarious
+					trait = lefthanded
+				}
+				new_character = {
+					set_character_flag = is_vee
+					set_character_flag = society_join_block	
+					set_character_flag = originated_from_chinese_court
+					set_character_flag = immune_tuberculosis
+					set_character_flag = immune_bubonic_plague
+					set_father = event_target:pentaghast_leader
+					dynasty = none
+				}
 			}
-			new_character = {
-				set_character_flag = is_vee
-				set_character_flag = society_join_block	
-				set_character_flag = originated_from_chinese_court
-				set_character_flag = immune_tuberculosis
-				set_character_flag = immune_bubonic_plague
-				set_father = event_target:pentaghast_leader
-			}
+			set_status = vee_status_newborn
 		}
 	}
 }
@@ -1309,9 +1017,6 @@ narrative_event = {
 		name = OK
 		FROMFROM = { # Vee
 			add_spouse = ROOT
-			any_dynasty_member = {
-				narrative_event = { id = ACS.00047 }
-			}
 			culture = ROOT
 			religion = ROOT
 		}
@@ -1384,8 +1089,10 @@ character_event = {
 				limit = {
 					has_character_flag = is_vee
 				}
-				dynasty_head = {
-					save_event_target_as = dynasty_target
+				offmap_vee = {
+					governor = {
+						save_event_target_as = dynasty_target
+					}
 				}
 				move_character = event_target:dynasty_target
 				any_child = {
@@ -1401,23 +1108,7 @@ character_event = {
 	}
 }
 
-# ACS.00047 - Notification to all dynasty members of Vee after marriage
-narrative_event = {
-	id = ACS.00047
-	title = ACS_00047_TITLE
-	desc = ACS_00047_DESC
-	picture = GFX_evt_emissary_byzantine
-	is_triggered_only = yes
-
-	trigger = {
-		ai = no
-	}
-
-	option = {
-		name = OK
-	}
-}
-
+# ACS.00047 - AVAILABLE
 
 ##############################
 ## MANGEKYO EVENTS ###########
@@ -1763,7 +1454,7 @@ character_event = {
 	}
 }
 
-# ACS.00064 - Vee increase clan sentiment in vassal
+# ACS.00064 - Vee clan sentiment. Notification to liege
 narrative_event = {
 	id = ACS.00064
 	title = ACS_00062_TITLE
@@ -1812,37 +1503,20 @@ character_event = {
 			}
 
 			set_government_type = feudal_government
+			prestige = 100
 			set_government_type = nomadic_government
-		}	
-
-		any_demesne_title = {
-			set_title_flag = marked_for_delete
 		}
 
 		random_province = {
 			limit = {
 				is_land = yes
 			}
-			add_holding_slot = 1
-			build_holding = { type = castle holder = ROOT }
-		}
-
-		any_demesne_title = {
-			limit = {
-				has_title_flag = marked_for_delete
-				tier = BARON
-			}
-			destroy_settlement = THIS
-			destroy_landed_title = THIS
-		}
-
-		capital_holding = {
-			convert_to = NOMAD
-			add_pentaghast_nomad_buildings_effect = yes
-		}
-		capital_scope = {
+			save_event_target_as = new_capital_province
 			holder_scope = {
 				narrative_event = { id = ACS.00091 }
+			}
+			ROOT = {
+				capital = event_target:new_capital_province
 			}
 		}
 	}
@@ -1863,6 +1537,7 @@ narrative_event = {
 			wealth = 501
 		}
 		wealth = -500
+		prestige = 500
 		FROM = { wealth = 500 }
 		add_offmap_currency = { offmap = offmap_vee value = 50 }
 		ai_chance = {
@@ -1875,6 +1550,7 @@ narrative_event = {
 			wealth = 251
 		}
 		wealth = -250
+		prestige = 250
 		FROM = { wealth = 250 }
 		add_offmap_currency = { offmap = offmap_vee value = 25 }
 		ai_chance = {
@@ -1884,6 +1560,7 @@ narrative_event = {
 	option = {
 		name = ACS_00091_OPT_C
 		wealth = -125
+		prestige = 125
 		FROM = { wealth = 125 }
 		add_offmap_currency = { offmap = offmap_vee value = 12 }
 		ai_chance = {
