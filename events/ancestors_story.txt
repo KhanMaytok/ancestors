@@ -21,137 +21,160 @@ narrative_event = {
 		name = ACS_00001_OPT_A
 		set_global_flag = comet_tiamat
 
-		hidden_tooltip = {
-			# Universe generation
-			offmap_vee = {
-				governor = {
-					set_name = "Ivar"
-					dynasty = 300001
-					religion = hellenic_pagan
-					culture = greek
-					add_trait = cruel
-					add_trait = ambitious
-					add_trait = elusive_shadow
-					add_trait = shrewd
-					add_trait = quick
-					add_trait = hunter
-					add_trait = diligent
-					add_trait = lustful
-					add_trait = robust
-					add_trait = strategist
-					add_trait = socializer
-					add_trait = hedonist
-					add_trait = seducer
-					set_character_flag = is_olaf
-					set_character_flag = originated_from_chinese_court
-					set_character_flag = immune_tuberculosis
-					set_character_flag = immune_bubonic_plague
-					character_event =  { id = ACS.00004 days = 3 }
-				}
+		# Search for Venezia
+		random_character = {
+			limit = {
+				has_landed_title = c_venezia
+				is_merchant_republic = yes
 			}
-			narrative_event = { id = ACS.00002 days = 3 } # Enter Vee Notification
+			character_event = { id = ACS.00002 }
+		}
+
+		# Search another merchant republic
+		random_character = {
+			limit = {
+				is_merchant_republic = yes
+			}
+			character_event = { id = ACS.00002 days = 5 } 
+		}
+
+		# Ramdom duchy into merchan republic
+		random_character = {
+			limit = {
+				is_ruler = yes
+				is_landed = yes
+				real_tier = DUKE
+				ai = yes
+			}
+			set_character_flag = transition_to_republic
+			character_event = { id = ACS.00002 days = 15 }
 		}
 	}
 }
 
-# ACS.00002 - ENTER VEE
-narrative_event = {
+# ACS.00002 - Kill a entire patrician family
+character_event = {
 	id = ACS.00002
-	title = ACS_00002_TITLE
-	desc = ACS_00002_DESC
-	picture = GFX_evt_emissary_byzantine
+	hide_window = yes
 	is_triggered_only = yes
 
-	option = {
-		name = OK	
+	trigger = {
+		NOT = { has_global_flag = infiltered_venezia }
 	}
+
+	immediate = {
+		set_global_flag = infiltered_venezia
+		if = {
+			limit = {
+				has_character_flag = transition_to_republic
+			}
+			set_government_type = merchant_republic_government
+		}
+
+		any_vassal = {
+			set_character_flag = check_for_dissapears
+		}
+
+		# Create OLAF
+		create_character = {
+			dynasty = 300001
+			religion = greek
+			culture = catholic
+			trait = cruel
+			trait = ambitious
+			trait = elusive_shadow
+			trait = shrewd
+			trait = quick
+			trait = hunter
+			trait = diligent
+			trait = lustful
+			trait = robust
+			trait = strategist
+			trait = socializer
+			trait = hedonist
+			trait = seducer
+		}
+		new_character = {
+			set_character_flag = is_olaf
+			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
+			create_family_palace = yes			
+			save_event_target_as = olaf_the_killer
+			family_palace = {
+				create_pentaghast_buildings_effect = yes
+			}
+			character_event = { id = ACS.00003 } # Generate family BEFORE initialization for court number checks
+		}
+
+		random_vassal = {
+			limit = {
+				is_patrician = yes
+				NOT = { has_character_flag = is_olaf }
+				ai = yes
+			}
+			any_dynasty_member = {
+				death = {
+					death_reason = death_poor_health
+				}
+			}
+			death = {
+				death_reason = death_poor_health
+			}
+		}
+	}	
 }
 
-# ACS.00003 - AVAILABLE
-
-#####################
-## THE SPAWN EVENT ##
-#####################
-# ACS.00004 - Spawn Senua, Olaf and Tilda and parents
+# ACS.00003 - Spawn Senua, Olaf and Tilda and parents
 character_event = {
-	id = ACS.00004
+	id = ACS.00003
 	is_triggered_only = yes
 	hide_window = yes
 
 	immediate = {
 		save_event_target_as = olaf_the_killer
 
-		create_character = {
-			name = Vee
-			dynasty = none
-			dna = qqovluyitrm
+		create_character = { # Olaf spouse
 			female = yes
-			age = 16
-			culture = event_target:olaf_the_killer
-			religion = event_target:olaf_the_killer
+			age = 18
+			trait = grey_eminence
+			trait = physician
+			trait = scarred
 			trait = fair
-			trait = strong
-			trait = mystic
-			trait = mangekyo_sharingan
-			trait = syrena
-			trait = kind
-			trait = lustful
+			trait = quick
+			trait = shrewd
+			trait = gardener
+			trait = poet
 			trait = diligent
+			trait = lustful
 			trait = proud
-			trait = vee_blood
-			trait = seductress
-			trait = prevent_marriage
-			trait = ambitious
-			trait = cynical
+			trait = brave
 			trait = erudite
-			trait = gregarious
-			trait = lefthanded
+			culture = ROOT
+			religion = ROOT
+			dynasty = none
 		}
 		new_character = {
 			add_spouse = ROOT
-			set_character_flag = is_vee
-			set_character_flag = society_join_block
-			set_character_flag = originated_from_chinese_court
+			add_lover = ROOT
+			save_event_target_as = olaf_spouse
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
-			set_father = event_target:olaf_the_killer
-			culture = event_target:olaf_the_killer
+			save_event_target_as = olaf_spouse
 		}
 
-		create_character = { # Olaf child 1
-			female = yes
-			age = 7
-			random_traits = yes
-			culture = ROOT
-			religion = ROOT
-			dynasty = 300001
-		}
-		new_character = {
-			set_father = event_target:olaf_the_killer
-			set_character_flag = immune_tuberculosis
-			set_character_flag = immune_bubonic_plague
-		}
-
-		create_character = { # Olaf child 2
-			female = no
-			age = 3
-			random_traits = yes
-			culture = ROOT
-			religion = ROOT
-			dynasty = 300001
-		}
-		new_character = {
-			set_father = event_target:olaf_the_killer
-			set_character_flag = immune_tuberculosis
-			set_character_flag = immune_bubonic_plague
-		}
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
 
 		create_character = { # TILDA
 			name = "Tilda"
 			female = yes
 			age = 33
-			culture = khazar
-			religion = tengri_pagan
+			culture = ROOT
+			religion = ROOT
 			trait = brilliant_strategist
 			trait = cavalry_leader
 			trait = flat_terrain_leader
@@ -172,131 +195,6 @@ character_event = {
 			create_sakya_child_effect = yes
 			create_sakya_child_effect = yes
 			create_sakya_child_effect = yes
-		}
-
-		create_character = { # Olaf father
-			age = 60
-			culture = event_target:olaf_the_killer
-			religion = event_target:olaf_the_killer
-			trait = ambitious
-			trait = shrewd
-			trait = physician
-			trait = diligent
-			trait = lustful
-			trait = grey_eminence
-			trait = administrator
-			dynasty = 300001
-		}
-		new_character = {
-			save_event_target_as = olaf_father
-		}
-
-		create_character = { # Olaf mother
-			age = 55
-			female = yes
-			culture = event_target:olaf_the_killer
-			religion = event_target:olaf_the_killer
-			trait = fair
-			trait = genius
-			trait = shrewd
-			trait = physician
-			trait = diligent
-			trait = midas_touched
-			trait = administrator
-			dynasty = none
-		}
-		new_character = {
-			save_event_target_as = olaf_mother
-		}
-
-		create_character = { # Olaf brother. Bruh
-			age = 30
-			culture = event_target:olaf_the_killer
-			religion = event_target:olaf_the_killer
-			trait = fair
-			trait = genius
-			trait = shrewd
-			trait = physician
-			trait = diligent
-			trait = midas_touched
-			trait = administrator
-			dynasty = 300001
-		}
-		new_character = {
-			set_mother = event_target:olaf_mother
-			set_father = event_target:olaf_father
-			save_event_target_as = olaf_brother
-		}
-
-		create_character = { # Olaf 1st sister
-			female = yes
-			age = 18
-			trait = grey_eminence
-			trait = physician
-			trait = scarred
-			trait = fair
-			trait = quick
-			trait = shrewd
-			trait = gardener
-			trait = poet
-			trait = diligent
-			trait = lustful
-			trait = proud
-			trait = brave
-			trait = erudite
-			trait = defensive_leader
-			culture = ROOT
-			religion = ROOT
-			dynasty = 300001
-		}
-		new_character = {
-			set_mother = event_target:olaf_mother
-			set_father = event_target:olaf_father
-			create_pentaghast_child_effect = yes
-			create_pentaghast_child_effect = yes
-		}
-
-		create_character = { # Olaf 2nd sister
-			female = yes
-			age = 18
-			trait = grey_eminence
-			trait = physician
-			trait = scarred
-			trait = fair
-			trait = quick
-			trait = shrewd
-			trait = gardener
-			trait = poet
-			trait = diligent
-			trait = lustful
-			trait = proud
-			trait = brave
-			trait = erudite
-			trait = defensive_leader
-			culture = ROOT
-			religion = ROOT
-			dynasty = 300001
-		}
-		new_character = {
-			set_mother = event_target:olaf_mother
-			set_father = event_target:olaf_father
-			create_pentaghast_child_effect = yes
-			create_pentaghast_child_effect = yes
-		}
-
-		event_target:olaf_the_killer = {
-			set_mother = event_target:olaf_mother
-			set_father = event_target:olaf_father
-		}
-		# Olaf purges his family
-		event_target:olaf_father = {
-			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
-		}
-		event_target:olaf_mother = {
-			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
-		}
-		event_target:olaf_brother = {
-			death = { death_reason = death_murder_unknown killer = event_target:olaf_the_killer }
 		}
 
 		# KHALGA
@@ -323,11 +221,52 @@ character_event = {
 			set_character_flag = is_khalga
 			set_character_flag = society_join_block
 			set_character_flag = originated_from_chinese_court # to prevent to go to China
+			set_character_flag = wolf_blood_first_generation
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
+			add_character_modifier = {
+				name = wolf_child
+				duration = -1
+			}
 			character_event = { id = ACS.00006 days = 3 }
 		}
-		start_outbreak = bubonic_plague
+
+		# VEE
+		create_character = {
+			name = Vee
+			dynasty = 300001
+			female = yes
+			age = 16
+			culture = event_target:olaf_the_killer
+			religion = event_target:olaf_the_killer
+			trait = fair
+			trait = strong
+			trait = mystic
+			trait = mangekyo_sharingan
+			trait = syrena
+			trait = kind
+			trait = lustful
+			trait = diligent
+			trait = proud
+			trait = vee_blood
+			trait = seductress
+			trait = prevent_marriage
+			trait = legit_bastard
+			trait = ambitious
+			trait = cynical
+			trait = erudite
+			trait = gregarious
+			trait = lefthanded
+		}
+		new_character = {
+			set_character_flag = is_vee	
+			set_character_flag = society_join_block	
+			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
+			set_father = event_target:olaf_the_killer
+			culture = event_target:olaf_the_killer
+		}
 	}
 }
 
@@ -754,7 +693,7 @@ character_event = {
 			governor = {
 				save_event_target_as = pentaghast_leader
 				create_character = {
-					name = "Vee"
+					name = Vee
 					female = yes
 					culture = event_target:pentaghast_leader
 					religion = event_target:pentaghast_leader
@@ -776,6 +715,7 @@ character_event = {
 					trait = erudite
 					trait = gregarious
 					trait = lefthanded
+					dynasty = none
 				}
 				new_character = {
 					set_character_flag = is_vee
@@ -784,7 +724,6 @@ character_event = {
 					set_character_flag = immune_tuberculosis
 					set_character_flag = immune_bubonic_plague
 					set_father = event_target:pentaghast_leader
-					dynasty = none
 				}
 			}
 			set_status = vee_status_newborn
@@ -1567,4 +1506,76 @@ narrative_event = {
 			factor = 1
 		}
 	}
+}
+
+
+#Sending gift
+character_event = {
+    id = ACS.00092
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = { FROMFROM = { letter_event = { id = ACS.00093 } } }
+}
+
+letter_event = {
+    id = ACS.00093
+    desc = EVTDESC_JD_20024
+    border = GFX_event_letter_frame_diplomacy
+
+    is_triggered_only = yes
+
+    option = { 
+        name = EVTOPTA_JD_20024
+		
+		sound_effect = china_grace_gain
+		add_offmap_currency = {
+			offmap = offmap_china
+			value = 450
+		}
+    }
+}
+
+#Response for sending a tribute character to China...
+letter_event = {
+    id = ACS.00094
+    desc = EVTDESC_JD_10050
+    border = GFX_event_letter_frame_diplomacy
+
+    is_triggered_only = yes
+
+    option = { 
+        name = {
+            text = EVTOPTA_JD_10050_bad
+            trigger = {
+                has_character_flag = sent_bad_tribute
+                NOT = { is_close_relative = event_target:person_sent_as_tribute }
+            }
+        }
+        name = {
+            text = EVTOPTA_JD_10050_decent
+            trigger = {
+                has_character_flag = sent_decent_tribute
+                NOT = { is_close_relative = event_target:person_sent_as_tribute }
+            }
+        }
+        name = {
+            text = EVTOPTA_JD_10050_great
+            trigger = {
+                has_character_flag = sent_great_tribute
+                NOT = { is_close_relative = event_target:person_sent_as_tribute }
+            }
+        }
+        name = {
+            text = EVTOPTA_JD_10050_family
+            trigger = { is_close_relative = event_target:person_sent_as_tribute }
+        }
+
+        event_target:person_sent_as_tribute = { show_portrait = yes }
+
+        clr_character_flag = sent_bad_tribute
+        clr_character_flag = sent_decent_tribute
+        clr_character_flag = sent_great_tribute
+        clr_character_flag = sent_eunuch_tribute
+        clr_character_flag = sent_concubine_tribute
+    }
 }

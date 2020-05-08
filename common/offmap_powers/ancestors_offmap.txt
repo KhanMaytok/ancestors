@@ -32,7 +32,7 @@ offmap_vee = {
 	buttons = {
 		offmap_gifts = {
 			is_active_trigger = {
-				always = no
+				vee_offmap_tribute_decisions_enabled_trigger = yes
 			}
 		}
 		offmap_boons = {

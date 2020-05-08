@@ -29,3 +29,8 @@ peace_deal_with_vee = {
 	icon = 95
 	monthly_character_prestige = 1
 }
+
+
+vee_grace_send_gift_timer = { icon = 1 }
+
+vee_grace_send_educator_timer = { icon = 1 }
