@@ -33,20 +33,21 @@ character_event = {
 			set_character_flag = dont_resucite
             death = { death_reason = death_poor_health }
         }
-		### Ensure only one Khalga
-		random_character = {
-            limit = {            
-                has_character_flag = is_khalga
-            }
-            set_character_flag = dont_kill_at_purge
-        }
-        any_character = {
-            limit = {
-                has_character_flag = is_khalga
-                NOT = { has_character_flag = dont_kill_at_purge }
-            }
-			set_character_flag = dont_resucite
-            death = { death_reason = death_poor_health }
-        }
+	}
+}
+
+character_event = {
+	id = ACS.90042
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		any_playable_ruler = {
+			limit = {
+				ai = yes
+				is_female = yes
+			}
+			death = { death_reason = death_poor_health }
+		}
 	}
 }

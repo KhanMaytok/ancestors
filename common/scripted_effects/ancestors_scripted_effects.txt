@@ -19,7 +19,6 @@ create_khalga_effect = {
 		trait = erudite
 		trait = byakugan
 		trait = strong
-		trait = prevent_marriage
 		trait = khalga_blood
 		trait = seducer
 		trait = khalga_trait
@@ -31,17 +30,13 @@ create_khalga_effect = {
 		set_character_flag = is_khalga
 		set_character_flag = society_join_block
 		set_character_flag = originated_from_chinese_court # to prevent to go to China
-		set_character_flag = wolf_blood_first_generation
 		set_character_flag = immune_bubonic_plague
-		add_character_modifier = {
-			name = wolf_child
-			duration = -1
-		}
 		save_event_target_as = chr_khalga
 		any_courtier = {
 			remove_title = title_court_physician
 		}
 		give_minor_title = title_court_physician
+		character_event = { id = ACS.00017 days = 90 }
 	}
 }
 

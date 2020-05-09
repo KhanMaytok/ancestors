@@ -81,8 +81,8 @@ character_event = {
 		# Create OLAF
 		create_character = {
 			dynasty = 300001
-			religion = greek
-			culture = catholic
+			religion = catholic
+			culture = greek
 			trait = cruel
 			trait = ambitious
 			trait = elusive_shadow
@@ -163,7 +163,6 @@ character_event = {
 			save_event_target_as = olaf_spouse
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
-			save_event_target_as = olaf_spouse
 		}
 
 		create_olaf_children_effect = yes
@@ -198,40 +197,6 @@ character_event = {
 			create_sakya_child_effect = yes
 			create_sakya_child_effect = yes
 			create_sakya_child_effect = yes
-		}
-
-		# KHALGA
-		create_character = {
-			name = Khalga
-			female = no
-			age = 5
-			culture = event_target:olaf_the_killer
-			religion = event_target:olaf_the_killer
-			dynasty = none
-			trait = fair
-			trait = genius
-			trait = byakugan
-			trait = strong
-			trait = prevent_marriage
-			trait = khalga_blood
-			trait = duelist
-			trait = gamer
-			trait = socializer
-			trait = strategist
-			trait = seducer
-		}
-		new_character = {
-			set_character_flag = is_khalga
-			set_character_flag = society_join_block
-			set_character_flag = originated_from_chinese_court # to prevent to go to China
-			set_character_flag = wolf_blood_first_generation
-			set_character_flag = immune_tuberculosis
-			set_character_flag = immune_bubonic_plague
-			add_character_modifier = {
-				name = wolf_child
-				duration = -1
-			}
-			character_event = { id = ACS.00006 days = 3 }
 		}
 
 		# VEE
@@ -269,13 +234,12 @@ character_event = {
 			set_character_flag = immune_bubonic_plague
 			set_father = event_target:olaf_the_killer
 			culture = event_target:olaf_the_killer
+			save_event_target_as = chr_vee
 		}
 
 		# Recalculate the governor title
 		e_vee_governor = {
-			grant_title = PREV
-			gender_succ = enatic_cognatic
-			succession = primogeniture
+			grant_title = event_target:chr_vee
 		}
 	}
 }
@@ -397,25 +361,36 @@ character_event = {
 ###################
 ## KHALGA TRAVEL ##
 ###################
-# ACS.00013 - Khalga travelling every 5 years
+# ACS.00013 - Khalga spawn every 5 years
 character_event = {
 	id = ACS.00013
 	is_triggered_only = yes
 	hide_window = yes
-	has_character_flag = is_khalga
-	min_age = 16
+	has_character_flag = is_vee
 
 	immediate = {
-		# Return all titles to liege
-		liege = {
-			save_event_target_as = khalga_liege
+		# Clean any Khalga for security reasons
+		random_character = {
+            limit = {            
+                has_character_flag = is_khalga
+            }
+            death = { death_reason = death_missing }
+        }
+		random_playable_ruler = {
+			limit = {
+				is_female = yes
+				is_landed = yes
+				is_pregnant = no
+				age >= 16
+				age <= 55
+				NOT = { has_character_flag = is_vee }
+			}
+			save_event_target_as = khalga_lover
+			create_khalga_effect = yes
+			impregnate_cuckoo = event_target:chr_khalga
+			add_lover = event_target:chr_khalga
+			narrative_event = { id = ACS.00018 }
 		}
-		any_demesne_title = {
-			gain_title = event_target:khalga_liege
-		}
-
-		# And... kill khalga
-		death = { death_reason = death_missing }
 	}
 }
 
@@ -494,36 +469,14 @@ character_event = {
 
 # ACS.00016 - AVAILABLE
 
-#########################
-## KHALGA RESURRECTION ##
-#########################
-# ACS.00017 - Resurrect Khalga and move him to a new ruler
+# ACS.00017 - Kill Khalga after 3 months honeymoon
 character_event = {
 	id = ACS.00017
 	hide_window = yes
 	is_triggered_only = yes
-	has_character_flag = is_khalga
-
-	trigger = {
-		NOT = { has_character_flag = dont_resucite }
-	}
 
 	immediate = {
-		# Select a suitable female
-		random_playable_ruler = {
-			limit = {
-				is_female = yes
-				is_landed = yes
-				is_pregnant = no
-				age >= 16
-				age <= 50
-			}
-			save_event_target_as = khalga_lover
-			create_khalga_effect = yes
-			impregnate_cuckoo = event_target:chr_khalga
-			add_lover = event_target:chr_khalga
-			narrative_event = { id = ACS.00018 }
-		}	
+		death = { death_reason = death_missing }
 	}
 }
 
@@ -710,44 +663,47 @@ character_event = {
 	has_character_flag = is_vee
 
 	immediate = {
-		offmap_vee = {
-			governor = {
-				save_event_target_as = pentaghast_leader
-				create_character = {
-					name = Vee
-					female = yes
-					culture = event_target:pentaghast_leader
-					religion = event_target:pentaghast_leader
-					age = 0
-					trait = fair
-					trait = strong
-					trait = mystic
-					trait = mangekyo_sharingan
-					trait = syrena
-					trait = kind
-					trait = lustful
-					trait = diligent
-					trait = proud
-					trait = vee_blood
-					trait = seductress
-					trait = prevent_marriage
-					trait = ambitious
-					trait = cynical
-					trait = erudite
-					trait = gregarious
-					trait = lefthanded
-					dynasty = none
-				}
-				new_character = {
-					set_character_flag = is_vee
-					set_character_flag = society_join_block	
-					set_character_flag = originated_from_chinese_court
-					set_character_flag = immune_tuberculosis
-					set_character_flag = immune_bubonic_plague
-					set_father = event_target:pentaghast_leader
+		dynasty_head = {
+			save_event_target_as = pentaghast_leader
+			create_character = {
+				name = Vee
+				female = yes
+				culture = event_target:pentaghast_leader
+				religion = event_target:pentaghast_leader
+				age = 0
+				trait = fair
+				trait = strong
+				trait = mystic
+				trait = mangekyo_sharingan
+				trait = syrena
+				trait = kind
+				trait = lustful
+				trait = diligent
+				trait = proud
+				trait = vee_blood
+				trait = seductress
+				trait = prevent_marriage
+				trait = ambitious
+				trait = cynical
+				trait = erudite
+				trait = gregarious
+				trait = lefthanded
+				dynasty = none
+			}
+			new_character = {
+				set_character_flag = is_vee
+				set_character_flag = society_join_block	
+				set_character_flag = originated_from_chinese_court
+				set_character_flag = immune_tuberculosis
+				set_character_flag = immune_bubonic_plague
+				set_father = event_target:pentaghast_leader
+				e_vee_governor = {
+					grant_title = PREV
 				}
 			}
-			set_status = vee_status_newborn
+			offmap_vee = {
+				set_status = vee_status_newborn
+			}
 		}
 	}
 }
@@ -1442,93 +1398,6 @@ narrative_event = {
 		}
 	}
 }
-
-# ACS.00090 - Varkana migration events
-character_event = {
-	id = ACS.00090
-	is_triggered_only = yes
-	hide_window = yes
-
-	trigger = {
-		is_offmap_governor = offmap_vee
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				NOT = { government = nomadic_government }
-			}
-			primary_title = {
-				set_title_nomad = { title = THIS status = no }
-			}
-
-			set_government_type = feudal_government
-			prestige = 100
-			set_government_type = nomadic_government
-		}
-
-		random_province = {
-			limit = {
-				is_land = yes
-			}
-			save_event_target_as = new_capital_province
-			holder_scope = {
-				narrative_event = { id = ACS.00091 }
-			}
-			ROOT = {
-				capital = event_target:new_capital_province
-			}
-		}
-	}
-}
-
-# ACS.00091 - Province holder receives visit message
-narrative_event = {
-	id = ACS.00091
-	title = ACS_00091_TITLE
-	desc = ACS_00091_DESC
-	picture = GFX_evt_china_golden_age
-	border = GFX_event_narrative_frame_diplomacy
-	is_triggered_only = yes
-
-	option = {
-		name = ACS_00091_OPT_A
-		trigger = {
-			wealth = 501
-		}
-		wealth = -500
-		prestige = 500
-		FROM = { wealth = 500 }
-		add_offmap_currency = { offmap = offmap_vee value = 50 }
-		ai_chance = {
-			factor = 90
-		}
-	}
-	option = {
-		name = ACS_00091_OPT_B
-		trigger = {
-			wealth = 251
-		}
-		wealth = -250
-		prestige = 250
-		FROM = { wealth = 250 }
-		add_offmap_currency = { offmap = offmap_vee value = 25 }
-		ai_chance = {
-			factor = 9
-		}
-	}
-	option = {
-		name = ACS_00091_OPT_C
-		wealth = -125
-		prestige = 125
-		FROM = { wealth = 125 }
-		add_offmap_currency = { offmap = offmap_vee value = 12 }
-		ai_chance = {
-			factor = 1
-		}
-	}
-}
-
 
 #Sending gift
 character_event = {
