@@ -20,34 +20,37 @@ narrative_event = {
 	option = {
 		name = ACS_00001_OPT_A
 		set_global_flag = comet_tiamat
+		narrative_event = { id = ACS.00004 days = 20 }
 
-		# Search for Venezia
-		random_character = {
-			limit = {
-				has_landed_title = c_venezia
-				is_merchant_republic = yes
+		hidden_effect = {
+			# Search for Venezia
+			random_character = {
+				limit = {
+					has_landed_title = c_venezia
+					is_merchant_republic = yes
+				}
+				character_event = { id = ACS.00002 }
 			}
-			character_event = { id = ACS.00002 }
-		}
 
-		# Search another merchant republic
-		random_character = {
-			limit = {
-				is_merchant_republic = yes
+			# Search another merchant republic
+			random_character = {
+				limit = {
+					is_merchant_republic = yes
+				}
+				character_event = { id = ACS.00002 days = 5 } 
 			}
-			character_event = { id = ACS.00002 days = 5 } 
-		}
 
-		# Ramdom duchy into merchan republic
-		random_character = {
-			limit = {
-				is_ruler = yes
-				is_landed = yes
-				real_tier = DUKE
-				ai = yes
+			# Ramdom duchy into merchan republic
+			random_character = {
+				limit = {
+					is_ruler = yes
+					is_landed = yes
+					real_tier = DUKE
+					ai = yes
+				}
+				set_character_flag = transition_to_republic
+				character_event = { id = ACS.00002 days = 15 }
 			}
-			set_character_flag = transition_to_republic
-			character_event = { id = ACS.00002 days = 15 }
 		}
 	}
 }
@@ -267,10 +270,28 @@ character_event = {
 			set_father = event_target:olaf_the_killer
 			culture = event_target:olaf_the_killer
 		}
+
+		# Recalculate the governor title
+		e_vee_governor = {
+			grant_title = PREV
+			gender_succ = enatic_cognatic
+			succession = primogeniture
+		}
 	}
 }
 
-# ACS.00005 - AVAILABLE
+# ACS.00004 - Notification for the user
+narrative_event = {
+	id = ACS.00004
+	title = ACS_00004_TITLE
+	desc = ACS_00004_DESC
+	picture = GFX_evt_emissary_byzantine
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELENT		
+	}
+}
 
 # ACS.00006 - Find the current leader of the Pentaghast and Sakya mercenary band
 character_event = {
@@ -350,7 +371,8 @@ character_event = {
 		can_marry = yes
 		is_married = no
 		is_adult = yes
-		age > 18
+		age > 23
+		ai = yes
 	}
 
 	immediate = {
@@ -369,7 +391,6 @@ character_event = {
 }
 
 # ACS.00010 - AVAILABLE
-
 # ACS.00011 - AVAILABLE
 # ACS.00012 - AVAILABLE
 
@@ -1166,65 +1187,65 @@ narrative_event = {
 ##################################################
 
 character_event = {
-    id = ACS.00052 # HFP.10100
-    is_triggered_only = yes
-    hide_window = yes
-    trigger = {        
-    }
+	id = ACS.00052 # HFP.10100
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {        
+	}
 
-    immediate = {     
+	immediate = {     
 		#Chooses a weapon for mainly loc purposes (but has a tiny effect on outcomes, too)...
 		set_dueling_weapon_effect = yes
-        event_target:combatant_2 = { set_dueling_weapon_effect = yes } 
-        #Chooses a body part for injury (if it occurs), also for loc purposes (effect handles both characters)
-        set_potential_injury_flag_effect = yes
+		event_target:combatant_2 = { set_dueling_weapon_effect = yes } 
+		#Chooses a body part for injury (if it occurs), also for loc purposes (effect handles both characters)
+		set_potential_injury_flag_effect = yes
 
-        #Scripted effect requiring event-targets combatant_1 & combatant_2! RAW NUMBERS...
-        evaluate_duel_result_score_effect = yes
+		#Scripted effect requiring event-targets combatant_1 & combatant_2! RAW NUMBERS...
+		evaluate_duel_result_score_effect = yes
 
-        #Room for extra special calculations... (based on traits, and other special circumstances?)
-        evaluate_extra_duel_result_score_effect = yes
+		#Room for extra special calculations... (based on traits, and other special circumstances?)
+		evaluate_extra_duel_result_score_effect = yes
 
-        #Send the correct result event (from random_list)...
-        send_mangekyo_duel_result_event_effect = yes 
-    }
+		#Send the correct result event (from random_list)...
+		send_mangekyo_duel_result_event_effect = yes 
+	}
 }
 
 # ACS.00053 - LETHAL for both...
 narrative_event = {
-    id = ACS.00053
+	id = ACS.00053
 	title = ACS_00053_TITLE
 	desc = ACS_00053_DESC
-    picture = GFX_evt_duel_scene
-    is_triggered_only = yes
+	picture = GFX_evt_duel_scene
+	is_triggered_only = yes
 
-    option = {
+	option = {
 		name = OK
 	}  
 }
 
 # ACS.00054 - LETHAL for defender...
 narrative_event = {
-    id = ACS.00054
+	id = ACS.00054
 	title = ACS_00054_TITLE
 	desc = ACS_00054_DESC
-    picture = GFX_evt_duel_scene
-    is_triggered_only = yes
+	picture = GFX_evt_duel_scene
+	is_triggered_only = yes
 
-    option = {
+	option = {
 		name = OK
 	}  
 }
 
 # ACS.00055 - LETHAL for attacker...
 narrative_event = {
-    id = ACS.00055
+	id = ACS.00055
 	title = ACS_00055_TITLE
 	desc = ACS_00055_DESC
-    picture = GFX_evt_duel_scene
-    is_triggered_only = yes
+	picture = GFX_evt_duel_scene
+	is_triggered_only = yes
 
-    option = {
+	option = {
 		name = OK
 	}  
 }
@@ -1511,71 +1532,71 @@ narrative_event = {
 
 #Sending gift
 character_event = {
-    id = ACS.00092
-    hide_window = yes
-    is_triggered_only = yes
-    immediate = { FROMFROM = { letter_event = { id = ACS.00093 } } }
+	id = ACS.00092
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { FROMFROM = { letter_event = { id = ACS.00093 } } }
 }
 
 letter_event = {
-    id = ACS.00093
-    desc = EVTDESC_JD_20024
-    border = GFX_event_letter_frame_diplomacy
+	id = ACS.00093
+	desc = EVTDESC_JD_20024
+	border = GFX_event_letter_frame_diplomacy
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    option = { 
-        name = EVTOPTA_JD_20024
+	option = { 
+		name = EVTOPTA_JD_20024
 		
 		sound_effect = china_grace_gain
 		add_offmap_currency = {
 			offmap = offmap_china
 			value = 450
 		}
-    }
+	}
 }
 
 #Response for sending a tribute character to China...
 letter_event = {
-    id = ACS.00094
-    desc = EVTDESC_JD_10050
-    border = GFX_event_letter_frame_diplomacy
+	id = ACS.00094
+	desc = EVTDESC_JD_10050
+	border = GFX_event_letter_frame_diplomacy
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    option = { 
-        name = {
-            text = EVTOPTA_JD_10050_bad
-            trigger = {
-                has_character_flag = sent_bad_tribute
-                NOT = { is_close_relative = event_target:person_sent_as_tribute }
-            }
-        }
-        name = {
-            text = EVTOPTA_JD_10050_decent
-            trigger = {
-                has_character_flag = sent_decent_tribute
-                NOT = { is_close_relative = event_target:person_sent_as_tribute }
-            }
-        }
-        name = {
-            text = EVTOPTA_JD_10050_great
-            trigger = {
-                has_character_flag = sent_great_tribute
-                NOT = { is_close_relative = event_target:person_sent_as_tribute }
-            }
-        }
-        name = {
-            text = EVTOPTA_JD_10050_family
-            trigger = { is_close_relative = event_target:person_sent_as_tribute }
-        }
+	option = { 
+		name = {
+			text = EVTOPTA_JD_10050_bad
+			trigger = {
+				has_character_flag = sent_bad_tribute
+				NOT = { is_close_relative = event_target:person_sent_as_tribute }
+			}
+		}
+		name = {
+			text = EVTOPTA_JD_10050_decent
+			trigger = {
+				has_character_flag = sent_decent_tribute
+				NOT = { is_close_relative = event_target:person_sent_as_tribute }
+			}
+		}
+		name = {
+			text = EVTOPTA_JD_10050_great
+			trigger = {
+				has_character_flag = sent_great_tribute
+				NOT = { is_close_relative = event_target:person_sent_as_tribute }
+			}
+		}
+		name = {
+			text = EVTOPTA_JD_10050_family
+			trigger = { is_close_relative = event_target:person_sent_as_tribute }
+		}
 
-        event_target:person_sent_as_tribute = { show_portrait = yes }
+		event_target:person_sent_as_tribute = { show_portrait = yes }
 
-        clr_character_flag = sent_bad_tribute
-        clr_character_flag = sent_decent_tribute
-        clr_character_flag = sent_great_tribute
-        clr_character_flag = sent_eunuch_tribute
-        clr_character_flag = sent_concubine_tribute
-    }
+		clr_character_flag = sent_bad_tribute
+		clr_character_flag = sent_decent_tribute
+		clr_character_flag = sent_great_tribute
+		clr_character_flag = sent_eunuch_tribute
+		clr_character_flag = sent_concubine_tribute
+	}
 }

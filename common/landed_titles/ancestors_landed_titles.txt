@@ -45,7 +45,7 @@ e_vee_governor = {
 	landless = yes
 
 	# Cannot be held as a secondary title
-	#primary = yes
+	primary = no
 	#independent = yes
 
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
