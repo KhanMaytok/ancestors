@@ -6,11 +6,11 @@ create_khalga_effect = {
 		religion = event_target:khalga_lover
 		dynasty = none
 		attributes = {
-			martial = 1
-			diplomacy = 5
-			stewardship = 2
-			intrigue = 12
-			learning = 12
+			martial = 10
+			diplomacy = 10
+			stewardship = 10
+			intrigue = 22
+			learning = 22
 		}
 		trait = mastermind_theologian
 		trait = physician
@@ -36,7 +36,7 @@ create_khalga_effect = {
 			remove_title = title_court_physician
 		}
 		give_minor_title = title_court_physician
-		character_event = { id = ACS.00017 days = 90 }
+		character_event = { id = ACS.00017 days = 180 }
 	}
 }
 

@@ -40,7 +40,7 @@ narrative_event = {
 				character_event = { id = ACS.00002 days = 5 } 
 			}
 
-			# Ramdom duchy into merchan republic
+			# Ramdom duchy into merchant republic
 			random_character = {
 				limit = {
 					is_ruler = yes
@@ -357,42 +357,7 @@ character_event = {
 # ACS.00010 - AVAILABLE
 # ACS.00011 - AVAILABLE
 # ACS.00012 - AVAILABLE
-
-###################
-## KHALGA TRAVEL ##
-###################
-# ACS.00013 - Khalga spawn every 5 years
-character_event = {
-	id = ACS.00013
-	is_triggered_only = yes
-	hide_window = yes
-	has_character_flag = is_vee
-
-	immediate = {
-		# Clean any Khalga for security reasons
-		random_character = {
-            limit = {            
-                has_character_flag = is_khalga
-            }
-            death = { death_reason = death_missing }
-        }
-		random_playable_ruler = {
-			limit = {
-				is_female = yes
-				is_landed = yes
-				is_pregnant = no
-				age >= 16
-				age <= 55
-				NOT = { has_character_flag = is_vee }
-			}
-			save_event_target_as = khalga_lover
-			create_khalga_effect = yes
-			impregnate_cuckoo = event_target:chr_khalga
-			add_lover = event_target:chr_khalga
-			narrative_event = { id = ACS.00018 }
-		}
-	}
-}
+# ACS.00013 - AVAILABLE
 
 # ACS.00014 - Ensure inherit Khalga or Vee trait for cuckoo
 character_event = {
@@ -983,6 +948,28 @@ character_event = {
 		}
 		ROOT = {
 			impregnate = event_target:vee_spouse
+		}
+
+		# Kill another khalga instances for security
+		khalga_trait = {
+            death = { death_reason = death_missing }
+        }
+
+		# Search Khalga next target
+		random_playable_ruler = {
+			limit = {
+				is_female = yes
+				is_landed = yes
+				is_pregnant = no
+				age >= 16
+				age <= 55
+				NOT = { has_character_flag = is_vee }
+			}
+			save_event_target_as = khalga_lover
+			create_khalga_effect = yes
+			impregnate_cuckoo = event_target:chr_khalga
+			add_lover = event_target:chr_khalga
+			narrative_event = { id = ACS.00018 }
 		}
 	}
 }

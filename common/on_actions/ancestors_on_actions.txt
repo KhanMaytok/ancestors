@@ -15,15 +15,14 @@ on_bi_yearly_pulse = {
 	events = {
 		ACS.00025 # Vee migrates to another body
 		ACS.00056 # Vee biannual tombola
+		ACS.00045 # Vee has childs every 5 years to balance Khalga's byakugan
 	}
 }
 
 on_five_year_pulse = {
 	events = {
-		ACS.00013 # Khalga spawns every 5 years
 		ACS.00048 # Choice for the mangekyo every 5 years
 		ACS.00009 # Marry every single Pentaghast male
-		ACS.00045 # Vee has childs every 5 years to balance Khalga's byakugan
 	}
 }
 
