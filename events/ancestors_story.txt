@@ -153,7 +153,7 @@ character_event = {
 			trait = proud
 			trait = brave
 			trait = erudite
-			culture = ROOT
+			culture = han
 			religion = ROOT
 			dynasty = none
 		}
@@ -235,12 +235,10 @@ character_event = {
 			set_father = event_target:olaf_the_killer
 			culture = event_target:olaf_the_killer
 			save_event_target_as = chr_vee
-		}
-
-		# Recalculate the governor title
-		e_vee_governor = {
-			grant_title = event_target:chr_vee
-		}
+			e_vee_governor = {
+				grant_title = PREV
+			}
+		}		
 	}
 }
 
@@ -253,7 +251,7 @@ narrative_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = EXCELENT		
+		name = EXCELLENT		
 	}
 }
 
@@ -460,9 +458,7 @@ narrative_event = {
 }
 
 # ACS.00019 - AVAILABLE
-
 # ACS.00020 - AVAILABLE
-
 # ACS.00021 - AVAILABLE
 
 ##########################
