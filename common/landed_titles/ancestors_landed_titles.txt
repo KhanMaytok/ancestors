@@ -2,10 +2,10 @@ d_mercenary_sakya = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 622	
+	capital = 303	
 	# Parent Religion 
-	religion = orthodox	
-	culture = turkish
+	religion = norse_pagan	
+	culture = norse
 	
 	mercenary = yes
 

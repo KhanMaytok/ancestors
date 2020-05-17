@@ -108,6 +108,9 @@ character_event = {
 				create_pentaghast_buildings_effect = yes
 			}
 			character_event = { id = ACS.00003 } # Generate family BEFORE initialization for court number checks
+			primary_title = {
+				set_title_flag = is_pentaghast_nest
+			}
 		}
 
 		random_vassal = {
@@ -175,8 +178,8 @@ character_event = {
 			name = "Tilda"
 			female = yes
 			age = 33
-			culture = ROOT
-			religion = ROOT
+			culture = norse
+			religion = norse_pagan
 			trait = brilliant_strategist
 			trait = cavalry_leader
 			trait = flat_terrain_leader
@@ -193,7 +196,10 @@ character_event = {
 			set_character_flag = originated_from_chinese_court
 			set_character_flag = immune_tuberculosis
 			set_character_flag = immune_bubonic_plague
-			character_event = { id = ACS.00006 } # Moves to the mercenary band
+			d_mercenary_sakya = {
+				grant_title = PREV
+				set_defacto_liege = THIS
+			}
 			create_sakya_child_effect = yes
 			create_sakya_child_effect = yes
 			create_sakya_child_effect = yes
@@ -255,67 +261,86 @@ narrative_event = {
 	}
 }
 
-# ACS.00006 - Find the current leader of the Pentaghast and Sakya mercenary band
+# ACS.00005 - Spawn Sakya raiders
 character_event = {
-	id = ACS.00006
+	id = ACS.00005 # HL.100
 	hide_window = yes
 	is_triggered_only = yes
 
+	min_age = 16
+	max_age = 50
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		dynasty = 300000
+		is_ruler = no
+		NOT = { has_character_flag = raiding_adventurer }
+	}
+
 	immediate = {
-		if = {
-			limit = {
-				OR = {
-					has_character_flag = is_ancient_one
-					has_character_flag = is_khalga
+		end_inaccessibility_effect = yes #removes in hiding or in_seclusion
+		add_trait = adventurer
+
+		liege = {
+			primary_title = {
+				holder_scope = {
+					save_event_target_as = previous_liege
 				}
 			}
-			random_character = {
-				limit = { has_landed_title = d_mercenary_sakya }
-				character_event = { id = ACS.00007 }				
+
+			capital_scope = {
+				save_event_target_as = target_province
+				ROOT = {
+					set_defacto_liege = ROOT
+					create_title = {
+						tier = DUKE
+						landless = yes
+						adventurer = yes
+						culture = ROOT
+						name = "CLAIMANT_ADVENTURE"
+						holder = ROOT
+						base_title = THIS
+					}
+					set_character_flag = raiding_adventurer
+				
+					character_event = { id = HL.102 } #create troops vikings
+					
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 30
+					}
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 25
+					}
+					spawn_fleet = {
+						province = closest # closest sea zone
+						owner = ROOT
+						disband_on_peace = yes
+						troops =
+						{
+							galleys = { 110 110 }
+						}
+					}
+				}
 			}
 		}
+		character_event = { id = HL.199 days = 730 random = 50 }
 	}
 }
 
-# ACS.00007 - Pentaghast-Sakya leader receives Olaf-Tilda/Vee-Khalga
-character_event = {
-	id = ACS.00007
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		if = {
-			limit = {
-				FROM = {
-					has_character_flag = is_ancient_one
-				}
-			}
-			FROM = {
-				move_character = ROOT
-				remove_trait = prevent_marriage
-				d_mercenary_sakya = {
-					grant_title = PREV
-					set_defacto_liege = THIS
-				}
-			}
-			break = yes
-		}
-		if = {
-			limit = {
-				FROM = {
-					has_character_flag = is_khalga
-				}
-			}
-			FROM = {
-				move_character = ROOT
-				culture = ROOT
-				religion = ROOT
-			}
-			break = yes
-		}
-	}
-}
-
+# ACS.00006 - AVAILABLE
+# ACS.00007 - AVAILABLE
 # ACS.00008 - AVAILABLE
 
 # ACS.00009 - Marry every single Pentaghast and Sakya male
@@ -394,7 +419,7 @@ character_event = {
 	}
 }
 
-# ACS.00015 - Reduce the troups of the under siege main pentaghast province
+# ACS.00015 - Spawn troops on war
 character_event = {
 	id = ACS.00015
 	hide_window = yes
@@ -402,30 +427,38 @@ character_event = {
 
 	trigger = {
 		ROOT = {
-			is_offmap_governor = offmap_vee
+			any_demesne_title = {
+				has_title_flag = is_pentaghast_nest
+			}
 		}
+		OR = {
+			war = yes
+			liege = {
+				war = yes
+			}
+		}
+		
 	}
-	
+
 	immediate = {
-		spawn_unit = {
-			province = location
-			owner = ROOT
-			troops = {
-				horse_archers = { 10000 10000 }
-				light_infantry = { 10000 10000 }
-				knights = { 10000 10000 }
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = ROOT
+					attrition = 1.0
+					cannot_inherit = yes
+					is_looter = no
+					can_toggle_looting = no
+					troops = {
+						archers = { 1000 1000 }
+						pikemen = { 1000 1000 }
+						light_infantry = { 2000 2000 }
+						heavy_infantry = { 3000 3000 }
+					}
+				}
 			}
-			attrition = 0.0
-			disband_on_peace = yes
-			maintenance = no
-		}
-		spawn_fleet = {
-			province = closest_to_capital
-			owner = ROOT
-			troops = {
-				galleys = { 200 200 }
-			}
-			disband_on_peace = yes
 		}
 	}
 }
@@ -464,7 +497,7 @@ narrative_event = {
 ##########################
 ## VEE LIFECYCLE EVENTS ##
 ##########################
-# ACS.00025 - Vee migrates to another body
+# ACS.00025 - Kill Vee at 40 yo
 character_event = {
 	id = ACS.00025
 	hide_window = yes
@@ -624,46 +657,48 @@ character_event = {
 	has_character_flag = is_vee
 
 	immediate = {
-		dynasty_head = {
-			save_event_target_as = pentaghast_leader
-			create_character = {
-				name = Vee
-				female = yes
-				culture = event_target:pentaghast_leader
-				religion = event_target:pentaghast_leader
-				age = 0
-				trait = fair
-				trait = strong
-				trait = mystic
-				trait = mangekyo_sharingan
-				trait = syrena
-				trait = kind
-				trait = lustful
-				trait = diligent
-				trait = proud
-				trait = vee_blood
-				trait = seductress
-				trait = prevent_marriage
-				trait = ambitious
-				trait = cynical
-				trait = erudite
-				trait = gregarious
-				trait = lefthanded
-				dynasty = none
-			}
-			new_character = {
-				set_character_flag = is_vee
-				set_character_flag = society_join_block	
-				set_character_flag = originated_from_chinese_court
-				set_character_flag = immune_tuberculosis
-				set_character_flag = immune_bubonic_plague
-				set_father = event_target:pentaghast_leader
-				e_vee_governor = {
-					grant_title = PREV
+		father_even_if_dead = {
+			dynasty_head = {
+				save_event_target_as = pentaghast_leader
+				create_character = {
+					name = Vee
+					female = yes
+					culture = event_target:pentaghast_leader
+					religion = event_target:pentaghast_leader
+					age = 0
+					trait = fair
+					trait = strong
+					trait = mystic
+					trait = mangekyo_sharingan
+					trait = syrena
+					trait = kind
+					trait = lustful
+					trait = diligent
+					trait = proud
+					trait = vee_blood
+					trait = seductress
+					trait = prevent_marriage
+					trait = ambitious
+					trait = cynical
+					trait = erudite
+					trait = gregarious
+					trait = lefthanded
+					dynasty = none
 				}
-			}
-			offmap_vee = {
-				set_status = vee_status_newborn
+				new_character = {
+					set_character_flag = is_vee
+					set_character_flag = society_join_block	
+					set_character_flag = originated_from_chinese_court
+					set_character_flag = immune_tuberculosis
+					set_character_flag = immune_bubonic_plague
+					set_father = event_target:pentaghast_leader
+					e_vee_governor = {
+						grant_title = PREV
+					}
+				}
+				offmap_vee = {
+					set_status = vee_status_newborn
+				}
 			}
 		}
 	}
