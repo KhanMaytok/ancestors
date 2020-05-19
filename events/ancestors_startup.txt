@@ -18,36 +18,8 @@ character_event = {
 	}
 
 	immediate = {
-		### Ensure only one Vee
-		random_character = {
-            limit = {            
-                has_character_flag = is_vee
-            }
-            set_character_flag = dont_kill_at_purge
-        }
-        any_character = {
-            limit = {
-                has_character_flag = is_vee
-                NOT = { has_character_flag = dont_kill_at_purge }
-            }
-			set_character_flag = dont_resucite
-            death = { death_reason = death_poor_health }
-        }
-	}
-}
-
-character_event = {
-	id = ACS.90042
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-		any_playable_ruler = {
-			limit = {
-				ai = yes
-				is_female = yes
-			}
-			death = { death_reason = death_poor_health }
-		}
+		culture_techpoints = 5000
+		economy_techpoints = 5000
+		military_techpoints = 5000
 	}
 }

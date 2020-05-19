@@ -2,15 +2,15 @@ d_mercenary_sakya = {
 	color={ 100 200 80 }
 	color2={ 255 255 255 }
 
-	capital = 303	
+	capital = 33	
 	# Parent Religion 
 	religion = norse_pagan	
 	culture = norse
 	
 	mercenary = yes
 
-	title = "CAPTAIN"
-	foa = "CAPTAIN_FOA"
+	title = "WARCHIEF"
+	foa = "WARCHIEF_FOA"
 	title_female = "CAPTAIN_FEMALE"
 
 	# Always exists
@@ -35,8 +35,8 @@ e_vee_governor = {
 	
 	assimilate = no
 	
-	title_female = "WESTERN_GOVERNOR_FEMALE"
-	title = "WESTERN_GOVERNOR_MALE"
+	title_female = "VEE_GOVERNOR_FEMALE"
+	title = "VEE_GOVERNOR_FEMALE"
 	foa = "WESTERN_GOVERNOR_TITLE_FOA"
 	short_name = yes
 	#location_ruler_title = yes

@@ -9,8 +9,8 @@ offmap_vee = {
 	governor_title = e_vee_governor
 	tier = emperor
 	non_aggression_modifier = peace_deal_with_vee
-	coa_religion = tengri_pagan
-	government = nomadic_government
+	coa_religion = taoist
+	government = feudal_government
 	beginning_of_history = 754.1.1
 	sound = china_interaction_interface
 	display_trigger = {
@@ -27,7 +27,6 @@ offmap_vee = {
 		vee_status_adolescence
 		vee_status_adulthood
 		vee_status_married
-		vee_status_single
 	}
 	buttons = {
 		offmap_gifts = {
@@ -140,127 +139,105 @@ offmap_vee = {
 	
 	temple_names = {
 		{ # Founder names
-			Abbondanzio
-			Abbondio
-			Abelardo_Abelard
-			Abelino Achille
-			Adalberto
-			Adelmo
-			Adone
-			Adriano
-			Agapito
+			Theoktiste
+			Theophano
+			Thomais
+			Valeria
+			Viviana
+			Xene
+			Zenobia
+			Zoe
 		}
 		{ # Successor names
-			Conone
-			Cornelio
-			Corradino
-			Corrado
-			Cosimo
-			Cosma
-			Costante
-			Costantino
-			Costanzo
-			Cristoforo
-			Damiano
-			Davide
-			Demetrio
-			Dioniso
-			Durante
-			Eduardo
-			Emmanuele
-			Ennio
-			Enrico
-			Enzio
-			Enzo
-			Ercole
-			Eriprando
-			Ermenegildo
-			Ettore
-			Eugenio
-			Ezio
-			Ezzelino
-			Fabrizio
-			Fausto
-			Federigo
-			Felice_Felix
-			Ferdinando
-			Ferruccio
-			Filippo
-			Fiorello
-			Flavio
-			Folco
-			Fortunato
-			Fosco
-			Francesco
-			Fresco
-			Gabriele
-			Gabrino
-			Gaetano
-			Galasso
-			Galeazzo
-			Galeotto
-			Gaspare
-			Gastone
-			Gelasio
-			Gentile
-			Geraldo
-			Gerardo
-			Germano
-			Gerolamo
-			Gherardo
-			Giacinto
-			Giacomo
-			Gian
-			Gianfranco
-			Gianleone
-			Giano
-			Giberto
-			Gilberto
-			Giolio
-			Giordano
-			Giorgio
-			Giovanni
-			Giulio
-			Giuseppe
-			Goffredo
-			Gregorio
-			Gualtiero
-			Guarnito
-			Guerrino
-			Guglielmo
-			Guido
-			Guidone
-			Guigliadore
-			Iacopo
-			Igino
-			Innocenzo
-			Ippolito
-			Isnardo
-			Jacopo
-			Lamberto
-			Landolfo
-			Landone
-			Lanfranco
-			Lattanzio
-			Lazzarino
-			Lazzaro
-			Leonardo
-			Leone
-			Leonello
-			Leopoldo
-			Libero
-			Lionello
-			Livio
-			Lodovico
-			Lorenzo
-			Luca
-			Luchino
-			Lucio
-			Luigi_Louis
-			Malacresta
-			Manfredo
-			Manuele
-			Marco
+			Adriane
+			Agathe
+			Agne
+			Aikaterine
+			Alexandra
+			Alexeia
+			Anastasia
+			Anna
+			Anthe
+			Anthousa
+			Antipatra
+			Antonia
+			Apollonia
+			Athanasia
+			Barbara
+			Basillike
+			Chrysogone
+			Damiane
+			Demetra
+			Dionysia
+			Dorothea
+			Aigidia
+			Eirene
+			Elaiodora
+			Epiphania
+			Eudokia
+			Eudoxia
+			Eugenia
+			Eulalia
+			Eunike
+			Euphemia
+			Euphrasia
+			Euphrosyne
+			Eupraxia
+			Eusebia
+			Eustathia
+			Evanthia
+			Gabrielia
+			Garyphallia
+			Georgia
+			Gregoria
+			Helene
+			Hypatia
+			Ioanna
+			Ioulia
+			Iouliana
+			Ioustina
+			Kale
+			Konstantia
+			Konstantine
+			Kyra
+			Kyriake
+			Leontia
+			Margarita
+			Maria
+			Markia
+			Martha
+			Melissa
+			Nikarete
+			Nikoletta
+			Nonna
+			Parthena
+			Pavlina
+			Pelagia
+			Petronia
+			Philippa
+			Phyllis
+			Pulcheria
+			Rhodanthe
+			Romane
+			Romylia
+			Sergia
+			Sibylla
+			Simonis
+			Sophia
+			Stephania
+			Thekla
+			Theochariste
+			Theodora
+			Theodosia
+			Theognosia
+			Theoktiste
+			Theophano
+			Thomais
+			Valeria
+			Viviana
+			Xene
+			Zenobia
+			Zoe
 		}
 	}
 	holder_succession = {
@@ -269,16 +246,7 @@ offmap_vee = {
 		}
 		culture = {	
 			greek = { # default culture for new emperor
-				value = 99 # if any other value reaches 100, it will be picked instead
-			}
-			FROM = { # default culture for new emperor
-								# the left side here (and for culture, religion, graphical_culture and dynasty) can be a right hand side value (FROM, ROOT, a culture name, etc). and the right hand side / inside the brackets is a standard MTTH evaluation. Only the one with the highest weight will be used. If there's a tie, one of the tied values is picked at random
-				value = 0
-				additive_modifier = { #the new emperor will keep current culture if things are great
-					value = 100
-					#china_is_fine_trigger = yes
-					FROM = { culture_scope = { always = yes } } # Essentially a check that the previous emperor actually exists
-				}
+				value = 100 # if any other value reaches 100, it will be picked instead
 			}
 		}
 
@@ -289,16 +257,8 @@ offmap_vee = {
 		}
 
 		religion = {
-			hellenic_pagan = { # default religion for new emperor
-				value = 99 # if any other value reaches 100, it will be picked instead (unless equal, then it will randomize)
-			}
-			FROM = {
-				value = 0
-				additive_modifier = { # the new emperor will keep current religion if things are great
-					value = 100
-					#china_is_fine_trigger = yes
-					FROM = { religion_scope = { always = yes } } # Essentially a check that the previous emperor actually exists
-				}
+			catholic = { # default religion for new emperor
+				value = 100 # if any other value reaches 100, it will be picked instead (unless equal, then it will randomize)
 			}
 		}
 
@@ -329,14 +289,11 @@ offmap_vee = {
 		dislikes = {
 			likes_concubines = {
 				value = 100
-				modifier = {
-					factor = 5.0
-					FROMFROM = { is_female = yes }
-				}
 			}
 		}
 	}
 	
     diplomatic_range = { #Already includes the western governor's "normal" diplo range
+		always = yes
     }
 }

@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Offmap power vee nomadic. Periodic capital migration
+- Vee kills any spouse rival
+- Event for all players to present Vee
 
 ### Changed
 - Vee returns to Pentaghast governor on death or spouse death
+- Sakya capital at Feroe
+- Sakya mercenary composition as knights
 
 ### Deleted
 - Khalga sword mechanics

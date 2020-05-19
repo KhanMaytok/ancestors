@@ -6,7 +6,6 @@ on_startup = {
 
 on_yearly_pulse = {
 	events = {
-		ACS.00015 # Create troups for pentaghast defender
 		ACS.00036 # Vee tournament
 	}
 }
@@ -14,8 +13,7 @@ on_yearly_pulse = {
 on_bi_yearly_pulse = {
 	events = {
 		ACS.00025 # Vee migrates to another body
-		ACS.00056 # Vee biannual tombola
-		ACS.00045 # Vee has childs every 5 years to balance Khalga's byakugan
+		ACS.00045 # Vee has childs every 2 years to balance Khalga's byakugan
 	}
 }
 
@@ -30,7 +28,7 @@ on_five_year_pulse = {
 on_death = {
 	events = {
 		ACS.00034 # Resurrect Vee if she dies
-		ACS.00046 # Assign flag and trait if Vee spouse dies
+		ACS.00046 # Set new status offmap vee if spouse is death
 	}
 }
 

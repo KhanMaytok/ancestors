@@ -21,7 +21,3 @@ vee_status_adulthood = {
 vee_status_married = {
 	frame = 5
 }
-
-vee_status_single = {
-	frame = 6
-}

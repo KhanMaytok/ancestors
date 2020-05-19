@@ -20,7 +20,10 @@ narrative_event = {
 	option = {
 		name = ACS_00001_OPT_A
 		set_global_flag = comet_tiamat
-		narrative_event = { id = ACS.00004 days = 20 }
+		any_playable_ruler = {
+			limit = { ai = no }
+			narrative_event = { id = ACS.00004 days = 20 } # Notification for human players
+		}
 
 		hidden_effect = {
 			# Search for Venezia
@@ -244,7 +247,7 @@ character_event = {
 			e_vee_governor = {
 				grant_title = PREV
 			}
-		}		
+		}
 	}
 }
 
@@ -358,7 +361,8 @@ character_event = {
 		can_marry = yes
 		is_married = no
 		is_adult = yes
-		age > 23
+		age > 21
+		prisoner = no
 		ai = yes
 	}
 
@@ -419,50 +423,7 @@ character_event = {
 	}
 }
 
-# ACS.00015 - Spawn troops on war
-character_event = {
-	id = ACS.00015
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		ROOT = {
-			any_demesne_title = {
-				has_title_flag = is_pentaghast_nest
-			}
-		}
-		OR = {
-			war = yes
-			liege = {
-				war = yes
-			}
-		}
-		
-	}
-
-	immediate = {
-		capital_scope = {
-			ROOT = {
-				spawn_unit = {
-					province = PREV
-					home = PREV
-					owner = ROOT
-					attrition = 1.0
-					cannot_inherit = yes
-					is_looter = no
-					can_toggle_looting = no
-					troops = {
-						archers = { 1000 1000 }
-						pikemen = { 1000 1000 }
-						light_infantry = { 2000 2000 }
-						heavy_infantry = { 3000 3000 }
-					}
-				}
-			}
-		}
-	}
-}
-
+# ACS.00015 - AVAILABLE
 # ACS.00016 - AVAILABLE
 
 # ACS.00017 - Kill Khalga after 3 months honeymoon
@@ -508,7 +469,7 @@ character_event = {
 		ROOT = {
 			if = {
 				limit = {
-					age >= 40
+					age >= 45
 				}
 				death = { death_reason = death_poor_health }
 			}
@@ -683,7 +644,7 @@ character_event = {
 					trait = erudite
 					trait = gregarious
 					trait = lefthanded
-					dynasty = none
+					dynasty = 300001
 				}
 				new_character = {
 					set_character_flag = is_vee
@@ -1005,7 +966,7 @@ character_event = {
 	}
 }
 
-# ACS.00046 - Vee returns to dynasty head if husband dies
+# ACS.00046 - Set new status offmap vee if spouse is death
 character_event = {
 	id = ACS.00046
 	hide_window = yes
@@ -1018,26 +979,8 @@ character_event = {
 	}
 
 	immediate = {
-		ROOT = {
-			random_spouse = {
-				limit = {
-					has_character_flag = is_vee
-				}
-				offmap_vee = {
-					governor = {
-						save_event_target_as = dynasty_target
-					}
-				}
-				move_character = event_target:dynasty_target
-				any_child = {
-					limit = {
-						age <= 15
-						is_landed = no
-						is_ruler = no
-					}
-					move_character = event_target:dynasty_target
-				}
-			}
+		offmap_vee = {
+			set_status = vee_status_adulthood
 		}
 	}
 }
@@ -1227,72 +1170,34 @@ narrative_event = {
 ############################
 ## VEE DIPLOMATIC OPTIONS ##
 ############################
-# ACS.00056 - Vee biannual tombola
-character_event = {
-	id = ACS.00056
-	is_triggered_only = yes
-	hide_window = yes
-	has_character_flag = is_vee
+# ACS.00056 - AVAILABLE
 
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	
-	trigger = {
-		vee_can_do_council_work_trigger = yes
-	}
-
-	immediate = {
-		random_list = {
-			50 = { # Increase opinion in a random vassal
-				character_event = { id = ACS.00060 }
-			}
-			50 = { # Increase the can sentiment
-				character_event = { id = ACS.00063 }
-				modifier = {
-					factor = 0
-					is_nomadic = no
-				}
-
-			}
-			#25 = { character_event = { id = ACS.00062 } }
-			#25 = { character_event = { id = ACS.00063 } }
-		}
-		#random_list = {
-			#25 = { character_event = { id = ACS.00064 } }
-			#25 = { character_event = { id = ACS.00065 } }
-			#25 = { character_event = { id = ACS.00066 } }
-			#25 = { character_event = { id = ACS.00067 } }
-		#}
-	}
-}
-
-
-# ACS.00060 - Vee increase opinion in vassal
+# ACS.00060 - Vee attempts to improve relations with a local noble
 character_event = {
 	id = ACS.00060
-	is_triggered_only = yes
 	hide_window = yes
-
+	has_character_flag = is_vee
+	is_married = yes
+	only_women = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	
 	trigger = {
-		vee_can_do_council_work_trigger = yes
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 	}
-
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
 	immediate = {
-		liege = {
+		random_spouse = {
 			random_vassal = {
 				limit = {
-					is_priest = no
-					NOT = { is_liege_of = ROOT }
-					NOT = { character = ROOT }
-					OR = {
-						primary_title = { higher_tier_than = BARON }
-						same_liege = ROOT
-					}
+					primary_title = { higher_tier_than = BARON }
 				}
 				narrative_event = { id = ACS.00061 days = 7 }
 			}
@@ -1300,14 +1205,13 @@ character_event = {
 	}
 }
 
-# ACS.00061: Inform the noble
+# ACS.00061 - Inform the noble
 narrative_event = {
 	id = ACS.00061
 	title = ACS_00061_TITLE
 	desc = ACS_00061_DESC
 	picture = GFX_evt_vee_diplo_notify
-	border = GFX_event_narrative_frame_diplomacy
-	
+	border = GFX_event_narrative_frame_diplomacy	
 	is_triggered_only = yes
 
 	option = {
@@ -1326,10 +1230,8 @@ narrative_event = {
 	title = ACS_00062_TITLE
 	desc = ACS_00062_DESC
 	picture = GFX_evt_vee_diplo_notify
-	border = GFX_event_narrative_frame_diplomacy
-	
-	show_from_from = yes
-	
+	border = GFX_event_narrative_frame_diplomacy	
+	show_from_from = yes	
 	is_triggered_only = yes
 	
 	option = {
@@ -1344,146 +1246,138 @@ narrative_event = {
 	}
 }
 
-# ACS.00063 - Vee increase clan sentiment in vassal
+# ACS.00063 - Vee sows dissent
 character_event = {
 	id = ACS.00063
-	is_triggered_only = yes
 	hide_window = yes
+	has_character_flag = is_vee
+	is_married = yes
+	only_women = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+	}
 
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	immediate = {
+		random_spouse = {
+			save_event_target_as = vee_spouse
+		}
+		random_playable_ruler = {
+			limit = {
+				NOT = { is_vassal_or_below_of = event_target:vee_spouse }
+				NOT = { character = event_target:vee_spouse }
+				independent = no
+			}
+			character_event = { id = ACS.00064 days = 7 }
+		}
+	}
+}
+
+# ACS.00064: The local noble start disliking his liege
+character_event = {
+	id = ACS.00064
+	desc = "EVTDESC20160"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA20160"
+		liege = {
+			reverse_opinion = {
+				modifier = opinion_furious
+				who = ROOT
+				years = 2
+			}
+			character_event = { id = ACS.00065 days = 7 tooltip = "EVTTOOLTIP20161" }
+		}
+	}
+}
+
+# ACS.00065: The liege of the local noble is informed
+character_event = {
+	id = ACS.00065
+	desc = "EVTDESC20161"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA20161"
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_furious
+					who = ROOT
+					years = 2
+				}
+			}
+		}
+		opinion = {
+			modifier = opinion_angry
+			who = FROM
+			years = 2
+		}
+	}
+}
+
+# ACS.00066 - Vee kills a liege enemy
+character_event = {
+	id = ACS.00066
+	hide_window = yes
+	has_character_flag = is_vee
+	is_married = yes
+	only_women = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 
 	trigger = {
-		vee_can_do_council_work_trigger = yes
-		liege = { is_nomadic = yes }
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		any_spouse = {
+			num_of_rivals > 0
+		}
 	}
-	
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
 	immediate = {
-		liege = {
-			clan_title = {
-				save_event_target_as = liege_clan
-			}
-		}
-		random_vassal = {
-			limit = {
-				is_nomadic = yes
-			}
-			save_event_target_as = target_chief
-		}
-
-		event_target:target_chief = {
-			show_scope_change = no
-			clan_title = {
-				show_scope_change = no
-				clan_opinion = {
-					who = event_target:liege_clan
-					modifier = clan_propaganda_effort
-					years = 5
-				}
-			}
-		}
-
-		liege = { narrative_event = { id = ACS.00064 } }
-	}
-}
-
-# ACS.00064 - Vee clan sentiment. Notification to liege
-narrative_event = {
-	id = ACS.00064
-	title = ACS_00062_TITLE
-	desc = ACS_00064_DESC
-	picture = GFX_evt_vee_diplo_notify
-	border = GFX_event_narrative_frame_diplomacy
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EXCELLENT
-		
-		tooltip = {
-			event_target:target_chief = {
-				show_scope_change = no
-				clan_title = {
-					show_scope_change = no
-					clan_opinion = {
-						who = event_target:liege_clan
-						modifier = clan_propaganda_effort
-						years = 5
-					}
-				}
+		random_spouse = {
+			random_rival = {
+				character_event = { id = ACS.00067 days = 3 }
 			}
 		}
 	}
 }
 
-#Sending gift
+# ACS.00067 - Poisonous Snake
 character_event = {
-	id = ACS.00092
-	hide_window = yes
+	id = ACS.00067
+	desc = "EVTDESC7825"
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
 	is_triggered_only = yes
-	immediate = { FROMFROM = { letter_event = { id = ACS.00093 } } }
-}
-
-letter_event = {
-	id = ACS.00093
-	desc = EVTDESC_JD_20024
-	border = GFX_event_letter_frame_diplomacy
-
-	is_triggered_only = yes
-
-	option = { 
-		name = EVTOPTA_JD_20024
 		
-		sound_effect = china_grace_gain
-		add_offmap_currency = {
-			offmap = offmap_china
-			value = 450
-		}
-	}
-}
-
-#Response for sending a tribute character to China...
-letter_event = {
-	id = ACS.00094
-	desc = EVTDESC_JD_10050
-	border = GFX_event_letter_frame_diplomacy
-
-	is_triggered_only = yes
-
-	option = { 
-		name = {
-			text = EVTOPTA_JD_10050_bad
-			trigger = {
-				has_character_flag = sent_bad_tribute
-				NOT = { is_close_relative = event_target:person_sent_as_tribute }
-			}
-		}
-		name = {
-			text = EVTOPTA_JD_10050_decent
-			trigger = {
-				has_character_flag = sent_decent_tribute
-				NOT = { is_close_relative = event_target:person_sent_as_tribute }
-			}
-		}
-		name = {
-			text = EVTOPTA_JD_10050_great
-			trigger = {
-				has_character_flag = sent_great_tribute
-				NOT = { is_close_relative = event_target:person_sent_as_tribute }
-			}
-		}
-		name = {
-			text = EVTOPTA_JD_10050_family
-			trigger = { is_close_relative = event_target:person_sent_as_tribute }
-		}
-
-		event_target:person_sent_as_tribute = { show_portrait = yes }
-
-		clr_character_flag = sent_bad_tribute
-		clr_character_flag = sent_decent_tribute
-		clr_character_flag = sent_great_tribute
-		clr_character_flag = sent_eunuch_tribute
-		clr_character_flag = sent_concubine_tribute
+	option = {
+		name = "EVTOPTB7825"
+		death = { death_reason = death_murder_unknown_snakes killer = FROM }
 	}
 }

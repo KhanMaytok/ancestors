@@ -251,3 +251,9 @@ create_pentaghast_buildings_effect = {
 	add_building = fp_vault_2
 	add_building = fp_vault_3
 }
+
+full_tech_effect = {
+	culture_techpoints = 15000
+	economy_techpoints = 15000
+	military_techpoints = 15000
+}
