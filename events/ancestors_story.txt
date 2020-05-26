@@ -4,13 +4,11 @@ namespace = ACS
 ## TIAMAT EVENT CHAIN ##
 ########################
 # ACS.00001 - Tiamat comet in the sky
-narrative_event = {
+character_event = {
 	id = ACS.00001
-	title = ACS_00001_TITLE
-	desc = ACS_00001_DESC
 	is_triggered_only = yes
+	hide_window = yes
 	ai = no
-	picture = GFX_evt_tiamat
 
 	trigger = {
 		NOT = { has_global_flag = comet_tiamat }
@@ -22,7 +20,7 @@ narrative_event = {
 		set_global_flag = comet_tiamat
 		any_playable_ruler = {
 			limit = { ai = no }
-			narrative_event = { id = ACS.00004 days = 20 } # Notification for human players
+			narrative_event = { id = ACS.00002 days = 20 } # Notification for human players
 		}
 
 		hidden_effect = {
@@ -159,25 +157,26 @@ narrative_event = {
 	}
 }
 
-# ACS.00002 - AVAILABLE
-# ACS.00003 - AVAILABLE
-
-# ACS.00004 - Notification for the user
+# ACS.00002 - Notification for the user
 narrative_event = {
-	id = ACS.00004
-	title = ACS_00004_TITLE
-	desc = ACS_00004_DESC
-	picture = GFX_evt_emissary_byzantine
+	id = ACS.00002
+	title = ACS_00002_TITLE
+	desc = ACS_00002_DESC
+	picture = GFX_evt_tiamat
 	is_triggered_only = yes
 
 	option = {
-		name = EXCELLENT		
+		name = ACS_00002_OPT_A		
 	}
 }
 
-# ACS.00005 - Spawn Sakya raiders
+##############################
+## PENTAGHAST - SAKYA BUFFS ##
+##############################
+
+# ACS.00003 - Spawn Sakya raiders
 character_event = {
-	id = ACS.00005 # HL.100
+	id = ACS.00003 # HL.100
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -253,13 +252,9 @@ character_event = {
 	}
 }
 
-# ACS.00006 - AVAILABLE
-# ACS.00007 - AVAILABLE
-# ACS.00008 - AVAILABLE
-
-# ACS.00009 - Marry every single Pentaghast and Sakya male
+# ACS.00004 - Marry every single Pentaghast and Sakya male
 character_event = {
-	id = ACS.00009
+	id = ACS.00004
 	is_triggered_only = yes
 	hide_window = yes
 	only_men = yes
@@ -279,6 +274,7 @@ character_event = {
 
 	immediate = {
 		add_trait = strong
+		add_character_flag = acs_auto_marry
 		create_character = {
 			random_traits = yes
 			culture = ROOT
@@ -288,8 +284,8 @@ character_event = {
 			age = 18
 		}
 		new_character = {
-			add_lover = ROOT
-			add_spouse = ROOT
+			add_lover = PREV
+			add_spouse = PREV
 		}
 	}
 }

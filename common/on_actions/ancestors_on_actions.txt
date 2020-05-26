@@ -19,9 +19,9 @@ on_bi_yearly_pulse = {
 
 on_five_year_pulse = {
 	events = {
-		ACS.00005 # Sakya Raids
+		ACS.00003 # Sakya Raids
 		ACS.00048 # Choice for the mangekyo every 5 years
-		ACS.00009 # Marry every single Pentaghast male
+		ACS.00004 # Marry every single Pentaghast male
 	}
 }
 
