@@ -7,7 +7,7 @@
 300001={
 	used_for_random=no
 	name="Pentaghast"
-	culture="greek"
+	culture="roman"
 	religion="hellenic_pagan"
 }
 300002={

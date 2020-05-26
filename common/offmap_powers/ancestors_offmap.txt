@@ -245,7 +245,7 @@ offmap_vee = {
 			value = 100
 		}
 		culture = {	
-			greek = { # default culture for new emperor
+			roman = { # default culture for new emperor
 				value = 100 # if any other value reaches 100, it will be picked instead
 			}
 		}
@@ -257,7 +257,7 @@ offmap_vee = {
 		}
 
 		religion = {
-			catholic = { # default religion for new emperor
+			hellenic_pagan = { # default religion for new emperor
 				value = 100 # if any other value reaches 100, it will be picked instead (unless equal, then it will randomize)
 			}
 		}
@@ -293,7 +293,7 @@ offmap_vee = {
 		}
 	}
 	
-    diplomatic_range = { #Already includes the western governor's "normal" diplo range
+    diplomatic_range = {
 		always = yes
     }
 }
