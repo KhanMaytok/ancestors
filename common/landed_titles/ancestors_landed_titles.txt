@@ -4,17 +4,18 @@ d_mercenary_sakya = {
 
 	capital = 303	
 	# Parent Religion 
-	religion = norse_pagan	
-	culture = norse
+	title = "GRANDHEADMASTER"
+	foa = "GRANDHEADMASTER_FOA"
 	
-	mercenary = yes
-
-	title = "WARCHIEF"
-	foa = "WARCHIEF_FOA"
-	title_female = "CAPTAIN_FEMALE"
+	holy_order = yes
 
 	# Always exists
 	landless = yes
+	
+	culture = norse
+	
+	# Parent Religion 
+	religion = norse_pagan
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -22,7 +23,8 @@ d_mercenary_sakya = {
 	# Cannot be vassalized
 	independent = yes
 	
-	strength_growth_per_century = 0.0
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
 
 	mercenary_type = sakya_composition
 }

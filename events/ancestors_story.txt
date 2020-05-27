@@ -15,11 +15,9 @@ character_event = {
 		is_the_main_player_trigger = yes
 	}
 
-	option = {
-		name = ACS_00001_OPT_A
+	immediate = {
 		set_global_flag = comet_tiamat
-		any_playable_ruler = {
-			limit = { ai = no }
+		any_player = {
 			narrative_event = { id = ACS.00002 days = 20 } # Notification for human players
 		}
 
@@ -85,7 +83,7 @@ character_event = {
 						female = yes
 						age = 33
 						culture = scottish
-						religion = catholic
+						religion = norse_pagan
 						trait = brilliant_strategist
 						trait = cavalry_leader
 						trait = flat_terrain_leader
@@ -98,7 +96,7 @@ character_event = {
 						dynasty = 300000
 					}
 					new_character = {
-						set_character_flag = is_ancient_one			
+						save_event_target_as = is_ancient_one	
 						set_character_flag = originated_from_chinese_court
 						set_character_flag = immune_tuberculosis
 						set_character_flag = immune_bubonic_plague
@@ -110,6 +108,23 @@ character_event = {
 						create_sakya_child_effect = yes
 						create_sakya_child_effect = yes
 						create_sakya_child_effect = yes
+					}
+					# Get a barony
+					random_province = {
+						limit = {
+							climate = severe_winter
+							port = yes
+							num_of_settlements > 1
+						}
+						random_province_holding = {
+							limit = {
+								is_capital = no
+							}
+							convert_to = temple
+							holder_scope = {
+								abdicate_to = event_target:is_ancient_one
+							}
+						}
 					}
 
 					# VEE
@@ -214,7 +229,6 @@ character_event = {
 						culture = ROOT
 						name = "CLAIMANT_ADVENTURE"
 						holder = ROOT
-						base_title = THIS
 					}
 					set_character_flag = raiding_adventurer
 				
@@ -248,7 +262,7 @@ character_event = {
 				}
 			}
 		}
-		character_event = { id = HL.199 days = 730 random = 50 }
+		character_event = { id = ACS.00005 days = 750 random = 50 }
 	}
 }
 
@@ -274,7 +288,7 @@ character_event = {
 
 	immediate = {
 		add_trait = strong
-		add_character_flag = acs_auto_marry
+		set_character_flag = acs_auto_marry
 		create_character = {
 			random_traits = yes
 			culture = ROOT
@@ -286,6 +300,44 @@ character_event = {
 		new_character = {
 			add_lover = PREV
 			add_spouse = PREV
+		}
+	}
+}
+
+# ACS.00005 - Clean up Sakya Raiders
+character_event = {
+	id = ACS.00005	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		log = "Adventurer: [Root.GetTitledFirstName] has returned home."
+		clr_character_flag = raiding_adventurer
+		disband_event_forces = yes
+		primary_title = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tier = DUKE
+							adventurer = yes
+						}
+						tier = EMPEROR
+					}
+				}
+				activate_title = { title = THIS status = no }
+				destroy_landed_title = THIS
+			}
+		}
+		if = {
+			limit = {
+				prisoner = no
+			}
+			dynasty_head = {
+				ROOT = {
+					set_defacto_liege = PREV
+				}
+			}
 		}
 	}
 }
@@ -367,7 +419,7 @@ narrative_event = {
 ##########################
 ## VEE LIFECYCLE EVENTS ##
 ##########################
-# ACS.00025 - Kill Vee at 40 yo
+# ACS.00025 - Kill Vee at 45 yo
 character_event = {
 	id = ACS.00025
 	hide_window = yes
@@ -1078,7 +1130,7 @@ narrative_event = {
 ############################
 # ACS.00056 - AVAILABLE
 
-# ACS.00060 - Vee attempts to improve relations with a local noble
+# ACS.00060 - Vee improve relations with a local noble
 character_event = {
 	id = ACS.00060
 	hide_window = yes
@@ -1100,7 +1152,7 @@ character_event = {
 	}
 	
 	immediate = {
-		random_spouse = {
+		liege = {
 			random_vassal = {
 				limit = {
 					primary_title = { higher_tier_than = BARON }
@@ -1174,7 +1226,7 @@ character_event = {
 	}
 	
 	immediate = {
-		random_spouse = {
+		liege = {
 			save_event_target_as = vee_spouse
 		}
 		random_playable_ruler = {
@@ -1253,7 +1305,7 @@ character_event = {
 		NOT = { has_character_modifier = in_seclusion }
 		NOT = { has_character_modifier = bedridden_illness }
 		NOT = { trait = incapable }
-		any_spouse = {
+		liege = {
 			num_of_rivals > 0
 		}
 	}
@@ -1263,7 +1315,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_spouse = {
+		liege = {
 			random_rival = {
 				character_event = { id = ACS.00067 days = 3 }
 			}
