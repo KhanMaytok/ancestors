@@ -17,81 +17,66 @@ khalga_dragon_katana = {
 
 # TRACKER ARMOR SET
 excalibur_warframe = {
-	combat_rating = 10
-	learning = 1
-	quality = 1
-	health = 1
-	intrigue = 1
+	indestructible = yes
+	combat_rating = 50
 	active = {
 		is_adult = yes
 		is_female = no
 	}
-	flags = { ancestors armor tier1 }
-	stacking = yes
+	flags = { ancestors armor tier1 warframe }
+	stacking = no
 	slot = torso
 	picture = "GFX_excalibur_warframe"	
 }
 
 mag_warframe = {
-	combat_rating = 10
-	learning = 1
-	quality = 1
-	health = 1
-	intrigue = 1
+	indestructible = yes
+	combat_rating = 50
 	active = {
 		is_adult = yes
 		is_female = no
 	}
-	flags = { ancestors armor tier1 }
-	stacking = yes
+	flags = { ancestors armor tier1 warframe }
+	stacking = no
 	slot = torso
 	picture = "GFX_mag_warframe"	
 }
 
 volt_warframe = {
-	combat_rating = 10
-	learning = 1
-	quality = 1
-	health = 1
-	intrigue = 1
+	indestructible = yes
+	combat_rating = 50
 	active = {
 		is_adult = yes
 		is_female = no
 	}
-	flags = { ancestors armor tier1 }
-	stacking = yes
+	flags = { ancestors armor tier1 warframe }
+	stacking = no
 	slot = torso
 	picture = "GFX_volt_warframe"	
 }
 
 nidus_warframe = {
-	combat_rating = 10
-	learning = 1
-	quality = 1
-	health = 1
-	intrigue = 1
+	indestructible = yes
+	combat_rating = 50
 	active = {
 		is_adult = yes
 		is_female = no
 	}
-	flags = { ancestors armor tier1 }
-	stacking = yes
+	flags = { ancestors armor tier1 warframe }
+	stacking = no
 	slot = torso
 	picture = "GFX_volt_warframe"	
 }
 
 saryn_warframe = {
-	combat_rating = 10
-	learning = 1
-	quality = 1
-	health = 1
-	intrigue = 1
+	indestructible = yes
+	combat_rating = 50
 	active = {
 		is_adult = yes
 		is_female = yes
 	}
-	flags = { ancestors armor tier1 }
-	stacking = yes
+	flags = { ancestors armor tier1 warframe }
+	stacking = no
 	slot = torso
 	picture = "GFX_volt_warframe"	
 }

@@ -43,3 +43,9 @@ on_adulthood = {
 		ACS.00029 # Dojutsu inheritance mechanics
 	}
 }
+
+on_combat_pulse = {
+	events = {
+		ACS.00068
+	}
+}

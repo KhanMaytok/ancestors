@@ -1339,3 +1339,89 @@ character_event = {
 		death = { death_reason = death_murder_unknown_snakes killer = FROM }
 	}
 }
+
+# ACS.00068 - Use Warframe in battle
+character_event = {
+	id = ACS.00068
+	is_triggered_only = yes
+	hide_window = yes	
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		any_artifact = {
+			has_artifact_flag = warframe
+		}
+		OR = {
+			had_character_flag = { flag = warframe_used_battle days = 15 } 
+			NOT = { has_character_flag = warframe_used_battle }
+		}		
+		
+	}
+
+	immediate = {
+		set_character_flag = warframe_used_battle
+		if = {
+			limit = { 
+				is_ruler = yes
+				war = yes
+				OR = {
+					is_primary_war_attacker = yes
+					is_primary_war_defender = yes
+					independent = yes
+				}
+			}
+			any_current_enemy = {
+				limit = { 
+					at_location = ROOT
+					in_command = yes
+					prisoner = no
+				}
+				troops = -0.025
+				morale = -0.15
+			}	
+			any_current_enemy = {
+				any_realm_character = {
+					limit = { 
+						at_location = ROOT
+						in_command = yes
+						prisoner = no
+					}
+					troops = -0.025
+					morale = -0.15			
+				}			
+			}
+		}	
+		any_liege = {
+			limit = {
+				NOT = { character = ROOT }
+				war = yes
+				OR = {
+					is_primary_war_attacker = yes
+					is_primary_war_defender = yes
+					independent = yes
+				}
+			}
+			any_current_enemy = {
+				limit = { 
+					at_location = ROOT
+					in_command = yes
+					prisoner = no
+				}
+				troops = -0.025
+				morale = -0.2
+			}	
+			any_current_enemy = {
+				any_realm_character = {
+					limit = { 
+						at_location = ROOT
+						in_command = yes
+						prisoner = no
+					}
+					troops = -0.025
+					morale = -0.15		
+				}			
+			}
+		}
+	}
+}
