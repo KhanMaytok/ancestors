@@ -1,11 +1,11 @@
 sakya_bucelarii = {
-    morale = 30
+    morale = 15
     maintenance = 1
-    phase_skirmish_attack = 0.75
+    phase_skirmish_attack = 0.25
     phase_melee_attack = 18
-    phase_pursue_attack = 50
-    phase_skirmish_defense = 9
-    phase_melee_defense = 23
-    phase_pursue_defense = 12
+    phase_pursue_attack = 2
+    phase_skirmish_defense = 10
+    phase_melee_defense = 20
+    phase_pursue_defense = 10
     base_type = heavy_infantry
 }

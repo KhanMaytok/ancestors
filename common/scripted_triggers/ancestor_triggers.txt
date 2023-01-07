@@ -39,29 +39,3 @@ vee_can_do_council_work_trigger = {
 	NOT = { trait = incapable }
 	prisoner = no
 }
-
-vee_offmap_tribute_decisions_enabled_trigger = {
-	vee_offmap_decisions_enabled_trigger = yes
-}
-
-vee_offmap_decisions_enabled_trigger = { 
-	offmap_vee = {
-		NOT = { has_policy = vee_policy_isolationist }
-		custom_tooltip = {
-			text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with §Y[From.GetTitledFirstName]§!"
-			NOT = { governor = { war_with = FROM } }
-		}
-		governor = {
-			show_scope_change = no
-			is_within_diplo_range = FROM
-			hidden_trigger  = { NOT = { character = FROM } } #Governor cannot use boon/tributes decisions
-		}
-	}
-	conditional_tooltip = { 
-		trigger = { FROM = { primary_title = { has_title_flag = rebel_general_title } } }
-		custom_tooltip = { 
-			text = china_offmap_decisions_pretender_emperor_tt
-			always = no
-		}
-	}
-}

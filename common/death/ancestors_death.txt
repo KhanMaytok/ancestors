@@ -1,5 +1,0 @@
-death_amaterasu = {
-	violent = yes
-	long_desc = "DEATH_AMATERASU"
-	can_nokiller = yes
-}

@@ -1,90 +1,13 @@
-300000={
+300000 = {
 	used_for_random=no
 	name="Sakya"
 	culture="sogdian"
 	religion="buddhist"
 }
-300001={
+
+300001 = {
 	used_for_random=no
 	name="Pentaghast"
 	culture="roman"
-	religion="hellenic_pagan"
-}
-300002={
-	used_for_random=no
-	name="Maytok"
-	culture="roman"
-	religion="hellenic_pagan"	
-}
-300003={
-	used_for_random=no
-	name="Mahishmati"
-	culture="hindustani"
-	religion="buddhist"	
-}
-300004={
-	used_for_random=no
-	name="Heráclidas"
-	culture="greek"
-	religion="hellenic_pagan"
-}
-300005={
-	used_for_random=no
-	name="Shao"
-	culture="han"
-	religion="taoist"	
-}
-300006={
-	used_for_random=no
-	name="Koda"
-	culture="samoyed"
-	religion="baltic_pagan"
-}
-300007={
-	used_for_random=no
-	name="Freljord"
-	culture="norse"
 	religion="norse_pagan"
-}
-300008={
-	used_for_random=no
-	name="Mogul"
-	culture="tocharian"
-	religion="tengri_pagan"	
-}
-300009={
-	used_for_random=no
-	name="Skaven"
-	culture="norse"
-	religion="norse_pagan"	
-}
-300010={
-	used_for_random=no
-	name="Andiroba"
-	culture="manden"
-	religion="west_african_pagan"
-}
-300011={
-	used_for_random=no
-	name="Jabuticaba"
-	culture="songhay"
-	religion="west_african_pagan"
-}
-300012={
-	used_for_random=no
-	name="Dalar"
-	culture="irish"
-	religion="pagan"	
-}
-300013={
-	used_for_random=no
-	name="Wallace"
-	culture="scottish"
-	religion="pagan"
-}
-300014={
-	used_for_random=no
-	name="Tálib"
-	culture="bedouin_arabic"
-	religion="shiite"	
 }

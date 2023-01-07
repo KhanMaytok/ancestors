@@ -1,59 +1,7 @@
-d_mercenary_sakya = {
-	color={ 100 200 80 }
-	color2={ 255 255 255 }
-
-	capital = 303	
-	# Parent Religion 
-	title = "GRANDHEADMASTER"
-	foa = "GRANDHEADMASTER_FOA"
-	
-	holy_order = yes
-
-	# Always exists
-	landless = yes
-	
-	culture = norse
-	
-	# Parent Religion 
-	religion = norse_pagan
-	
-	# Cannot be held as a secondary title
-	primary = yes
+d_pentaghast = {
+	color = { 54 167 156 }
+	capital = 812 # Malta
+	culture = norman
 		
-	# Cannot be vassalized
-	independent = yes
-	
-	# Extra income due to donations, etc
-	monthly_income = 6 # (Must be an integer between 1 and 512)
-
-	mercenary_type = sakya_composition
-}
-
-e_vee_governor = {
-	color={ 245 240 10 }
-	color2={ 220 220 0 }
-	
-	capital = 356
-	
-	assimilate = no
-	
-	title_female = "VEE_GOVERNOR_FEMALE"
-	title = "VEE_GOVERNOR_FEMALE"
-	foa = "WESTERN_GOVERNOR_TITLE_FOA"
-	short_name = yes
-	#location_ruler_title = yes
-	
-	# Always exists
-	landless = yes
-
-	# Cannot be held as a secondary title
-	primary = no
-	#independent = yes
-
-	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-	
-	can_be_claimed = no
-	can_be_usurped = no
-	
-	extra_ai_eval_troops = 7500
+	dignity = 200 # Never want the Republic of Venice to change primary title
 }

@@ -18,163 +18,103 @@ character_event = {
 	immediate = {
 		set_global_flag = comet_tiamat
 		any_player = {
-			narrative_event = { id = ACS.00002 days = 20 } # Notification for human players
+			narrative_event = { id = ACS.00003 days = 10 } # Notification for human players
 		}
-
-		hidden_effect = {
-			offmap_vee = {
-				governor = {
-					set_name = "Ivar"
-					dynasty = 300001
-					religion = hellenic_pagan
-					culture = roman
-					add_trait = cruel
-					add_trait = ambitious
-					add_trait = elusive_shadow
-					add_trait = shrewd
-					add_trait = quick
-					add_trait = hunter
-					add_trait = diligent
-					add_trait = lustful
-					add_trait = robust
-					add_trait = strategist
-					add_trait = socializer
-					add_trait = hedonist
-					add_trait = seducer
-					set_character_flag = is_olaf
-					set_character_flag = originated_from_chinese_court
-					set_character_flag = immune_tuberculosis
-					set_character_flag = immune_bubonic_plague
-					save_event_target_as = olaf_the_killer
-
-					create_character = { # Olaf spouse
-						female = yes
-						age = 18
-						trait = grey_eminence
-						trait = physician
-						trait = scarred
-						trait = fair
-						trait = quick
-						trait = shrewd
-						trait = gardener
-						trait = poet
-						trait = diligent
-						trait = lustful
-						trait = proud
-						trait = brave
-						trait = erudite
-						culture = han
-						religion = hellenic_pagan
-						dynasty = none
-					}
-					new_character = {
-						add_lover = PREV
-						add_spouse = PREV
-						save_event_target_as = olaf_spouse
-						set_character_flag = immune_tuberculosis
-						set_character_flag = immune_bubonic_plague
-					}
-
-					create_olaf_children_effect = yes
-					create_olaf_children_effect = yes
-
-					create_character = { # TILDA
-						name = "Tilda"
-						female = yes
-						age = 33
-						culture = scottish
-						religion = norse_pagan
-						trait = brilliant_strategist
-						trait = cavalry_leader
-						trait = flat_terrain_leader
-						trait = master_of_flame
-						trait = mystic
-						trait = prevent_marriage
-						trait = quick
-						trait = strong
-						trait = shrewd
-						dynasty = 300000
-					}
-					new_character = {
-						save_event_target_as = is_ancient_one	
-						set_character_flag = originated_from_chinese_court
-						set_character_flag = immune_tuberculosis
-						set_character_flag = immune_bubonic_plague
-						d_mercenary_sakya = {
-							grant_title = PREV
-							set_defacto_liege = THIS
-							succession = primogeniture
-						}
-						create_sakya_child_effect = yes
-						create_sakya_child_effect = yes
-						create_sakya_child_effect = yes
-					}
-					# Get a barony
-					random_province = {
-						limit = {
-							climate = severe_winter
-							port = yes
-							num_of_settlements > 1
-						}
-						random_province_holding = {
-							limit = {
-								is_capital = no
-							}
-							convert_to = temple
-							holder_scope = {
-								abdicate_to = event_target:is_ancient_one
-							}
-						}
-					}
-
-					# VEE
-					create_character = {
-						name = Vee
-						dynasty = 300001
-						female = yes
-						age = 16
-						culture = event_target:olaf_the_killer
-						religion = event_target:olaf_the_killer
-						trait = fair
-						trait = strong
-						trait = mystic
-						trait = mangekyo_sharingan
-						trait = syrena
-						trait = kind
-						trait = lustful
-						trait = diligent
-						trait = proud
-						trait = vee_blood
-						trait = seductress
-						trait = prevent_marriage
-						trait = legit_bastard
-						trait = ambitious
-						trait = cynical
-						trait = erudite
-						trait = gregarious
-						trait = lefthanded
-					}
-					new_character = {
-						set_character_flag = is_vee	
-						set_character_flag = society_join_block	
-						set_character_flag = originated_from_chinese_court
-						set_character_flag = immune_tuberculosis
-						set_character_flag = immune_bubonic_plague
-						set_father = event_target:olaf_the_killer
-						culture = event_target:olaf_the_killer
-					}
-				}
-				offmap_ruler = {
-					dynasty = 300002
-				}
+		# Search Malta
+		random_character = {
+			limit = {
+				has_landed_title = c_malta
 			}
+			d_pentaghast = {
+				grant_title = PREV
+				set_defacto_liege = THIS
+				succession = primogeniture
+			}
+			set_character_flag = transition_to_republic
+			character_event = { id = ACS.00002 days = 10 }
 		}
 	}
 }
 
-# ACS.00002 - Notification for the user
-narrative_event = {
+
+# ACS.00002 - Kill a entire patrician family
+character_event = {
 	id = ACS.00002
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = infiltered_malta }
+	}
+
+	immediate = {
+		set_global_flag = infiltered_malta
+		if = {
+			limit = {
+				has_character_flag = transition_to_republic
+			}
+			set_government_type = merchant_republic_government
+		}
+
+		any_vassal = {
+			set_character_flag = check_for_dissapears
+		}
+
+		# Create OLAF
+		create_character = {
+			name = "Olaf"
+			dynasty = 300001
+			religion = catholic
+			culture = norse
+			trait = cruel
+			trait = ambitious
+			trait = elusive_shadow
+			trait = shrewd
+			trait = quick
+			trait = hunter
+			trait = diligent
+			trait = lustful
+			trait = robust
+			trait = strategist
+			trait = socializer
+			trait = hedonist
+			trait = seducer
+		}
+		new_character = {
+			set_character_flag = is_olaf
+			set_character_flag = originated_from_chinese_court
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
+			create_family_palace = yes			
+			save_event_target_as = olaf_the_killer
+			family_palace = {
+				create_pentaghast_buildings_effect = yes
+			}
+			character_event = { id = ACS.00005 } # Generate family BEFORE initialization for court number checks
+		}
+
+		random_vassal = {
+			limit = {
+				is_patrician = yes
+				NOT = { has_character_flag = is_olaf }
+				ai = yes
+			}
+			any_dynasty_member = {
+				death = {
+					death_reason = death_poor_health
+				}
+			}
+			death = {
+				death_reason = death_poor_health
+			}
+		}
+	}	
+}
+
+
+# ACS.00003 - Notification for the user
+narrative_event = {
+	id = ACS.00003
 	title = ACS_00002_TITLE
 	desc = ACS_00002_DESC
 	picture = GFX_evt_tiamat
@@ -188,84 +128,6 @@ narrative_event = {
 ##############################
 ## PENTAGHAST - SAKYA BUFFS ##
 ##############################
-
-# ACS.00003 - Spawn Sakya raiders
-character_event = {
-	id = ACS.00003 # HL.100
-	hide_window = yes
-	is_triggered_only = yes
-
-	min_age = 16
-	max_age = 50
-	only_men = yes
-	capable_only = yes
-	prisoner = no
-
-	trigger = {
-		dynasty = 300000
-		is_ruler = no
-		NOT = { has_character_flag = raiding_adventurer }
-	}
-
-	immediate = {
-		end_inaccessibility_effect = yes #removes in hiding or in_seclusion
-		add_trait = adventurer
-
-		liege = {
-			primary_title = {
-				holder_scope = {
-					save_event_target_as = previous_liege
-				}
-			}
-
-			capital_scope = {
-				save_event_target_as = target_province
-				ROOT = {
-					set_defacto_liege = ROOT
-					create_title = {
-						tier = DUKE
-						landless = yes
-						adventurer = yes
-						culture = ROOT
-						name = "CLAIMANT_ADVENTURE"
-						holder = ROOT
-					}
-					set_character_flag = raiding_adventurer
-				
-					character_event = { id = HL.102 } #create troops vikings
-					
-					create_random_soldier = {
-						random_traits = yes
-						dynasty = none
-						religion = ROOT
-						culture = ROOT
-						female = no
-						age = 30
-					}
-					create_random_soldier = {
-						random_traits = yes
-						dynasty = none
-						religion = ROOT
-						culture = ROOT
-						female = no
-						age = 25
-					}
-					spawn_fleet = {
-						province = closest # closest sea zone
-						owner = ROOT
-						disband_on_peace = yes
-						troops =
-						{
-							galleys = { 110 110 }
-						}
-					}
-				}
-			}
-		}
-		character_event = { id = ACS.00005 days = 750 random = 50 }
-	}
-}
-
 # ACS.00004 - Marry every single Pentaghast and Sakya male
 character_event = {
 	id = ACS.00004
@@ -304,41 +166,49 @@ character_event = {
 	}
 }
 
-# ACS.00005 - Clean up Sakya Raiders
+
+# ACS.00005 - Spawn Senua, Olaf and Tilda and parents
 character_event = {
-	id = ACS.00005	
+	id = ACS.00005
 	is_triggered_only = yes
 	hide_window = yes
-	
+
 	immediate = {
-		log = "Adventurer: [Root.GetTitledFirstName] has returned home."
-		clr_character_flag = raiding_adventurer
-		disband_event_forces = yes
-		primary_title = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							tier = DUKE
-							adventurer = yes
-						}
-						tier = EMPEROR
-					}
-				}
-				activate_title = { title = THIS status = no }
-				destroy_landed_title = THIS
-			}
+		save_event_target_as = olaf_the_killer
+
+		create_character = { # Olaf spouse
+			female = yes
+			age = 18
+			trait = grey_eminence
+			trait = physician
+			trait = scarred
+			trait = fair
+			trait = quick
+			trait = shrewd
+			trait = gardener
+			trait = poet
+			trait = diligent
+			trait = lustful
+			trait = proud
+			trait = brave
+			trait = erudite
+			culture = han
+			religion = ROOT
+			dynasty = none
 		}
-		if = {
-			limit = {
-				prisoner = no
-			}
-			dynasty_head = {
-				ROOT = {
-					set_defacto_liege = PREV
-				}
-			}
+		new_character = {
+			add_spouse = ROOT
+			add_lover = ROOT
+			save_event_target_as = olaf_spouse
+			set_character_flag = immune_tuberculosis
+			set_character_flag = immune_bubonic_plague
 		}
+
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes
+		create_olaf_children_effect = yes	
 	}
 }
 

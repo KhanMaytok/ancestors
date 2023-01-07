@@ -1,35 +1,12 @@
-devastated_by_tiamat = {
-	icon = 106
-	disease_defence = -1.0
-	local_revolt_risk = 1.5
-	tax_income = -3.0
-	local_build_cost_modifier = 3.0
-	local_build_time_modifier = 3.0
-	supply_limit = -20.0
-}
-
 married_with_vee = {
 	icon = 39
 	monthly_character_prestige = 1
-}
-
-depopulated_by_sakya = {
-	city_tax_modifier = -0.60
-	castle_tax_modifier = -0.60
-	temple_tax_modifier = -0.60
-	tribal_tax_modifier = -0.60
-	levy_size = -0.6
-	garrison_size = -0.6
-	supply_limit = -6
-	icon = 3
-	major = yes
 }
 
 peace_deal_with_vee = {
 	icon = 95
 	monthly_character_prestige = 1
 }
-
 
 vee_grace_send_gift_timer = { icon = 1 }
 

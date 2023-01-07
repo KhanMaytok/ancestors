@@ -8,17 +8,8 @@ tsukuyomi;Tsukuyomi;Tsukuyomi;Tsukuyomi;;Tsukuyomi;;;;;;;;;x
 tsukuyomi_desc;Use the power of your eyes to send someone to a mental limbo where they can't escape.;Use the power of your eyes to send someone to a mental limbo where they can't escape.;Use the power of your eyes to send someone to a mental limbo where they can't escape.;;Usa el poder de tus ojos para enviar a alguien a un limbo mental de donde no se puede escapar;;;;;;;;;x
 ancestor_chest;Strange chest;Strange chest;Strange chest;;Cofre extraño;;;;;;;;;x
 ancestor_chest_desc;There are strange rumors in this province about a chest that no one can open;There are strange rumors in this province about a chest that no one can open;There are strange rumors in this province about a chest that no one can open;;Hay rumores extraños en esta provincia sobre un cofre que nadie puede abrir;;;;;;;;;x
-sakya_bucelarii;Sakya horse riders;Sakya horse riders;Sakya horse riders;;Sakya horse riders;;;;;;;;;x
-sakya_bucelarii_offensive;Sakya horse riders Offensive;Sakya horse riders Offensive;Sakya horse riders Offensive;;Sakya horse riders Offensive;;;;;;;;;x
-sakya_bucelarii_defensive;Sakya horse riders Defensive;Sakya horse riders Defensive;Sakya horse riders Defensive;;Sakya horse riders Defensive;;;;;;;;;x
-sakya_bucelarii_morale;Sakya horse riders Morale;Sakya horse riders Morale;Sakya horse riders Morale;;Sakya horse riders Morale;;;;;;;;;x
-sakya_bucelarii_modifier;Combat Modifier boost to Sakya horse riders Troops: $PERC$;Combat Modifier boost to Sakya horse riders Troops: $PERC$;Combat Modifier boost to Sakya horse riders Troops: $PERC$;;Combat Modifier boost to Sakya horse riders Troops: $PERC$;;;;;;;;;x
-depopulated_by_sakya;Tsukuyomi;Tsukuyomi;Tsukuyomi;;Tsukuyomi;;;;;;;;;x
-peace_deal_with_vee;Peace Deal With Varkâna;Accord de paix avec la Varkâna;Friedensvertrag mit Varkâna;;Acuerdo de paz con Varkâna;;;;;;;;;x
-peace_deal_with_vee_desc;The Varkâna Empire will not attack this ruler while the peace deal is active.;L'Empire Varkâna n'attaquera pas ce seigneur tant que l'accord de paix est valable.;Das Varkânasische Reich wird diesen Herrscher fr die Zeit des Friedensvertrages nicht angreifen.;;El imperio Varkâna no atacará a este gobernante mientras el acuerdo de paz está activo.;;;;;;;;;x
-
-warframe;Warframe;Warframe;Warframe;;Warframe;;;;;;;;;x
-warframe_offensive;Warframe Offensive;Warframe Offensive;Warframe Offensive;;Warframe Offensive;;;;;;;;;x
-warframe_defensive;Warframe Defensive;Warframe Defensive;Warframe Defensive;;Warframe Defensive;;;;;;;;;x
-warframe_morale;Warframe Morale;Warframe Morale;Warframe Morale;;Warframe Morale;;;;;;;;;x
-warframe_modifier;Combat Modifier boost to Warframe Troops: $PERC$;Combat Modifier boost to Warframe Troops: $PERC$;Combat Modifier boost to Warframe Troops: $PERC$;;Combat Modifier boost to Warframe Troops: $PERC$;;;;;;;;;x
+sakya_bucelarii;Phoenix guard;Phoenix guard;Phoenix guard;;Phoenix guard;;;;;;;;;x
+sakya_bucelarii_offensive;Phoenix guard Offensive;Phoenix guard Offensive;Phoenix guard Offensive;;Phoenix guard Offensive;;;;;;;;;x
+sakya_bucelarii_defensive;Phoenix guard Defensive;Phoenix guard Defensive;Phoenix guard Defensive;;Phoenix guard Defensive;;;;;;;;;x
+sakya_bucelarii_morale;Phoenix guard Morale;Phoenix guard Morale;Phoenix guard Morale;;Phoenix guard Morale;;;;;;;;;x
+sakya_bucelarii_modifier;Combat Modifier boost to Phoenix guard Troops: $PERC$;Combat Modifier boost to Phoenix guard Troops: $PERC$;Combat Modifier boost to Phoenix guard Troops: $PERC$;;Combat Modifier boost to Phoenix guard Troops: $PERC$;;;;;;;;;x

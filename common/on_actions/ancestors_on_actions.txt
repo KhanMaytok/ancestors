@@ -6,46 +6,46 @@ on_startup = {
 
 on_yearly_pulse = {
 	events = {
-		ACS.00036 # Vee tournament
+		# ACS.00036 # Vee tournament
 	}
 }
 
 on_bi_yearly_pulse = {
 	events = {
-		ACS.00025 # Vee migrates to another body
-		ACS.00045 # Vee has childs every 2 years to balance Khalga's byakugan
+		# ACS.00025 # Vee migrates to another body
+		# ACS.00045 # Vee has childs every 2 years to balance Khalga's byakugan
 	}
 }
 
 on_five_year_pulse = {
 	events = {
-		ACS.00003 # Sakya Raids
-		ACS.00048 # Choice for the mangekyo every 5 years
-		ACS.00004 # Marry every single Pentaghast male
+		# ACS.00003 # Sakya Raids
+		# ACS.00048 # Choice for the mangekyo every 5 years
+		# ACS.00004 # Marry every single Pentaghast male
 	}
 }
 
 on_death = {
 	events = {
-		ACS.00034 # Resurrect Vee if she dies
-		ACS.00046 # Set new status offmap vee if spouse is death
+		# ACS.00034 # Resurrect Vee if she dies
+		# ACS.00046 # Set new status offmap vee if spouse is death
 	}
 }
 
 on_birth = {
 	events = {
-		ACS.00014 # Ensure inherit Khalga anc Vee trait for cuckoo
+		# ACS.00014 # Ensure inherit Khalga anc Vee trait for cuckoo
 	}
 }
 
 on_adulthood = {
 	events = {
-		ACS.00029 # Dojutsu inheritance mechanics
+		# ACS.00029 # Dojutsu inheritance mechanics
 	}
 }
 
 on_combat_pulse = {
 	events = {
-		ACS.00068
+		# ACS.00068
 	}
 }
